@@ -1,7 +1,10 @@
 {
   "main": "dist/index.js",
   "module": "dist/index.js",
-  "files": [ "dist", "README.md" ],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/SilvaMtz/react-play-ui"
@@ -48,6 +51,6 @@
   },
   "peerDependencies": {
     "react": "^17.0.1",
-    "react-dom": "^17.0.1",
+    "react-dom": "^17.0.1"
   }
 }
