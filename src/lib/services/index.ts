@@ -1,3 +1,0 @@
-export {
-  useDarkMode
-} from './useDarkMode';
