@@ -1,0 +1,25 @@
+.icon-button {
+  height: 42px;
+  width: 42px;
+  display: flex;
+  border-radius: 50%;
+  border: none;
+  outline: 0;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  cursor: pointer;
+  transition: background-color 0.1s;
+  background-color: var(--interactable-shade-1);
+  box-sizing: border-box;
+}
+
+.icon-button.button--large {
+  height: 48px;
+  width: 48px;
+}
+
+.icon-button:hover {
+  background-color: var(--interactable-shade-1-hover);
+}

@@ -1,0 +1,101 @@
+.action-button {
+  min-width: 92px;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  margin: 4px 8px;
+  color: var(--text-color-shade);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.1s;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.012rem;
+  background-color: transparent;
+  box-sizing: border-box;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.action-button.restrain-width {
+  width: fit-content;
+}
+
+.action-button.button--compact {
+  height: 36px;
+  font-size: 0.85rem;
+}
+
+.action-button.button--medium {
+  height: 48px;
+  font-size: 0.92rem;
+}
+
+.action-button.button--large {
+  height: 54px;
+  font-size: 0.92rem;
+}
+
+.action-button.flex-start {
+  justify-content: flex-start;
+}
+
+.action-button:hover,
+.action-button:focus {
+  background-color: var(--interactable-shade-1-hover);
+}
+
+.action-button.button--default.fill {
+  background-color: var(--interactable-shade-1);
+  color: var(--text-color-shade);
+}
+
+.action-button.button--default.fill:hover,
+.action-button.button--default.fill:focus {
+  background-color: var(--interactable-shade-1-hover);
+}
+
+.action-button.button--primary {
+  color: var(--accent-blue);
+}
+
+.action-button.button--primary:hover,
+.action-button.button--primary:focus {
+  background-color: var(--accent-blue-opaque);
+}
+
+.action-button.button--primary.fill {
+  background-color: var(--accent-blue);
+  color: white;
+}
+
+.action-button.button--primary.fill:hover,
+.action-button.button--primary.fill:focus {
+  background-color: var(--accent-blue-light);
+}
+
+.action-button.button--danger {
+  color: var(--danger-red);
+}
+
+.action-button.button--danger:hover,
+.action-button.button--danger:focus {
+  background-color: var(--danger-red-opaque);
+}
+
+.action-button.button--danger.fill {
+  background-color: var(--danger-red);
+  color: white;
+}
+
+.action-button.button--danger.fill:hover,
+.action-button.button--danger.fill:focus {
+  background-color: var(--danger-red-light);
+}
