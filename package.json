@@ -1,4 +1,14 @@
 {
+  "description": "Highly Interactive React.js component library",
+  "bugs": {
+    "url": "https://github.com/SilvaMtz/react-play-ui/issues"
+  },
+  "homepage": "https://github.com/SilvaMtz/react-play-ui#readme",
+  "keywords": [
+    "react"
+  ],
+  "author": "David Martinez de Silva",
+  "license": "ISC",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [
@@ -52,15 +62,5 @@
   "peerDependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
-  },
-  "description": "Highly Interactive React.js component library",
-  "bugs": {
-    "url": "https://github.com/SilvaMtz/react-play-ui/issues"
-  },
-  "homepage": "https://github.com/SilvaMtz/react-play-ui#readme",
-  "keywords": [
-    "react"
-  ],
-  "author": "SilvaMtz",
-  "license": "ISC"
+  }
 }
