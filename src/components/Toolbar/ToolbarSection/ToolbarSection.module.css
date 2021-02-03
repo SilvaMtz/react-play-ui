@@ -1,0 +1,25 @@
+.toolbar-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+.toolbar-section:first-child {
+  flex-grow: 0;
+}
+
+.toolbar-section:nth-child(2){
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.toolbar-section:last-child {
+  flex-grow: 0;
+}
+
+.section-item {
+  margin: 0 4px;
+}
