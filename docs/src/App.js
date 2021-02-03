@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './App.css';
 import { ThemeProvider } from 'styled-components';
 import {
@@ -10,12 +10,15 @@ import {
   ActionButton,
   Divider,
   FlexGroup,
-  FlexItem
+  FlexItem,
+  InputField,
+  PanelCard
 } from 'react-play-ui';
 
 const App = () => {
 
   const [theme, themeToggler] = useDarkMode();
+  const [search, setSearch] = useState();
   const themeMode = theme === 'light' ? LightTheme : DarkTheme;
 
   return (
@@ -52,6 +55,16 @@ const App = () => {
             <ActionButton fill={false} color="primary" onClick={() =>{}}>CLICK!</ActionButton>
           </FlexItem>
         </FlexGroup>
+        <Divider />
+          <PanelCard>
+            <InputField
+              icon='search'
+              placeholder='Search'
+              onChange={(e) => setSearch(e.target.value)}
+              value={search}
+              type="text"
+            />
+          </PanelCard>
       </div>
     </ThemeProvider>
   );

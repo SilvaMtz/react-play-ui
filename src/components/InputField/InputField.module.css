@@ -1,0 +1,53 @@
+.input-wrapper {
+  width: 100%;
+  margin: 8px 4px;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+}
+
+.input-wrapper.wrapper--hasIcon {
+  position: relative;
+}
+
+.input-wrapper > .input-icon {
+  position: absolute;
+  left: 8px;
+  bottom: 7px;
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.input {
+  width: 100%;
+  height: 36px;
+  background-color: var(--interactable-shade-1);
+  border-radius: 18px;
+  display: flex;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  transition: border 0.2s;
+  color: var(--text-color);
+  padding: 4px 14px;
+  font-size: 0.95rem;
+}
+
+.input.input--hasIcon {
+  padding-left: 38px;
+}
+
+.input-label {
+  margin-left: 16px;
+  margin-bottom: 2px;
+  font-size: 0.75rem;
+  color: var(--text-color-shade);
+}
+
+.input:hover {
+  background-color: var(--interactable-shade-1-hover);
+}
+
+.input:focus {
+  border: 2px solid var(--accent-blue);
+}
