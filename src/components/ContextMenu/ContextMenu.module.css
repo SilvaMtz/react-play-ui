@@ -1,0 +1,18 @@
+.ContextMenu {
+  width: 256px;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+  transition: height 150ms;
+  border-radius: 10px;
+  box-shadow: 0px 0px 8px var(--text-color-opaque);
+  background-color: var(--palette-shade-2);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--palette-shade-5);
+  outline: none;
+}
+
+.ContextMenu__panel {
+  position: absolute; /* 1 */
+}

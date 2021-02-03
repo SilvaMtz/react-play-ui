@@ -4,12 +4,12 @@ export { SvgIcon } from './SvgIcon';
 export { ThemeToggler } from './ThemeToggler';
 export { Divider } from './Divider';
 // export { ActionPopover } from './ActionPopover';
-// export { ContextMenu } from './ContextMenu';
-// export {
-//   Observer,
-//   ResizeObserver,
-//   EuiObserver
-// } from './Observer';
+export { ContextMenu } from './ContextMenu';
+export {
+  Observer,
+  ResizeObserver,
+  EuiObserver
+} from './Observer';
 export { FlexItem } from './FlexItem';
 export { FlexGroup } from './FlexGroup';
 // export { Form } from './Form';

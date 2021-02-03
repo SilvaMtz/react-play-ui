@@ -14,7 +14,8 @@ import {
   InputField,
   PanelCard,
   TextField,
-  SelectField
+  SelectField,
+  ContextMenu
 } from 'react-play-ui';
 
 const App = () => {
@@ -24,6 +25,78 @@ const App = () => {
   const [message, setMessage] = useState('');
   const [selectedBank, setSelectedBank] = useState('');
   const themeMode = theme === 'light' ? LightTheme : DarkTheme;
+
+  const panels = [
+    {
+      id: 0,
+      title: 'Create',
+      items: [
+        {
+          name: 'Account',
+          icon: 'collection',
+          label: 'Account',
+          onClick: () => {
+            return
+          }
+        },
+        {
+          name: 'Credit',
+          icon: 'cash',
+          label: 'Credit',
+          onClick: () => {
+            return
+          }
+        },
+        {
+          name: 'Transaction',
+          icon: 'switchHorizontal',
+          label: 'Transaction',
+          panel: 1,
+          onClick: () => {
+            return
+          }
+        },
+        {
+          name: 'Insight',
+          icon: 'lightbulb',
+          label: 'Insight',
+          onClick: () => {
+            return
+          }
+        }
+      ]
+    },
+    {
+      id: 1,
+      title: 'Transaction',
+      items: [
+        {
+          name: 'Transfer',
+          label: 'Transfer',
+          icon: 'paperAirplane',
+          onClick: () => {
+            return
+          }
+        },
+        {
+          name: 'Deposit',
+          label: 'Deposit',
+          icon: 'plusCircle',
+          onClick: () => {
+            return
+          }
+        },
+        {
+          name: 'Withdrawal',
+          label: 'Withdrawal',
+          icon: 'minusCircle',
+          onClick: () => {
+            return
+          }
+        }
+      ]
+    }
+  ]
 
   const bankOptions = [
     {
@@ -103,7 +176,7 @@ const App = () => {
                 />
               </FlexItem>
               <FlexItem>
-
+                <ContextMenu initialPanelId={0} panels={panels} />
               </FlexItem>
             </FlexGroup>
           </PanelCard>

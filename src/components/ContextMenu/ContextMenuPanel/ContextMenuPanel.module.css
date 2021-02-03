@@ -1,0 +1,139 @@
+.ContextMenuPanel {
+  width: 100%;
+  visibility: visible;
+  display: flex;
+  flex-direction: column;
+  outline: none;
+}
+
+.ContextMenuPanel.ContextMenuPanel-txInLeft {
+  pointer-events: none;
+  animation: ContextMenuPanelTxInLeft 0.2s;
+}
+
+.ContextMenuPanel.ContextMenuPanel-txOutLeft {
+  pointer-events: none;
+  animation: ContextMenuPanelTxOutLeft 0.2s;
+}
+
+.ContextMenuPanel.ContextMenuPanel-txInRight {
+  pointer-events: none;
+  animation: ContextMenuPanelTxInRight 0.2s;
+}
+
+.ContextMenuPanel.ContextMenuPanel-txOutRight {
+  pointer-events: none;
+  animation: ContextMenuPanelTxOutRight 0.2s;
+}
+
+
+.ContextMenuPanel--next {
+  transform: translateX(100%);
+  visibility: hidden;
+}
+
+.ContextMenuPanel--previous {
+  transform: translateX(-100%);
+  visibility: hidden;
+}
+
+.ContextMenuPanelTitle {
+  margin: 8px 8px 4px 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 12px;
+  box-sizing: border-box;
+  font-size: 0.98rem;
+  background-color: transparent;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.ContextMenuPanelTitleButton {
+  margin: 8px 8px  4px 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 12px;
+  box-sizing: border-box;
+  font-size: 0.98rem;
+  background-color: transparent;
+  text-decoration: none;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  transition: background-color 0.1s;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+.ContextMenuPanelTitle svg,
+.ContextMenuPanelTitleButton svg {
+  fill: var(--text-color)
+}
+
+.ContextMenuPanelTitleButton:hover {
+  background-color: var(--palette-shade-4);
+}
+
+.ContextMenuPanelTitleText {
+  margin: 0 0 0 16px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.TitleDivider {
+  width: 85%;
+  margin: 4px auto 0 auto;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--palette-shade-3);
+}
+
+.ItemsContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes ContextMenuPanelTxInLeft {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes ContextMenuPanelTxOutLeft {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes ContextMenuPanelTxInRight {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes ContextMenuPanelTxOutRight {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
