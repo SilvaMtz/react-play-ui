@@ -18,5 +18,5 @@ export { InputField } from './InputField';
 // export { OverlayMask } from './OverlayMask';
 export { PanelCard } from './PanelCard';
 // export { Toolbar } from './Toolbar';
-// export { SelectField } from './SelectField';
+export { SelectField } from './SelectField';
 export { TextField } from './TextField';

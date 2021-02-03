@@ -13,7 +13,8 @@ import {
   FlexItem,
   InputField,
   PanelCard,
-  TextField
+  TextField,
+  SelectField
 } from 'react-play-ui';
 
 const App = () => {
@@ -21,7 +22,27 @@ const App = () => {
   const [theme, themeToggler] = useDarkMode();
   const [search, setSearch] = useState('');
   const [message, setMessage] = useState('');
+  const [selectedBank, setSelectedBank] = useState('');
   const themeMode = theme === 'light' ? LightTheme : DarkTheme;
+
+  const bankOptions = [
+    {
+      value: 1,
+      label: 'Banorte'
+    },
+    {
+      value: 2,
+      label: 'BBVA'
+    },
+    {
+      value: 3,
+      label: 'Scotiabank'
+    },
+    {
+      value: 4,
+      label: 'BanRegio'
+    }
+  ]
 
   return (
 
@@ -67,6 +88,13 @@ const App = () => {
                   onChange={(e) => setSearch(e.target.value)}
                   value={search}
                   type="text"
+                />
+                <SelectField
+                  icon='library'
+                  label='Bank'
+                  options={bankOptions}
+                  onChange={setSelectedBank}
+                  value={selectedBank}
                 />
                 <TextField
                   placeholder="Your message here..."
