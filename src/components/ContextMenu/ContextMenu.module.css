@@ -5,7 +5,6 @@
   overflow: hidden;
   transition: height 150ms;
   border-radius: 10px;
-  box-shadow: 0px 0px 8px var(--text-color-opaque);
   background-color: var(--palette-shade-2);
   display: flex;
   flex-direction: column;
@@ -15,4 +14,16 @@
 
 .ContextMenu__panel {
   position: absolute; /* 1 */
+}
+
+.ContextMenu--hasShadow {
+  background-color: var(--palette-shade-2);
+  box-shadow: 0px 0px 8px var(--text-color-opaque);
+  border: 1px solid var(--palette-shade-5);
+}
+
+.ContextMenu--transparent {
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
 }

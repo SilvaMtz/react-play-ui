@@ -40,6 +40,9 @@ export interface ContextMenuPanelDescriptor {
 export type ContextMenuProps = {
     panels?: ContextMenuPanelDescriptor[];
     initialPanelId?: ContextMenuPanelId;
+    transparent?: boolean;
+    hasShadow?: boolean;
+    width?: number | string;
   };
 
 function mapIdsToPanels(panels: ContextMenuPanelDescriptor[]) {
@@ -322,7 +325,14 @@ export class ContextMenu extends Component<ContextMenuProps, State> {
   }
 
   render() {
-    const { panels, initialPanelId, ...rest } = this.props;
+    const {
+      panels,
+      initialPanelId,
+      transparent = false,
+      hasShadow = true,
+      width = 256,
+      ...rest
+    } = this.props;
 
     const incomingPanel = this.renderPanel(this.state.incomingPanelId!, 'in');
     let outgoingPanel;
@@ -331,16 +341,27 @@ export class ContextMenu extends Component<ContextMenuProps, State> {
       outgoingPanel = this.renderPanel(this.state.outgoingPanelId!, 'out');
     }
 
-    const width =
-      this.state.idToPanelMap[this.state.incomingPanelId!] &&
-      this.state.idToPanelMap[this.state.incomingPanelId!].width
-        ? this.state.idToPanelMap[this.state.incomingPanelId!].width
-        : undefined;
+    let widthValue;
+    if (width) {
+      widthValue = width
+    } else {
+      widthValue =
+        this.state.idToPanelMap[this.state.incomingPanelId!] &&
+        this.state.idToPanelMap[this.state.incomingPanelId!].width
+          ? this.state.idToPanelMap[this.state.incomingPanelId!].width
+          : undefined;
+    }
+
+    const classList = [
+      classes['ContextMenu'],
+      transparent ? classes['ContextMenu--transparent'] : null,
+      hasShadow ? classes['ContextMenu--hasShadow'] : null
+    ]
 
     return (
       <div
-        className={classes['ContextMenu']}
-        style={{ height: this.state.height, width: width }}
+        className={classList.join(' ')}
+        style={{ height: this.state.height, width: widthValue }}
         {...rest}>
         {outgoingPanel}
         {incomingPanel}

@@ -176,7 +176,7 @@ const App = () => {
                 />
               </FlexItem>
               <FlexItem>
-                <ContextMenu initialPanelId={0} panels={panels} />
+                <ContextMenu width="100%" initialPanelId={0} panels={panels} />
               </FlexItem>
             </FlexGroup>
           </PanelCard>
