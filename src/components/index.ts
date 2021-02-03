@@ -10,8 +10,8 @@ export { Divider } from './Divider';
 //   ResizeObserver,
 //   EuiObserver
 // } from './Observer';
-// export { FlexItem } from './FlexItem';
-// export { FlexGroup } from './FlexGroup';
+export { FlexItem } from './FlexItem';
+export { FlexGroup } from './FlexGroup';
 // export { Form } from './Form';
 // export { InputField } from './InputField';
 // export { Modal } from './Modal';

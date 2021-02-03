@@ -8,7 +8,9 @@ import {
   ThemeToggler,
   useDarkMode,
   ActionButton,
-  Divider
+  Divider,
+  FlexGroup,
+  FlexItem
 } from 'react-play-ui';
 
 const App = () => {
@@ -21,9 +23,35 @@ const App = () => {
     <ThemeProvider theme={themeMode}>
       <GlobalStyles theme={themeMode} />
       <div className="App">
-        <ThemeToggler theme={theme} toggleTheme={themeToggler} />
+        <FlexGroup>
+          <FlexItem>
+            <ThemeToggler theme={theme} toggleTheme={themeToggler} />
+          </FlexItem>
+          <FlexItem>
+            <ActionButton color="primary" onClick={() =>{}}>CLICK!</ActionButton>
+          </FlexItem>
+          <FlexItem>
+            <ActionButton color="danger" onClick={() =>{}}>CLICK!</ActionButton>
+          </FlexItem>
+          <FlexItem>
+            <ActionButton fill={false} color="primary" onClick={() =>{}}>CLICK!</ActionButton>
+          </FlexItem>
+        </FlexGroup>
         <Divider />
-        <ActionButton onClick={() =>{}}>CLICK!</ActionButton>
+        <FlexGroup responsive={false}>
+          <FlexItem>
+            <ActionButton color="secondary" onClick={() =>{}}>CLICK!</ActionButton>
+          </FlexItem>
+          <FlexItem>
+            <ActionButton color="primary" onClick={() =>{}}>CLICK!</ActionButton>
+          </FlexItem>
+          <FlexItem>
+            <ActionButton color="danger" onClick={() =>{}}>CLICK!</ActionButton>
+          </FlexItem>
+          <FlexItem>
+            <ActionButton fill={false} color="primary" onClick={() =>{}}>CLICK!</ActionButton>
+          </FlexItem>
+        </FlexGroup>
       </div>
     </ThemeProvider>
   );
