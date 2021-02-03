@@ -22,7 +22,9 @@ export default {
   ],
   plugins: [
     peerDepsExternal(),
-    resolve(),
+    resolve({
+      preferBuiltins: true
+    }),
     commonjs(),
     typescript({ useTsconfigDeclarationDir: true }),
     postcss()

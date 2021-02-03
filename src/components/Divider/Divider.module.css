@@ -1,0 +1,42 @@
+.divider {
+  margin: 4px auto 4px auto;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--palette-shade-3);
+}
+
+.divider--small {
+  width: 25%;
+}
+
+.divider--medium {
+  width: 50%;
+}
+
+.divider--large {
+  width: 85%;
+}
+
+.divider--full {
+  width: 100%;
+}
+
+.margin--none {
+  margin: 0 auto 0 auto;
+}
+
+.margin--small {
+  margin: 4px auto 4px auto;
+}
+
+.margin--medium {
+  margin: 8px auto 8px auto;
+}
+
+.margin--large {
+  margin: 16px auto 16px auto;
+}
+
+.margin--full {
+  margin: 24px auto 24px auto;
+}

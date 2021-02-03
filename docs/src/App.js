@@ -7,7 +7,8 @@ import {
   DarkTheme,
   ThemeToggler,
   useDarkMode,
-  ActionButton
+  ActionButton,
+  Divider
 } from 'react-play-ui';
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
       <GlobalStyles theme={themeMode} />
       <div className="App">
         <ThemeToggler theme={theme} toggleTheme={themeToggler} />
+        <Divider />
         <ActionButton onClick={() =>{}}>CLICK!</ActionButton>
       </div>
     </ThemeProvider>
