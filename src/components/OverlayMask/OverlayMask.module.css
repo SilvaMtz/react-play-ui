@@ -17,7 +17,8 @@
 .overlay-mask .overlay-children {
   position: absolute;
   z-index: 9001;
-  max-width: 860px;
+  max-height: 85%;
+  max-width: 85%;
   align-items: center;
   justify-content: center;
   display: flex;

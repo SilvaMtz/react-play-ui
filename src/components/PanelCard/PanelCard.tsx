@@ -5,7 +5,7 @@ interface PanelCardProps {
   children?: ReactNode;
   paddingSize?: string;
   flexDirection?: string;
-  maxWidth?: any
+  maxWidth?: number | string;
 }
 
 export const PanelCard: FunctionComponent<PanelCardProps> = ({
@@ -38,7 +38,9 @@ export const PanelCard: FunctionComponent<PanelCardProps> = ({
   ];
 
   let panelStyles = {
-    maxWidth: maxWidth ? maxWidth : null,
+    maxWidth: typeof maxWidth === 'number' ? `${maxWidth}px`
+      : typeof maxWidth === 'string' ? maxWidth : null,
+    width: maxWidth ? maxWidth : null
   };
 
   return (

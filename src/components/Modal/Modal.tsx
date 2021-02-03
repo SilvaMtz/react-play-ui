@@ -20,7 +20,7 @@ export const Modal: FunctionComponent<ModalProps> = ({
   onClose,
   title,
   children,
-  maxWidth = "500",
+  maxWidth = 600,
   ...rest
 }) => {
 
