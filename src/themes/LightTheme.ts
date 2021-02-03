@@ -14,7 +14,7 @@ export const LightTheme = {
   paletteShade3: 'rgb(228, 230, 235)',
   paletteShade4: 'rgb(244, 244, 244)',
   paletteShade5: 'rgb(251, 251, 251)',
-  backgroundOverlay: 'rgba(0, 0, 0, 0.5)',
+  backgroundOverlay: 'rgba(0, 0, 0, 0.6)',
   interactableShade1: 'rgb(228,230,235)',
   interactableShade1Hover: 'rgb(216, 216, 224)'
 }

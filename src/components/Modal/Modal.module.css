@@ -1,0 +1,44 @@
+.modal-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px;
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--palette-shade-4);
+}
+
+.modal-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.modal-title h2{
+  margin: 0
+}
+
+.modal-title svg {
+  margin-right: 16px;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.body--paddingNone {
+  padding: 0;
+}
+
+.body--paddingSmall {
+  padding: 16px;
+}
+
+.body--paddingMedium {
+  padding: 20px;
+}
+
+.body--paddingLarge {
+  padding: 24px;
+}

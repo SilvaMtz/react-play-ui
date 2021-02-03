@@ -17,7 +17,9 @@ import {
   SelectField,
   ContextMenu,
   FormFields,
-  Toolbar
+  Toolbar,
+  Modal,
+  OverlayMask
 } from 'react-play-ui';
 
 const App = () => {
@@ -26,6 +28,7 @@ const App = () => {
   const [search, setSearch] = useState('');
   const [message, setMessage] = useState('');
   const [selectedBank, setSelectedBank] = useState('');
+  const [modalOpen, setModalOpen] = useState(false);
   const themeMode = theme === 'light' ? LightTheme : DarkTheme;
 
   const panels = [
@@ -150,10 +153,10 @@ const App = () => {
           content: (
             <ActionButton
               color="primary"
-              onClick={() =>{}}
+              onClick={() => setModalOpen(true)}
               size="compact"
             >
-              LOGIN
+              OPEN MODAL
             </ActionButton>
           )
         },
@@ -165,29 +168,17 @@ const App = () => {
     }
   ]
 
-  return (
-
-    <ThemeProvider theme={themeMode}>
-      <GlobalStyles theme={themeMode} />
-      <div className="App">
-        <Toolbar sections={toolbarItems} />
-        <FlexGroup responsive={false}>
+  let modalInstance;
+  if (modalOpen) {
+    modalInstance = (
+      <Modal
+        onClose={() => setModalOpen(false)}
+        title="Modal Demo"
+        icon="academicCap"
+      >
+        <FlexGroup direction="column">
           <FlexItem>
-            <ActionButton color="secondary" onClick={() =>{}}>CLICK!</ActionButton>
-          </FlexItem>
-          <FlexItem>
-            <ActionButton color="primary" onClick={() =>{}}>CLICK!</ActionButton>
-          </FlexItem>
-          <FlexItem>
-            <ActionButton color="danger" onClick={() =>{}}>CLICK!</ActionButton>
-          </FlexItem>
-          <FlexItem>
-            <ActionButton fill={false} color="primary" onClick={() =>{}}>CLICK!</ActionButton>
-          </FlexItem>
-        </FlexGroup>
-        <Divider />
-          <PanelCard>
-            <FlexGroup>
+          <FlexGroup>
               <FlexItem>
                 <FormFields>
                   <InputField
@@ -215,6 +206,36 @@ const App = () => {
                 <ContextMenu width="100%" initialPanelId={0} panels={panels} />
               </FlexItem>
             </FlexGroup>
+          </FlexItem>
+        </FlexGroup>
+      </Modal>
+    )
+  }
+
+  return (
+
+    <ThemeProvider theme={themeMode}>
+      <GlobalStyles theme={themeMode} />
+      <div className="App">
+        {modalInstance}
+        <Toolbar sections={toolbarItems} />
+        <FlexGroup responsive={false}>
+          <FlexItem>
+            <ActionButton color="secondary" onClick={() =>{}}>CLICK!</ActionButton>
+          </FlexItem>
+          <FlexItem>
+            <ActionButton color="primary" onClick={() =>{}}>CLICK!</ActionButton>
+          </FlexItem>
+          <FlexItem>
+            <ActionButton color="danger" onClick={() =>{}}>CLICK!</ActionButton>
+          </FlexItem>
+          <FlexItem>
+            <ActionButton fill={false} color="primary" onClick={() =>{}}>CLICK!</ActionButton>
+          </FlexItem>
+        </FlexGroup>
+        <Divider />
+          <PanelCard>
+            Hello
           </PanelCard>
       </div>
     </ThemeProvider>

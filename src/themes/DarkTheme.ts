@@ -14,7 +14,7 @@ export const DarkTheme = {
   paletteShade3: 'rgb(58, 59, 61)',
   paletteShade4: 'rgb(73, 73, 73)',
   paletteShade5: 'rgb(53, 53, 53)',
-  backgroundOverlay: 'rgba(0, 0, 0, 0.3)',
+  backgroundOverlay: 'rgba(0, 0, 0, 0.6)',
   interactableShade1: 'rgb(58, 59, 61)',
   interactableShade1Hover: 'rgb(70, 72, 72)'
 }
