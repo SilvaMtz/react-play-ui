@@ -12,7 +12,7 @@ export {
 } from './Observer';
 export { FlexItem } from './FlexItem';
 export { FlexGroup } from './FlexGroup';
-// export { Form } from './Form';
+export { FormFields } from './FormFields';
 export { InputField } from './InputField';
 // export { Modal } from './Modal';
 // export { OverlayMask } from './OverlayMask';

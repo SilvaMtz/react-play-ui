@@ -15,7 +15,8 @@ import {
   PanelCard,
   TextField,
   SelectField,
-  ContextMenu
+  ContextMenu,
+  FormFields
 } from 'react-play-ui';
 
 const App = () => {
@@ -155,25 +156,27 @@ const App = () => {
           <PanelCard>
             <FlexGroup>
               <FlexItem>
-                <InputField
-                  icon='search'
-                  placeholder='Search'
-                  onChange={(e) => setSearch(e.target.value)}
-                  value={search}
-                  type="text"
-                />
-                <SelectField
-                  icon='library'
-                  label='Bank'
-                  options={bankOptions}
-                  onChange={setSelectedBank}
-                  value={selectedBank}
-                />
-                <TextField
-                  placeholder="Your message here..."
-                  onChange={(e) => setMessage(e.target.value)}
-                  value={message}
-                />
+                <FormFields>
+                  <InputField
+                    icon='search'
+                    placeholder='Search'
+                    onChange={(e) => setSearch(e.target.value)}
+                    value={search}
+                    type="text"
+                  />
+                  <SelectField
+                    icon='library'
+                    label='Bank'
+                    options={bankOptions}
+                    onChange={setSelectedBank}
+                    value={selectedBank}
+                  />
+                  <TextField
+                    placeholder="Your message here..."
+                    onChange={(e) => setMessage(e.target.value)}
+                    value={message}
+                  />
+                </FormFields>
               </FlexItem>
               <FlexItem>
                 <ContextMenu width="100%" initialPanelId={0} panels={panels} />
