@@ -12,13 +12,15 @@ import {
   FlexGroup,
   FlexItem,
   InputField,
-  PanelCard
+  PanelCard,
+  TextField
 } from 'react-play-ui';
 
 const App = () => {
 
   const [theme, themeToggler] = useDarkMode();
-  const [search, setSearch] = useState();
+  const [search, setSearch] = useState('');
+  const [message, setMessage] = useState('');
   const themeMode = theme === 'light' ? LightTheme : DarkTheme;
 
   return (
@@ -57,13 +59,25 @@ const App = () => {
         </FlexGroup>
         <Divider />
           <PanelCard>
-            <InputField
-              icon='search'
-              placeholder='Search'
-              onChange={(e) => setSearch(e.target.value)}
-              value={search}
-              type="text"
-            />
+            <FlexGroup>
+              <FlexItem>
+                <InputField
+                  icon='search'
+                  placeholder='Search'
+                  onChange={(e) => setSearch(e.target.value)}
+                  value={search}
+                  type="text"
+                />
+                <TextField
+                  placeholder="Your message here..."
+                  onChange={(e) => setMessage(e.target.value)}
+                  value={message}
+                />
+              </FlexItem>
+              <FlexItem>
+
+              </FlexItem>
+            </FlexGroup>
           </PanelCard>
       </div>
     </ThemeProvider>

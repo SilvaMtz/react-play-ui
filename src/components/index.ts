@@ -19,4 +19,4 @@ export { InputField } from './InputField';
 export { PanelCard } from './PanelCard';
 // export { Toolbar } from './Toolbar';
 // export { SelectField } from './SelectField';
-// export { TextField } from './TextField';
+export { TextField } from './TextField';
