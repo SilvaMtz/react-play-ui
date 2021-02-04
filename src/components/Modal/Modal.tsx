@@ -44,7 +44,7 @@ export const Modal: FunctionComponent<ModalProps> = ({
 
   return (
     <OverlayMask onClick={onClose}>
-      <PanelCard flexDirection="column" maxWidth={maxWidth} paddingSize="none" {...rest}>
+      <PanelCard className={classes['modal-animation']} flexDirection="column" maxWidth={maxWidth} paddingSize="none" {...rest}>
         <div className={classes['modal-header']}>
           <div className={classes['modal-title']}>
             {iconInstance}

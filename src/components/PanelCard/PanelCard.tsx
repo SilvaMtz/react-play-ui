@@ -1,4 +1,4 @@
-import React, { ReactNode, FunctionComponent } from 'react';
+import React, { ReactNode, FunctionComponent, HTMLAttributes } from 'react';
 import classes from './PanelCard.module.css';
 
 interface PanelCardProps {
@@ -6,13 +6,15 @@ interface PanelCardProps {
   paddingSize?: string;
   flexDirection?: string;
   maxWidth?: number | string;
+  className?: string;
 }
 
-export const PanelCard: FunctionComponent<PanelCardProps> = ({
+export const PanelCard: FunctionComponent<PanelCardProps & HTMLAttributes<HTMLDivElement>> = ({
   children,
   paddingSize = "small",
   flexDirection = "column",
   maxWidth,
+  className,
   ...rest
 }) => {
   const panelPaddingSizeMap = {
@@ -35,6 +37,7 @@ export const PanelCard: FunctionComponent<PanelCardProps> = ({
     flexDirection
       ? classes[flexDirectionMapping[flexDirection]]
       : classes[flexDirectionMapping['row']],
+    className
   ];
 
   let panelStyles = {

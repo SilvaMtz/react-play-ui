@@ -12,6 +12,16 @@
   left: 0;
   background: var(--background-overlay);
   transition: display 0.15s linear;
+  animation: fade-in 0.25s ease-in-out;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .overlay-mask .overlay-children {
