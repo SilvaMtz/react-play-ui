@@ -70,6 +70,10 @@
   cursor: pointer;
 }
 
+.ContextMenuPanelTitleButton:active {
+  transform: scale(0.963);
+}
+
 .ContextMenuPanelTitle svg,
 .ContextMenuPanelTitleButton svg {
   fill: var(--text-color)

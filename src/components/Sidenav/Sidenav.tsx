@@ -5,7 +5,6 @@ import { OverlayMask } from '../OverlayMask'
 import classes from './Sidenav.module.css'
 import { ContextMenu } from '../ContextMenu'
 import { ContextMenuPanelDescriptor } from '../ContextMenu/ContextMenu';
-import { SidenavItem } from './SidenavItem'
 
 interface SidenavProps {
   panels?: ContextMenuPanelDescriptor[];

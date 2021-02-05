@@ -1,1 +1,0 @@
-export { SidenavItem } from './SidenavItem';

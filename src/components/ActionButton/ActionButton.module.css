@@ -99,3 +99,7 @@
 .action-button.button--danger.fill:focus {
   background-color: var(--danger-red-light);
 }
+
+.action-button:active {
+  transform: scale(0.963);
+}
