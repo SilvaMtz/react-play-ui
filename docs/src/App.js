@@ -353,7 +353,6 @@ const App = () => {
       <Sidenav
         onClose={() => setSidenavOpen(false)}
         panels={sidenavPanels}
-        transparentHeader={true}
         header={(
           <div style={{
             marginTop: 12,
