@@ -17,6 +17,9 @@ export interface ContextMenuItemProps {
   target?: string;
   rel?: string;
   label: string;
+  sublabel?: string;
+  sublabelColor?: string;
+  size?: string;
 }
 
 type Props = ContextMenuItemProps;
@@ -35,6 +38,9 @@ export class ContextMenuItem extends Component<Props> {
       target,
       rel,
       label,
+      sublabel,
+      sublabelColor = 'var(--text-color-shade)',
+      size = 'medium',
       ...rest
     } = this.props;
     let iconInstance;
@@ -51,14 +57,33 @@ export class ContextMenuItem extends Component<Props> {
       );
     }
 
+    const sizeToClassMap = {
+      small: 'small-item',
+      medium: 'medium-item',
+      large: 'large-item'
+    }
+
     const classList = [
-      classes['context-menu-item']
+      classes['context-menu-item'],
+      classes[sizeToClassMap[size]]
     ]
+
+    let labelInstance;
+    if (sublabel) {
+      labelInstance = (
+        <div className={classes['sublabel-label-container']}>
+          <p className={classes['label']}>{label}</p>
+          <p className={classes['sublabel']} style={{color: sublabelColor}}>{sublabel}</p>
+        </div>
+      )
+    } else {
+      labelInstance = <p className={classes['label']}>{label}</p>
+    }
 
     const buttonInner = (
       <div className={classes['label-container']}>
         {iconInstance}
-        <p className={classes['label']}>{label}</p>
+        {labelInstance}
       </div>
     );
 

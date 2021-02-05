@@ -1,0 +1,61 @@
+.sidenav {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 6px;
+  box-sizing: border-box;
+  width: 256px;
+  overflow: hidden;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  position: absolute;
+  z-index: 9003;
+  left: 0;
+  top: 0;
+  animation: sidenavIn 0.2s ease-in-out;
+}
+
+.sidenav.sidenav--background {
+  background-color: var(--palette-shade-2);
+  border-right: 1px solid var(--palette-shade-4);
+}
+
+.sidenav-items {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+  border: none;
+  outline: none;
+  margin: 0;
+  padding: 4px;
+  box-sizing: border-box;
+}
+
+.sidenav-docked {
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding-left: 256px;
+}
+
+@keyframes sidenavIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  85% {
+    opacity: 1;
+    transform: translateX(2%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}

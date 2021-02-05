@@ -43,6 +43,7 @@ export type ContextMenuProps = {
     transparent?: boolean;
     hasShadow?: boolean;
     width?: number | string;
+    itemsSize?: string;
   };
 
 function mapIdsToPanels(panels: ContextMenuPanelDescriptor[]) {
@@ -244,8 +245,11 @@ export class ContextMenu extends Component<ContextMenuProps, State> {
         icon,
         iconFill,
         onClick,
+        size,
         ...rest
       } = item;
+
+      const { itemsSize = 'medium' } = this.props
 
       const onClickHandler = panel
         ? (event: React.MouseEvent) => {
@@ -270,6 +274,7 @@ export class ContextMenu extends Component<ContextMenuProps, State> {
           iconFill={iconFill}
           onClick={onClickHandler}
           hasPanel={Boolean(panel)}
+          size={size ? size : itemsSize}
           {...rest}>
           {name}
         </ContextMenuItem>

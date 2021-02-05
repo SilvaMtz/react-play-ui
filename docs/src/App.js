@@ -19,7 +19,8 @@ import {
   FormFields,
   Toolbar,
   Modal,
-  OverlayMask
+  IconButton,
+  Sidenav
 } from 'react-play-ui';
 
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
   const [message, setMessage] = useState('');
   const [selectedBank, setSelectedBank] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
+  const [sidenavOpen, setSidenavOpen] = useState(false);
   const themeMode = theme === 'light' ? LightTheme : DarkTheme;
 
   const panels = [
@@ -56,6 +58,79 @@ const App = () => {
           name: 'Transaction',
           icon: 'switchHorizontal',
           label: 'Transaction',
+          sublabel: 'More Options',
+          panel: 1,
+          onClick: () => {
+            return
+          }
+        },
+        {
+          name: 'Insight',
+          icon: 'lightbulb',
+          label: 'Insight',
+          onClick: () => {
+            return
+          }
+        }
+      ]
+    },
+    {
+      id: 1,
+      title: 'Transaction',
+      items: [
+        {
+          name: 'Transfer',
+          label: 'Transfer',
+          icon: 'paperAirplane',
+          onClick: () => {
+            return
+          }
+        },
+        {
+          name: 'Deposit',
+          label: 'Deposit',
+          icon: 'plusCircle',
+          onClick: () => {
+            return
+          }
+        },
+        {
+          name: 'Withdrawal',
+          label: 'Withdrawal',
+          icon: 'minusCircle',
+          onClick: () => {
+            return
+          }
+        }
+      ]
+    }
+  ]
+
+  const sidenavPanels = [
+    {
+      id: 0,
+      items: [
+        {
+          name: 'Account',
+          icon: 'collection',
+          label: 'Account',
+          onClick: () => {
+            return
+          }
+        },
+        {
+          name: 'Credit',
+          icon: 'cash',
+          label: 'Credit',
+          onClick: () => {
+            return
+          }
+        },
+        {
+          name: 'Transaction',
+          icon: 'switchHorizontal',
+          label: 'Transaction',
+          sublabel: 'More Options',
           panel: 1,
           onClick: () => {
             return
@@ -128,20 +203,7 @@ const App = () => {
       items: [
         {
           id: 1,
-          content: "Logo"
-        },
-        {
-          id: 2,
-          content: (
-            <ActionButton
-              color="default"
-              fill={false}
-              onClick={() =>{}}
-              size="compact"
-            >
-              Menu
-            </ActionButton>
-          )
+          content: <IconButton onClick={() => setSidenavOpen(true)} icon="menu" />
         }
       ]
     },
@@ -166,6 +228,70 @@ const App = () => {
         }
       ]
     }
+  ]
+
+  const sidenavItems = [
+    {
+      id: 1,
+      onClick: () => {},
+      label: "Dashboard",
+      icon: "viewGrid",
+    },
+    {
+      id: 2,
+      onClick: () => {},
+      label: "Toolbar",
+      icon: "adjustments",
+    },
+    {
+      id: 3,
+      onClick: () => {},
+      label: "Action Buttons",
+      icon: "collection",
+      sublabel: "1 notification"
+    },
+    {
+      id: 4,
+      onClick: () => {},
+      label: "Icons",
+      icon: "cog",
+    },
+    {
+      id: 5,
+      onClick: () => {},
+      label: "Select",
+      icon: "annotation",
+    },
+    {
+      id: 6,
+      onClick: () => {},
+      label: "Input Forms",
+      icon: "minusCircle",
+    },
+    {
+      id: 7,
+      onClick: () => {},
+      label: "Panel Card",
+      icon: "check",
+    },
+    {
+      id: 8,
+      onClick: () => {},
+      label: "Modals",
+      icon: "academicCap",
+    },
+    {
+      id: 9,
+      onClick: () => {},
+      label: "Context Menu",
+      icon: "home",
+    },
+    {
+      id: 10,
+      onClick: () => {},
+      label: "Sidenav",
+      icon: "tag",
+    },
   ]
 
   let modalInstance;
@@ -212,11 +338,19 @@ const App = () => {
     )
   }
 
+  let sidenavInstance;
+  if (sidenavOpen) {
+    sidenavInstance = (
+      <Sidenav onClose={() => setSidenavOpen(false)} panels={sidenavPanels} />
+    )
+  }
+
   return (
 
     <ThemeProvider theme={themeMode}>
       <GlobalStyles theme={themeMode} />
       <div className="App">
+        {sidenavInstance}
         {modalInstance}
         <Toolbar sections={toolbarItems} />
         <FlexGroup responsive={false}>
