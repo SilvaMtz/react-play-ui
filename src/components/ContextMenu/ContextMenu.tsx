@@ -336,6 +336,7 @@ export class ContextMenu extends Component<ContextMenuProps, State> {
       transparent = false,
       hasShadow = true,
       width = 256,
+      itemsSize,
       ...rest
     } = this.props;
 

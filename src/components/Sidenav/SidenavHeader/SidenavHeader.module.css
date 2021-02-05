@@ -1,0 +1,27 @@
+.sidenav-header {
+  margin: 8px;
+  background-color: var(--palette-shade-3);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.avatar-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.children-container {
+  display: flex;
+  width: 100%;
+}
+
+.header--transparent {
+  background-color: transparent;
+}

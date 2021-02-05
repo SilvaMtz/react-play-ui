@@ -20,6 +20,7 @@ export interface ContextMenuItemProps {
   sublabel?: string;
   sublabelColor?: string;
   size?: string;
+  isActive?: boolean
 }
 
 type Props = ContextMenuItemProps;
@@ -41,6 +42,7 @@ export class ContextMenuItem extends Component<Props> {
       sublabel,
       sublabelColor = 'var(--text-color-shade)',
       size = 'medium',
+      isActive = false,
       ...rest
     } = this.props;
     let iconInstance;
@@ -65,7 +67,8 @@ export class ContextMenuItem extends Component<Props> {
 
     const classList = [
       classes['context-menu-item'],
-      classes[sizeToClassMap[size]]
+      classes[sizeToClassMap[size]],
+      isActive ? classes['item--isActive'] : null
     ]
 
     let labelInstance;

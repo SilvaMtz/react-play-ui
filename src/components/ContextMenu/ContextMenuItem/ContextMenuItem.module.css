@@ -84,3 +84,12 @@
 .context-menu-item:active {
   transform: scale(0.963);
 }
+
+.context-menu-item.item--isActive {
+  color: var(--accent-blue);
+  font-weight: 600;
+}
+
+.context-menu-item.item--isActive svg{
+  fill: var(--accent-blue);
+}

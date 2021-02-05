@@ -20,7 +20,18 @@
 
 .sidenav.sidenav--background {
   background-color: var(--palette-shade-2);
-  border-right: 1px solid var(--palette-shade-4);
+  border-right: 1px solid var(--palette-shade-5);
+  border-bottom-right-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.header-container {
+  width: 100%;
+}
+
+.options-container {
+  width: 100%;
+  overflow-y: scroll;
 }
 
 .sidenav-items {

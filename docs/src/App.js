@@ -137,9 +137,82 @@ const App = () => {
           }
         },
         {
-          name: 'Insight',
+          name: '6',
           icon: 'lightbulb',
           label: 'Insight',
+          isActive: true,
+          onClick: () => {
+            return
+          }
+        },
+        {
+          name: '8',
+          icon: 'cog',
+          label: 'Settings',
+          onClick: () => {
+            return
+          }
+        },
+        {
+          name: '0',
+          icon: 'paperAirplane',
+          label: 'Actions',
+          onClick: () => {
+            return
+          }
+        },
+        {
+          name: 'r',
+          icon: 'moon',
+          label: 'Display Settings',
+          onClick: () => {
+            return
+          }
+        },
+        {
+          name: '1',
+          icon: 'eye',
+          label: 'TV Shows',
+          onClick: () => {
+            return
+          }
+        },
+        {
+          name: 'e',
+          icon: 'library',
+          label: 'Library',
+          onClick: () => {
+            return
+          }
+        },
+        {
+          name: 'h',
+          icon: 'lockClosed',
+          label: 'Security Settings',
+          onClick: () => {
+            return
+          }
+        },
+        {
+          name: 'f',
+          icon: 'scale',
+          label: 'Balancing',
+          onClick: () => {
+            return
+          }
+        },
+        {
+          name: 'd',
+          icon: 'tag',
+          label: 'Categories',
+          onClick: () => {
+            return
+          }
+        },
+        {
+          name: 's',
+          icon: 'viewGrid',
+          label: 'Apps',
           onClick: () => {
             return
           }
@@ -230,70 +303,6 @@ const App = () => {
     }
   ]
 
-  const sidenavItems = [
-    {
-      id: 1,
-      onClick: () => {},
-      label: "Dashboard",
-      icon: "viewGrid",
-    },
-    {
-      id: 2,
-      onClick: () => {},
-      label: "Toolbar",
-      icon: "adjustments",
-    },
-    {
-      id: 3,
-      onClick: () => {},
-      label: "Action Buttons",
-      icon: "collection",
-      sublabel: "1 notification"
-    },
-    {
-      id: 4,
-      onClick: () => {},
-      label: "Icons",
-      icon: "cog",
-    },
-    {
-      id: 5,
-      onClick: () => {},
-      label: "Select",
-      icon: "annotation",
-    },
-    {
-      id: 6,
-      onClick: () => {},
-      label: "Input Forms",
-      icon: "minusCircle",
-    },
-    {
-      id: 7,
-      onClick: () => {},
-      label: "Panel Card",
-      icon: "check",
-    },
-    {
-      id: 8,
-      onClick: () => {},
-      label: "Modals",
-      icon: "academicCap",
-    },
-    {
-      id: 9,
-      onClick: () => {},
-      label: "Context Menu",
-      icon: "home",
-    },
-    {
-      id: 10,
-      onClick: () => {},
-      label: "Sidenav",
-      icon: "tag",
-    },
-  ]
-
   let modalInstance;
   if (modalOpen) {
     modalInstance = (
@@ -341,7 +350,24 @@ const App = () => {
   let sidenavInstance;
   if (sidenavOpen) {
     sidenavInstance = (
-      <Sidenav onClose={() => setSidenavOpen(false)} panels={sidenavPanels} />
+      <Sidenav
+        onClose={() => setSidenavOpen(false)}
+        panels={sidenavPanels}
+        transparentHeader={true}
+        header={(
+          <div style={{
+            marginTop: 12,
+            flexDirection: "column",
+            display: "flex",
+            width: "100%",
+            justifyContent: "center",
+            alignItems: "center"}}
+          >
+            <h4 style={{margin: 0}}>Name LastName</h4>
+            <h6 style={{marginTop: 6, marginBottom: 4, fontWeight: 300}}>Job Title</h6>
+          </div>
+        )}
+      />
     )
   }
 
