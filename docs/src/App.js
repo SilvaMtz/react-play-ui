@@ -351,6 +351,8 @@ const App = () => {
   if (sidenavOpen) {
     sidenavInstance = (
       <Sidenav
+        position="left"
+        float
         onClose={() => setSidenavOpen(false)}
         panels={sidenavPanels}
         header={(

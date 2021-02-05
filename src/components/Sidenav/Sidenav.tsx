@@ -1,6 +1,5 @@
 import React, { FunctionComponent, ReactNode, useEffect } from 'react'
 import { OverlayMask } from '../OverlayMask'
-// import { Divider } from '../Divider';
 import classes from './Sidenav.module.css'
 import { ContextMenu } from '../ContextMenu'
 import { ContextMenuPanelDescriptor } from '../ContextMenu/ContextMenu';
@@ -14,10 +13,10 @@ interface SidenavProps {
   children?: ReactNode;
   className?: string;
   itemsSize?: string;
-  avatar: any;
   header: ReactNode;
   transparentHeader?: boolean;
-  // header?: ReactNode;
+  position?: 'left' | 'right';
+  float?: boolean;
 }
 
 export const Sidenav: FunctionComponent<SidenavProps> = ({
@@ -26,18 +25,25 @@ export const Sidenav: FunctionComponent<SidenavProps> = ({
   isDocked = false,
   onClose,
   children,
-  avatar,
   header,
   className,
   transparentHeader = false,
   itemsSize = 'medium',
-  // header,
+  position = 'left',
+  float = false,
   ...rest
 }) => {
 
+  const positionToClassMap = {
+    left: 'sidenav-position--left',
+    right: 'sidenav-position--right'
+  }
+
   let classList = [
     classes['sidenav'],
-    !transparent ? classes['sidenav--background'] : null
+    float ? classes['floating-sidenav'] : null,
+    !transparent ? classes['sidenav--background'] : null,
+    position ? classes[positionToClassMap[position]] : null
   ]
 
   // useEffect(() => {
@@ -54,7 +60,7 @@ export const Sidenav: FunctionComponent<SidenavProps> = ({
 
   let maskInstance = !isDocked ? <OverlayMask onClick={onClose} /> : null
   let headerInstance;
-  if (header || avatar) {
+  if (header) {
     headerInstance = (
       <div className={classes['header-container']}>
         <SidenavHeader transparent={transparentHeader}>
