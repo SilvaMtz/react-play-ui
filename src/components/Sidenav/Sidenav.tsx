@@ -13,7 +13,7 @@ interface SidenavProps {
   children?: ReactNode;
   className?: string;
   itemsSize?: string;
-  header: ReactNode;
+  header?: ReactNode;
   transparentHeader?: boolean;
   position?: 'left' | 'right';
   float?: boolean;

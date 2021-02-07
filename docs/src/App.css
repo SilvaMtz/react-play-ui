@@ -1,0 +1,5 @@
+.App {
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 32px;
+}

@@ -1,4 +1,5 @@
 import React, { FunctionComponent, useEffect } from 'react'
+import ReactDOM from 'react-dom';
 import classes from './Toolbar.module.css'
 import { ToolbarSection } from './ToolbarSection';
 
@@ -25,10 +26,13 @@ export const Toolbar: FunctionComponent<ToolbarProps> = ({
   ]
 
   return (
-    <nav className={classList.join(' ')} {...rest}>
-      {sections.map(section => {
-        return <ToolbarSection key={section.id} items={section.items} />
-      })}
-    </nav>
+    ReactDOM.createPortal(
+      (<nav className={classList.join(' ')} {...rest}>
+        {sections.map(section => {
+          return <ToolbarSection key={section.id} items={section.items} />
+        })}
+      </nav>),
+      document.body
+    )
   )
 }
