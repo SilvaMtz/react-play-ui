@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useState } from "react";
 import { Sidenav, Toolbar, IconButton, ThemeToggler } from "react-play-ui";
+import { useLocation } from 'react-router-dom';
 
 interface LayoutProps {
   theme: any;
@@ -10,6 +11,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
   theme,
   toggleTheme,
 }) => {
+  const currentRoute = useLocation();
   const [sidenavOpen, setSidenavOpen] = useState(false);
 
   const sidenavPanels = [
@@ -21,12 +23,15 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           name: "Home",
           icon: "home",
           label: "Home",
+          href: "/",
+          isActive: currentRoute.pathname === "/"
         },
         {
           id: 1,
           name: "Layout",
           icon: "viewGrid",
           label: "Layout",
+          isActive: currentRoute.pathname.includes("/layout"),
           panel: 1,
         },
         {
@@ -34,6 +39,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           name: "Display",
           icon: "collection",
           label: "Display",
+          isActive: currentRoute.pathname.includes("/display"),
           panel: 2,
         },
         {
@@ -41,6 +47,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           name: "Navigation",
           icon: "map",
           label: "Navigation",
+          isActive: currentRoute.pathname.includes("/navigation"),
           panel: 3,
         },
         {
@@ -48,6 +55,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           name: "Inputs",
           icon: "chatAlt",
           label: "Inputs",
+          isActive: currentRoute.pathname.includes("/inputs"),
           panel: 4,
         },
         {
@@ -55,6 +63,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           name: "Data",
           icon: "chartPie",
           label: "Data",
+          isActive: currentRoute.pathname.includes("/data"),
           panel: 5,
         },
       ],
@@ -67,16 +76,22 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           id: 1,
           name: "FlexGroup",
           label: "Flex Group",
+          href: "/layout/flex-group",
+          isActive: currentRoute.pathname === "/layout/flex-group"
         },
         {
           id: 2,
           name: "FlexItem",
           label: "Flex Item",
+          href: "/layout/flex-item",
+          isActive: currentRoute.pathname === "/layout/flex-item"
         },
         {
           id: 3,
           name: "Divider",
           label: "Divider",
+          href: "/layout/divider",
+          isActive: currentRoute.pathname === "/layout/divider"
         },
       ],
     },
@@ -88,36 +103,50 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           id: 0,
           name: "PanelCard",
           label: "Panel Card",
+          href: "/display/panel-card",
+          isActive: currentRoute.pathname === "/display/panel-card"
         },
         {
           id: 1,
           name: "Card",
           label: "Card",
+          href: "/display/card",
+          isActive: currentRoute.pathname === "/display/card"
         },
         {
           id: 2,
           name: "Modal",
           label: "Modal",
+          href: "/display/modal",
+          isActive: currentRoute.pathname === "/display/modal"
         },
         {
           id: 3,
           name: "Widget",
           label: "Widget (WIP)",
+          href: "/display/widget",
+          isActive: currentRoute.pathname === "/display/widget"
         },
         {
           id: 4,
           name: "Accordion",
           label: "Accordion (WIP)",
+          href: "/display/accordion",
+          isActive: currentRoute.pathname === "/display/accordion"
         },
         {
           id: 5,
           name: "Tooltip",
           label: "Tooltip (WIP)",
+          href: "/display/tooltip",
+          isActive: currentRoute.pathname === "/display/tooltip"
         },
         {
           id: 6,
           name: "Popover",
           label: "Popover (WIP)",
+          href: "/display/popover",
+          isActive: currentRoute.pathname === "/display/popover"
         },
       ],
     },
@@ -129,36 +158,50 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           id: 0,
           name: "Sidenav",
           label: "Sidenav",
+          href: "/navigation/sidenav",
+          isActive: currentRoute.pathname === "/navigation/sidenav"
         },
         {
           id: 1,
           name: "Toolbar",
           label: "Toolbar",
+          href: "/navigation/toolbar",
+          isActive: currentRoute.pathname === "/navigation/toolbar"
         },
         {
           id: 2,
           name: "BottomNav",
           label: "Bottom Nav (WIP)",
+          href: "/navigation/bottom-nav",
+          isActive: currentRoute.pathname === "/navigation/bottom-nav"
         },
         {
           id: 3,
           name: "ContextMenu",
           label: "Context Menu",
+          href: "/navigation/context-menu",
+          isActive: currentRoute.pathname === "/navigation/context-menu"
         },
         {
           id: 4,
           name: "ActionButton",
           label: "Button",
+          href: "/navigation/button",
+          isActive: currentRoute.pathname === "/navigation/button"
         },
         {
           id: 5,
           name: "IconButton",
           label: "Icon Button",
+          href: "/navigation/icon-button",
+          isActive: currentRoute.pathname === "/navigation/icon-button"
         },
         {
           id: 6,
           name: "Tabs",
           label: "Tabs (WIP)",
+          href: "/navigation/tabs",
+          isActive: currentRoute.pathname === "/navigation/tabs"
         },
       ],
     },
@@ -170,41 +213,57 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           id: 0,
           name: "InputField",
           label: "Input Field",
+          isActive: currentRoute.pathname === "/inputs/input-field",
+          href: "/inputs/input-field"
         },
         {
           id: 1,
           name: "TextField",
           label: "Text Field",
+          isActive: currentRoute.pathname === "/inputs/text-field",
+          href: "/inputs/text-field"
         },
         {
           id: 2,
           name: "SelectField",
           label: "SelectField (WIP)",
+          isActive: currentRoute.pathname === "/inputs/select-field",
+          href: "/inputs/select-field",
         },
         {
           id: 3,
           name: "Checkbox",
           label: "Checkbox (WIP)",
+          isActive: currentRoute.pathname === "/inputs/checkbox",
+          href: "/inputs/checkbox"
         },
         {
           id: 4,
           name: "Radios",
           label: "Radios (WIP)",
+          isActive: currentRoute.pathname === "/inputs/radios",
+          href: "/inputs/radios",
         },
         {
           id: 5,
           name: "Slider",
           label: "Slider (WIP)",
+          isActive: currentRoute.pathname === "/inputs/slider",
+          href: "/inputs/slider"
         },
         {
           id: 6,
           name: "Switch",
           label: "Switch (WIP)",
+          isActive: currentRoute.pathname === "/inputs/switch",
+          href: "/inputs/switch"
         },
         {
           id: 6,
           name: "DateTime",
           label: "Date/Time Picker",
+          isActive: currentRoute.pathname === "/inputs/date-time-picker",
+          href: "/inputs/date-time-picker",
         },
       ],
     },
@@ -216,26 +275,36 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           id: 0,
           name: "ProgressLoading",
           label: "Progress (WIP)",
+          href: "/data/progress",
+          isActive: currentRoute.pathname === "/data/progress"
         },
         {
           id: 1,
           name: "Avatar",
           label: "Avatar (WIP)",
+          isActive: currentRoute.pathname === "/data/avatar",
+          href: "/data/avatar"
         },
         {
           id: 2,
           name: "NumberBadge",
           label: "Number Badge (WIP)",
+          isActive: currentRoute.pathname === "/data/number-badge",
+          href: "/data/number-badge",
         },
         {
           id: 3,
           name: "Chip",
           label: "Chip (WIP)",
+          isActive: currentRoute.pathname === "/data/chip",
+          href: "/data/chip",
         },
         {
           id: 4,
           name: "SvgIcon",
           label: "Icons",
+          isActive: currentRoute.pathname === "/data/icons",
+          href: "/data/icons",
         },
       ],
     },

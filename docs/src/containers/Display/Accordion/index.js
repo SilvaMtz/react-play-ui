@@ -1,0 +1,1 @@
+export { AccordionPage } from './AccordionPage';

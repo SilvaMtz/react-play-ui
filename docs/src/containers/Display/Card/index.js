@@ -1,0 +1,1 @@
+export { CardPage } from './CardPage';
