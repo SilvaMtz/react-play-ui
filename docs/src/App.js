@@ -20,7 +20,8 @@ import {
   Toolbar,
   Modal,
   IconButton,
-  Sidenav
+  Sidenav,
+  Checkbox
 } from 'react-play-ui';
 
 const App = () => {
@@ -31,6 +32,7 @@ const App = () => {
   const [selectedBank, setSelectedBank] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
   const [sidenavOpen, setSidenavOpen] = useState(false);
+  const [checked, setChecked] = useState(false);
   const themeMode = theme === 'light' ? LightTheme : DarkTheme;
 
   const panels = [
@@ -396,7 +398,12 @@ const App = () => {
         </FlexGroup>
         <Divider />
           <PanelCard>
-            Hello
+            <Checkbox
+              id={1}
+              label="I am a checkbox"
+              checked={checked}
+              onChange={(e) => setChecked(!checked)}
+            />
           </PanelCard>
       </div>
     </ThemeProvider>

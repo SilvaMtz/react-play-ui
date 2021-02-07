@@ -14,7 +14,7 @@ export const SelectField = (props:any) => {
       width: '100%',
       height: 36,
       backgroundColor: 'var(--interactable-shade-1)',
-      borderRadius: 18,
+      borderRadius: 10,
       display: 'flex',
       border: state.menuIsOpen ? '2px solid var(--accent-blue)' : 'none',
       outline: 'none',

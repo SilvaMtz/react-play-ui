@@ -21,3 +21,4 @@ export { Toolbar } from './Toolbar';
 export { SelectField } from './SelectField';
 export { TextField } from './TextField';
 export { Sidenav } from './Sidenav';
+export { Checkbox } from './Checkbox';

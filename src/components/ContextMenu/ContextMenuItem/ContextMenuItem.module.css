@@ -39,7 +39,7 @@
 }
 
 .context-menu-item:hover {
-  background-color: var(--palette-shade-4);
+  background-color: var(--interactable-shade-1);
 }
 
 .sublabel {
