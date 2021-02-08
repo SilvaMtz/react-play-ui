@@ -19,7 +19,7 @@
     "url": "git+https://github.com/SilvaMtz/react-play-ui.git"
   },
   "name": "react-play-ui",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "scripts": {
     "start": "react-scripts start",
     "build": "rollup --config",
