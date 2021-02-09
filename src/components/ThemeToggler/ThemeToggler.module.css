@@ -6,6 +6,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--palette-shade-2);
+  background-color: rgba(var(--palette-shade-2));
   margin-right: 6px;
 }

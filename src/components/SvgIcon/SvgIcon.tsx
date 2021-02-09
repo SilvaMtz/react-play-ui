@@ -28,7 +28,7 @@ export const SvgIcon: FunctionComponent<SvgIconProps> = ({
     className
   ]
 
-  let iconColor = color ? color : 'var(--text-color)';
+  let iconColor = color ? color : 'rgba(var(--text-color))';
 
   let iconPath = (
     <path

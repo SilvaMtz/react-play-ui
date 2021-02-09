@@ -12,7 +12,7 @@ input[type=checkbox].checkbox-input {
 }
 
 input[type=checkbox].checkbox-input:checked + .checkbox-square {
-  background-color: var(--accent-blue);
+  background-color: rgba(var(--accent-blue));
 }
 
 .checkbox-square {
@@ -22,8 +22,8 @@ input[type=checkbox].checkbox-input:checked + .checkbox-square {
   position: absolute;
   left: 0;
   top: -1px;
-  background-color: var(--palette-shade-5);
-  border: 1px solid var(--palette-shade-4);
+  background-color: rgba(var(--palette-shade-5));
+  border: 1px solid rgba(var(--palette-shade-4));
   border-radius: 5px;
 
 }

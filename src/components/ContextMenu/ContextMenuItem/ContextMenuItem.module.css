@@ -14,7 +14,7 @@
   outline: none;
   border: none;
   transition: background-color 0.1s;
-  color: var(--text-color);
+  color: rgba(var(--text-color));
   cursor: pointer;
 }
 
@@ -39,14 +39,14 @@
 }
 
 .context-menu-item:hover {
-  background-color: var(--interactable-shade-1);
+  background-color: rgba(var(--interactable-shade-1));
 }
 
 .sublabel {
   display: block;
   margin: 0;
   margin-top: 2px;
-  color: var(--text-color-shade);
+  color: rgba(var(--text-color-shade));
   font-size: 0.725rem;
 }
 
@@ -86,10 +86,10 @@
 }
 
 .context-menu-item.item--isActive {
-  color: var(--accent-blue);
+  color: rgba(var(--accent-blue));
   font-weight: 600;
 }
 
 .context-menu-item.item--isActive svg{
-  fill: var(--accent-blue);
+  fill: rgba(var(--accent-blue));
 }

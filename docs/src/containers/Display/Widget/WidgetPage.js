@@ -1,8 +1,16 @@
 import React from 'react';
+import {
+  WidgetCard
+} from 'react-play-ui';
 
 export const WidgetPage = (props) => {
 
   return (
-    <h2>Widget</h2>
+    <div>
+      <h2>Widget</h2>
+      <WidgetCard color="primary">
+        <h4>Hello There!</h4>
+      </WidgetCard>
+    </div>
   )
 }

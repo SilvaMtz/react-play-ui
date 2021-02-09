@@ -36,7 +36,7 @@ export const InputField: FunctionComponent<InputProps> = ({
       <SvgIcon
         className={classes['input-icon']}
         icon={icon}
-        color="var(--text-color-shade)"
+        color="rgba(var(--text-color-shade))"
         size="small"
       />
     );

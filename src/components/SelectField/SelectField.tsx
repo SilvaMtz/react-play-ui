@@ -13,7 +13,7 @@ export const SelectField = (props:any) => {
     control: (provided:any, state:any) => ({
       width: '100%',
       height: 36,
-      backgroundColor: 'var(--interactable-shade-1)',
+      backgroundColor: 'rgba(var(--interactable-shade-1))',
       borderRadius: 10,
       display: 'flex',
       border: state.menuIsOpen ? '2px solid var(--accent-blue)' : 'none',

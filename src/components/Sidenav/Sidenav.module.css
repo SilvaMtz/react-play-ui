@@ -21,14 +21,14 @@
 }
 
 .sidenav.sidenav--background {
-  background-color: var(--palette-shade-2);
-  border-right: 1px solid var(--palette-shade-5);
+  background-color: rgba(var(--palette-shade-2));
+  border-right: 1px solid rgba(var(--palette-shade-5));
 }
 
 .sidenav-position--right {
   left: inherit;
   right: 0;
-  border-left: 1px solid var(--palette-shade-5);
+  border-left: 1px solid rgba(var(--palette-shade-5));
   border-bottom-left-radius: 16px;
   border-top-left-radius: 16px;
   animation: sidenavInRight 0.2s ease-in-out;

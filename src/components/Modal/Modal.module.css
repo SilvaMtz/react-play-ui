@@ -5,7 +5,7 @@
   justify-content: space-between;
   padding: 18px;
   box-sizing: border-box;
-  border-bottom: 1px solid var(--palette-shade-4);
+  border-bottom: 1px solid rgba(var(--palette-shade-4));
 }
 
 .modal-title {

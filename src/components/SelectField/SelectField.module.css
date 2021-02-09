@@ -10,7 +10,7 @@
   margin-left: 16px;
   margin-bottom: 2px;
   font-size: 0.75rem;
-  color: var(--text-color-shade);
+  color: rgba(var(--text-color-shade));
 }
 
 .react-select-wrapper > .select-icon {

@@ -67,6 +67,9 @@ const App = () => {
       <Route path="/display/tooltip">
         <Pages.TooltipPage />
       </Route>
+      <Route path="/display/widget">
+        <Pages.WidgetPage />
+      </Route>
       <Route path="/data/avatar">
         <Pages.AvatarPage />
       </Route>

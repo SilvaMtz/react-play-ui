@@ -40,7 +40,7 @@ export class ContextMenuItem extends Component<Props> {
       rel,
       label,
       sublabel,
-      sublabelColor = 'var(--text-color-shade)',
+      sublabelColor = 'rgba(var(--text-color-shade))',
       size = 'medium',
       isActive = false,
       ...rest

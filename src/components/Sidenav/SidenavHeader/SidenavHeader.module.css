@@ -1,6 +1,6 @@
 .sidenav-header {
   margin: 8px;
-  background-color: var(--palette-shade-3);
+  background-color: rgba(var(--palette-shade-3));
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -24,4 +24,5 @@
 
 .header--transparent {
   background-color: transparent;
+  padding: 0;
 }

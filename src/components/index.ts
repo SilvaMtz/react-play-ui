@@ -22,3 +22,4 @@ export { SelectField } from './SelectField';
 export { TextField } from './TextField';
 export { Sidenav } from './Sidenav';
 export { Checkbox } from './Checkbox';
+export { WidgetCard } from './WidgetCard';

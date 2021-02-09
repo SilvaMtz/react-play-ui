@@ -12,16 +12,16 @@
   cursor: pointer;
   border-radius: 10px;
   border: none;
-  background-color: var(--interactable-shade-1);
-  color: var(--text-color-shade);
+  background-color: rgba(var(--interactable-shade-1));
+  color: rgba(var(--text-color-shade));
   transition: brackground-color 0.1s, border 0.1s;
   resize: vertical;
 }
 
 .textarea:hover {
-  background-color: var(--interactable-shade-1-hover);
+  background-color: rgba(var(--interactable-shade-1-hover));
 }
 
 .textarea:focus {
-  border: 2px solid var(--accent-blue);
+  border: 2px solid rgba(var(--accent-blue));
 }

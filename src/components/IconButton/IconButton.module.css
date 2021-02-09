@@ -11,7 +11,7 @@
   padding: 8px;
   cursor: pointer;
   transition: background-color 0.1s;
-  background-color: var(--interactable-shade-1);
+  background-color: rgba(var(--interactable-shade-1));
   box-sizing: border-box;
 }
 
@@ -21,7 +21,7 @@
 }
 
 .icon-button:hover {
-  background-color: var(--interactable-shade-1-hover);
+  background-color: rgba(var(--interactable-shade-1-hover));
 }
 
 .icon-button:active {

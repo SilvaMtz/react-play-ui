@@ -1,0 +1,16 @@
+.widget-card {
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  padding: 6px;
+  color: rgba(var(--text-color));
+  border-radius: 10px;
+  flex: 1 1 auto;
+}
+
+.widget--colorPrimary {
+  background-color: rgba(var(--accent-blue), 0.5);
+}
+.widget--colorDanger {
+  background-color: rgba(var(--danger-red));
+}

@@ -48,7 +48,7 @@
   font-size: 0.98rem;
   background-color: transparent;
   text-decoration: none;
-  color: var(--text-color);
+  color: rgba(var(--text-color));
 }
 
 .ContextMenuPanelTitleButton {
@@ -66,7 +66,7 @@
   outline: none;
   border: none;
   transition: background-color 0.1s;
-  color: var(--text-color);
+  color: rgba(var(--text-color));
   cursor: pointer;
 }
 
@@ -76,11 +76,11 @@
 
 .ContextMenuPanelTitle svg,
 .ContextMenuPanelTitleButton svg {
-  fill: var(--text-color)
+  fill: rgba(var(--text-color))
 }
 
 .ContextMenuPanelTitleButton:hover {
-  background-color: var(--palette-shade-4);
+  background-color: rgba(var(--palette-shade-4));
 }
 
 .ContextMenuPanelTitleText {
@@ -94,7 +94,7 @@
   margin: 4px auto 0 auto;
   border-style: solid;
   border-width: 1px;
-  border-color: var(--palette-shade-3);
+  border-color: rgba(var(--palette-shade-3));
 }
 
 .ItemsContainer {
