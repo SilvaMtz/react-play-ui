@@ -1,12 +1,16 @@
 import { createGlobalStyle } from 'styled-components';
 export const GlobalStyles = createGlobalStyle`
   :root {
-    --accent-blue: ${({ theme }) => theme.accentBlue};
-    --accent-blue-light: ${({ theme }) => theme.accentBlueLight};
-    --accent-blue-opaque: ${({ theme }) => theme.accentBlueOpaque};
-    --danger-red: ${({ theme }) => theme.dangerRed};
-    --danger-red-light: ${({ theme }) => theme.dangerRedLight};
-    --danger-red-opaque: ${({ theme }) => theme.dangerRedOpaque};
+    --primary-color: ${({ theme }) => theme.primaryColor};
+    --primary-color-light: ${({ theme }) => theme.primaryColorLight};
+    --primary-color-opaque: ${({ theme }) => theme.primaryColorOpaque};
+    --accent-color: ${({ theme }) => theme.accentColor};
+    --danger-color: ${({ theme }) => theme.dangerColor};
+    --danger-color-light: ${({ theme }) => theme.dangerColorLight};
+    --danger-color-opaque: ${({ theme }) => theme.dangerColorOpaque};
+    --warning-color: ${({ theme }) => theme.warningColor};
+    --warning-color-light: ${({ theme }) => theme.warningColorLight};
+    --warning-color-opaque: ${({ theme }) => theme.warningColor};
     --text-color: ${({ theme }) => theme.textColor};
     --text-color-shade: ${({ theme }) => theme.textColorShade};
     --text-color-opaque: ${({ theme }) => theme.textColorOpaque};

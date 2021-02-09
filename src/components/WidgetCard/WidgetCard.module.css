@@ -9,8 +9,17 @@
 }
 
 .widget--colorPrimary {
-  background-color: rgba(var(--accent-blue), 0.5);
+  background-color: rgba(var(--primary-color), 0.5);
 }
 .widget--colorDanger {
-  background-color: rgba(var(--danger-red));
+  background-color: rgba(var(--danger-color));
+}
+.widget--colorAccent {
+  background-color: rgba(var(--accent-color));
+}
+.widget--colorSecondary {
+  background-color: rgba(var(--secondary-color));
+}
+.widget--colorWarning {
+  background-color: rgba(var(--warning-color));
 }

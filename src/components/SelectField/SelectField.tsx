@@ -16,42 +16,42 @@ export const SelectField = (props:any) => {
       backgroundColor: 'rgba(var(--interactable-shade-1))',
       borderRadius: 10,
       display: 'flex',
-      border: state.menuIsOpen ? '2px solid var(--accent-blue)' : 'none',
+      border: state.menuIsOpen ? '2px solid rgba(var(--primary-color)' : 'none)',
       outline: 'none',
       boxSizing: 'border-box',
       transition: 'border 0.2s',
-      color: 'var(--text-color)',
+      color: 'rgba(var(--text-color))',
       padding: props.icon ? '4px 14px 4px 38px' : '4px 14px',
       fontSize: '0.95rem',
       cursor: 'pointer',
       ':hover': {
-        backgroundColor: 'var(--interactable-shade-1-hover)',
+        backgroundColor: 'rgba(var(--interactable-shade-1-hover))',
       },
       ':focus': {
-        backgroundColor: 'var(--interactable-shade-1-hover)',
+        backgroundColor: 'rgba(var(--interactable-shade-1-hover))',
       },
       ':active': {
-        backgroundColor: 'var(--interactable-shade-1-hover)'
+        backgroundColor: 'rgba(var(--interactable-shade-1-hover))'
       },
     }),
     placeholder: () => ({
-      color: 'var(--text-color-shade)',
+      color: 'rgba(var(--text-color-shade))',
     }),
     indicatorSeparator: (provided:any) => ({
       ...provided,
-      backgroundColor: 'var(--text-color-shade)',
+      backgroundColor: 'rgba(var(--text-color-shade))',
     }),
     dropdownIndicator: (provided:any) => ({
       ...provided,
       paddingRight: 0,
-      color: 'var(--text-color-shade)',
+      color: 'rgba(var(--text-color-shade))',
     }),
     menu: (provided:any) => ({
       ...provided,
-      backgroundColor: 'var(--palette-shade-2)',
+      backgroundColor: 'rgba(var(--palette-shade-2))',
       borderRadius: 12,
-      border: '1px solid var(--palette-shade-5)',
-      boxShadow: '0px 0px 8px var(--text-color-opaque)',
+      border: '1px solid rgba(var(--palette-shade-5))',
+      boxShadow: '0px 0px 8px rgba(var(--text-color-opaque))',
       zIndex: 2
     }),
     menuList: (provided:any) => ({
@@ -79,18 +79,18 @@ export const SelectField = (props:any) => {
       textDecoration: 'none',
       outline: 'none',
       border: 'none',
-      color: state.isSelected ? 'var(--accent-blue)' : 'var(--text-color)',
+      color: state.isSelected ? 'rgba(var(--primary-color))' : 'rgba(var(--text-color))',
       cursor: 'pointer',
       transition: 'background-color 0.1s',
       borderRadius: 8,
       backgroundColor: 'transparent',
       ':hover': {
-        backgroundColor: 'var(--interactable-shade-1-hover)',
+        backgroundColor: 'rgba(var(--interactable-shade-1-hover))',
       },
     }),
     singleValue: (provided:any) => ({
       ...provided,
-      color: 'var(--text-color)',
+      color: 'rgba(var(--text-color))',
     }),
     valueContainer: (provided:any) => ({
       ...provided,
@@ -104,7 +104,7 @@ export const SelectField = (props:any) => {
       <SvgIcon
         className={classes['select-icon']}
         icon={props.icon}
-        color="var(--text-color-shade)"
+        color="rgba(var(--text-color-shade))"
         size="small"
       />
     )

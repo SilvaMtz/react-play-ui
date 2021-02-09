@@ -63,41 +63,41 @@
 }
 
 .action-button.button--primary {
-  color: rgba(var(--accent-blue));
+  color: rgba(var(--primary-color));
 }
 
 .action-button.button--primary:hover,
 .action-button.button--primary:focus {
-  background-color: rgba(var(--accent-blue-opaque));
+  background-color: rgba(var(--primary-color-opaque));
 }
 
 .action-button.button--primary.fill {
-  background-color: rgba(var(--accent-blue));
+  background-color: rgba(var(--primary-color));
   color: white;
 }
 
 .action-button.button--primary.fill:hover,
 .action-button.button--primary.fill:focus {
-  background-color: rgba(var(--accent-blue-light));
+  background-color: rgba(var(--primary-color-light));
 }
 
 .action-button.button--danger {
-  color: rgba(var(--danger-red));
+  color: rgba(var(--danger-color));
 }
 
 .action-button.button--danger:hover,
 .action-button.button--danger:focus {
-  background-color: rgba(var(--danger-red-opaque));
+  background-color: rgba(var(--danger-color-opaque));
 }
 
 .action-button.button--danger.fill {
-  background-color: rgba(var(--danger-red));
+  background-color: rgba(var(--danger-color));
   color: white;
 }
 
 .action-button.button--danger.fill:hover,
 .action-button.button--danger.fill:focus {
-  background-color: rgba(var(--danger-red-light));
+  background-color: rgba(var(--danger-color-light));
 }
 
 .action-button:active {

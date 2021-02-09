@@ -86,10 +86,10 @@
 }
 
 .context-menu-item.item--isActive {
-  color: rgba(var(--accent-blue));
+  color: rgba(var(--primary-color));
   font-weight: 600;
 }
 
 .context-menu-item.item--isActive svg{
-  fill: rgba(var(--accent-blue));
+  fill: rgba(var(--primary-color));
 }

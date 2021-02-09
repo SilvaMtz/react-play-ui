@@ -49,5 +49,5 @@
 }
 
 .input:focus {
-  border: 2px solid rgba(var(--accent-blue));
+  border: 2px solid rgba(var(--primary-color));
 }
