@@ -1,4 +1,5 @@
 .icon-button {
+  position: relative;
   height: 42px;
   width: 42px;
   display: flex;

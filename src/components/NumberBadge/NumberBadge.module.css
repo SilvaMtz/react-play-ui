@@ -1,0 +1,72 @@
+.number-badge {
+  position: absolute;
+  min-width: 18px;
+  height: 18px;
+  background-color: rgb(var(--danger-color));
+  border-radius: 9px;
+  font-size: 0.740rem;
+  font-weight: 600;
+  color: rgb(var(--text-color));
+  display: flex;
+  flex-grow: 0;
+  flex-basis: content;
+  justify-content: center;
+  align-items: center;
+}
+
+.number-badge.badge--contentPadding {
+  padding: 0px 4px;
+}
+
+.number-badge.dot-badge {
+  min-width: 0;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+}
+
+.number-badge.badge--top.dot-badge {
+  top: 0;
+}
+.number-badge.badge--bottom.dot-badge {
+  bottom: 0;
+}
+.number-badge.badge--right.dot-badge {
+  right: 0;
+}
+.number-badge.badge--left.dot-badge {
+  left: 0;
+}
+
+.number-badge.badge--top {
+  top: -2px;
+}
+.number-badge.badge--bottom {
+  bottom: -2px;
+}
+.number-badge.badge--right {
+  right: -2px;
+}
+.number-badge.badge--left {
+  left: -2px;
+}
+
+.badge--colorPrimary {
+  background-color: rgb(var(--primary-color));
+}
+
+.badge--colorSecondary {
+  background-color: rgb(var(--secondary-color));
+}
+
+.badge--colorAccent {
+  background-color: rgb(var(--accent-color));
+}
+
+.badge--colorDanger {
+  background-color: rgb(var(--danger-color));
+}
+
+.badge--colorWarning {
+  background-color: rgb(var(--warning-color));
+}

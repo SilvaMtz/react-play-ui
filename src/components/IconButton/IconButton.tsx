@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import classes from './IconButton.module.css';
 import { SvgIcon } from '../SvgIcon';
+import { NumberBadge, NumberBadgePropTypes } from '../NumberBadge';
 
 interface IconButtonProps {
   color?: string;
@@ -11,6 +12,7 @@ interface IconButtonProps {
   popoverRef?: any;
   onClick: any;
   href?: string;
+  badge?: NumberBadgePropTypes;
 }
 
 export const IconButton: FunctionComponent<IconButtonProps> = ({
@@ -22,6 +24,7 @@ export const IconButton: FunctionComponent<IconButtonProps> = ({
   popoverRef,
   href,
   onClick,
+  badge,
   ...rest
 }) => {
   const buttonColorMapping = {
@@ -47,6 +50,11 @@ export const IconButton: FunctionComponent<IconButtonProps> = ({
       : classes[buttonSizeMapping['medium']],
   ];
 
+  let badgeInstance;
+  if (badge) {
+    badgeInstance = <NumberBadge {...badge} />
+  }
+
   let button = (
     <button
       className={classList.join(' ')}
@@ -55,6 +63,7 @@ export const IconButton: FunctionComponent<IconButtonProps> = ({
       onClick={onClick}
       {...rest}
     >
+      {badgeInstance}
       <SvgIcon color={iconFill} icon={icon} size={size ? size : 'medium'} />
     </button>
   );
@@ -62,6 +71,7 @@ export const IconButton: FunctionComponent<IconButtonProps> = ({
   if (href) {
     button = (
       <a className={classList.join(' ')} ref={popoverRef} href={href} type="button" {...rest}>
+        {badgeInstance}
         <SvgIcon icon={icon} size={size ? size : 'medium'} />
       </a>
     );
