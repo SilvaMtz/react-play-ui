@@ -34,7 +34,14 @@ export const WidgetPage = (props) => {
           </WidgetCard>
         </FlexItem>
         <FlexItem grow={0}>
-          <WidgetCard color="red">
+          <WidgetCard color="danger" onClick={() => {}}>
+            <SvgIcon icon="sun" color="white"/>
+            <h4>Hello There!</h4>
+            <p>We some WIDGETS!</p>
+          </WidgetCard>
+        </FlexItem>
+        <FlexItem grow={0}>
+          <WidgetCard color="green" gradient={true} onClick={()=>{}}>
             <SvgIcon icon="sun" color="white"/>
             <h4>Hello There!</h4>
             <p>We some WIDGETS!</p>

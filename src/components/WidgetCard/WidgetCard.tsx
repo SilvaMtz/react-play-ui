@@ -1,16 +1,16 @@
 import React, {
   ButtonHTMLAttributes,
   FunctionComponent,
-  HTMLAttributes,
   ReactNode,
 } from "react";
 import classes from "./WidgetCard.module.css";
+import chroma from "chroma-js";
 
 interface WidgetCardProps {
   children?: ReactNode;
   color?: string;
   onClick?: () => void;
-  gradient?: boolean | Array<string> | string;
+  gradient?: boolean;
 }
 
 export const WidgetCard: FunctionComponent<
@@ -26,8 +26,21 @@ export const WidgetCard: FunctionComponent<
 
   let colorStyle;
 
-  if (!colorToClassStyleMap[color]) {
-    colorStyle = { backgroundColor: color }
+  // TODO: custom color on hover opacity
+  if (!colorToClassStyleMap[color] && gradient) {
+    let gradientColor =
+      chroma(color).luminance() > 0.5
+        ? chroma(color).darken(1)
+        : chroma(color).brighten(1);
+    colorStyle = {
+      background: `linear-gradient(135deg,  ${chroma(color).alpha(
+        0.65
+      )} 0%, ${chroma(gradientColor).alpha(0.65)} 100%)`
+    };
+  } else if (!colorToClassStyleMap[color]) {
+    colorStyle = {
+      backgroundColor: color,
+    }
   }
 
   let classList = [
@@ -57,6 +70,4 @@ export const WidgetCard: FunctionComponent<
   }
 
   return widgetInstance;
-
-
 };

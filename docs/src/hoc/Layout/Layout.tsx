@@ -123,7 +123,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
         {
           id: 3,
           name: "Widget",
-          label: "Widget (WIP)",
+          label: "Widget",
           href: "/display/widget",
           isActive: currentRoute.pathname === "/display/widget"
         },
