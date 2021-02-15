@@ -288,7 +288,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
         {
           id: 2,
           name: "NumberBadge",
-          label: "Number Badge (WIP)",
+          label: "Number Badge",
           isActive: currentRoute.pathname === "/data/number-badge",
           href: "/data/number-badge",
         },

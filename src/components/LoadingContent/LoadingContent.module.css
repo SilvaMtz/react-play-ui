@@ -1,0 +1,40 @@
+.loadingContent--loader {
+  display: block;
+  width: 100%;
+}
+
+.loadingContent--singleLine {
+  display: block;
+  width: 100%;
+  height: 1rem;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: rgb(var(--palette-shade-5));
+}
+.loadingContent--singleLine:last-child:not(:only-child) {
+  width: 75%;
+}
+
+.loadingContent--singleLineBackground {
+  display: block;
+  width: 220%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgb(var(--interactable-shade-1)) 45%,
+    rgb(var(--interactable-shade-1-hover)) 50%,
+    rgb(var(--interactable-shade-1)) 55%
+    );
+  animation: loadingContentGradientLoad 1.5s ease-in-out infinite;
+}
+
+@keyframes loadingContentGradientLoad {
+  0% {
+    transform: translateX(-53%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}

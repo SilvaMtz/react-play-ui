@@ -23,3 +23,6 @@ export { TextField } from './TextField';
 export { Sidenav } from './Sidenav';
 export { Checkbox } from './Checkbox';
 export { WidgetCard } from './WidgetCard';
+export { NumberBadge } from './NumberBadge';
+export { LoadingContent } from './LoadingContent';
+export { LoadingSpinner } from './LoadingSpinner';
