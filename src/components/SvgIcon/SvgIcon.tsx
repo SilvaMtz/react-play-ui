@@ -37,8 +37,13 @@ export const SvgIcon: FunctionComponent<SvgIconProps> = ({
   return (
     <svg
       className={classList.join(' ')}
-      fill={iconColor}
-      viewBox="0 0 20 20"
+      fill={outline ? "none" : iconColor}
+      stroke={outline ? iconColor : "none"}
+      stroke-width={outline ? "2" : "none"}
+      stroke-linecap={outline ? "round" : "none"}
+      stroke-linejoin={outline ? "round" : "none"}
+
+      viewBox={outline ? "0 0 24 24" : "0 0 20 20"}
       xmlns="http://www.w3.org/2000/svg"
     >
       {iconPath.map((path:any, index:number) => {
