@@ -1,8 +1,21 @@
 import React from 'react';
+import {
+  SvgIcon,
+  icons,
+  outlineIcons
+} from 'react-play-ui';
 
 export const SvgIconPage = (props) => {
 
   return (
-    <h2>Svg Icon</h2>
+    <div>
+      <h2>Svg Icon</h2>
+      {Object.keys(icons).map((icon, index) => {
+        return (
+          <p key={index}>{icon}</p>
+        )
+      })}
+    </div>
+
   )
 }

@@ -82,7 +82,7 @@ const App = () => {
       <Route path="/data/progress">
         <Pages.ProgressPage />
       </Route>
-      <Route path="/data/svg-icon">
+      <Route path="/data/icons">
         <Pages.SvgIconPage />
       </Route>
       <Route path="/">
