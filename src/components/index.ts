@@ -27,3 +27,4 @@ export { WidgetCard } from './WidgetCard';
 export { NumberBadge } from './NumberBadge';
 export { LoadingContent } from './LoadingContent';
 export { LoadingSpinner } from './LoadingSpinner';
+export { Avatar } from './Avatar';
