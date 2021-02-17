@@ -5,7 +5,7 @@ import { NumberBadge, NumberBadgePropTypes } from '../NumberBadge';
 
 interface IconButtonProps {
   color?: string;
-  size?: string;
+  size?: "extraSmall" | "small" | "medium" | "large";
   fill?: boolean;
   iconFill?: string;
   icon: string;
