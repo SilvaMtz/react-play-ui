@@ -2,16 +2,23 @@ import React, { FunctionComponent } from 'react';
 import classes from './SvgIcon.module.css';
 import { icons, outlineIcons } from '../../assets/icons';
 
+const iconKeys = Object.keys(icons);
+
+const tuple = <T extends string[]>(...args: T) => args;
+const iconKeysTuple = tuple(...iconKeys);
+export type iconNameType = typeof iconKeysTuple[number];
+
+
 interface SvgIconProps {
-  size?: string;
+  size?: "extraSmall" | "small" | "medium" | "large";
   color?: string;
   className?: string;
-  icon: string;
+  icon: iconNameType;
   outline?: boolean;
 }
 
 export const SvgIcon: FunctionComponent<SvgIconProps> = ({
-  size,
+  size = "small",
   color,
   icon,
   outline = false,
@@ -39,10 +46,9 @@ export const SvgIcon: FunctionComponent<SvgIconProps> = ({
       className={classList.join(' ')}
       fill={outline ? "none" : iconColor}
       stroke={outline ? iconColor : "none"}
-      stroke-width={outline ? "2" : "none"}
-      stroke-linecap={outline ? "round" : "none"}
-      stroke-linejoin={outline ? "round" : "none"}
-
+      strokeWidth={outline ? "2" : "none"}
+      strokeLinecap={outline ? "round" : "inherit"}
+      strokeLinejoin={outline ? "round" : "inherit"}
       viewBox={outline ? "0 0 24 24" : "0 0 20 20"}
       xmlns="http://www.w3.org/2000/svg"
     >

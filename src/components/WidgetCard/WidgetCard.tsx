@@ -17,6 +17,7 @@ export const WidgetCard: FunctionComponent<
   WidgetCardProps & ButtonHTMLAttributes<HTMLButtonElement & HTMLDivElement>
 > = ({ children, onClick, color = "secondary", gradient = true, ...rest }) => {
   const colorToClassStyleMap = {
+    default: "widget--colorDefault",
     primary: "widget--colorPrimary",
     danger: "widget--colorDanger",
     warning: "widget--colorWarning",
@@ -62,6 +63,7 @@ export const WidgetCard: FunctionComponent<
         type="button"
         className={classList.join(" ")}
         style={colorStyle}
+        onClick={onClick}
         {...rest}
       >
         {children}

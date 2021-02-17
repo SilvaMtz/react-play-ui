@@ -5,7 +5,7 @@
   padding: 6px;
   color: rgba(var(--text-color));
   border-radius: 12px;
-  transition: transform 0.15s ease-in-out, background 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, background 0.15s ease-in-out, border 0.15s ease-in-out;
 }
 
 .widget--buttonType {
@@ -90,4 +90,16 @@
 .widget--buttonType.widget--colorWarning.gradient:hover {
   background: rgb(var(--warning-color));
   background: linear-gradient(135deg, rgba(var(--warning-color),1) 0%, rgba(255,156,46,1) 100%);
+}
+
+/*
+  DEFAULT COLOR
+*/
+.widget--colorDefault {
+  background-color: rgba(var(--palette-shade-2));
+  border: 1px rgba(var(--palette-shade-4)) solid;
+  box-shadow: none
+}
+.widget--buttonType.widget--colorDefault:hover {
+  border: 1px rgba(var(--primary-color)) solid;
 }

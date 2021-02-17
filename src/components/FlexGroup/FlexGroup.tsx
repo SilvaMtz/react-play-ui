@@ -38,36 +38,36 @@ export interface FlexGroupProps {
 
 const gutterSizeToClassNameMap = {
   none: '',
-  xs: 'flexGroup--gutterExtraSmall',
-  s: 'flexGroup--gutterSmall',
-  m: 'flexGroup--gutterMedium',
-  l: 'flexGroup--gutterLarge',
-  xl: 'flexGroup--gutterExtraLarge',
+  xs: 'FlexGroup--gutterExtraSmall',
+  s: 'FlexGroup--gutterSmall',
+  m: 'FlexGroup--gutterMedium',
+  l: 'FlexGroup--gutterLarge',
+  xl: 'FlexGroup--gutterExtraLarge',
 };
 
 const alignItemsToClassNameMap = {
   stretch: '',
-  flexStart: 'flexGroup--alignItemsFlexStart',
-  flexEnd: 'flexGroup--alignItemsFlexEnd',
-  center: 'flexGroup--alignItemsCenter',
-  baseline: 'flexGroup--alignItemsBaseline',
+  flexStart: 'FlexGroup--alignItemsFlexStart',
+  flexEnd: 'FlexGroup--alignItemsFlexEnd',
+  center: 'FlexGroup--alignItemsCenter',
+  baseline: 'FlexGroup--alignItemsBaseline',
 };
 
 
 const justifyContentToClassNameMap = {
   flexStart: '',
-  flexEnd: 'flexGroup--justifyContentFlexEnd',
-  center: 'flexGroup--justifyContentCenter',
-  spaceBetween: 'flexGroup--justifyContentSpaceBetween',
-  spaceAround: 'flexGroup--justifyContentSpaceAround',
-  spaceEvenly: 'flexGroup--justifyContentSpaceEvenly',
+  flexEnd: 'FlexGroup--justifyContentFlexEnd',
+  center: 'FlexGroup--justifyContentCenter',
+  spaceBetween: 'FlexGroup--justifyContentSpaceBetween',
+  spaceAround: 'FlexGroup--justifyContentSpaceAround',
+  spaceEvenly: 'FlexGroup--justifyContentSpaceEvenly',
 };
 
 const directionToClassNameMap = {
-  row: 'flexGroup--directionRow',
-  rowReverse: 'flexGroup--directionRowReverse',
-  column: 'flexGroup--directionColumn',
-  columnReverse: 'flexGroup--directionColumnReverse',
+  row: 'FlexGroup--directionRow',
+  rowReverse: 'FlexGroup--directionRowReverse',
+  column: 'FlexGroup--directionColumn',
+  columnReverse: 'FlexGroup--directionColumnReverse',
 };
 
 const isValidElement = (
@@ -97,13 +97,14 @@ export const FlexGroup = forwardRef<
     ref: Ref<HTMLDivElement> | Ref<HTMLSpanElement>
   ) => {
     const classList = [
-      classes['flexGroup'],
+      'FlexGroup',
+      classes['FlexGroup'],
       classes[gutterSizeToClassNameMap[gutterSize as FlexGroupGutterSize]],
       classes[alignItemsToClassNameMap[alignItems as FlexGroupAlignItems]],
       classes[justifyContentToClassNameMap[justifyContent as FlexGroupJustifyContent]],
       classes[directionToClassNameMap[direction as FlexGroupDirection]],
-      responsive ? [classes['flexGroup--responsive'], 'fg-res'].join(' ') : undefined,
-      wrap ? classes['flexGroup--wrap'] : undefined
+      responsive ? [classes['FlexGroup--responsive'], 'flexGroup--responsive'].join(' ') : undefined,
+      wrap ? classes['FlexGroup--wrap'] : undefined
     ];
 
     if (!isValidElement(component)) {

@@ -12,6 +12,7 @@ export {
 } from './Observer';
 export { FlexItem } from './FlexItem';
 export { FlexGroup } from './FlexGroup';
+export { FlexGrid } from './FlexGrid';
 export { FormFields } from './FormFields';
 export { InputField } from './InputField';
 export { Modal } from './Modal';
