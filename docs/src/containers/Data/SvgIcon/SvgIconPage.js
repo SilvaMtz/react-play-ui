@@ -2,11 +2,9 @@ import React from "react";
 import {
   SvgIcon,
   icons,
-  outlineIcons,
   FlexItem,
   FlexGroup,
   FlexGrid,
-  IconButton,
   WidgetCard,
 } from "react-play-ui";
 
