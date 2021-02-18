@@ -1,4 +1,6 @@
 {
+  "name": "react-play-ui",
+  "version": "0.0.9",
   "description": "Highly Interactive React.js component library",
   "bugs": {
     "url": "https://github.com/SilvaMtz/react-play-ui/issues"
@@ -18,8 +20,6 @@
     "type": "git",
     "url": "git+https://github.com/SilvaMtz/react-play-ui.git"
   },
-  "name": "react-play-ui",
-  "version": "0.0.8",
   "scripts": {
     "start": "react-scripts start",
     "build": "rollup --config",

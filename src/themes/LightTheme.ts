@@ -20,6 +20,7 @@ export const LightTheme = {
   paletteShade5: '251, 251, 251',
   backgroundOverlay: '0, 0, 0, 0.6',
   interactableShade1: '228,230,235',
-  interactableShade1Hover: '216, 216, 224'
+  interactableShade1Hover: '216, 216, 224',
+  backgroundColor: '252, 252, 252'
 }
 

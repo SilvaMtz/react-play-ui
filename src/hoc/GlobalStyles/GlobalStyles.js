@@ -23,8 +23,9 @@ export const GlobalStyles = createGlobalStyle`
     --interactable-shade-1 ${({ theme }) => theme.interactableShade1};
     --interactable-shade-1-hover ${({ theme }) => theme.interactableShade1Hover};
     --background-overlay: ${({ theme }) => theme.backgroundOverlay};
+    --background-color: ${({ theme }) => theme.backgroundColor};
     font-size: 16px;
-    background-color: rgba(var(--palette-shade-1));
+    background-color: rgba(var(--background-color));
     color: rgba(var(--text-color));
     transition: background-color 0.5s linear, color 0.5s linear;
   }

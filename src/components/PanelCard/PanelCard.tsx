@@ -7,6 +7,7 @@ interface PanelCardProps {
   flexDirection?: string;
   maxWidth?: number | string;
   className?: string;
+  hasShadow?: boolean
 }
 
 export const PanelCard: FunctionComponent<PanelCardProps & HTMLAttributes<HTMLDivElement>> = ({
@@ -15,6 +16,7 @@ export const PanelCard: FunctionComponent<PanelCardProps & HTMLAttributes<HTMLDi
   flexDirection = "column",
   maxWidth,
   className,
+  hasShadow = true,
   ...rest
 }) => {
   const panelPaddingSizeMap = {
@@ -37,6 +39,9 @@ export const PanelCard: FunctionComponent<PanelCardProps & HTMLAttributes<HTMLDi
     flexDirection
       ? classes[flexDirectionMapping[flexDirection]]
       : classes[flexDirectionMapping['row']],
+    hasShadow
+      ? classes['panel-card--hasShadow']
+      : null,
     className
   ];
 
