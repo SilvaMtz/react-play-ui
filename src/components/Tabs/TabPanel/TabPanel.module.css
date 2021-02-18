@@ -1,0 +1,6 @@
+.TabPanel {
+  display: none;
+}
+.TabPanel--isActive {
+  display: block;
+}

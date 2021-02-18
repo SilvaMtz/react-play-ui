@@ -28,3 +28,6 @@ export { NumberBadge } from './NumberBadge';
 export { LoadingContent } from './LoadingContent';
 export { LoadingSpinner } from './LoadingSpinner';
 export { Avatar } from './Avatar';
+export { Tab } from './Tabs';
+export { Tabs } from './Tabs';
+export { TabPanel } from './Tabs';
