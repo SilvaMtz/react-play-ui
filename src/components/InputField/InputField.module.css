@@ -3,6 +3,7 @@
   display: flex;
   box-sizing: border-box;
   flex-direction: column;
+  position: relative;
 }
 
 .input {
@@ -25,10 +26,6 @@
 }
 .input-wrapper.wrapper--disabled > .input {
   cursor: not-allowed;
-}
-
-.input-wrapper.wrapper--hasIcon {
-  position: relative;
 }
 
 .input-wrapper > .input-icon {

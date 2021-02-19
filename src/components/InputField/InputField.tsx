@@ -99,7 +99,6 @@ export const InputField: FunctionComponent<InputProps> = ({
 
   let wrapperClassList = [
     classes['input-wrapper'],
-    icon ? classes['wrapper--hasIcon'] : null,
     disabled ? classes['wrapper--disabled'] : null,
     label ? classes['input--hasLabel'] : null,
     className
