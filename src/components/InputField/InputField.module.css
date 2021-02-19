@@ -5,18 +5,6 @@
   flex-direction: column;
 }
 
-.input-wrapper.wrapper--hasIcon {
-  position: relative;
-}
-
-.input-wrapper > .input-icon {
-  position: absolute;
-  left: 8px;
-  bottom: 7px;
-  width: 1.35rem;
-  height: 1.35rem;
-}
-
 .input {
   width: 100%;
   height: 36px;
@@ -32,8 +20,35 @@
   font-size: 0.95rem;
 }
 
+.input-wrapper.wrapper--disabled {
+  opacity: 0.5;
+}
+.input-wrapper.wrapper--disabled > .input {
+  cursor: not-allowed;
+}
+
+.input-wrapper.wrapper--hasIcon {
+  position: relative;
+}
+
+.input-wrapper > .input-icon {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.input-wrapper.input--hasLabel .input-icon {
+  top: 24px;
+}
+
 .input.input--hasIcon {
   padding-left: 38px;
+}
+
+.input.input--hasStatusIcon {
+  padding-right: 38px;
 }
 
 .input-label {
@@ -43,10 +58,37 @@
   color: rgba(var(--text-color-shade));
 }
 
-.input:hover {
+.length-label {
+  float: right;
+  font-size: 0.75rem;
+  color: rgba(var(--text-color-shade));
+  margin: 2px 16px 0 0;
+}
+
+.input-wrapper:not(.wrapper--disabled) > .input:hover {
   background-color: rgba(var(--interactable-shade-1-hover));
 }
 
 .input:focus {
   border: 2px solid rgba(var(--primary-color));
+}
+
+.input--isValid {
+  border: 1px rgba(var(--secondary-color), 0.6) solid;
+}
+
+.input--isInvalid {
+  border: 1px rgb(var(--danger-color)) solid;
+}
+
+.input-wrapper > .inputValid-icon {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  width: 1.35rem;
+  height: 1.35rem;
+}
+
+.input-wrapper.input--hasLabel .inputValid-icon {
+  top: 24px;
 }

@@ -2,6 +2,7 @@ export const DarkTheme = {
   primaryColor: '46, 137, 255',
   primaryColorLight: '71, 151, 255',
   primaryColorOpaque: '46, 137, 255, 0.2',
+  secondaryColor: '37, 211, 102',
   accentColor: '0, 202, 199',
   dangerColor: '252, 34, 34',
   dangerColorLight: '252, 64, 64',

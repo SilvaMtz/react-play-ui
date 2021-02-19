@@ -55,8 +55,8 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           name: "Inputs",
           icon: "chatAlt",
           label: "Inputs",
-          isActive: currentRoute.pathname.includes("/inputs"),
-          panel: 4,
+          href: "/inputs",
+          isActive: currentRoute.pathname === "/inputs",
         },
         {
           id: 5,
@@ -202,68 +202,6 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           label: "Tabs (WIP)",
           href: "/navigation/tabs",
           isActive: currentRoute.pathname === "/navigation/tabs"
-        },
-      ],
-    },
-    {
-      id: 4,
-      title: "Inputs",
-      items: [
-        {
-          id: 0,
-          name: "InputField",
-          label: "Input Field",
-          isActive: currentRoute.pathname === "/inputs/input-field",
-          href: "/inputs/input-field"
-        },
-        {
-          id: 1,
-          name: "TextField",
-          label: "Text Field",
-          isActive: currentRoute.pathname === "/inputs/text-field",
-          href: "/inputs/text-field"
-        },
-        {
-          id: 2,
-          name: "SelectField",
-          label: "SelectField (WIP)",
-          isActive: currentRoute.pathname === "/inputs/select-field",
-          href: "/inputs/select-field",
-        },
-        {
-          id: 3,
-          name: "Checkbox",
-          label: "Checkbox (WIP)",
-          isActive: currentRoute.pathname === "/inputs/checkbox",
-          href: "/inputs/checkbox"
-        },
-        {
-          id: 4,
-          name: "Radios",
-          label: "Radios (WIP)",
-          isActive: currentRoute.pathname === "/inputs/radios",
-          href: "/inputs/radios",
-        },
-        {
-          id: 5,
-          name: "Slider",
-          label: "Slider (WIP)",
-          isActive: currentRoute.pathname === "/inputs/slider",
-          href: "/inputs/slider"
-        },
-        {
-          id: 6,
-          name: "Switch",
-          label: "Switch (WIP)",
-          isActive: currentRoute.pathname === "/inputs/switch",
-          href: "/inputs/switch"
-        },
-        {
-          id: 6,
-          name: "DateTime",
-          label: "Date/Time Picker",
-          isActive: currentRoute.pathname === "/inputs/date-time-picker",
-          href: "/inputs/date-time-picker",
         },
       ],
     },

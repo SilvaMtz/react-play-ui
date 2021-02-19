@@ -1,6 +1,6 @@
 .textarea {
   width: 100%;
-  padding: 20px;
+  padding: 12px;
   box-sizing: border-box;
   height: 128px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -14,13 +14,57 @@
   background-color: rgba(var(--interactable-shade-1));
   color: rgba(var(--text-color-shade));
   transition: brackground-color 0.1s, border 0.1s;
+  resize: none;
+}
+
+.textarea.textarea--resizable {
   resize: vertical;
 }
 
-.textarea:hover {
+.textarea:focus {
+  border: 2px solid rgba(var(--primary-color));
+}
+
+.textarea-wrapper {
+  width: 100%;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+}
+
+.textarea-wrapper.wrapper--disabled {
+  opacity: 0.5;
+}
+.textarea-wrapper.wrapper--disabled > .textarea {
+  cursor: not-allowed;
+}
+
+.textarea-label {
+  margin-left: 16px;
+  margin-bottom: 2px;
+  font-size: 0.75rem;
+  color: rgba(var(--text-color-shade));
+}
+
+.length-label {
+  float: right;
+  font-size: 0.75rem;
+  color: rgba(var(--text-color-shade));
+  margin: 2px 16px 0 0;
+}
+
+.textarea-wrapper:not(.wrapper--disabled) .textarea:hover {
   background-color: rgba(var(--interactable-shade-1-hover));
 }
 
 .textarea:focus {
   border: 2px solid rgba(var(--primary-color));
+}
+
+.textarea--isValid {
+  border: 1px rgba(var(--secondary-color), 0.6) solid;
+}
+
+.textarea--isInvalid {
+  border: 1px rgb(var(--danger-color)) solid;
 }

@@ -22,7 +22,6 @@
 
 .sidenav.sidenav--background {
   background-color: rgba(var(--palette-shade-2));
-  border-right: 1px solid rgba(var(--palette-shade-5));
 }
 
 .sidenav-position--right {
@@ -103,4 +102,5 @@
   border-radius: 16px;
   height: calc(100vh - 16px);
   margin: 8px;
+  border: none;
 }

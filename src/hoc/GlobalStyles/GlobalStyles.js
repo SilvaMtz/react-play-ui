@@ -4,6 +4,7 @@ export const GlobalStyles = createGlobalStyle`
     --primary-color: ${({ theme }) => theme.primaryColor};
     --primary-color-light: ${({ theme }) => theme.primaryColorLight};
     --primary-color-opaque: ${({ theme }) => theme.primaryColorOpaque};
+    --secondary-color: ${({ theme }) => theme.secondaryColor};
     --accent-color: ${({ theme }) => theme.accentColor};
     --danger-color: ${({ theme }) => theme.dangerColor};
     --danger-color-light: ${({ theme }) => theme.dangerColorLight};

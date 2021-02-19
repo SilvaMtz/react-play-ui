@@ -70,6 +70,9 @@ const App = () => {
       <Route path="/display/widget">
         <Pages.WidgetPage />
       </Route>
+      <Route path="/inputs">
+        <Pages.InputsPage />
+      </Route>
       <Route path="/data/avatar">
         <Pages.AvatarPage />
       </Route>

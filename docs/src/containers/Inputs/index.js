@@ -1,0 +1,1 @@
+export { InputsPage } from './InputsPage';
