@@ -1,4 +1,4 @@
-import React, { FunctionComponent, InputHTMLAttributes } from 'react';
+import React, { FunctionComponent, InputHTMLAttributes, useEffect } from 'react';
 import classes from './InputField.module.css';
 import { SvgIcon } from '../SvgIcon/SvgIcon';
 import { FlexItem } from '../FlexItem';
@@ -9,7 +9,7 @@ export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   icon?: string;
   disabled?: boolean
   maxLength?: number;
-  value?: string | number;
+  value?: string | number | readonly string[];
   isValid?: boolean;
   minLength?: number;
   required?: boolean;
@@ -112,16 +112,32 @@ export const InputField: FunctionComponent<InputProps> = ({
     statusIcon ? classes['input--hasStatusIcon'] : null
   ];
 
+  let inputInstance = (
+    <input
+      disabled={disabled}
+      className={inputClassList.join(' ')}
+      value={value}
+      {...rest}
+    />
+  )
+
+  useEffect(() => {
+    inputInstance = (
+      <input
+        disabled={disabled}
+        className={inputClassList.join(' ')}
+        value={value}
+        {...rest}
+      />
+    )
+  }, [value])
+
   return (
     <div className={wrapperClassList.join(' ')}>
       {inputLabel}
       {svgIcon}
       {statusIcon}
-      <input
-        disabled={disabled}
-        className={inputClassList.join(' ')}
-        {...rest}
-      />
+      {inputInstance}
       {lengthLabel}
     </div>
   );
