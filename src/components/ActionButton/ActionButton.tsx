@@ -1,84 +1,136 @@
-import React, { FunctionComponent, ReactNode } from 'react';
-import { SvgIcon } from '../SvgIcon';
-import classes from './ActionButton.module.css';
+import React, {
+  ButtonHTMLAttributes,
+  FunctionComponent,
+  ReactNode,
+} from "react";
+import { SvgIcon } from "../SvgIcon";
+import classes from "./ActionButton.module.css";
 
 interface ActionButtonProps {
+  className?: string;
   children?: ReactNode;
   color?: string;
-  size?: string;
+  size?: "compact" | "small" | "medium" | "large";
   fill?: boolean;
   isLoading?: boolean;
   restrainWidth?: boolean;
   icon?: string;
+  iconSide?: "left" | "right";
   label?: string;
-  href?: string;
+  // href?: string;
   onClick: any;
+  disabled?: boolean;
 }
 
-export const ActionButton: FunctionComponent<ActionButtonProps> = ({
+export const ActionButton: FunctionComponent<
+  ActionButtonProps & ButtonHTMLAttributes<HTMLButtonElement>
+> = ({
   children,
-  color = 'default',
-  size = 'default',
+  color = "default",
+  size = "small",
   fill = true,
   isLoading,
   restrainWidth = true,
   icon,
+  iconSide = "left",
   label,
-  href,
+  // href,
+  disabled = false,
   onClick,
+  className,
   ...rest
 }) => {
   const buttonColorMapping = {
-    none: '',
-    default: 'button--default',
-    primary: 'button--primary',
-    danger: 'button--danger',
+    none: "",
+    default: "button--default",
+    primary: "button--primary",
+    danger: "button--danger",
+    secondary: "button--secondary",
+    warning: "button--warning",
+    accent: "button--accent",
   };
 
   const buttonSizeMapping = {
-    compact: 'button--compact',
-    default: '',
-    medium: 'button--medium',
-    large: 'button--large'
-  }
+    compact: "button--compact",
+    small: "",
+    medium: "button--medium",
+    large: "button--large",
+  };
 
   let classList = [
-    classes['action-button'],
+    classes["action-button"],
     color
       ? classes[buttonColorMapping[color]]
-      : classes[buttonColorMapping['none']],
-    fill ? classes['fill'] : null,
+      : classes[buttonColorMapping["none"]],
+    fill ? classes["fill"] : null,
     size
       ? classes[buttonSizeMapping[size]]
-      : classes[buttonSizeMapping['default']],
-    restrainWidth ? classes['restrain-width'] : null
+      : classes[buttonSizeMapping["small"]],
+    restrainWidth ? classes["restrain-width"] : null,
+    className
   ];
 
   let iconInstance = null;
   if (icon && !isLoading) {
-    iconInstance = <SvgIcon icon={icon} size="small" color="white" />
+    iconInstance = (
+      <SvgIcon
+        icon={icon}
+        size={size === "compact" ? "extraSmall" : "small"}
+        color={
+          color === "default" && !fill
+            ? "rgb(var(--text-color))"
+            : color != "default" &&
+              color != "none" &&
+              buttonColorMapping[color] &&
+              !fill
+            ? `rgba(var(--${color}-color))`
+            : "white"
+        }
+      />
+    );
   }
+
+  let labelChildren = children ? (
+    children
+  ) : label && iconInstance ? (
+    <span
+      style={
+        iconSide === "left"
+          ? { marginLeft: 8, marginRight: 4 }
+          : { marginRight: 8, marginLeft: 4 }
+      }
+    >
+      {label}
+    </span>
+  ) : (
+    label
+  );
+
+  let buttonContent = (
+    <React.Fragment>
+      {iconInstance && iconSide === "left" && !children ? iconInstance : null}
+      {labelChildren}
+      {iconInstance && iconSide === "right" && !children ? iconInstance : null}
+    </React.Fragment>
+  );
+
+  let isDisabled = disabled || isLoading;
+
+  let colorStyles = {
+    backgroundColor: buttonColorMapping[color] ? null : color,
+  };
 
   let button = (
     <button
       onClick={onClick}
-      className={classList.join(' ')}
-      type="button"
+      className={classList.join(" ")}
+      disabled={isDisabled}
+      style={colorStyles}
       {...rest}
     >
-      {children ? children : label}
-      {iconInstance}
+      {buttonContent}
     </button>
   );
-
-  if (href) {
-    button = (
-      <a className={classList.join(' ')} href={href} type="button">
-        {children ? children : label}
-        {iconInstance}
-      </a>
-    );
-  }
 
   return button;
 };

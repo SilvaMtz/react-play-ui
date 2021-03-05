@@ -10,7 +10,6 @@
   justify-content: center;
   align-items: center;
   padding: 12px;
-  margin: 4px 8px;
   color: rgba(var(--text-color-shade), 1);
   cursor: pointer;
   text-decoration: none;
@@ -36,11 +35,13 @@
 .action-button.button--medium {
   height: 48px;
   font-size: 0.92rem;
+  padding: 12px 16px;
 }
 
 .action-button.button--large {
   height: 54px;
   font-size: 0.92rem;
+  padding: 12px 20px;
 }
 
 .action-button.flex-start {
@@ -98,6 +99,63 @@
 .action-button.button--danger.fill:hover,
 .action-button.button--danger.fill:focus {
   background-color: rgba(var(--danger-color-light));
+}
+
+.action-button.button--warning:hover,
+.action-button.button--warning:focus {
+  background-color: rgba(var(--warning-color), 0.35);
+}
+
+.action-button.button--warning {
+  color: rgba(var(--warning-color));
+}
+
+.action-button.button--warning.fill {
+  background-color: rgba(var(--warning-color));
+  color: white;
+}
+
+.action-button.button--warning.fill:hover,
+.action-button.button--warning.fill:focus {
+  background-color: rgba(var(--warning-color-light));
+}
+
+.action-button.button--accent:hover,
+.action-button.button--accent:focus {
+  background-color: rgba(var(--accent-color), 0.35);
+}
+
+.action-button.button--accent {
+  color: rgba(var(--accent-color));
+}
+
+.action-button.button--accent.fill {
+  background-color: rgba(var(--accent-color));
+  color: white;
+}
+
+.action-button.button--accent.fill:hover,
+.action-button.button--accent.fill:focus {
+  background-color: rgba(var(--accent-color-light));
+}
+
+.action-button.button--secondary:hover,
+.action-button.button--secondary:focus {
+  background-color: rgba(var(--secondary-color), 0.35);
+}
+
+.action-button.button--secondary {
+  color: rgba(var(--secondary-color));
+}
+
+.action-button.button--secondary.fill {
+  background-color: rgba(var(--secondary-color));
+  color: white;
+}
+
+.action-button.button--secondary.fill:hover,
+.action-button.button--secondary.fill:focus {
+  background-color: rgba(var(--secondary-color-light));
 }
 
 .action-button:active {
