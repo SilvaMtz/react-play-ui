@@ -3,7 +3,6 @@
   display: flex;
   border-radius: 8px;
   box-sizing: border-box;
-  margin: 12px;
   background-color: rgba(var(--palette-shade-2));
   width: 100%;
   outline: none;

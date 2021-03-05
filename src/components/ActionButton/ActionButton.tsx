@@ -4,6 +4,7 @@ import React, {
   ReactNode,
 } from "react";
 import { SvgIcon } from "../SvgIcon";
+import { LoadingSpinner } from '../LoadingSpinner';
 import classes from "./ActionButton.module.css";
 
 interface ActionButtonProps {
@@ -57,6 +58,8 @@ export const ActionButton: FunctionComponent<
     large: "button--large",
   };
 
+  let isDisabled = disabled || isLoading;
+
   let classList = [
     classes["action-button"],
     color
@@ -67,6 +70,8 @@ export const ActionButton: FunctionComponent<
       ? classes[buttonSizeMapping[size]]
       : classes[buttonSizeMapping["small"]],
     restrainWidth ? classes["restrain-width"] : null,
+    isLoading ? classes["button--isLoading"] : null,
+    disabled ? classes["button--disabled"] : null,
     className
   ];
 
@@ -77,7 +82,7 @@ export const ActionButton: FunctionComponent<
         icon={icon}
         size={size === "compact" ? "extraSmall" : "small"}
         color={
-          color === "default" && !fill
+          color === "default" || disabled
             ? "rgb(var(--text-color))"
             : color != "default" &&
               color != "none" &&
@@ -88,6 +93,8 @@ export const ActionButton: FunctionComponent<
         }
       />
     );
+  } else if (isLoading) {
+    iconInstance = <LoadingSpinner size="mini" color={fill && buttonColorMapping[color] ? "white" : null } />
   }
 
   let labelChildren = children ? (
@@ -113,8 +120,6 @@ export const ActionButton: FunctionComponent<
       {iconInstance && iconSide === "right" && !children ? iconInstance : null}
     </React.Fragment>
   );
-
-  let isDisabled = disabled || isLoading;
 
   let colorStyles = {
     backgroundColor: buttonColorMapping[color] ? null : color,

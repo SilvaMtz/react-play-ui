@@ -12,35 +12,35 @@ export const WidgetPage = (props) => {
     <div>
       <h2>Widget</h2>
       <FlexGroup>
-        <FlexItem grow={0}>
+        <FlexItem>
           <WidgetCard color="primary" onClick={() => {}} gradient={true}>
             <SvgIcon icon="sun" color="white"/>
             <h4>Hello There!</h4>
             <p>We some WIDGETS!</p>
           </WidgetCard>
         </FlexItem>
-        <FlexItem grow={0}>
+        <FlexItem>
           <WidgetCard color="accent">
             <SvgIcon icon="sun" color="white"/>
             <h4>Hello There!</h4>
             <p>We some WIDGETS!</p>
           </WidgetCard>
         </FlexItem>
-        <FlexItem grow={0}>
+        <FlexItem>
           <WidgetCard color="warning">
             <SvgIcon icon="sun" color="white"/>
             <h4>Hello There!</h4>
             <p>We some WIDGETS!</p>
           </WidgetCard>
         </FlexItem>
-        <FlexItem grow={0}>
+        <FlexItem>
           <WidgetCard color="danger" onClick={() => {}}>
             <SvgIcon icon="sun" color="white"/>
             <h4>Hello There!</h4>
             <p>We some WIDGETS!</p>
           </WidgetCard>
         </FlexItem>
-        <FlexItem grow={0}>
+        <FlexItem>
           <WidgetCard color="green" gradient={true} onClick={()=>{}}>
             <SvgIcon icon="sun" color="white"/>
             <h4>Hello There!</h4>

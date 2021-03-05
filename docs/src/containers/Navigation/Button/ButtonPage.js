@@ -1,4 +1,3 @@
-import React from "react";
 import { ActionButton, FlexGrid, FlexGroup, FlexItem } from "react-play-ui";
 
 export const ButtonPage = (props) => {
@@ -257,6 +256,37 @@ export const ButtonPage = (props) => {
               onClick={() => clickHandler()}
               size="small"
               restrainWidth={false}
+            />
+          </FlexItem>
+        </FlexGroup>
+      </FlexItem>
+      <FlexItem>
+        <h3>Disabled / Loading</h3>
+        <FlexGroup>
+          <FlexItem grow={false}>
+            <ActionButton
+              icon="check"
+              iconSide="right"
+              label="Button"
+              color="secondary"
+              disabled
+              fill={true}
+              onClick={() => clickHandler()}
+              size="small"
+              restrainWidth={true}
+            />
+          </FlexItem>
+          <FlexItem grow={false}>
+            <ActionButton
+              icon="check"
+              iconSide="right"
+              label="Button"
+              color="secondary"
+              fill={true}
+              onClick={() => clickHandler()}
+              size="small"
+              restrainWidth={true}
+              isLoading={true}
             />
           </FlexItem>
         </FlexGroup>

@@ -48,7 +48,7 @@ export const PanelCard: FunctionComponent<PanelCardProps & HTMLAttributes<HTMLDi
   let panelStyles = {
     maxWidth: typeof maxWidth === 'number' ? `${maxWidth}px`
       : typeof maxWidth === 'string' ? maxWidth : null,
-    width: maxWidth ? maxWidth : null
+    width: maxWidth ? maxWidth : null,
   };
 
   return (

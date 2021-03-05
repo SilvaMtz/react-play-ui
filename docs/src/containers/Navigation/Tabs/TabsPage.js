@@ -8,7 +8,7 @@ export const TabsPage = (props) => {
   return (
     <div>
       <h2>Tabs</h2>
-      <Tabs stretch={false} activeTab={activeTab}>
+      <Tabs stretch={true} activeTab={activeTab}>
         <Tab onClick={() => setActiveTab(1)} tabId={1}>
           <FlexGroup gutterSize="s" justifyContent="center" direction="column" alignItems="center">
             <FlexItem>

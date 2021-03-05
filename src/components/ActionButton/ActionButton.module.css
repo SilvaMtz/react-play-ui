@@ -161,3 +161,24 @@
 .action-button:active {
   transform: scale(0.963);
 }
+
+.action-button.button--isLoading {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+.action-button.button--isLoading:active {
+  transform: inherit;
+}
+
+.action-button.button--disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  background-color: rgba(var(--interactable-shade-1)) !important;
+  color: rgba(var(--text-color)) !important;
+}
+.action-button.button--disabled:hover {
+  background-color: inherit;
+}
+.action-button.button--disabled:active {
+  transform: inherit;
+}

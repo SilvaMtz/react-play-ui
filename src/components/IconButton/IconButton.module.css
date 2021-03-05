@@ -11,9 +11,13 @@
   align-items: center;
   padding: 8px;
   cursor: pointer;
+  background-color: transparent;
   transition: background-color 0.1s;
-  background-color: rgba(var(--interactable-shade-1));
   box-sizing: border-box;
+}
+
+.icon-button.button--fill {
+  background-color: rgba(var(--interactable-shade-1));
 }
 
 .icon-button.button--large {
@@ -21,8 +25,63 @@
   width: 48px;
 }
 
+.icon-button.button--small {
+  height: 38px;
+  width: 38px;
+}
+
 .icon-button:hover {
   background-color: rgba(var(--interactable-shade-1-hover));
+}
+
+.icon-button.button--primary:hover {
+  background-color: rgba(var(--primary-color), 0.2);
+}
+.icon-button.button--fill.button--primary {
+  background-color: rgba(var(--primary-color));
+}
+.icon-button.button--fill.button--primary:hover {
+  background-color: rgba(var(--primary-color-light));
+}
+
+.icon-button.button--secondary:hover {
+  background-color: rgba(var(--secondary-color), 0.2);
+}
+.icon-button.button--fill.button--secondary {
+  background-color: rgba(var(--secondary-color));
+}
+.icon-button.button--fill.button--secondary:hover {
+  background-color: rgba(var(--secondary-color-light));
+}
+
+.icon-button.button--accent:hover {
+  background-color: rgba(var(--accent-color), 0.2);
+}
+.icon-button.button--fill.button--accent {
+  background-color: rgba(var(--accent-color));
+}
+.icon-button.button--fill.button--accent:hover {
+  background-color: rgba(var(--accent-color-light));
+}
+
+.icon-button.button--warning:hover {
+  background-color: rgba(var(--warning-color), 0.2);
+}
+.icon-button.button--fill.button--warning {
+  background-color: rgba(var(--warning-color));
+}
+.icon-button.button--fill.button--warning:hover {
+  background-color: rgba(var(--warning-color-light));
+}
+
+.icon-button.button--danger:hover {
+  background-color: rgba(var(--danger-color), 0.2);
+}
+.icon-button.button--fill.button--danger {
+  background-color: rgba(var(--danger-color));
+}
+.icon-button.button--fill.button--danger:hover {
+  background-color: rgba(var(--danger-color-light));
 }
 
 .icon-button:active {
