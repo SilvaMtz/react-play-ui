@@ -12,6 +12,7 @@ interface ModalProps {
   title: string;
   children?: ReactNode;
   maxWidth?: any;
+  backgroundBlur?: boolean;
 }
 
 export const Modal: FunctionComponent<ModalProps> = ({
@@ -21,6 +22,7 @@ export const Modal: FunctionComponent<ModalProps> = ({
   title,
   children,
   maxWidth = 600,
+  backgroundBlur = true,
   ...rest
 }) => {
 
@@ -43,7 +45,7 @@ export const Modal: FunctionComponent<ModalProps> = ({
   ];
 
   return (
-    <OverlayMask onClick={onClose}>
+    <OverlayMask backgroundBlur={backgroundBlur} onClick={onClose}>
       <PanelCard className={classes['modal-animation']} flexDirection="column" maxWidth={maxWidth} paddingSize="none" {...rest}>
         <div className={classes['modal-header']}>
           <div className={classes['modal-title']}>

@@ -4,14 +4,19 @@ import classes from './OverlayMask.module.css';
 
 type OverlayProps = {
   onClick: any;
+  backgroundBlur?: boolean;
 }
 
 export const OverlayMask: FunctionComponent<OverlayProps> = ({
   children,
   onClick,
+  backgroundBlur = false,
   ...rest
 }) => {
-  let classList = [classes['overlay-mask']]
+  let classList = [
+    classes['overlay-mask'],
+    backgroundBlur ? classes['mask--backgroundBlur'] : null
+  ]
 
   useEffect(() => {
     document.body.classList.add(classes['body--hasOverlay']);
@@ -25,7 +30,6 @@ export const OverlayMask: FunctionComponent<OverlayProps> = ({
     e.stopPropagation();
   }
 
-  // TODO: Fix onClose click event when clicking the mask itself.
   let mask = (
     <div role="button" className={classList.join(' ')} onClick={onClick} {...rest}>
       <div className={classes['overlay-children']} onClick={stopClick}>{children}</div>

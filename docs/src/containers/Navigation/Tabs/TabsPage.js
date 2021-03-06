@@ -7,9 +7,9 @@ export const TabsPage = (props) => {
 
   return (
     <div>
-      <h2>Tabs</h2>
+      <h2>Tabs with custom Tab Content</h2>
       <Tabs stretch={true} activeTab={activeTab}>
-        <Tab onClick={() => setActiveTab(1)} tabId={1}>
+        <Tab label="Home" onClick={() => setActiveTab(1)} tabId={1}>
           <FlexGroup gutterSize="s" justifyContent="center" direction="column" alignItems="center">
             <FlexItem>
               <SvgIcon icon="home" size="large" />
@@ -100,6 +100,35 @@ export const TabsPage = (props) => {
       <TabPanel tabId={6} activeTab={activeTab}>
         Tab 6
       </TabPanel>
+
+      <h2>Tabs with Label Prop</h2>
+      <Tabs stretch={true} activeTab={activeTab}>
+        <Tab label="Home" onClick={() => setActiveTab(1)} tabId={1} />
+        <Tab label="Collections" onClick={() => setActiveTab(2)} tabId={2} />
+        <Tab label="Main Menu" onClick={() => setActiveTab(3)} tabId={3} />
+        <Tab label="Balance" onClick={() => setActiveTab(4)} tabId={4} />
+        <Tab label="Review" onClick={() => setActiveTab(5)} tabId={5} />
+        <Tab label="Checkout" onClick={() => setActiveTab(6)} tabId={6} />
+      </Tabs>
+      <TabPanel tabId={1} activeTab={activeTab}>
+        Tab 1
+      </TabPanel>
+      <TabPanel tabId={2} activeTab={activeTab}>
+        Tab 2
+      </TabPanel>
+      <TabPanel tabId={3} activeTab={activeTab}>
+        Tab 3
+      </TabPanel>
+      <TabPanel tabId={4} activeTab={activeTab}>
+        Tab 4
+      </TabPanel>
+      <TabPanel tabId={5} activeTab={activeTab}>
+        Tab 5
+      </TabPanel>
+      <TabPanel tabId={6} activeTab={activeTab}>
+        Tab 6
+      </TabPanel>
     </div>
+
   )
 }

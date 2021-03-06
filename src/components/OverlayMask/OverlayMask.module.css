@@ -11,7 +11,7 @@
   top: 0;
   left: 0;
   background: rgba(var(--background-overlay));
-  transition: display 0.15s linear;
+  transition: display 0.15s linear, backdrop-filter 0.15s linear;
   animation: fade-in 0.25s ease-in-out;
 }
 
@@ -22,6 +22,10 @@
   100% {
     opacity: 1;
   }
+}
+
+.overlay-mask.mask--backgroundBlur {
+  backdrop-filter: blur(0.089rem);
 }
 
 .overlay-mask .overlay-children {
