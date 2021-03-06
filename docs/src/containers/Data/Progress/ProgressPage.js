@@ -21,9 +21,9 @@ export const ProgressPage = (props) => {
       </FlexItem>
       <Divider />
       <FlexItem>
-        <h3>
+        <h2>
           Loading Spinner
-        </h3>
+        </h2>
         <FlexGroup>
           <FlexItem>
             <LoadingSpinner />
@@ -39,6 +39,28 @@ export const ProgressPage = (props) => {
           </FlexItem>
           <FlexItem>
             <LoadingSpinner color="default" />
+          </FlexItem>
+        </FlexGroup>
+      </FlexItem>
+      <FlexItem>
+        <h3>
+          Loading Spinner Sizes
+        </h3>
+        <FlexGroup>
+          <FlexItem>
+            <LoadingSpinner size="mini" />
+          </FlexItem>
+          <FlexItem>
+            <LoadingSpinner size="small" />
+          </FlexItem>
+          <FlexItem>
+            <LoadingSpinner size="medium" />
+          </FlexItem>
+          <FlexItem>
+            <LoadingSpinner size="large" />
+          </FlexItem>
+          <FlexItem>
+            <LoadingSpinner size="extraLarge" />
           </FlexItem>
         </FlexGroup>
       </FlexItem>

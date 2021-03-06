@@ -5,9 +5,21 @@
   animation: sk-chase 2.5s infinite linear both;
 }
 
-.sk-chase.mini-size {
+.sk-chase.spinner--sizeMini {
   width: 14px;
   height: 14px;
+}
+.sk-chase.spinner--sizeSmall {
+  width: 25px;
+  height: 25px;
+}
+.sk-chase.spinner--sizeLarge {
+  width: 60px;
+  height: 60px;
+}
+.sk-chase.spinner--sizeExtraLarge {
+  width: 80px;
+  height: 80px;
 }
 
 .sk-chase-dot {
@@ -29,9 +41,21 @@
   animation: sk-chase-dot-before 2.0s infinite ease-in-out both;
 }
 
-.sk-chase.mini-size .sk-chase-dot:before {
+.sk-chase.spinner--sizeMini .sk-chase-dot:before {
   width: 40%;
   height: 40%;
+}
+.sk-chase.spinner--sizeSmall .sk-chase-dot:before {
+  width: 30%;
+  height: 30%;
+}
+.sk-chase.spinner--sizeLarge .sk-chase-dot:before {
+  width: 25%;
+  height: 25%;
+}
+.sk-chase.spinner--sizeExtraLarge .sk-chase-dot:before {
+  width: 25%;
+  height: 25%;
 }
 
 .sk-chase.spinner--colorText .sk-chase-dot:before {

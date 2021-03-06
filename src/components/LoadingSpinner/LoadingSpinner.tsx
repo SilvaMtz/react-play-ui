@@ -1,19 +1,30 @@
-import React, { FunctionComponent, HTMLAttributes } from 'react';
-import classes from './LoadingSpinner.module.css';
+import React, { FunctionComponent, HTMLAttributes } from "react";
+import classes from "./LoadingSpinner.module.css";
 
 interface LoadingSpinnerProps {
-  color?: "white" | "text" | "primary" | "secondary" | "accent" | "warning" | "danger" | "default";
-  size?: string;
+  color?:
+    | "white"
+    | "text"
+    | "primary"
+    | "secondary"
+    | "accent"
+    | "warning"
+    | "danger"
+    | "default";
+  size?: "mini" | "small" | "medium" | "large" | "extraLarge";
   className?: string;
 }
 
-export const LoadingSpinner: FunctionComponent<LoadingSpinnerProps & HTMLAttributes<HTMLDivElement>> = ({
-  color = "primary",
-  size,
-  className,
-  ...rest
-}) => {
-
+export const LoadingSpinner: FunctionComponent<
+  LoadingSpinnerProps & HTMLAttributes<HTMLDivElement>
+> = ({ color = "primary", size = "medium", className, ...rest }) => {
+  const sizeToClassMap = {
+    mini: "spinner--sizeMini",
+    small: "spinner--sizeSmall",
+    medium: "",
+    large: "spinner--sizeLarge",
+    extraLarge: "spinner--sizeExtraLarge",
+  };
 
   const colorToClassStyleMap = {
     text: "spinner--colorText",
@@ -27,20 +38,20 @@ export const LoadingSpinner: FunctionComponent<LoadingSpinnerProps & HTMLAttribu
   };
 
   let classList = [
-    classes['sk-chase'],
+    classes["sk-chase"],
     colorToClassStyleMap[color] ? classes[colorToClassStyleMap[color]] : null,
-    size === "mini" ? classes['mini-size'] : null,
-    className
-  ]
+    size && sizeToClassMap[size] ? classes[sizeToClassMap[size]] : null,
+    className,
+  ];
 
   return (
-    <div className={classList.join(' ')} {...rest}>
-      <div className={classes['sk-chase-dot']}></div>
-      <div className={classes['sk-chase-dot']}></div>
-      <div className={classes['sk-chase-dot']}></div>
-      <div className={classes['sk-chase-dot']}></div>
-      <div className={classes['sk-chase-dot']}></div>
-      <div className={classes['sk-chase-dot']}></div>
+    <div className={classList.join(" ")} {...rest}>
+      <div className={classes["sk-chase-dot"]}></div>
+      <div className={classes["sk-chase-dot"]}></div>
+      <div className={classes["sk-chase-dot"]}></div>
+      <div className={classes["sk-chase-dot"]}></div>
+      <div className={classes["sk-chase-dot"]}></div>
+      <div className={classes["sk-chase-dot"]}></div>
     </div>
-  )
-}
+  );
+};
