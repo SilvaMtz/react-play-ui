@@ -17,7 +17,7 @@
  * under the License.
  */
 
-import React, { FunctionComponent } from 'react';
+import React, { CSSProperties, FunctionComponent } from 'react';
 import classes from './FlexItem.module.css';
 
 export type FlexItemGrowSize =
@@ -39,6 +39,7 @@ export interface FlexItemProps {
   grow?: FlexItemGrowSize;
   component?: keyof JSX.IntrinsicElements;
   className?: string;
+  style?: CSSProperties;
 }
 
 export const GROW_SIZES: FlexItemGrowSize[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -48,6 +49,7 @@ export const FlexItem: FunctionComponent<FlexItemProps> = ({
   className,
   grow = true,
   component: Component = 'div',
+  style,
   ...rest
 }) => {
 
@@ -60,7 +62,7 @@ export const FlexItem: FunctionComponent<FlexItemProps> = ({
 
   return (
     // @ts-ignore difficult to verify `rest` applies to `Component`
-    <Component className={classList.join(' ')} {...rest}>
+    <Component className={classList.join(' ')} style={style} {...rest}>
       {children}
     </Component>
   );
