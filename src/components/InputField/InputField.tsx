@@ -14,6 +14,7 @@ export type InputProps = InputHTMLAttributes<HTMLInputElement> & {
   minLength?: number;
   required?: boolean;
   isTouched?: boolean;
+  inputClassName?: string;
 }
 
 export const InputField: FunctionComponent<InputProps> = ({
@@ -25,6 +26,7 @@ export const InputField: FunctionComponent<InputProps> = ({
   isValid,
   value,
   className,
+  inputClassName,
   required,
   isTouched,
   ...rest
@@ -109,7 +111,8 @@ export const InputField: FunctionComponent<InputProps> = ({
     icon ? classes['input--hasIcon'] : null,
     fieldIsValid ? classes['input--isValid'] : null,
     !fieldIsValid && isTouched ? classes['input--isInvalid'] : null,
-    statusIcon ? classes['input--hasStatusIcon'] : null
+    statusIcon ? classes['input--hasStatusIcon'] : null,
+    inputClassName
   ];
 
   let inputInstance = (

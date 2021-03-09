@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode, useState } from 'react';
+import React, { ButtonHTMLAttributes, FunctionComponent, ReactNode, useState } from 'react';
 import classes from './Tab.module.css';
 
 interface TabPropTypes {
@@ -7,21 +7,32 @@ interface TabPropTypes {
   label: string;
   onClick: () => void;
   tabId: number;
+  wrapperClassName?: string;
+  buttonClassName?: string;
 };
 
-export const Tab:FunctionComponent<TabPropTypes> = ({
+export const Tab:FunctionComponent<TabPropTypes & ButtonHTMLAttributes<HTMLButtonElement>> = ({
   activeTab,
   children,
   label,
   onClick,
-  tabId
+  tabId,
+  wrapperClassName,
+  buttonClassName,
+  ...rest
 }) => {
 
   let isActive = activeTab === tabId
 
   let classList = [
     classes['Tab'],
-    isActive ? classes['Tab--isActive'] : null
+    isActive ? classes['Tab--isActive'] : null,
+    wrapperClassName
+  ];
+
+  let buttonClassList = [
+    classes['TabButton'],
+    buttonClassName
   ];
 
   return (
@@ -31,7 +42,8 @@ export const Tab:FunctionComponent<TabPropTypes> = ({
     >
       <button
         onClick={onClick}
-        className={classes['TabButton']}
+        className={buttonClassList.join(' ')}
+        {...rest}
       >
         {children ? children : label}
       </button>
