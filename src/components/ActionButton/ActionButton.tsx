@@ -82,7 +82,9 @@ export const ActionButton: FunctionComponent<
         icon={icon}
         size={size === "compact" ? "extraSmall" : "small"}
         color={
-          color === "default" || disabled
+          disabled
+          ? "rgba(var(--interactable-shade-1-hover))"
+          : color === "default"
             ? "rgb(var(--text-color))"
             : color != "default" &&
               color != "none" &&

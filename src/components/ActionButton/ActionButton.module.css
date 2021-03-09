@@ -172,12 +172,12 @@
 
 .action-button.button--disabled {
   cursor: not-allowed;
-  opacity: 0.6;
-  background-color: rgba(var(--interactable-shade-1)) !important;
-  color: rgba(var(--text-color)) !important;
+  opacity: 0.95;
+  background-color: rgba(var(--interactable-shade-1), 0.40) !important;
+  color: rgba(var(--interactable-shade-1-hover)) !important;
 }
 .action-button.button--disabled:hover {
-  background-color: inherit;
+  background-color: rgba(var(--interactable-shade-1), 0.40) !important;
 }
 .action-button.button--disabled:active {
   transform: inherit;

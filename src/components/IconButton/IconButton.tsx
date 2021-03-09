@@ -14,6 +14,7 @@ interface IconButtonProps {
   href?: string;
   badge?: NumberBadgePropTypes;
   iconOutline?: boolean;
+  disabled?: boolean;
 }
 
 export const IconButton: FunctionComponent<
@@ -30,6 +31,7 @@ export const IconButton: FunctionComponent<
   badge,
   type = "button",
   iconOutline = false,
+  disabled,
   ...rest
 }) => {
   const buttonColorMapping = {
@@ -57,6 +59,7 @@ export const IconButton: FunctionComponent<
     size
       ? classes[buttonSizeMapping[size]]
       : classes[buttonSizeMapping["medium"]],
+    disabled ? classes["icon-button--isDisabled"] : null
   ];
 
   let badgeInstance;
@@ -74,12 +77,15 @@ export const IconButton: FunctionComponent<
       onClick={onClick}
       type={type}
       style={bgColorStyles}
+      disabled={disabled}
       {...rest}
     >
       {badgeInstance}
       <SvgIcon
         color={
-          iconFill
+          disabled
+          ? "rgba(var(--interactable-shade-1-hover))"
+          : iconFill
             ? iconFill
             : color != "default" && buttonColorMapping[color] && !fill
             ? `rgba(var(--${color}-color))`

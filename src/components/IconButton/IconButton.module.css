@@ -87,3 +87,15 @@
 .icon-button:active {
   transform: scale(0.963);
 }
+
+.icon-button.icon-button--isDisabled {
+  cursor: not-allowed;
+  opacity: 0.92;
+  background-color: rgba(var(--interactable-shade-1), 0.35) !important;
+}
+.icon-button.icon-button--isDisabled:active {
+  transform: scale(1);
+}
+.icon-button.icon-button--isDisabled:hover {
+  background-color: rgba(var(--interactable-shade-1), 0.35) !important;
+}

@@ -79,6 +79,15 @@ export const IconButtonPage = (props) => {
           <IconButton size="large" icon="cog" onClick={()=>{}} color="blue" fill iconFill="green" />
         </FlexItem>
       </FlexGroup>
+      <h3>Disabled</h3>
+      <FlexGroup>
+        <FlexItem grow={false}>
+          <IconButton disabled size="medium" icon="cog" onClick={()=>{}} color="primary" />
+        </FlexItem>
+        <FlexItem grow={false}>
+          <IconButton disabled size="large" icon="cog" onClick={()=>{}} color="primary" />
+        </FlexItem>
+      </FlexGroup>
     </div>
   )
 }
