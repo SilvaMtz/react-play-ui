@@ -1,18 +1,60 @@
-import React from 'react';
-import { Divider, FlexGroup, FlexItem, LoadingContent, LoadingSpinner } from 'react-play-ui';
+import React, { useState } from "react";
+import {
+  ActionButton,
+  Divider,
+  FlexGroup,
+  FlexItem,
+  LoadingContent,
+  LoadingSpinner,
+  ProgressBar,
+} from "react-play-ui";
 
 export const ProgressPage = (props) => {
+  const [progress, setProgress] = useState(0);
 
   return (
-
     <FlexGroup direction="column">
       <FlexItem>
         <h2>Progress / Loading</h2>
       </FlexItem>
       <FlexItem>
-        <h3>
-          Loading Text Content
-        </h3>
+        <h3>Progress Bar</h3>
+        <FlexGroup direction="column">
+          <FlexItem>
+            <ProgressBar style={{ marginBottom: 6 }} size="extraSmall" />
+          </FlexItem>
+          <FlexItem>
+            <ProgressBar
+              style={{ marginBottom: 6 }}
+              duration={5}
+              size="extraSmall"
+            />
+          </FlexItem>
+          <FlexItem>
+            <FlexGroup alignItems="center">
+              <FlexItem grow={false}>
+                <ActionButton
+                  size="compact"
+                  icon="plus"
+                  label="Add 20%"
+                  onClick={() => {
+                    setProgress(progress + 20);
+                  }}
+                />
+              </FlexItem>
+              <FlexItem>
+                <ProgressBar
+                  style={{ marginBottom: 6 }}
+                  value={progress}
+                  size="extraSmall"
+                />
+              </FlexItem>
+            </FlexGroup>
+          </FlexItem>
+        </FlexGroup>
+      </FlexItem>
+      <FlexItem>
+        <h3>Loading Text Content</h3>
         <FlexGroup>
           <FlexItem>
             <LoadingContent lines={5} />
@@ -21,9 +63,7 @@ export const ProgressPage = (props) => {
       </FlexItem>
       <Divider />
       <FlexItem>
-        <h2>
-          Loading Spinner
-        </h2>
+        <h2>Loading Spinner</h2>
         <FlexGroup>
           <FlexItem>
             <LoadingSpinner />
@@ -43,9 +83,7 @@ export const ProgressPage = (props) => {
         </FlexGroup>
       </FlexItem>
       <FlexItem>
-        <h3>
-          Loading Spinner Sizes
-        </h3>
+        <h3>Loading Spinner Sizes</h3>
         <FlexGroup>
           <FlexItem>
             <LoadingSpinner size="mini" />
@@ -65,5 +103,5 @@ export const ProgressPage = (props) => {
         </FlexGroup>
       </FlexItem>
     </FlexGroup>
-  )
-}
+  );
+};

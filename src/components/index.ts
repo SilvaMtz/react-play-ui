@@ -32,3 +32,4 @@ export { Tab } from './Tabs';
 export { Tabs } from './Tabs';
 export { TabPanel } from './Tabs';
 export { Callout } from './Callout';
+export { ProgressBar } from './ProgressBar';

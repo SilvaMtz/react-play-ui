@@ -1,0 +1,67 @@
+.progress-bar {
+  content: "";
+  height: 6px;
+  width: 100%;
+  background-color: rgb(var(--palette-shade-5));
+  overflow: hidden;
+}
+
+.progress-bar--progress {
+  display: block;
+  width: 80%;
+  height: 100%;
+  animation: loadingProgressAnimation 2s ease-in-out infinite;
+  background-color: rgba(var(--interactable-shade-1-hover));
+}
+
+.progress-bar--sizeExtraSmall {
+  height: 3px;
+}
+.progress-bar--sizeSmall {
+  height: 6px;
+}
+.progress-bar--sizeMedium {
+  height: 10px;
+}
+.progress-bar--sizeLarge {
+  height: 14px;
+}
+
+.progress-bar--primaryColor {
+  background-color: rgba(var(--primary-color));
+}
+.progress-bar--secondaryColor {
+  background-color: rgba(var(--secondary-color));
+}
+.progress-bar--accentColor {
+  background-color: rgba(var(--accent-color));
+}
+.progress-bar--warningColor {
+  background-color: rgba(var(--warning-color));
+}
+.progress-bar--dangerColor {
+  background-color: rgba(var(--danger-color));
+}
+.progress-bar--defaultColor {
+  background-color: rgba(var(--interactable-shade-1-hover));
+}
+
+@keyframes loadingProgressAnimation {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(130%);
+  }
+}
+
+@keyframes loadingLimitedProgressAnimation {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
