@@ -9,7 +9,7 @@ interface ModalProps {
   paddingSize?: string;
   icon?: string;
   onClose: any;
-  title: string;
+  title?: string;
   children?: ReactNode;
   maxWidth?: any;
   backgroundBlur?: boolean;
@@ -56,14 +56,17 @@ export const Modal: FunctionComponent<ModalProps> = ({
     classes['modal-animation']
   ]
 
-  let headerInstance = (
-    <div className={headerClassList.join(' ')}>
-      <div className={classes['modal-title']}>
-        {iconInstance}
-        <h2>{title}</h2>
+  let headerInstance;
+  if (title) {
+    headerInstance = (
+      <div className={headerClassList.join(' ')}>
+        <div className={classes['modal-title']}>
+          {iconInstance}
+          <h2>{title}</h2>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 
   return (
     <OverlayMask backgroundBlur={backgroundBlur} onClick={onClose}>
