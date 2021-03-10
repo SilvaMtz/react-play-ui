@@ -27,9 +27,8 @@ export const ModalPage = (props) => {
       <Modal
         backgroundBlur={false}
         title="Without Blur"
-        icon="userCircle"
         onClose={() => setOpenTwo(false)}
-        fo
+        centerTitle
       >
         <FlexGroup>
           <FlexItem>Children body here</FlexItem>

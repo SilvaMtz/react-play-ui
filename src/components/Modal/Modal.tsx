@@ -13,6 +13,7 @@ interface ModalProps {
   children?: ReactNode;
   maxWidth?: any;
   backgroundBlur?: boolean;
+  centerTitle?: boolean
 }
 
 export const Modal: FunctionComponent<ModalProps> = ({
@@ -23,6 +24,7 @@ export const Modal: FunctionComponent<ModalProps> = ({
   children,
   maxWidth = 600,
   backgroundBlur = true,
+  centerTitle = false,
   ...rest
 }) => {
 
@@ -44,16 +46,30 @@ export const Modal: FunctionComponent<ModalProps> = ({
     classes[bodyPaddingSizeClassMapping[paddingSize]]
   ];
 
+  let headerClassList = [
+    classes['modal-header'],
+    centerTitle ? classes['center-header'] : null
+  ];
+
+  let modalClassList = [
+    classes['modal-panel'],
+    classes['modal-animation']
+  ]
+
+  let headerInstance = (
+    <div className={headerClassList.join(' ')}>
+      <div className={classes['modal-title']}>
+        {iconInstance}
+        <h2>{title}</h2>
+      </div>
+    </div>
+  );
+
   return (
     <OverlayMask backgroundBlur={backgroundBlur} onClick={onClose}>
-      <PanelCard className={classes['modal-animation']} flexDirection="column" maxWidth={maxWidth} paddingSize="none" {...rest}>
-        <div className={classes['modal-header']}>
-          <div className={classes['modal-title']}>
-            {iconInstance}
-            <h2>{title}</h2>
-          </div>
-          <IconButton icon="x" onClick={onClose} />
-        </div>
+      <PanelCard gutterSize="none" className={modalClassList.join(' ')} direction="column" maxWidth={maxWidth} paddingSize="none" {...rest}>
+        {headerInstance}
+        <IconButton size="small" style={{position: "absolute", top: 12, right: 12}} icon="x" onClick={onClose} />
         <div className={bodyClassList.join(' ')}>{children}</div>
       </PanelCard>
     </OverlayMask>

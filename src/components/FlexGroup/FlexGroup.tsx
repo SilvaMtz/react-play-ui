@@ -104,7 +104,8 @@ export const FlexGroup = forwardRef<
       classes[justifyContentToClassNameMap[justifyContent as FlexGroupJustifyContent]],
       classes[directionToClassNameMap[direction as FlexGroupDirection]],
       responsive ? [classes['FlexGroup--responsive'], 'flexGroup--responsive'].join(' ') : undefined,
-      wrap ? classes['FlexGroup--wrap'] : undefined
+      wrap ? classes['FlexGroup--wrap'] : undefined,
+      className
     ];
 
     if (!isValidElement(component)) {
