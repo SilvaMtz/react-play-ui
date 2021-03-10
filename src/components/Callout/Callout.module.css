@@ -1,0 +1,63 @@
+.callout {
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.callout.callout--primaryColor {
+  border-left: 8px rgba(var(--primary-color), 0.7) solid;
+}
+.callout.callout--secondaryColor {
+  border-left: 8px rgba(var(--secondary-color), 0.7) solid;
+}
+.callout.callout--accentColor {
+  border-left: 8px rgba(var(--accent-color), 0.7) solid;
+}
+.callout.callout--warningColor {
+  border-left: 8px rgba(var(--warning-color), 0.7) solid;
+}
+.callout.callout--dangerColor {
+  border-left: 8px rgba(var(--danger-color), 0.7) solid;
+}
+.callout.callout--defaultColor {
+  border-left: 8px rgba(var(--interactable-shade-1-hover), 0.7) solid;
+}
+
+.callout.callout--fill_primaryColor {
+  background-color: rgba(var(--primary-color), 0.15);
+}
+.callout.callout--fill_secondaryColor {
+  background-color: rgba(var(--secondary-color), 0.15);
+}
+.callout.callout--fill_accentColor {
+  background-color: rgba(var(--accent-color), 0.15);
+}
+.callout.callout--fill_warningColor {
+  background-color: rgba(var(--warning-color), 0.15);
+}
+.callout.callout--fill_dangerColor {
+  background-color: rgba(var(--danger-color), 0.15);
+}
+.callout.callout--fill_defaultColor {
+  background-color: rgba(var(--interactable-shade-1-hover), 0.15);
+}
+
+.title {
+  margin: 0;
+  margin-bottom: 8px;
+}
+
+.body {
+  font-size: 0.935rem;
+  font-weight: 300;
+  color: rgba(var(--text-color-shade));
+}
+
+.icon--title {
+  display: flex;
+  direction: row;
+  align-items: center;
+}
+
+.title--withIcon {
+  margin: 0;
+}

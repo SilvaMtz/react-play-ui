@@ -148,6 +148,13 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           href: "/display/popover",
           isActive: currentRoute.pathname === "/display/popover"
         },
+        {
+          id: 7,
+          name: "Callout",
+          label: "Callout (WIP)",
+          href: "/display/callout",
+          isActive: currentRoute.pathname === "/display/callout"
+        },
       ],
     },
     {
