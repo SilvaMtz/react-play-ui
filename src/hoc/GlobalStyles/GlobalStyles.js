@@ -27,6 +27,7 @@ export const GlobalStyles = createGlobalStyle`
     --interactable-shade-1-hover ${({ theme }) => theme.interactableShade1Hover};
     --background-overlay: ${({ theme }) => theme.backgroundOverlay};
     --background-color: ${({ theme }) => theme.backgroundColor};
+    --card-background: ${({ theme }) => theme.cardBackground};
     font-size: 16px;
     background-color: rgba(var(--background-color));
     color: rgba(var(--text-color));

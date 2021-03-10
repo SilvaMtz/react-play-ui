@@ -22,6 +22,7 @@ export const DarkTheme = {
   paletteShade4: '73, 73, 73',
   paletteShade5: '53, 53, 53',
   backgroundOverlay: '0, 0, 0, 0.6',
+  cardBackground: '45, 45, 45',
   interactableShade1: '58, 59, 61',
   interactableShade1Hover: '70, 72, 72',
   backgroundColor: '12, 12, 12'
