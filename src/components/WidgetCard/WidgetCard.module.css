@@ -69,11 +69,11 @@
 }
 
 /*
-  SECONDARY COLORS
+  SUCCESS COLORS
 */
-.widget--colorSecondary {
-  background-color: rgba(var(--secondary-color));
-  box-shadow: 0px 1px 5px rgba(var(--secondary-color), 0.25);
+.widget--colorSuccess {
+  background-color: rgba(var(--success-color));
+  box-shadow: 0px 1px 5px rgba(var(--success-color), 0.25);
 }
 
 /*

@@ -62,7 +62,7 @@
 }
 
 .textarea--isValid {
-  border: 1px rgba(var(--secondary-color), 0.6) solid;
+  border: 1px rgba(var(--success-color), 0.6) solid;
 }
 
 .textarea--isInvalid {

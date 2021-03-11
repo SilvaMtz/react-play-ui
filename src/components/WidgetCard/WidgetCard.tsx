@@ -15,13 +15,13 @@ interface WidgetCardProps {
 
 export const WidgetCard: FunctionComponent<
   WidgetCardProps & ButtonHTMLAttributes<HTMLButtonElement & HTMLDivElement>
-> = ({ children, onClick, color = "secondary", gradient = true, ...rest }) => {
+> = ({ children, onClick, color = "success", gradient = true, ...rest }) => {
   const colorToClassStyleMap = {
     default: "widget--colorDefault",
     primary: "widget--colorPrimary",
     danger: "widget--colorDanger",
     warning: "widget--colorWarning",
-    secondary: "widget--colorSecondary",
+    success: "widget--colorSuccess",
     accent: "widget--colorAccent",
   };
 

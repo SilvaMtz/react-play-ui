@@ -33,7 +33,7 @@ export const SvgIcon: FunctionComponent<SVGAttributes<SVGElement> & SvgIconProps
 
   const colorPaletteToClassMap = {
     primary: "rgba(var(--primary-color))",
-    secondary: "rgba(var(--secondary-color))",
+    success: "rgba(var(--success-color))",
     accent: "rgba(var(--accent-color))",
     warning: "rgba(var(--warning-color))",
     danger: "rgba(var(--danger-color))",

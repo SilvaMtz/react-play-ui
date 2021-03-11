@@ -6,7 +6,7 @@ interface LoadingSpinnerProps {
     | "white"
     | "text"
     | "primary"
-    | "secondary"
+    | "success"
     | "accent"
     | "warning"
     | "danger"
@@ -31,7 +31,7 @@ export const LoadingSpinner: FunctionComponent<
     primary: "spinner--colorPrimary",
     danger: "spinner--colorDanger",
     warning: "spinner--colorWarning",
-    secondary: "spinner--colorSecondary",
+    success: "spinner--colorSuccess",
     accent: "spinner--colorAccent",
     default: "spinner--colorDefault",
     white: "spinner--colorWhite",

@@ -46,7 +46,7 @@ export const ActionButton: FunctionComponent<
     default: "button--default",
     primary: "button--primary",
     danger: "button--danger",
-    secondary: "button--secondary",
+    success: "button--success",
     warning: "button--warning",
     accent: "button--accent",
   };

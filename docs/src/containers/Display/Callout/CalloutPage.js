@@ -13,7 +13,7 @@ export const CalloutPage = (props) => {
           </Callout>
         </FlexItem>
         <FlexItem>
-          <Callout title="PRO TIP: You can use title only to get a short and concrete message across." icon="lightBulb" color="secondary" />
+          <Callout title="PRO TIP: You can use title only to get a short and concrete message across." icon="lightBulb" color="success" />
         </FlexItem>
         <FlexItem>
           <Callout icon="lightBulb" color="accent">

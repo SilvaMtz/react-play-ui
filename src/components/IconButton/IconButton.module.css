@@ -44,14 +44,14 @@
   background-color: rgba(var(--primary-color-light));
 }
 
-.icon-button.button--secondary:hover {
-  background-color: rgba(var(--secondary-color), 0.2);
+.icon-button.button--success:hover {
+  background-color: rgba(var(--success-color), 0.2);
 }
-.icon-button.button--fill.button--secondary {
-  background-color: rgba(var(--secondary-color));
+.icon-button.button--fill.button--success {
+  background-color: rgba(var(--success-color));
 }
-.icon-button.button--fill.button--secondary:hover {
-  background-color: rgba(var(--secondary-color-light));
+.icon-button.button--fill.button--success:hover {
+  background-color: rgba(var(--success-color-light));
 }
 
 .icon-button.button--accent:hover {

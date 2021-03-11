@@ -73,7 +73,7 @@ export const InputField: FunctionComponent<InputProps> = ({
       <SvgIcon
         className={classes['inputValid-icon']}
         icon="check"
-        color="rgb(var(--secondary-color))"
+        color="rgb(var(--success-color))"
         size="small"
       />
     );

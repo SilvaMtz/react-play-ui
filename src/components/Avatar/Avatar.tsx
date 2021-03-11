@@ -48,7 +48,7 @@ export const Avatar: FunctionComponent<AvatarProps> = ({
 }) => {
   const paletteColors = {
     primary: "rgb(var(--primary-color))",
-    secondary: "rgb(var(--secondary-color))",
+    success: "rgb(var(--success-color))",
     accent: "rgb(var(--accent-color))",
     warning: "rgb(var(--warning-color))",
     danger: "rgb(var(--danger-color))",

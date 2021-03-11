@@ -24,6 +24,7 @@ export interface DisplayCardProps {
   - Add HTMLButtonElement interface once button/div check is corrected
   - Add href functionality
   - Add restrainWidth prop
+  ? Add close/remove button on top-right corner
 */
 export const DisplayCard: FunctionComponent<
   DisplayCardProps & HTMLAttributes<HTMLDivElement>

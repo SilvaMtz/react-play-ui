@@ -38,7 +38,7 @@ export const IconButton: FunctionComponent<
     none: "",
     default: "button--default",
     primary: "button--primary",
-    secondary: "button--secondary",
+    success: "button--success",
     accent: "button--accent",
     warning: "button--warning",
     danger: "button--danger",

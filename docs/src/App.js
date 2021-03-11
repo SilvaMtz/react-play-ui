@@ -73,6 +73,9 @@ const App = () => {
       <Route path="/display/callout">
         <Pages.CalloutPage />
       </Route>
+      <Route path="/display/toast">
+        <Pages.ToastPage />
+      </Route>
       <Route path="/inputs">
         <Pages.InputsPage />
       </Route>

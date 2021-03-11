@@ -151,9 +151,16 @@ export const Layout: FunctionComponent<LayoutProps> = ({
         {
           id: 7,
           name: "Callout",
-          label: "Callout (WIP)",
+          label: "Callout",
           href: "/display/callout",
           isActive: currentRoute.pathname === "/display/callout"
+        },
+        {
+          id: 8,
+          name: "Toast",
+          label: "Toast",
+          href: "/display/toast",
+          isActive: currentRoute.pathname === "/display/toast"
         },
       ],
     },
@@ -206,7 +213,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
         {
           id: 6,
           name: "Tabs",
-          label: "Tabs (WIP)",
+          label: "Tabs",
           href: "/navigation/tabs",
           isActive: currentRoute.pathname === "/navigation/tabs"
         },
@@ -219,14 +226,14 @@ export const Layout: FunctionComponent<LayoutProps> = ({
         {
           id: 0,
           name: "ProgressLoading",
-          label: "Progress (WIP)",
+          label: "Progress",
           href: "/data/progress",
           isActive: currentRoute.pathname === "/data/progress"
         },
         {
           id: 1,
           name: "Avatar",
-          label: "Avatar (WIP)",
+          label: "Avatar",
           isActive: currentRoute.pathname === "/data/avatar",
           href: "/data/avatar"
         },

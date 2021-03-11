@@ -2,8 +2,8 @@ export const LightTheme = {
   primaryColor: '46, 137, 255',
   primaryColorLight: '71, 151, 255',
   primaryColorOpaque: '46, 137, 255, 0.2',
-  secondaryColor: '37, 211, 102',
-  secondaryColorLight: '62, 229, 117',
+  successColor: '37, 211, 102',
+  successColorLight: '62, 229, 117',
   accentColor: '0, 202, 199',
   accentColorLight: '0, 220, 214',
   dangerColor: '252, 34, 34',
@@ -23,6 +23,7 @@ export const LightTheme = {
   paletteShade5: '251, 251, 251',
   backgroundOverlay: '0, 0, 0, 0.6',
   cardBackground: '253, 253, 253',
+  toastBackground: '250, 250, 250',
   interactableShade1: '228,230,235',
   interactableShade1Hover: '216, 216, 224',
   backgroundColor: '252, 252, 252'

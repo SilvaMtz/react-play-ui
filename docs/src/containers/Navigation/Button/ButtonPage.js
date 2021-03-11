@@ -251,7 +251,7 @@ export const ButtonPage = (props) => {
               icon="check"
               iconSide="right"
               label="Button"
-              color="secondary"
+              color="success"
               fill={true}
               onClick={() => clickHandler()}
               size="small"
@@ -268,7 +268,7 @@ export const ButtonPage = (props) => {
               icon="check"
               iconSide="right"
               label="Button"
-              color="secondary"
+              color="success"
               disabled
               fill={true}
               onClick={() => clickHandler()}
@@ -281,7 +281,7 @@ export const ButtonPage = (props) => {
               icon="check"
               iconSide="right"
               label="Button"
-              color="secondary"
+              color="success"
               fill={true}
               onClick={() => clickHandler()}
               size="small"

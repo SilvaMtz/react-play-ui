@@ -14,7 +14,7 @@ export const IconButtonPage = (props) => {
           <IconButton size="medium" icon="cog" onClick={()=>{}} color="primary" />
         </FlexItem>
         <FlexItem grow={false}>
-          <IconButton size="large" icon="cog" onClick={()=>{}} color="secondary" />
+          <IconButton size="large" icon="cog" onClick={()=>{}} color="success" />
         </FlexItem>
         <FlexItem grow={false}>
           <IconButton size="small" icon="cog" onClick={()=>{}} color="accent" />
@@ -34,7 +34,7 @@ export const IconButtonPage = (props) => {
           <IconButton size="medium" icon="cog" onClick={()=>{}} color="primary" fill />
         </FlexItem>
         <FlexItem grow={false}>
-          <IconButton size="large" icon="cog" onClick={()=>{}} color="secondary" fill />
+          <IconButton size="large" icon="cog" onClick={()=>{}} color="success" fill />
         </FlexItem>
         <FlexItem grow={false}>
           <IconButton size="small" icon="cog" onClick={()=>{}} color="accent" fill />

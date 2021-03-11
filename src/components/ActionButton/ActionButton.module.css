@@ -139,23 +139,23 @@
   background-color: rgba(var(--accent-color-light));
 }
 
-.action-button.button--secondary:hover,
-.action-button.button--secondary:focus {
-  background-color: rgba(var(--secondary-color), 0.35);
+.action-button.button--success:hover,
+.action-button.button--success:focus {
+  background-color: rgba(var(--success-color), 0.35);
 }
 
-.action-button.button--secondary {
-  color: rgba(var(--secondary-color));
+.action-button.button--success {
+  color: rgba(var(--success-color));
 }
 
-.action-button.button--secondary.fill {
-  background-color: rgba(var(--secondary-color));
+.action-button.button--success.fill {
+  background-color: rgba(var(--success-color));
   color: white;
 }
 
-.action-button.button--secondary.fill:hover,
-.action-button.button--secondary.fill:focus {
-  background-color: rgba(var(--secondary-color-light));
+.action-button.button--success.fill:hover,
+.action-button.button--success.fill:focus {
+  background-color: rgba(var(--success-color-light));
 }
 
 .action-button:active {

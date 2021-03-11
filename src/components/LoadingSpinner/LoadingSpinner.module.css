@@ -64,8 +64,8 @@
 .sk-chase.spinner--colorPrimary .sk-chase-dot:before {
   background-color: rgb(var(--primary-color));
 }
-.sk-chase.spinner--colorSecondary .sk-chase-dot:before {
-  background-color: rgb(var(--secondary-color));
+.sk-chase.spinner--colorSuccess .sk-chase-dot:before {
+  background-color: rgb(var(--success-color));
 }
 .sk-chase.spinner--colorAccent .sk-chase-dot:before {
   background-color: rgb(var(--accent-color));

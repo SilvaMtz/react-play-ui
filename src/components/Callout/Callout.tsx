@@ -3,7 +3,7 @@ import classes from "./Callout.module.css";
 import { SvgIcon } from "../SvgIcon";
 
 export interface CalloutProps {
-  color?: "primary" | "secondary" | "accent" | "warning" | "danger" | "default";
+  color?: "primary" | "success" | "accent" | "warning" | "danger" | "default";
   icon?: string;
   iconSize?: "extraSmall" | "small" | "medium" | "large";
   title?: string;
@@ -27,7 +27,7 @@ export const Callout: FunctionComponent<
 }) => {
   const colorToClassMap = {
     primary: "callout--primaryColor",
-    secondary: "callout--secondaryColor",
+    success: "callout--successColor",
     accent: "callout--accentColor",
     warning: "callout--warningColor",
     danger: "callout--dangerColor",
@@ -36,7 +36,7 @@ export const Callout: FunctionComponent<
 
   const colorFillToClassMap = {
     primary: "callout--fill_primaryColor",
-    secondary: "callout--fill_secondaryColor",
+    success: "callout--fill_successColor",
     accent: "callout--fill_accentColor",
     warning: "callout--fill_warningColor",
     danger: "callout--fill_dangerColor",

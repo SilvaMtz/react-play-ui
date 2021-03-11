@@ -5,7 +5,7 @@ import classes from "./ProgressBar.module.css";
 export interface ProgressBarProps {
   className?: string;
   size?: "extraSmall" | "small" | "medium" | "large";
-  color?: "primary" | "secondary" | "accent" | "warning" | "danger" | "default";
+  color?: "primary" | "success" | "accent" | "warning" | "danger" | "default";
   duration?: "indefinite" | number;
   value?: number;
 }
@@ -29,7 +29,7 @@ export const ProgressBar: FunctionComponent<
 
   const colorToClassMap = {
     primary: "progress-bar--primaryColor",
-    secondary: "progress-bar--secondaryColor",
+    success: "progress-bar--successColor",
     accent: "progress-bar--accentColor",
     warning: "progress-bar--warningColor",
     danger: "progress-bar--dangerColor",

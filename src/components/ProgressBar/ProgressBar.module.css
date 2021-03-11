@@ -30,8 +30,8 @@
 .progress-bar--primaryColor {
   background-color: rgba(var(--primary-color));
 }
-.progress-bar--secondaryColor {
-  background-color: rgba(var(--secondary-color));
+.progress-bar--successColor {
+  background-color: rgba(var(--success-color));
 }
 .progress-bar--accentColor {
   background-color: rgba(var(--accent-color));

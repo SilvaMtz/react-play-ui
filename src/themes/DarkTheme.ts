@@ -2,8 +2,8 @@ export const DarkTheme = {
   primaryColor: '46, 137, 255',
   primaryColorLight: '71, 151, 255',
   primaryColorOpaque: '46, 137, 255, 0.2',
-  secondaryColor: '37, 211, 102',
-  secondaryColorLight: '62, 229, 117',
+  successColor: '37, 211, 102',
+  successColorLight: '62, 229, 117',
   accentColor: '0, 202, 199',
   accentColorLight: '0, 220, 214',
   dangerColor: '252, 34, 34',
@@ -23,6 +23,7 @@ export const DarkTheme = {
   paletteShade5: '53, 53, 53',
   backgroundOverlay: '0, 0, 0, 0.6',
   cardBackground: '45, 45, 45',
+  toastBackground: '50, 50, 50',
   interactableShade1: '58, 59, 61',
   interactableShade1Hover: '70, 72, 72',
   backgroundColor: '12, 12, 12'

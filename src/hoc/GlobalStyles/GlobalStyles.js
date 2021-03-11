@@ -4,8 +4,8 @@ export const GlobalStyles = createGlobalStyle`
     --primary-color: ${({ theme }) => theme.primaryColor};
     --primary-color-light: ${({ theme }) => theme.primaryColorLight};
     --primary-color-opaque: ${({ theme }) => theme.primaryColorOpaque};
-    --secondary-color: ${({ theme }) => theme.secondaryColor};
-    --secondary-color-light: ${({ theme }) => theme.secondaryColorLight};
+    --success-color: ${({ theme }) => theme.successColor};
+    --success-color-light: ${({ theme }) => theme.successColorLight};
     --accent-color: ${({ theme }) => theme.accentColor};
     --accent-color-light: ${({ theme }) => theme.accentColorLight};
     --danger-color: ${({ theme }) => theme.dangerColor};
@@ -28,6 +28,7 @@ export const GlobalStyles = createGlobalStyle`
     --background-overlay: ${({ theme }) => theme.backgroundOverlay};
     --background-color: ${({ theme }) => theme.backgroundColor};
     --card-background: ${({ theme }) => theme.cardBackground};
+    --toast-background: ${({ theme }) => theme.toastBackground};
     font-size: 16px;
     background-color: rgba(var(--background-color));
     color: rgba(var(--text-color));

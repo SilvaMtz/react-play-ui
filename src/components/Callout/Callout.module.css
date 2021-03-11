@@ -6,8 +6,8 @@
 .callout.callout--primaryColor {
   border-left: 8px rgba(var(--primary-color), 0.7) solid;
 }
-.callout.callout--secondaryColor {
-  border-left: 8px rgba(var(--secondary-color), 0.7) solid;
+.callout.callout--successColor {
+  border-left: 8px rgba(var(--success-color), 0.7) solid;
 }
 .callout.callout--accentColor {
   border-left: 8px rgba(var(--accent-color), 0.7) solid;
@@ -25,8 +25,8 @@
 .callout.callout--fill_primaryColor {
   background-color: rgba(var(--primary-color), 0.15);
 }
-.callout.callout--fill_secondaryColor {
-  background-color: rgba(var(--secondary-color), 0.15);
+.callout.callout--fill_successColor {
+  background-color: rgba(var(--success-color), 0.15);
 }
 .callout.callout--fill_accentColor {
   background-color: rgba(var(--accent-color), 0.15);

@@ -55,8 +55,8 @@
   background-color: rgb(var(--primary-color));
 }
 
-.badge--colorSecondary {
-  background-color: rgb(var(--secondary-color));
+.badge--colorSuccess {
+  background-color: rgb(var(--success-color));
 }
 
 .badge--colorAccent {

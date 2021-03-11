@@ -24,7 +24,7 @@ export const NumberBadge: FunctionComponent<NumberBadgePropTypes> = ({
     primary: "badge--colorPrimary",
     danger: "badge--colorDanger",
     warning: "badge--colorWarning",
-    secondary: "badge--colorSecondary",
+    success: "badge--colorSuccess",
     accent: "badge--colorAccent",
   };
 
