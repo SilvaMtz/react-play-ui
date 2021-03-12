@@ -1,5 +1,6 @@
 import React, { FunctionComponent, HTMLAttributes } from "react";
 import { IconButton } from "../IconButton";
+import { ProgressBar } from "../ProgressBar";
 import { SvgIcon } from "../SvgIcon";
 import classes from "./Toast.module.css";
 
@@ -11,6 +12,8 @@ export interface ToastProps {
   iconColor?: string;
   iconOutline?: boolean;
   className?: string;
+  fill?: boolean;
+  duration?: number;
   onClose?: () => {};
 }
 
@@ -24,6 +27,8 @@ export const Toast: FunctionComponent<
   iconColor = color,
   iconOutline = false,
   className,
+  fill = false,
+  duration,
   children,
   onClose,
   ...rest
@@ -84,6 +89,7 @@ export const Toast: FunctionComponent<
     (childrenInstance && !titleInstance) || (titleInstance && !childrenInstance)
       ? classes["centeredContainer"]
       : null,
+    fill ? classes["fill"] : null
   ];
 
   let containerInstance = (
@@ -96,11 +102,12 @@ export const Toast: FunctionComponent<
           icon="x"
           size="small"
           color={
-            color && color != "default" && colorToClassMap[color] ? color : null
+            color && color != "default" && colorToClassMap[color] && fill ? color : null
           }
-          fill={!(color && colorToClassMap[color] && color != "default")}
+          fill={!(color && colorToClassMap[color] && color != "default" && fill)}
         />
       ) : null}
+      {duration ? <ProgressBar style={{position: "absolute", left: 0, bottom: 0}} duration={duration} color="success" size="extraSmall" /> : null}
     </div>
   );
 

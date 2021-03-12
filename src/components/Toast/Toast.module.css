@@ -5,7 +5,7 @@
   min-height: 62px;
   outline: none;
   border-radius: 8px;
-  box-shadow: 0px 1px 8px rgba(0,0,0,0.15);
+  box-shadow: 0px 1px 3px rgb(0 0 0 / 13%);
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -25,6 +25,7 @@
   flex-direction: column;
   position: relative;
   outline: none;
+  overflow: hidden;
 }
 
 .toast .centeredContainer {
@@ -36,27 +37,34 @@
 }
 
 .coloredContainer.toast--primaryColor {
-  background-color: rgba(var(--primary-color), 0.15);
   border-left: 8px rgba(var(--primary-color), 0.7) solid;
 }
+.coloredContainer.toast--primaryColor.fill {
+  background-color: rgba(var(--primary-color), 0.15);
+}
 .coloredContainer.toast--successColor {
-  background-color: rgba(var(--success-color), 0.15);
   border-left: 8px rgba(var(--success-color), 0.7) solid;
 }
+.coloredContainer.toast--successColor.fill {
+  background-color: rgba(var(--success-color), 0.15);
+}
 .coloredContainer.toast--accentColor {
-  background-color: rgba(var(--accent-color), 0.15);
   border-left: 8px rgba(var(--accent-color), 0.7) solid;
 }
+.coloredContainer.toast--accentColor.fill {
+  background-color: rgba(var(--accent-color), 0.15);
+}
 .coloredContainer.toast--warningColor {
-  background-color: rgba(var(--warning-color), 0.15);
   border-left: 8px rgba(var(--warning-color), 0.7) solid;
 }
+.coloredContainer.toast--warningColor.fill {
+  background-color: rgba(var(--warning-color), 0.15);
+}
 .coloredContainer.toast--dangerColor {
-  background-color: rgba(var(--danger-color), 0.15);
   border-left: 8px rgba(var(--danger-color), 0.7) solid;
 }
-.coloredContainer.toast--defaultColor {
-  background-color: rgba(var(--interactable-shade-1-hover), 0.15);
+.coloredContainer.toast--dangerColor.fill {
+  background-color: rgba(var(--danger-color), 0.15);
 }
 
 .title {

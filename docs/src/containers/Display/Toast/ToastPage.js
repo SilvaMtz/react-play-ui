@@ -41,7 +41,7 @@ export const ToastPage = (props) => {
         <FlexItem>
           <FlexGroup alignItems="center" justifyContent="center">
             <FlexItem grow={false}>
-              <Toast color="warning">
+              <Toast color="warning" fill onClose={()=>{}}>
                 Hi there!
               </Toast>
             </FlexItem>
@@ -51,7 +51,7 @@ export const ToastPage = (props) => {
         <FlexItem>
           <FlexGroup alignItems="center" justifyContent="center">
             <FlexItem grow={false}>
-              <Toast color="danger">
+              <Toast color="danger" duration={10}>
                 Hi there!
               </Toast>
             </FlexItem>
