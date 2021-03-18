@@ -86,7 +86,7 @@ export const DisplayCard: FunctionComponent<
           color="primary"
           fill={false}
           restrainWidth={false}
-          size="compact"
+          size="extraSmall"
           style={{ marginRight: primaryAction ? 3 : 0 }}
         />
       ) : null}
@@ -97,7 +97,7 @@ export const DisplayCard: FunctionComponent<
           color="primary"
           fill
           restrainWidth={false}
-          size="compact"
+          size="extraSmall"
           style={{ marginLeft: secondaryAction ? 3 : 0 }}
         />
       ) : null}
