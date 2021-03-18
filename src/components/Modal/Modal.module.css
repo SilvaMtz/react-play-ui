@@ -36,6 +36,15 @@
   flex-direction: column;
 }
 
+.modal-footer {
+  display: flex;
+  flex-direction: row;
+  padding: 6px;
+  width: 100%;
+  box-sizing: border-box;
+  border-top: 1px solid rgba(var(--palette-shade-4));
+}
+
 .body--paddingNone {
   padding: 0;
 }
@@ -50,6 +59,10 @@
 
 .body--paddingLarge {
   padding: 24px;
+}
+
+.modal-body--overflowScroll {
+  overflow: scroll;
 }
 
 .modal-animation {

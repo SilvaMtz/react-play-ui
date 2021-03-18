@@ -1,9 +1,10 @@
 /* Base class for Panel Card containing default values */
 .panel-card {
   display: flex;
-  border-radius: 8px;
+  border-radius: 10px;
   box-sizing: border-box;
   background-color: rgba(var(--palette-shade-2));
+  flex-direction: column;
   width: 100%;
   outline: none;
   border: 1px rgba(var(--palette-shade-3), 0.6) solid;

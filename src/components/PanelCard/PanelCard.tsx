@@ -47,15 +47,12 @@ export const PanelCard: FunctionComponent<PanelCardProps & FlexGroupProps & HTML
   };
 
   return (
-      <FlexGroup
+      <div
         className={classList.join(' ')}
         style={{...defaultStyles, ...style}}
-        direction={direction}
         {...rest}
       >
-        <FlexItem>
-          {children}
-        </FlexItem>
-      </FlexGroup>
+        {children}
+      </div>
   );
 };
