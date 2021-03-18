@@ -16,7 +16,7 @@ export const SelectField = (props:any) => {
       backgroundColor: 'rgba(var(--interactable-shade-1))',
       borderRadius: 10,
       display: 'flex',
-      border: state.menuIsOpen ? '2px solid rgba(var(--primary-color)' : 'none)',
+      border: state.menuIsOpen ? '2px solid rgba(var(--primary-color))' : 'none',
       outline: 'none',
       boxSizing: 'border-box',
       transition: 'border 0.2s',
