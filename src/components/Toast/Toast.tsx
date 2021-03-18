@@ -1,4 +1,4 @@
-import React, { FunctionComponent, HTMLAttributes } from "react";
+import React, { FunctionComponent, HTMLAttributes, ReactNode } from "react";
 import { IconButton } from "../IconButton";
 import { ProgressBar } from "../ProgressBar";
 import { SvgIcon } from "../SvgIcon";
@@ -14,12 +14,17 @@ export interface ToastProps {
   className?: string;
   fill?: boolean;
   duration?: number;
+  children?: ReactNode;
+  body?: ReactNode;
   onClose?: () => {};
+  closeAction?: () => void;
+  showCloseButton?: boolean;
+  showProgressBar?: boolean;
 }
 
-export const Toast: FunctionComponent<
-  ToastProps & HTMLAttributes<HTMLDivElement>
-> = ({
+export type ToastPropTypes = ToastProps & HTMLAttributes<HTMLDivElement>;
+
+export const Toast: FunctionComponent<ToastPropTypes> = ({
   color = "default",
   icon,
   iconSize,
@@ -28,9 +33,13 @@ export const Toast: FunctionComponent<
   iconOutline = false,
   className,
   fill = false,
-  duration,
+  duration = 10,
   children,
+  body,
+  closeAction,
   onClose,
+  showProgressBar = false,
+  showCloseButton = true,
   ...rest
 }) => {
   const colorToClassMap = {
@@ -41,6 +50,11 @@ export const Toast: FunctionComponent<
     warning: "toast--warningColor",
     danger: "toast--dangerColor",
   };
+
+  const handleCloseAction = () => {
+    onClose();
+    closeAction()
+  }
 
   let iconInstance = icon ? (
     <SvgIcon
@@ -64,9 +78,10 @@ export const Toast: FunctionComponent<
     titleInstance = <h4 className={classes["title"]}>{title}</h4>;
   }
 
-  let childrenInstance = children ? (
-    <div className={classes["body"]}>{children}</div>
-  ) : null;
+  let childrenInstance =
+    children || body ? (
+      <div className={classes["body"]}>{children || body}</div>
+    ) : null;
 
   let contentInstance =
     titleInstance && childrenInstance ? (
@@ -85,29 +100,40 @@ export const Toast: FunctionComponent<
     color && color != "default" && colorToClassMap[color]
       ? classes[colorToClassMap[color]]
       : null,
-    onClose ? classes["container-hasButton"] : null,
+    showCloseButton ? classes["container-hasButton"] : null,
     (childrenInstance && !titleInstance) || (titleInstance && !childrenInstance)
       ? classes["centeredContainer"]
       : null,
-    fill ? classes["fill"] : null
+    fill ? classes["fill"] : null,
   ];
 
   let containerInstance = (
     <div className={containerInstanceClassList.join(" ")}>
       {contentInstance}
-      {onClose ? (
+      {showCloseButton ? (
         <IconButton
           style={{ position: "absolute", top: 12, right: 12 }}
-          onClick={onClose}
+          onClick={closeAction}
           icon="x"
           size="small"
           color={
-            color && color != "default" && colorToClassMap[color] && fill ? color : null
+            color && color != "default" && colorToClassMap[color] && fill
+              ? color
+              : null
           }
-          fill={!(color && colorToClassMap[color] && color != "default" && fill)}
+          fill={
+            !(color && colorToClassMap[color] && color != "default" && fill)
+          }
         />
       ) : null}
-      {duration ? <ProgressBar style={{position: "absolute", left: 0, bottom: 0}} duration={duration} color="success" size="extraSmall" /> : null}
+      {showProgressBar ? (
+        <ProgressBar
+          style={{ position: "absolute", left: 0, bottom: 0 }}
+          duration={duration}
+          color="success"
+          size="extraSmall"
+        />
+      ) : null}
     </div>
   );
 
