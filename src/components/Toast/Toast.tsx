@@ -97,10 +97,10 @@ export const Toast: FunctionComponent<
       {contentInstance}
       {onClose ? (
         <IconButton
-          style={{ position: "absolute", top: 12, right: 12 }}
+          style={{ position: "absolute", top: 15, right: 15 }}
           onClick={onClose}
           icon="x"
-          size="small"
+          size="extraSmall"
           color={
             color && color != "default" && colorToClassMap[color] && fill ? color : null
           }

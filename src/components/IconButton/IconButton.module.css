@@ -30,6 +30,11 @@
   width: 38px;
 }
 
+.icon-button.button--extraSmall {
+  height: 32px;
+  width: 32px;
+}
+
 .icon-button:hover {
   background-color: rgba(var(--interactable-shade-1-hover));
 }

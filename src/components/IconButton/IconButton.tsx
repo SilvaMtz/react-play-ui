@@ -5,7 +5,7 @@ import { NumberBadge, NumberBadgePropTypes } from "../NumberBadge";
 
 interface IconButtonProps {
   color?: string;
-  size?: "small" | "medium" | "large";
+  size?: "extraSmall" | "small" | "medium" | "large";
   fill?: boolean;
   iconFill?: string;
   icon: string;
@@ -45,6 +45,7 @@ export const IconButton: FunctionComponent<
   };
 
   const buttonSizeMapping = {
+    extraSmall: "button--extraSmall",
     small: "button--small",
     medium: "",
     large: "button--large",
@@ -100,7 +101,9 @@ export const IconButton: FunctionComponent<
         icon={icon}
         outline={iconOutline}
         size={
-          size && size === "small"
+          size && size === "extraSmall"
+            ? "extraSmall"
+            : size === "small"
             ? "extraSmall"
             : size && size === "medium"
             ? "small"

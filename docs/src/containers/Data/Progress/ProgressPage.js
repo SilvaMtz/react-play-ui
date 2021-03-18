@@ -34,7 +34,7 @@ export const ProgressPage = (props) => {
             <FlexGroup alignItems="center">
               <FlexItem grow={false}>
                 <ActionButton
-                  size="compact"
+                  size="extraSmall"
                   icon="plus"
                   label="Add 20%"
                   onClick={() => {

@@ -16,86 +16,86 @@ export const ButtonPage = (props) => {
           <FlexItem>
             <ActionButton
               icon="check"
-              label="Compact"
+              label="extraSmall"
               color="default"
               fill={false}
               onClick={() => clickHandler()}
-              size="compact"
+              size="extraSmall"
             />
           </FlexItem>
           <FlexItem>
             <ActionButton
               icon="check"
-              label="Compact"
+              label="extraSmall"
               color="primary"
               fill={false}
               onClick={() => clickHandler()}
-              size="compact"
+              size="extraSmall"
             />
           </FlexItem>
           <FlexItem>
             <ActionButton
               icon="check"
               iconSide="right"
-              label="Compact"
+              label="extraSmall"
               color="warning"
               fill={false}
               onClick={() => clickHandler()}
-              size="compact"
+              size="extraSmall"
             />
           </FlexItem>
           <FlexItem>
             <ActionButton
               icon="check"
               iconSide="right"
-              label="Compact"
+              label="extraSmall"
               color="danger"
               fill={false}
               onClick={() => clickHandler()}
-              size="compact"
+              size="extraSmall"
             />
           </FlexItem>
 
           <FlexItem>
             <ActionButton
               icon="check"
-              label="Compact Fill"
+              label="extraSmall Fill"
               color="default"
               fill={true}
               onClick={() => clickHandler()}
-              size="compact"
+              size="extraSmall"
             />
           </FlexItem>
           <FlexItem>
             <ActionButton
               icon="check"
-              label="Compact Fill"
+              label="extraSmall Fill"
               color="primary"
               fill={true}
               onClick={() => clickHandler()}
-              size="compact"
+              size="extraSmall"
             />
           </FlexItem>
           <FlexItem>
             <ActionButton
               icon="check"
               iconSide="right"
-              label="Compact Fill"
+              label="extraSmall Fill"
               color="warning"
               fill={true}
               onClick={() => clickHandler()}
-              size="compact"
+              size="extraSmall"
             />
           </FlexItem>
           <FlexItem>
             <ActionButton
               icon="check"
               iconSide="right"
-              label="Compact Fill"
+              label="extraSmall Fill"
               color="danger"
               fill={true}
               onClick={() => clickHandler()}
-              size="compact"
+              size="extraSmall"
             />
           </FlexItem>
 

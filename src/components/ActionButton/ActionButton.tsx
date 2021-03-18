@@ -11,7 +11,7 @@ interface ActionButtonProps {
   className?: string;
   children?: ReactNode;
   color?: string;
-  size?: "compact" | "small" | "medium" | "large";
+  size?: "extraSmall" | "small" | "medium" | "large";
   fill?: boolean;
   isLoading?: boolean;
   restrainWidth?: boolean;
@@ -52,7 +52,7 @@ export const ActionButton: FunctionComponent<
   };
 
   const buttonSizeMapping = {
-    compact: "button--compact",
+    extraSmall: "button--extraSmall",
     small: "",
     medium: "button--medium",
     large: "button--large",
@@ -80,7 +80,7 @@ export const ActionButton: FunctionComponent<
     iconInstance = (
       <SvgIcon
         icon={icon}
-        size={size === "compact" ? "extraSmall" : "small"}
+        size={size === "extraSmall" ? "extraSmall" : "small"}
         color={
           disabled
           ? "rgba(var(--interactable-shade-1-hover))"
