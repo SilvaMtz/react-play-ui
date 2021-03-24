@@ -1,26 +1,26 @@
-import React, { HTMLAttributes, FunctionComponent } from 'react';
-import classes from './Avatar.module.css';
-import { toInitials } from '../../services';
-import chroma from 'chroma-js';
+import React, { HTMLAttributes, FunctionComponent } from "react";
+import classes from "./Avatar.module.css";
+import { toInitials } from "../../services";
+import chroma from "chroma-js";
 
 const sizeToClassNameMap = {
   none: null,
-  small: 'Avatar--s',
-  medium: 'Avatar--m',
-  large: 'Avatar--l',
-  extraLarge: 'Avatar--xl',
+  small: "Avatar--s",
+  medium: "Avatar--m",
+  large: "Avatar--l",
+  extraLarge: "Avatar--xl",
 };
 
 export type AvatarSize = keyof typeof sizeToClassNameMap;
 
 const typeToClassNameMap = {
-  square: 'Avatar--square',
-  user: 'Avatar--user',
+  square: "Avatar--square",
+  user: "Avatar--user",
 };
 
 export type AvatarType = keyof typeof typeToClassNameMap;
 
-export type AvatarProps = Omit<HTMLAttributes<HTMLDivElement>, 'color'> & {
+export type AvatarProps = Omit<HTMLAttributes<HTMLDivElement>, "color"> & {
   name: string;
   color?: string;
   initials?: string;
@@ -32,18 +32,20 @@ export type AvatarProps = Omit<HTMLAttributes<HTMLDivElement>, 'color'> & {
 
 export const isColorDark = (color) => {
   let colorInstance = chroma(color).rgb();
-  return (colorInstance[0] < 128 && colorInstance[1] < 128 && colorInstance[2] < 128);
-}
+  return (
+    colorInstance[0] < 128 && colorInstance[1] < 128 && colorInstance[2] < 128
+  );
+};
 
 export const Avatar: FunctionComponent<AvatarProps> = ({
   className,
-  color,
+  color = "accent",
   imageUrl,
   initials,
   initialsLength,
   name,
-  size = 'large',
-  type = 'user',
+  size = "large",
+  type = "user",
   ...rest
 }) => {
   const paletteColors = {
@@ -55,10 +57,10 @@ export const Avatar: FunctionComponent<AvatarProps> = ({
   };
 
   let classList = [
-    classes['Avatar'],
+    classes["Avatar"],
     classes[sizeToClassNameMap[size]],
     classes[typeToClassNameMap[type]],
-    className
+    className,
   ];
 
   checkValidInitials(initials);
@@ -70,35 +72,39 @@ export const Avatar: FunctionComponent<AvatarProps> = ({
     optionalInitial = <span aria-hidden="true">{calculatedInitials}</span>;
   }
 
-  const assignedColor = paletteColors[color] || color || paletteColors['accent'];
-  const textColor = paletteColors[color] ? '#FFFFFF'
+  // TODO: Auto generated color depending on 'name' prop
+  const assignedColor =
+    paletteColors[color] || color || paletteColors["accent"];
+  const textColor = paletteColors[color]
+    ? "#FFFFFF"
     : isColorDark(color)
-      ? '#FFFFFF'
-      : '#000000';
+    ? "#FFFFFF"
+    : "#000000";
 
   const avatarStyle = {
-    backgroundImage: imageUrl ? `url(${imageUrl})` : 'none',
+    backgroundImage: imageUrl ? `url(${imageUrl})` : "none",
     backgroundColor: assignedColor,
     color: textColor,
   };
 
   return (
     <div
-      className={classList.join(' ')}
+      className={classList.join(" ")}
       style={avatarStyle}
       aria-label={name}
       title={name}
-      {...rest}>
+      {...rest}
+    >
       {optionalInitial}
     </div>
   );
 };
 
-function checkValidInitials(initials: AvatarProps['initials']) {
+function checkValidInitials(initials: AvatarProps["initials"]) {
   // Must be a string of 1 or 2 characters
   if (initials && initials.length > 2) {
     console.warn(
-      'Avatar only accepts a max of 2 characters for the initials as a string. It is displaying only the first 2 characters.'
+      "Avatar only accepts a max of 2 characters for the initials as a string. It is displaying only the first 2 characters."
     );
   }
 }
