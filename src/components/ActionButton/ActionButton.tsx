@@ -25,7 +25,7 @@ interface ActionButtonProps {
 
 export const ActionButton: FunctionComponent<
   ActionButtonProps & ButtonHTMLAttributes<HTMLButtonElement>
-> = ({
+> = React.forwardRef<HTMLButtonElement, ActionButtonProps>(({
   children,
   color = "default",
   size = "small",
@@ -40,7 +40,7 @@ export const ActionButton: FunctionComponent<
   onClick,
   className,
   ...rest
-}) => {
+}, ref) => {
   const buttonColorMapping = {
     none: "",
     default: "button--default",
@@ -134,6 +134,7 @@ export const ActionButton: FunctionComponent<
       className={classList.join(" ")}
       disabled={isDisabled}
       style={colorStyles}
+      ref={ref}
       {...rest}
     >
       {buttonContent}
@@ -141,4 +142,4 @@ export const ActionButton: FunctionComponent<
   );
 
   return button;
-};
+});
