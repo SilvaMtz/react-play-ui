@@ -51,6 +51,7 @@ export const ActionButton: FunctionComponent<
     accent: "button--accent",
   };
 
+  // TODO: Change sizes to match IconButtons
   const buttonSizeMapping = {
     extraSmall: "button--extraSmall",
     small: "",

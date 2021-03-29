@@ -80,7 +80,6 @@ export const Modal: FunctionComponent<ModalProps> = ({
           width: maxWidth ? maxWidth : null,
           maxHeight: maxHeight ? maxHeight : null
         }}
-        gutterSize="none"
         className={modalClassList.join(" ")}
         direction="column"
         paddingSize="none"

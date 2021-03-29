@@ -3,6 +3,7 @@ import classes from "./Avatar.module.css";
 import { toInitials } from "../../services";
 import chroma from "chroma-js";
 
+// TODO: Change sizes to match IconButton
 const sizeToClassNameMap = {
   none: null,
   small: "Avatar--s",
