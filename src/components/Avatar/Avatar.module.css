@@ -37,27 +37,106 @@
   pointer-events: none;
   border: 1px solid rgba(212, 218, 229, .05);
 }
-.Avatar--s {
-  width: 26px;
-  height: 26px;
-  line-height: 26px;
+.Avatar--xs {
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
   font-size: 12px;
 }
-.Avatar--m {
-  width: 34px;
-  height: 34px;
-  line-height: 34px;
+.Avatar--s {
+  width: 38px;
+  height: 38px;
+  line-height: 38px;
   font-size: 14.4px;
 }
-.Avatar--l {
+.Avatar--m {
   width: 42px;
   height: 42px;
   line-height: 42px;
+  font-size: 17.2px;
+}
+.Avatar--l {
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
   font-size: 19.2px;
 }
 .Avatar--xl {
   width: 64px;
   height: 64px;
   line-height: 64px;
+  font-size: 25.6px;
+}
+
+.Avatar--clickable {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  height: max-content;
+  width: max-content;
+  padding: 0;
+  box-sizing: border-box;
+  background: transparent;
+  border: 2px solid rgba(var(--primary-color), 0.5);
+  border-radius: 50%;
+  transition: border 0.1s linear;
+}
+.Avatar--square--clickable {
+  border-radius: 11px;
+}
+.Avatar--clickable:active {
+  transform: scale(0.965);
+}
+.Avatar--clickable:hover {
+  border: 2px solid rgba(var(--primary-color), 0.9);
+}
+.Avatar--clickable--xs {
+  width: 32px;
+  height: 32px;
+}
+.Avatar--clickable--xs .Avatar--xs {
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  font-size: 12px;
+}
+.Avatar--clickable--s {
+  width: 38px;
+  height: 38px;
+}
+.Avatar--clickable--s .Avatar--s {
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  font-size: 14.4px;
+}
+.Avatar--clickable--m {
+  width: 42px;
+  height: 42px;
+}
+.Avatar--clickable--m .Avatar--m {
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  font-size: 17.2px;
+}
+.Avatar--clickable--l {
+  width: 48px;
+  height: 48px;
+}
+.Avatar--clickable--l .Avatar--l {
+  width: 42px;
+  height: 42px;
+  line-height: 42px;
+  font-size: 19.2px;
+}
+.Avatar--clickable--xl {
+  width: 64px;
+  height: 64px;
+}
+.Avatar--clickable--xl .Avatar--xl {
+  width: 58px;
+  height: 58px;
+  line-height: 58px;
   font-size: 25.6px;
 }

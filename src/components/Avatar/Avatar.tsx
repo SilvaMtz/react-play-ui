@@ -6,10 +6,20 @@ import chroma from "chroma-js";
 // TODO: Change sizes to match IconButton
 const sizeToClassNameMap = {
   none: null,
+  extraSmall: "Avatar--xs",
   small: "Avatar--s",
   medium: "Avatar--m",
   large: "Avatar--l",
   extraLarge: "Avatar--xl",
+};
+
+const clickableSizeToClassMap = {
+  none: null,
+  extraSmall: "Avatar--clickable--xs",
+  small: "Avatar--clickable--s",
+  medium: "Avatar--clickable--m",
+  large: "Avatar--clickable--l",
+  extraLarge: "Avatar--clickable--xl",
 };
 
 export type AvatarSize = keyof typeof sizeToClassNameMap;
@@ -21,7 +31,10 @@ const typeToClassNameMap = {
 
 export type AvatarType = keyof typeof typeToClassNameMap;
 
-export type AvatarProps = Omit<HTMLAttributes<HTMLDivElement>, "color"> & {
+export type AvatarProps = Omit<
+  HTMLAttributes<HTMLDivElement | HTMLButtonElement>,
+  "color"
+> & {
   name: string;
   color?: string;
   initials?: string;
@@ -29,6 +42,7 @@ export type AvatarProps = Omit<HTMLAttributes<HTMLDivElement>, "color"> & {
   type?: AvatarType;
   imageUrl?: string;
   size?: AvatarSize;
+  onClick?: () => void | {};
 };
 
 export const isColorDark = (color) => {
@@ -38,68 +52,107 @@ export const isColorDark = (color) => {
   );
 };
 
-export const Avatar: FunctionComponent<AvatarProps> = ({
-  className,
-  color = "accent",
-  imageUrl,
-  initials,
-  initialsLength,
-  name,
-  size = "large",
-  type = "user",
-  ...rest
-}) => {
-  const paletteColors = {
-    primary: "rgb(var(--primary-color))",
-    success: "rgb(var(--success-color))",
-    accent: "rgb(var(--accent-color))",
-    warning: "rgb(var(--warning-color))",
-    danger: "rgb(var(--danger-color))",
-  };
+export const Avatar: FunctionComponent<AvatarProps> = React.forwardRef<
+  HTMLButtonElement,
+  AvatarProps
+>(
+  (
+    {
+      className,
+      color = "accent",
+      imageUrl,
+      initials,
+      initialsLength,
+      name,
+      size = "medium",
+      type = "user",
+      onClick,
+      ...rest
+    },
+    ref
+  ) => {
+    const paletteColors = {
+      primary: "rgb(var(--primary-color))",
+      success: "rgb(var(--success-color))",
+      accent: "rgb(var(--accent-color))",
+      warning: "rgb(var(--warning-color))",
+      danger: "rgb(var(--danger-color))",
+    };
 
-  let classList = [
-    classes["Avatar"],
-    classes[sizeToClassNameMap[size]],
-    classes[typeToClassNameMap[type]],
-    className,
-  ];
+    let classList = [
+      classes["Avatar"],
+      classes[sizeToClassNameMap[size]],
+      classes[typeToClassNameMap[type]],
+      className,
+    ];
 
-  checkValidInitials(initials);
+    let clickableClassList = onClick
+      ? [
+          classes["Avatar--clickable"],
+          classes[clickableSizeToClassMap[size]],
+          type === "square" ? classes["Avatar--square--clickable"] : null,
+        ]
+      : null;
 
-  let optionalInitial;
-  if (name && !imageUrl) {
-    // Create the initials
-    const calculatedInitials = toInitials(name, initialsLength, initials);
-    optionalInitial = <span aria-hidden="true">{calculatedInitials}</span>;
+    checkValidInitials(initials);
+
+    let optionalInitial;
+    if (name && !imageUrl) {
+      // Create the initials
+      const calculatedInitials = toInitials(name, initialsLength, initials);
+      optionalInitial = <span aria-hidden="true">{calculatedInitials}</span>;
+    }
+
+    // TODO: Auto generated color depending on 'name' prop
+    const assignedColor =
+      paletteColors[color] || color || paletteColors["accent"];
+    const textColor = paletteColors[color]
+      ? "#FFFFFF"
+      : isColorDark(color)
+      ? "#FFFFFF"
+      : "#000000";
+
+    const avatarStyle = {
+      backgroundImage: imageUrl ? `url(${imageUrl})` : "none",
+      backgroundColor: assignedColor,
+      color: textColor,
+    };
+
+    let avatarInstance = (
+      <div
+        className={classList.join(" ")}
+        style={avatarStyle}
+        aria-label={name}
+        title={name}
+        {...rest}
+      >
+        {optionalInitial}
+      </div>
+    );
+
+    if (onClick) {
+      avatarInstance = (
+        <button
+          ref={ref}
+          onClick={onClick}
+          className={clickableClassList.join(" ")}
+          {...rest}
+        >
+          <div
+            className={classList.join(" ")}
+            style={avatarStyle}
+            aria-label={name}
+            title={name}
+          >
+            {optionalInitial}
+          </div>
+        </button>
+      );
+    }
+
+    return avatarInstance;
   }
-
-  // TODO: Auto generated color depending on 'name' prop
-  const assignedColor =
-    paletteColors[color] || color || paletteColors["accent"];
-  const textColor = paletteColors[color]
-    ? "#FFFFFF"
-    : isColorDark(color)
-    ? "#FFFFFF"
-    : "#000000";
-
-  const avatarStyle = {
-    backgroundImage: imageUrl ? `url(${imageUrl})` : "none",
-    backgroundColor: assignedColor,
-    color: textColor,
-  };
-
-  return (
-    <div
-      className={classList.join(" ")}
-      style={avatarStyle}
-      aria-label={name}
-      title={name}
-      {...rest}
-    >
-      {optionalInitial}
-    </div>
-  );
-};
+);
 
 function checkValidInitials(initials: AvatarProps["initials"]) {
   // Must be a string of 1 or 2 characters

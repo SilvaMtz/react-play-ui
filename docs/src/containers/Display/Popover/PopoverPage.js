@@ -33,6 +33,7 @@ export const PopoverPage = (props) => {
           name: "Logout",
           icon: "logout",
           label: "Log out",
+          onClick: () => alert("You have logged out!"),
         }
       ]
     },
