@@ -7,7 +7,7 @@ interface IconButtonProps {
   color?: string;
   size?: "extraSmall" | "small" | "medium" | "large";
   fill?: boolean;
-  iconFill?: string;
+  iconColor?: string;
   icon: string;
   popoverRef?: any;
   onClick: any;
@@ -23,7 +23,7 @@ export const IconButton: FunctionComponent<
   color = "default",
   size = "medium",
   fill,
-  iconFill,
+  iconColor,
   icon,
   popoverRef,
   href,
@@ -86,15 +86,15 @@ export const IconButton: FunctionComponent<
         color={
           disabled
           ? "rgba(var(--interactable-shade-1-hover))"
-          : iconFill
-            ? iconFill
+          : iconColor
+            ? iconColor
             : color != "default" && buttonColorMapping[color] && !fill
             ? `rgba(var(--${color}-color))`
             : color != "default" && buttonColorMapping[color] && fill
             ? "white"
-            : color === "default" && !iconFill && !fill
+            : color === "default" && !iconColor && !fill
             ? "rgba(var(--text-color))"
-            : color && !iconFill && !fill
+            : color && !iconColor && !fill
             ? color
             : null
         }

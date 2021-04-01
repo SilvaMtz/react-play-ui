@@ -243,7 +243,7 @@ export class ContextMenu extends Component<ContextMenuProps, State> {
         name,
         key,
         icon,
-        iconFill,
+        iconColor,
         onClick,
         size,
         ...rest
@@ -271,7 +271,7 @@ export class ContextMenu extends Component<ContextMenuProps, State> {
         <ContextMenuItem
           key={key || (typeof name === 'string' ? name : undefined) || index}
           icon={icon}
-          iconFill={iconFill}
+          iconColor={iconColor}
           onClick={onClickHandler}
           hasPanel={Boolean(panel)}
           size={size ? size : itemsSize}

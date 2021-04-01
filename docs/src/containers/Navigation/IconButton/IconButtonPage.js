@@ -70,13 +70,13 @@ export const IconButtonPage = (props) => {
           <IconButton size="large" icon="cog" onClick={()=>{}} color="teal" fill />
         </FlexItem>
         <FlexItem grow={false}>
-          <IconButton size="small" icon="cog" onClick={()=>{}} color="red" iconFill="blue" fill />
+          <IconButton size="small" icon="cog" onClick={()=>{}} color="red" iconColor="blue" fill />
         </FlexItem>
         <FlexItem grow={false}>
-          <IconButton size="medium" icon="cog" onClick={()=>{}} color="green" iconFill="red" fill />
+          <IconButton size="medium" icon="cog" onClick={()=>{}} color="green" iconColor="red" fill />
         </FlexItem>
         <FlexItem grow={false}>
-          <IconButton size="large" icon="cog" onClick={()=>{}} color="blue" fill iconFill="green" />
+          <IconButton size="large" icon="cog" onClick={()=>{}} color="blue" fill iconColor="green" />
         </FlexItem>
       </FlexGroup>
       <h3>Disabled</h3>
