@@ -291,6 +291,36 @@ export const ButtonPage = (props) => {
           </FlexItem>
         </FlexGroup>
       </FlexItem>
+      <FlexItem>
+        <h3>Links</h3>
+        <FlexGroup>
+          <FlexItem grow={false}>
+            <ActionButton
+              icon="externalLink"
+              iconSide="right"
+              label="Button"
+              color="success"
+              href="/"
+              fill={false}
+              size="small"
+              restrainWidth={true}
+            />
+          </FlexItem>
+          <FlexItem grow={false}>
+            <ActionButton
+              icon="externalLink"
+              iconSide="right"
+              label="Button"
+              color="success"
+              href="/"
+              disabled
+              fill={false}
+              size="small"
+              restrainWidth={true}
+            />
+          </FlexItem>
+        </FlexGroup>
+      </FlexItem>
     </FlexGroup>
   );
 };

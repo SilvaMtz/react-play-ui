@@ -171,10 +171,11 @@
 }
 
 .action-button.button--disabled {
-  cursor: not-allowed;
   opacity: 0.95;
   background-color: rgba(var(--interactable-shade-1), 0.40) !important;
   color: rgba(var(--interactable-shade-1-hover)) !important;
+  pointer-events: none;
+  cursor: not-allowed;
 }
 .action-button.button--disabled:hover {
   background-color: rgba(var(--interactable-shade-1), 0.40) !important;

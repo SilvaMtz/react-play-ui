@@ -100,6 +100,7 @@
   cursor: not-allowed;
   opacity: 0.92;
   background-color: rgba(var(--interactable-shade-1), 0.35) !important;
+  pointer-events: none;
 }
 .icon-button.icon-button--isDisabled:active {
   transform: scale(1);

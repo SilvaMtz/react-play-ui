@@ -1,4 +1,5 @@
 import React, {
+  AnchorHTMLAttributes,
   ButtonHTMLAttributes,
   FunctionComponent,
   ReactNode,
@@ -18,14 +19,14 @@ interface ActionButtonProps {
   icon?: string;
   iconSide?: "left" | "right";
   label?: string;
-  // href?: string;
+  href?: string;
   onClick: any;
   disabled?: boolean;
 }
 
 export const ActionButton: FunctionComponent<
   ActionButtonProps & ButtonHTMLAttributes<HTMLButtonElement>
-> = React.forwardRef<HTMLButtonElement, ActionButtonProps>(({
+ | AnchorHTMLAttributes<HTMLAnchorElement>> = React.forwardRef<HTMLButtonElement, ActionButtonProps>(({
   children,
   color = "default",
   size = "small",
@@ -35,7 +36,7 @@ export const ActionButton: FunctionComponent<
   icon,
   iconSide = "left",
   label,
-  // href,
+  href,
   disabled = false,
   onClick,
   className,
@@ -128,7 +129,7 @@ export const ActionButton: FunctionComponent<
     backgroundColor: buttonColorMapping[color] ? null : color,
   };
 
-  let button = (
+  let button = onClick ? (
     <button
       onClick={onClick}
       className={classList.join(" ")}
@@ -139,6 +140,16 @@ export const ActionButton: FunctionComponent<
     >
       {buttonContent}
     </button>
+  ) : (
+    <a
+      onClick={onClick}
+      className={classList.join(" ")}
+      style={colorStyles}
+      href={href}
+      {...rest}
+    >
+      {buttonContent}
+    </a>
   );
 
   return button;
