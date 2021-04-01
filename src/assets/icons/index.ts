@@ -1,2 +1,1 @@
-export { icons } from './icons'
-export { outlineIcons } from './outline-icons';
+export { icons } from './icons';

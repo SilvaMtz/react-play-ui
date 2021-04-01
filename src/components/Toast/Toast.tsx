@@ -10,7 +10,6 @@ export interface ToastProps {
   iconSize?: "extraSmall" | "small" | "medium" | "large";
   title?: string;
   iconColor?: string;
-  iconOutline?: boolean;
   className?: string;
   fill?: boolean;
   duration?: number;
@@ -25,7 +24,6 @@ export const Toast: FunctionComponent<
   iconSize,
   title,
   iconColor = color,
-  iconOutline = false,
   className,
   fill = false,
   duration,
@@ -47,7 +45,6 @@ export const Toast: FunctionComponent<
       icon={icon}
       size={iconSize}
       color={iconColor === "default" ? "rgba(var(--text-color))" : iconColor}
-      outline={iconOutline}
       style={{ marginRight: 6 }}
     />
   ) : null;

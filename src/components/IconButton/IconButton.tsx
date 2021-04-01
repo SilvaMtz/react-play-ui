@@ -13,7 +13,6 @@ interface IconButtonProps {
   onClick: any;
   href?: string;
   badge?: NumberBadgePropTypes;
-  iconOutline?: boolean;
   disabled?: boolean;
 }
 
@@ -30,7 +29,6 @@ export const IconButton: FunctionComponent<
   onClick,
   badge,
   type = "button",
-  iconOutline = false,
   disabled,
   ...rest
 }) => {
@@ -99,7 +97,6 @@ export const IconButton: FunctionComponent<
             : null
         }
         icon={icon}
-        outline={iconOutline}
         size={
           size && size === "extraSmall"
             ? "extraSmall"

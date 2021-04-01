@@ -8,7 +8,6 @@ export interface CalloutProps {
   iconSize?: "extraSmall" | "small" | "medium" | "large";
   title?: string;
   iconColor?: string;
-  iconOutline?: boolean;
   fill?: boolean;
 }
 
@@ -16,7 +15,6 @@ export const Callout: FunctionComponent<
   CalloutProps & HTMLAttributes<HTMLDivElement>
 > = ({
   color = "primary",
-  iconOutline = true,
   iconColor = color,
   icon,
   iconSize = "small",
@@ -52,7 +50,6 @@ export const Callout: FunctionComponent<
           ? "rgba(var(--interactable-shade-1-hover))"
           : iconColor
       }
-      outline={iconOutline}
       style={{ marginRight: 6 }}
     />
   ) : null;

@@ -1,6 +1,6 @@
 import React, { FunctionComponent, SVGAttributes } from "react";
 import classes from "./SvgIcon.module.css";
-import { icons, outlineIcons } from "../../assets/icons";
+import { icons } from "../../assets/icons";
 
 const iconKeys = Object.keys(icons);
 
@@ -13,14 +13,12 @@ interface SvgIconProps {
   color?: string;
   className?: string;
   icon: iconNameType;
-  outline?: boolean;
 }
 
 export const SvgIcon: FunctionComponent<SVGAttributes<SVGElement> & SvgIconProps> = ({
   size = "small",
   color,
   icon,
-  outline = false,
   className,
   ...rest
 }) => {
@@ -52,7 +50,7 @@ export const SvgIcon: FunctionComponent<SVGAttributes<SVGElement> & SvgIconProps
       ? color
       : "rgba(var(--text-color))";
 
-  let iconPath = outline ? outlineIcons[icon] : icons[icon];
+  let outline: boolean = icon.includes('Outline')
 
   return (
     <svg
@@ -66,7 +64,7 @@ export const SvgIcon: FunctionComponent<SVGAttributes<SVGElement> & SvgIconProps
       xmlns="http://www.w3.org/2000/svg"
       {...rest}
     >
-      {iconPath.map((path: any, index: number) => {
+      {icons[icon].map((path: any, index: number) => {
         return (
           <path key={index} fillRule="evenodd" d={path} clipRule="evenodd" />
         );
