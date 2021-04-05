@@ -308,7 +308,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
         }
         float={true}
         panels={sidenavPanels}
-        itemsSize="large"
+        itemsSize="small"
         onClose={() => setSidenavOpen(false)}
       />
     );

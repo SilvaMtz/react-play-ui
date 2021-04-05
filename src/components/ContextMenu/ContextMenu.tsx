@@ -1,26 +1,22 @@
-import React, {
-  Component,
-  ReactElement,
-  ReactNode,
-} from 'react';
+import React, { Component, ReactElement, ReactNode } from "react";
 
-import classes from './ContextMenu.module.css';
+import classes from "./ContextMenu.module.css";
 
 import {
   ContextMenuPanel,
   ContextMenuPanelTransitionDirection,
   ContextMenuPanelTransitionType,
-} from './ContextMenuPanel/ContextMenuPanel';
+} from "./ContextMenuPanel/ContextMenuPanel";
 import {
   ContextMenuItem,
   ContextMenuItemProps,
-} from './ContextMenuItem/ContextMenuItem';
+} from "./ContextMenuItem/ContextMenuItem";
 
 export type ContextMenuPanelId = string | number;
 
 export type ContextMenuPanelItemDescriptorEntry = Omit<
   ContextMenuItemProps,
-  'hasPanel'
+  "hasPanel"
 > & {
   name: React.ReactNode;
   key?: string;
@@ -38,13 +34,13 @@ export interface ContextMenuPanelDescriptor {
 }
 
 export type ContextMenuProps = {
-    panels?: ContextMenuPanelDescriptor[];
-    initialPanelId?: ContextMenuPanelId;
-    transparent?: boolean;
-    hasShadow?: boolean;
-    width?: number | string;
-    itemsSize?: string;
-  };
+  panels?: ContextMenuPanelDescriptor[];
+  initialPanelId?: ContextMenuPanelId;
+  transparent?: boolean;
+  hasShadow?: boolean;
+  width?: number | string;
+  itemsSize?: string;
+};
 
 function mapIdsToPanels(panels: ContextMenuPanelDescriptor[]) {
   const map: { [id: string]: ContextMenuPanelDescriptor } = {};
@@ -165,7 +161,7 @@ export class ContextMenu extends Component<ContextMenuProps, State> {
 
   hasPreviousPanel = (panelId: ContextMenuPanelId) => {
     const previousPanelId = this.state.idToPreviousPanelIdMap[panelId];
-    return typeof previousPanelId !== 'undefined';
+    return typeof previousPanelId !== "undefined";
   };
 
   showPanel(
@@ -190,7 +186,7 @@ export class ContextMenu extends Component<ContextMenuProps, State> {
     ][itemIndex];
 
     if (nextPanelId) {
-      this.showPanel(nextPanelId, 'next');
+      this.showPanel(nextPanelId, "next");
     }
   };
 
@@ -204,7 +200,7 @@ export class ContextMenu extends Component<ContextMenuProps, State> {
       // Set focus on the item which shows the panel we're leaving.
       // const previousPanel = this.state.idToPanelMap[previousPanelId];
 
-      this.showPanel(previousPanelId, 'previous');
+      this.showPanel(previousPanelId, "previous");
     }
   };
 
@@ -237,7 +233,6 @@ export class ContextMenu extends Component<ContextMenuProps, State> {
 
   renderItems(items: ContextMenuPanelItemDescriptor[] = []) {
     return items.map((item, index) => {
-
       const {
         panel,
         name,
@@ -249,7 +244,7 @@ export class ContextMenu extends Component<ContextMenuProps, State> {
         ...rest
       } = item;
 
-      const { itemsSize = 'medium' } = this.props
+      const { itemsSize = "small" } = this.props;
 
       const onClickHandler = panel
         ? (event: React.MouseEvent) => {
@@ -269,13 +264,18 @@ export class ContextMenu extends Component<ContextMenuProps, State> {
 
       return (
         <ContextMenuItem
-          key={key || (typeof name === 'string' ? name : undefined) || index}
+          key={key || (typeof name === "string" ? name : undefined) || index}
           icon={icon}
           iconColor={iconColor}
           onClick={onClickHandler}
           hasPanel={Boolean(panel)}
-          size={size ? size : itemsSize}
-          {...rest}>
+          size={
+            size
+              ? size
+              : (itemsSize as "extraSmall" | "small" | "medium" | "large")
+          }
+          {...rest}
+        >
           {name}
         </ContextMenuItem>
       );
@@ -302,12 +302,12 @@ export class ContextMenu extends Component<ContextMenuProps, State> {
     return (
       <ContextMenuPanel
         key={panelId}
-        className={classes['ContextMenu__panel']}
+        className={classes["ContextMenu__panel"]}
         onHeightChange={
-          transitionType === 'in' ? this.onIncomingPanelHeightChange : undefined
+          transitionType === "in" ? this.onIncomingPanelHeightChange : undefined
         }
         onTransitionComplete={
-          transitionType === 'out'
+          transitionType === "out"
             ? this.onOutGoingPanelTransitionComplete
             : undefined
         }
@@ -323,7 +323,8 @@ export class ContextMenu extends Component<ContextMenuProps, State> {
         }
         items={this.state.idToRenderedItemsMap[panelId]}
         showNextPanel={this.showNextPanel}
-        showPreviousPanel={this.showPreviousPanel}>
+        showPreviousPanel={this.showPreviousPanel}
+      >
         {panel.content}
       </ContextMenuPanel>
     );
@@ -340,16 +341,16 @@ export class ContextMenu extends Component<ContextMenuProps, State> {
       ...rest
     } = this.props;
 
-    const incomingPanel = this.renderPanel(this.state.incomingPanelId!, 'in');
+    const incomingPanel = this.renderPanel(this.state.incomingPanelId!, "in");
     let outgoingPanel;
 
     if (this.state.isOutgoingPanelVisible) {
-      outgoingPanel = this.renderPanel(this.state.outgoingPanelId!, 'out');
+      outgoingPanel = this.renderPanel(this.state.outgoingPanelId!, "out");
     }
 
     let widthValue;
     if (width) {
-      widthValue = width
+      widthValue = width;
     } else {
       widthValue =
         this.state.idToPanelMap[this.state.incomingPanelId!] &&
@@ -359,16 +360,17 @@ export class ContextMenu extends Component<ContextMenuProps, State> {
     }
 
     const classList = [
-      classes['ContextMenu'],
-      transparent ? classes['ContextMenu--transparent'] : null,
-      hasShadow ? classes['ContextMenu--hasShadow'] : null
-    ]
+      classes["ContextMenu"],
+      transparent ? classes["ContextMenu--transparent"] : null,
+      hasShadow ? classes["ContextMenu--hasShadow"] : null,
+    ];
 
     return (
       <div
-        className={classList.join(' ')}
+        className={classList.join(" ")}
         style={{ height: this.state.height, width: widthValue }}
-        {...rest}>
+        {...rest}
+      >
         {outgoingPanel}
         {incomingPanel}
       </div>

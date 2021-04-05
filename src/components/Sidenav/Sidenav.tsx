@@ -1,21 +1,21 @@
-import React, { FunctionComponent, ReactNode, useEffect } from 'react'
-import { OverlayMask } from '../OverlayMask'
-import classes from './Sidenav.module.css'
-import { ContextMenu } from '../ContextMenu'
-import { ContextMenuPanelDescriptor } from '../ContextMenu/ContextMenu';
-import { SidenavHeader } from './SidenavHeader';
+import React, { FunctionComponent, ReactNode, useEffect } from "react";
+import { OverlayMask } from "../OverlayMask";
+import classes from "./Sidenav.module.css";
+import { ContextMenu } from "../ContextMenu";
+import { ContextMenuPanelDescriptor } from "../ContextMenu/ContextMenu";
+import { SidenavHeader } from "./SidenavHeader";
 
 interface SidenavProps {
   panels?: ContextMenuPanelDescriptor[];
-  transparent?: boolean
-  isDocked?: boolean
+  transparent?: boolean;
+  isDocked?: boolean;
   onClose?: any;
   children?: ReactNode;
   className?: string;
-  itemsSize?: string;
+  itemsSize?: "extraSmall" | "small" | "medium" | "large";
   header?: ReactNode;
   transparentHeader?: boolean;
-  position?: 'left' | 'right';
+  position?: "left" | "right";
   float?: boolean;
 }
 
@@ -28,23 +28,22 @@ export const Sidenav: FunctionComponent<SidenavProps> = ({
   header,
   className,
   transparentHeader = false,
-  itemsSize = 'medium',
-  position = 'left',
+  itemsSize = "small",
+  position = "left",
   float = false,
   ...rest
 }) => {
-
   const positionToClassMap = {
-    left: 'sidenav-position--left',
-    right: 'sidenav-position--right'
-  }
+    left: "sidenav-position--left",
+    right: "sidenav-position--right",
+  };
 
   let classList = [
-    classes['sidenav'],
-    float ? classes['floating-sidenav'] : null,
-    !transparent ? classes['sidenav--background'] : null,
-    position ? classes[positionToClassMap[position]] : null
-  ]
+    classes["sidenav"],
+    float ? classes["floating-sidenav"] : null,
+    !transparent ? classes["sidenav--background"] : null,
+    position ? classes[positionToClassMap[position]] : null,
+  ];
 
   // useEffect(() => {
   //   if (isDocked) {
@@ -56,40 +55,35 @@ export const Sidenav: FunctionComponent<SidenavProps> = ({
   //   }
   // }, [isDocked])
 
-
-
-  let maskInstance = !isDocked ? <OverlayMask onClick={onClose} /> : null
-  let headerInstance;
+  let maskInstance: ReactNode = !isDocked ? <OverlayMask onClick={onClose} /> : null;
+  let headerInstance: ReactNode;
   if (header) {
     headerInstance = (
-      <div className={classes['header-container']}>
-        <SidenavHeader transparent={transparentHeader}>
-          {header}
-        </SidenavHeader>
+      <div className={classes["header-container"]}>
+        <SidenavHeader transparent={transparentHeader}>{header}</SidenavHeader>
       </div>
-    )
+    );
   }
 
   return (
     <React.Fragment>
       {maskInstance}
-      <div className={classList.join(' ')} {...rest}>
+      <div className={classList.join(" ")} {...rest}>
         {headerInstance}
-        <div className={classes['options-container']}>
-          {children ?
+        <div className={classes["options-container"]}>
+          {children ? (
             children
-            : panels ?
-              <ContextMenu
-                initialPanelId={0}
-                itemsSize={itemsSize}
-                panels={panels}
-                transparent
-                width="100%"
-              />
-              : null
-          }
+          ) : panels ? (
+            <ContextMenu
+              initialPanelId={0}
+              itemsSize={itemsSize}
+              panels={panels}
+              transparent
+              width="100%"
+            />
+          ) : null}
         </div>
       </div>
     </React.Fragment>
-  )
-}
+  );
+};

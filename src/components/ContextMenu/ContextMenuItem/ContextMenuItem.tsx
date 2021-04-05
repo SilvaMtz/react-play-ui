@@ -1,10 +1,6 @@
-import React, {
-  AnchorHTMLAttributes,
-  Component,
-  Ref,
-} from 'react';
-import classes from './ContextMenuItem.module.css';
-import { SvgIcon } from '../../SvgIcon/SvgIcon';
+import React, { AnchorHTMLAttributes, Component, Ref, ReactNode } from "react";
+import classes from "./ContextMenuItem.module.css";
+import { SvgIcon } from "../../SvgIcon/SvgIcon";
 
 export interface ContextMenuItemProps {
   icon?: string;
@@ -19,12 +15,11 @@ export interface ContextMenuItemProps {
   label: string;
   sublabel?: string;
   sublabelColor?: string;
-  size?: string;
-  isActive?: boolean
+  size?: "extraSmall" | "small" | "medium" | "large";
+  isActive?: boolean;
 }
 
 type Props = ContextMenuItemProps;
-
 
 export class ContextMenuItem extends Component<Props> {
   render() {
@@ -40,67 +35,79 @@ export class ContextMenuItem extends Component<Props> {
       rel,
       label,
       sublabel,
-      sublabelColor = 'rgba(var(--text-color-shade))',
-      size = 'medium',
+      sublabelColor = "rgba(var(--text-color-shade))",
+      size = "small",
       isActive = false,
       ...rest
     } = this.props;
-    let iconInstance;
 
+    const sizeToClassMap = {
+      extraSmall: "extraSmall-item",
+      small: "small-item",
+      medium: "medium-item",
+      large: "large-item",
+    };
+
+    let iconInstance: ReactNode;
     if (icon) {
-      iconInstance = <SvgIcon icon={icon} color={iconColor} />;
-    }
-
-    let arrow;
-
-    if (hasPanel) {
-      arrow = (
-        <SvgIcon icon="chevronRight"  />
+      iconInstance = (
+        <SvgIcon
+          icon={icon}
+          color={iconColor}
+          size={size && sizeToClassMap[size] ? size : "medium"}
+        />
       );
     }
 
-    const sizeToClassMap = {
-      small: 'small-item',
-      medium: 'medium-item',
-      large: 'large-item'
+    let arrow: ReactNode;
+    if (hasPanel) {
+      arrow = (
+        <SvgIcon
+          icon="chevronRight"
+          size={size && sizeToClassMap[size] ? size : "medium"}
+        />
+      );
     }
 
     const classList = [
-      classes['context-menu-item'],
+      classes["context-menu-item"],
       classes[sizeToClassMap[size]],
-      isActive ? classes['item--isActive'] : null
-    ]
+      isActive ? classes["item--isActive"] : null,
+    ];
 
-    let labelInstance;
+    let labelInstance: ReactNode;
     if (sublabel) {
       labelInstance = (
-        <div className={classes['sublabel-label-container']}>
-          <p className={classes['label']}>{label}</p>
-          <p className={classes['sublabel']} style={{color: sublabelColor}}>{sublabel}</p>
+        <div className={classes["sublabel-label-container"]}>
+          <p className={classes["label"]}>{label}</p>
+          <p className={classes["sublabel"]} style={{ color: sublabelColor }}>
+            {sublabel}
+          </p>
         </div>
-      )
+      );
     } else {
-      labelInstance = <p className={classes['label']}>{label}</p>
+      labelInstance = <p className={classes["label"]}>{label}</p>;
     }
 
     const buttonInner = (
-      <div className={classes['label-container']}>
+      <div className={classes["label-container"]}>
         {iconInstance}
         {labelInstance}
       </div>
     );
 
-    let button;
+    let button: ReactNode;
     // <a> elements don't respect the `disabled` attribute. So if we're disabled, we'll just pretend
     // this is a button and piggyback off its disabled styles.
     if (href && !_disabled) {
       button = (
         <a
-          className={classList.join(' ')}
+          className={classList.join(" ")}
           href={href}
           target={target}
-          ref={buttonRef as unknown as Ref<HTMLAnchorElement>}
-          {...(rest as AnchorHTMLAttributes<HTMLAnchorElement>)}>
+          ref={(buttonRef as unknown) as Ref<HTMLAnchorElement>}
+          {...(rest as AnchorHTMLAttributes<HTMLAnchorElement>)}
+        >
           {buttonInner}
           {arrow}
         </a>
@@ -109,10 +116,11 @@ export class ContextMenuItem extends Component<Props> {
       button = (
         <button
           disabled={_disabled}
-          className={classList.join(' ')}
+          className={classList.join(" ")}
           type="button"
           ref={buttonRef}
-          {...rest}>
+          {...rest}
+        >
           {buttonInner}
           {arrow}
         </button>
