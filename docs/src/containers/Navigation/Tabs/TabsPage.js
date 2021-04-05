@@ -101,12 +101,12 @@ export const TabsPage = (props) => {
         Tab 6
       </TabPanel>
 
-      <h2>Tabs with Label Prop</h2>
+      <h2>Tabs with Label and Icon Props</h2>
       <Tabs stretch={true} activeTab={activeTab}>
-        <Tab label="Home" onClick={() => setActiveTab(1)} tabId={1} />
-        <Tab label="Collections" onClick={() => setActiveTab(2)} tabId={2} />
-        <Tab label="Main Menu" onClick={() => setActiveTab(3)} tabId={3} />
-        <Tab label="Balance" onClick={() => setActiveTab(4)} tabId={4} />
+        <Tab icon="home" label="Home" onClick={() => setActiveTab(1)} tabId={1} />
+        <Tab icon="collection" label="Collections" onClick={() => setActiveTab(2)} tabId={2} />
+        <Tab icon="menu" label="Main Menu" onClick={() => setActiveTab(3)} tabId={3} />
+        <Tab icon="scale" label="Balance" onClick={() => setActiveTab(4)} tabId={4} />
         <Tab label="Review" onClick={() => setActiveTab(5)} tabId={5} />
         <Tab label="Checkout" onClick={() => setActiveTab(6)} tabId={6} />
       </Tabs>

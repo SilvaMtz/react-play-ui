@@ -13,7 +13,7 @@
   color: rgba(var(--text-color-shade), 1);
   cursor: pointer;
   text-decoration: none;
-  transition: background-color 0.1s;
+  transition: background-color 0.15s ease-in-out;
   font-weight: 600;
   font-size: 0.85rem;
   letter-spacing: 0.012rem;
@@ -159,7 +159,7 @@
 }
 
 .action-button:active {
-  transform: scale(0.963);
+  transform: scale(0.965);
 }
 
 .action-button.button--isLoading {

@@ -88,7 +88,7 @@
 }
 
 .context-menu-item:active {
-  transform: scale(0.963);
+  transform: scale(0.965);
 }
 
 .context-menu-item.item--isActive {

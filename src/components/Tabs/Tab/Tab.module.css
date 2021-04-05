@@ -28,7 +28,7 @@ button.TabButton {
 }
 
 button.TabButton:active {
-  transform: scale(0.963);
+  transform: scale(0.965);
 }
 
 button.TabButton:hover {
@@ -37,5 +37,18 @@ button.TabButton:hover {
 
 .Tab--isActive button.TabButton {
   background-color: rgb(var(--interactable-shade-1-hover));
+}
 
+.tabLabel {
+  margin: 0;
+  font-weight: 600;
+}
+.Tab--isActive .tabLabel {
+  color: rgb(var(--primary-color));
+}
+
+.tabLabelContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
