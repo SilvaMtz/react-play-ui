@@ -1,10 +1,16 @@
 import { useState } from "react";
-import { ActionButton, FlexGroup, FlexItem, Modal } from "react-play-ui";
+import { ActionButton, FlexGroup, FlexItem, Modal, ConfirmModal } from "react-play-ui";
 
 export const ModalPage = (props) => {
   const [open, setOpen] = useState(false);
   const [openTwo, setOpenTwo] = useState(false);
   const [openThree, setOpenThree] = useState(false);
+  const [openConfirm, setOpenConfirm] = useState(false);
+
+  const handleConfirm = () => {
+    alert("You have confirmed!");
+    setOpenConfirm(false);
+  }
 
   let modalOneInstance;
   if (open) {
@@ -111,15 +117,30 @@ export const ModalPage = (props) => {
     );
   }
 
+  let confirmModalInstance;
+  if (openConfirm) {
+    confirmModalInstance = (
+      <ConfirmModal
+        onClose={() => setOpenConfirm(false)}
+        onConfirm={() => handleConfirm()}
+        title="You are about to confirm and action"
+        icon="bell"
+        body="This action implies that you are going to do something that requires attention. Not to be taken lightly"
+      />
+    )
+  }
+
   return (
     <div>
       <h2>Modal</h2>
       <ActionButton onClick={() => setOpen(true)} label="Open Modal" />
       <ActionButton onClick={() => setOpenTwo(true)} label="Open Modal Two" />
       <ActionButton onClick={() => setOpenThree(true)} label="No title" />
+      <ActionButton onClick={() => setOpenConfirm(true)} label="Confirm Modal" />
       {modalOneInstance}
       {modalTwoInstance}
       {modalThreeInstance}
+      {confirmModalInstance}
     </div>
   );
 };

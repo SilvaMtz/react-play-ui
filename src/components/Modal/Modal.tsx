@@ -8,7 +8,7 @@ import { IconButton } from "../IconButton";
 interface ModalProps {
   paddingSize?: string;
   icon?: string;
-  onClose: any;
+  onClose?: any;
   title?: string;
   children?: ReactNode;
   maxWidth?: number | string;

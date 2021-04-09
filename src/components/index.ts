@@ -16,6 +16,7 @@ export { FlexGrid } from './FlexGrid';
 export { FormFields } from './FormFields';
 export { InputField } from './InputField';
 export { Modal } from './Modal';
+export { ConfirmModal } from './ConfirmModal';
 export { OverlayMask } from './OverlayMask';
 export { PanelCard } from './PanelCard';
 export { Toolbar } from './Toolbar';
