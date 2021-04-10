@@ -15,7 +15,7 @@ interface ConfirmModalProps {
   maxWidth?: number | string;
   backgroundBlur?: boolean;
   maxHeight?: number | string;
-  onConfirm: () => {};
+  onConfirm: any;
   confirmLabel?: string;
   confirmColor?: string;
   cancelLabel?: string;
