@@ -1,4 +1,4 @@
-import React, { FunctionComponent, TextareaHTMLAttributes } from "react";
+import React, { FunctionComponent, TextareaHTMLAttributes, useEffect } from "react";
 import classes from "./TextField.module.css";
 import { FlexGroup } from "../FlexGroup";
 import { FlexItem } from "../FlexItem";
@@ -80,14 +80,28 @@ export const TextField: FunctionComponent<
     resizable ? classes["textarea--resizable"] : null
   ];
 
-  return (
-    <div className={wrapperClassList.join(' ')}>
-      {inputLabel}
+  let textareaInstance = (
+    <textarea
+      className={textareaClassList.join(' ')}
+      disabled={disabled}
+      {...rest}
+    />
+  );
+
+  useEffect(() => {
+    textareaInstance = (
       <textarea
         className={textareaClassList.join(' ')}
         disabled={disabled}
         {...rest}
       />
+    )
+  }, [value])
+
+  return (
+    <div className={wrapperClassList.join(' ')}>
+      {inputLabel}
+      {textareaInstance}
       {lengthLabel}
     </div>
   )

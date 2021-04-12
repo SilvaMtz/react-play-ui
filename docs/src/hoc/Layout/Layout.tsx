@@ -144,7 +144,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
         {
           id: 6,
           name: "Popover",
-          label: "Popover (WIP)",
+          label: "Popover",
           href: "/display/popover",
           isActive: currentRoute.pathname === "/display/popover"
         },
