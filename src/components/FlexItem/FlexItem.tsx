@@ -57,7 +57,8 @@ export const FlexItem: FunctionComponent<FlexItemProps> = ({
     'flexItem',
     classes['flexItem'],
     !grow ? classes['flexItem--flexGrowZero'] : undefined,
-    typeof grow === 'number' ? classes[`flexItem--flexGrow${GROW_SIZES.indexOf(grow)}`] : undefined
+    typeof grow === 'number' ? classes[`flexItem--flexGrow${GROW_SIZES.indexOf(grow)}`] : undefined,
+    className
   ];
 
   return (
