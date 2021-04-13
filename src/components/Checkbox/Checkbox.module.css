@@ -20,6 +20,10 @@ input[type="checkbox"].Checkbox {
   transition: border 0.1s linear;
   background-color: rgb(var(--palette-shade-5));
   position: relative;
+  transition: background-color 0.1s linear;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .Checkbox--display:hover {
   border: 1px solid rgba(var(--primary-color), 0.7);
@@ -27,6 +31,12 @@ input[type="checkbox"].Checkbox {
 }
 .Checkbox--display:active {
   transform: scale(0.98);
+}
+.Checkbox--display.disabled {
+  cursor: not-allowed;
+  background-color: rgba(0,0,0,0.3);
+  opacity: 0.6;
+  pointer-events: none;
 }
 
 .Checkbox--displayChecked {
@@ -36,6 +46,12 @@ input[type="checkbox"].Checkbox {
 
 .Checkbox--label {
   margin-left: 6px;
+  cursor: pointer;
+}
+.Checkbox--label.disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+  pointer-events: none;
 }
 
 .Checkbox--tick {
@@ -65,4 +81,11 @@ input[type="checkbox"].Checkbox {
   background-color: white;
   content: "";
   transform: rotate(-58deg);
+}
+
+.Checkbox--indeterminateTick {
+  height: 8px;
+  width: 8px;
+  background-color: white;
+  border-radius: 2px;
 }

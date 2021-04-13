@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FlexGroup, FlexItem, FormFields, InputField, TextField, Checkbox } from "react-play-ui";
+import { FlexGroup, FlexItem, FormFields, InputField, TextField, Checkbox, CheckboxGroup } from "react-play-ui";
 
 export const InputsPage = (props) => {
   const [firstName, setFirstName] = useState("");
@@ -7,6 +7,38 @@ export const InputsPage = (props) => {
   const [textMsg, setTextMsg] = useState("");
 
   const [checked, setChecked] = useState(false);
+  const [indeterminate, setIndeterminate] = useState(false);
+
+  const checkboxes = [
+    {
+      id: "checkboxOpt0",
+      label: 'Option one',
+      'data-test-sub': 'dts_test',
+    },
+    {
+      id: "checkboxOpt1",
+      label: 'Option two is checked by default',
+      className: 'classNameTest',
+    },
+    {
+      id: "checkboxOpt2",
+      label: 'Option three is disabled',
+      disabled: true,
+    },
+  ];
+  const [checkboxIdToSelectedMap, setCheckboxIdToSelectedMap] = useState({
+    ["checkboxOpt1"]: true,
+  });
+
+  const handleCheckboxGroupChange = (optionId) => {
+    const newCheckboxIdToSelectedMap = {
+      ...checkboxIdToSelectedMap,
+      ...{
+        [optionId]: !checkboxIdToSelectedMap[optionId],
+      },
+    };
+    setCheckboxIdToSelectedMap(newCheckboxIdToSelectedMap);
+  };
 
   return (
     <div>
@@ -51,11 +83,24 @@ export const InputsPage = (props) => {
         </FlexGroup>
       </FormFields>
       <h3>Checkboxes</h3>
-      <FlexGroup>
+      <FlexGroup direction="column" gutterSize="xs">
         <FlexItem>
-          <Checkbox id="1" label="Option 1" value={checked} checked={checked} onChange={() => setChecked(!checked)} />
+          <Checkbox id="1" label="Regular Checkbox" value={checked} checked={checked} onChange={() => setChecked(!checked)} />
+        </FlexItem>
+        <FlexItem>
+          <Checkbox id="2" label="I am indeterminate" value={indeterminate} indeterminate={indeterminate} onChange={() => setIndeterminate(!indeterminate)} />
+        </FlexItem>
+        <FlexItem>
+          <Checkbox id="4" label="I am disabled" value={checked} checked={checked} onChange={() => setChecked(!checked)} disabled />
         </FlexItem>
       </FlexGroup>
+
+      <h3>Checkbox Group</h3>
+      <CheckboxGroup
+        options={checkboxes}
+        idToSelectedMap={checkboxIdToSelectedMap}
+        onChange={(id) => handleCheckboxGroupChange(id)}
+      />
     </div>
   );
 };

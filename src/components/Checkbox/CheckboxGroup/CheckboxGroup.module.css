@@ -1,0 +1,9 @@
+.CheckboxGroup--option {
+  margin: 3px 0px;
+}
+.CheckboxGroup--option:first-child {
+  margin-top: 0px;
+}
+.CheckboxGroup--option:last-child {
+  margin-bottom: 0px;
+}

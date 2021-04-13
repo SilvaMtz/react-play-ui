@@ -2,16 +2,19 @@ import React, {
   FunctionComponent,
   InputHTMLAttributes,
   ChangeEventHandler,
+  HTMLAttributes,
 } from "react";
+import { CommonProps } from "../types";
 import classes from "./Checkbox.module.css";
 
-export interface CheckboxProps {
+export interface CheckboxProps extends CommonProps {
   value: any;
   label: string;
   checked: boolean;
   id: string;
   onChange?: ChangeEventHandler<any>;
   disabled?: boolean;
+  indeterminate?: boolean;
 }
 
 export const Checkbox: FunctionComponent<
@@ -23,12 +26,19 @@ export const Checkbox: FunctionComponent<
   id,
   onChange,
   disabled = false,
+  indeterminate = false,
+  className,
   ...rest
 }) => {
-  const classList = [classes["Checkbox--wrapper"]];
+  const classList = [classes["Checkbox--wrapper"], className];
   const checkboxClassList = [
     classes["Checkbox--display"],
-    checked ? classes["Checkbox--displayChecked"] : null,
+    checked || indeterminate ? classes["Checkbox--displayChecked"] : null,
+    disabled ? classes["disabled"] : null,
+  ];
+  const labelClassList = [
+    classes["Checkbox--label"],
+    disabled ? classes["disabled"] : null,
   ];
 
   return (
@@ -37,16 +47,20 @@ export const Checkbox: FunctionComponent<
         className={classes["Checkbox"]}
         type="checkbox"
         value={value}
-        checked={checked}
+        checked={checked || indeterminate}
         id={id}
         onChange={onChange}
         disabled={disabled}
-        {...rest}
+        {...(rest as Omit<HTMLAttributes<HTMLInputElement>, "className">)}
       />
       <div className={checkboxClassList.join(" ")} onClick={onChange}>
-        {checked ? <div className={classes["Checkbox--tick"]} /> : null}
+        {checked ? (
+          <div className={classes["Checkbox--tick"]} />
+        ) : indeterminate ? (
+          <div className={classes["Checkbox--indeterminateTick"]} />
+        ) : null}
       </div>
-      <label className={classes["Checkbox--label"]} htmlFor={id}>
+      <label className={labelClassList.join(" ")} htmlFor={id}>
         {label}
       </label>
     </span>
