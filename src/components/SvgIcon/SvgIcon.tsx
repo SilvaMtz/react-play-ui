@@ -9,7 +9,7 @@ const iconKeysTuple = tuple(...iconKeys);
 export type iconNameType = typeof iconKeysTuple[number];
 
 interface SvgIconProps {
-  size?: "extraSmall" | "small" | "medium" | "large";
+  size?: "mini" | "extraSmall" | "small" | "medium" | "large";
   color?: string;
   className?: string;
   icon: iconNameType;
@@ -23,6 +23,7 @@ export const SvgIcon: FunctionComponent<SVGAttributes<SVGElement> & SvgIconProps
   ...rest
 }) => {
   const iconSizeMapping = {
+    mini: "icon--mini",
     extraSmall: "icon--extraSmall",
     small: "",
     medium: "icon--medium",

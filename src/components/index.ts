@@ -37,3 +37,4 @@ export { ProgressBar } from './ProgressBar';
 export { DisplayCard } from './DisplayCard';
 export { Toast } from './Toast';
 export { PlayPopover } from './PlayPopover';
+export { Chip, Chips } from './Chips';

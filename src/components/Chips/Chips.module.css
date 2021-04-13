@@ -1,0 +1,12 @@
+.ChipsContainer {
+  padding: 4px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: max-content;
+}
+
+.ChipsContainer > *{
+  margin: 0px 4px;
+}

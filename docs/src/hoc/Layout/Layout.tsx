@@ -247,7 +247,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
         {
           id: 3,
           name: "Chip",
-          label: "Chip (WIP)",
+          label: "Chip",
           isActive: currentRoute.pathname === "/data/chip",
           href: "/data/chip",
         },
