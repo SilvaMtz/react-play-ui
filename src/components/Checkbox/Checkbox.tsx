@@ -1,116 +1,54 @@
 import React, {
-  Component,
-  ChangeEventHandler,
-  ReactNode,
+  FunctionComponent,
   InputHTMLAttributes,
-} from 'react';
-import classes from './Checkbox.module.css';
+  ChangeEventHandler,
+} from "react";
+import classes from "./Checkbox.module.css";
 
-const typeToClassNameMap = {
-  inList: 'euiCheckbox--inList',
-};
-
-export type CheckboxType = keyof typeof typeToClassNameMap;
-
-export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface CheckboxProps {
+  value: any;
+  label: string;
+  checked: boolean;
   id: string;
-  checked?: boolean;
-  onChange: ChangeEventHandler<HTMLInputElement>; // overriding to make it required
-  inputRef?: (element: HTMLInputElement) => void;
-  label?: ReactNode;
-  type?: CheckboxType;
+  onChange?: ChangeEventHandler<any>;
   disabled?: boolean;
-  /**
-   * when `true` creates a shorter height checkbox row
-   */
-  compressed?: boolean;
-  indeterminate?: boolean;
 }
 
-export class Checkbox extends Component<CheckboxProps> {
-  static defaultProps = {
-    checked: false,
-    disabled: false,
-    indeterminate: false,
-    compressed: false,
-  };
+export const Checkbox: FunctionComponent<
+  CheckboxProps & InputHTMLAttributes<HTMLInputElement>
+> = ({
+  value,
+  label,
+  checked = false,
+  id,
+  onChange,
+  disabled = false,
+  ...rest
+}) => {
+  const classList = [classes["Checkbox--wrapper"]];
+  const checkboxClassList = [
+    classes["Checkbox--display"],
+    checked ? classes["Checkbox--displayChecked"] : null,
+  ];
 
-  inputRef?: HTMLInputElement = undefined;
-
-  componentDidMount() {
-    this.invalidateIndeterminate();
-  }
-
-  componentDidUpdate() {
-    this.invalidateIndeterminate();
-  }
-
-  render() {
-    const {
-      className,
-      id,
-      checked,
-      label,
-      onChange,
-      type,
-      disabled,
-      compressed,
-      indeterminate,
-      inputRef,
-      ...rest
-    } = this.props;
-
-    const classList = [
-      classes['checkbox-wrapper'],
-      type && typeToClassNameMap[type],
-      {
-        'euiCheckbox--noLabel': !label,
-        'euiCheckbox--compressed': compressed,
-      },
-      className
-    ];
-
-    let optionalLabel;
-
-    if (label) {
-      optionalLabel = (
-        <label className="euiCheckbox__label" htmlFor={id}>
-          {label}
-        </label>
-      );
-    }
-
-    return (
-      <div className={classList.join(' ')}>
-        <input
-          className={classes['checkbox-input']}
-          type="checkbox"
-          id={id}
-          checked={checked}
-          onChange={onChange}
-          disabled={disabled}
-          ref={this.setInputRef}
-          {...rest}
-        />
-        <div className={classes['checkbox-square']} />
-        {optionalLabel}
+  return (
+    <span className={classList.join(" ")}>
+      <input
+        className={classes["Checkbox"]}
+        type="checkbox"
+        value={value}
+        checked={checked}
+        id={id}
+        onChange={onChange}
+        disabled={disabled}
+        {...rest}
+      />
+      <div className={checkboxClassList.join(" ")} onClick={onChange}>
+        {checked ? <div className={classes["Checkbox--tick"]} /> : null}
       </div>
-    );
-  }
-
-  setInputRef = (input: HTMLInputElement) => {
-    this.inputRef = input;
-
-    if (this.props.inputRef) {
-      this.props.inputRef(input);
-    }
-
-    this.invalidateIndeterminate();
-  };
-
-  invalidateIndeterminate() {
-    if (this.inputRef) {
-      this.inputRef.indeterminate = this.props.indeterminate!;
-    }
-  }
-}
+      <label className={classes["Checkbox--label"]} htmlFor={id}>
+        {label}
+      </label>
+    </span>
+  );
+};

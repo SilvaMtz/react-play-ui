@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { ActionButton, ContextMenu, PlayPopover } from "react-play-ui";
-import { Popover } from "react-tiny-popover";
 
 export const PopoverPage = (props) => {
   const [popoverOpen, setPopoverOpen] = useState(false);
