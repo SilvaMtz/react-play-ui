@@ -9,6 +9,13 @@ input[type="checkbox"].Checkbox {
   font-weight: 500;
   font-size: 0.98rem;
 }
+.Checkbox--wrapper:hover .Checkbox--display:not(.disabled) {
+  transform: scale(1.085);
+  border: 1px solid rgba(var(--primary-color), 0.7);
+}
+.Checkbox--wrapper:active .Checkbox--display:not(.disabled) {
+  transform: scale(0.98);
+}
 
 .Checkbox--display {
   content: "";
@@ -24,13 +31,6 @@ input[type="checkbox"].Checkbox {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.Checkbox--display:hover {
-  border: 1px solid rgba(var(--primary-color), 0.7);
-  transform: scale(1.085);
-}
-.Checkbox--display:active {
-  transform: scale(0.98);
 }
 .Checkbox--display.disabled {
   cursor: not-allowed;

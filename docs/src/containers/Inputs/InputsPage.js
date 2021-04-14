@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FlexGroup, FlexItem, FormFields, InputField, TextField, Checkbox, CheckboxGroup } from "react-play-ui";
+import { SwitchDemo } from "./SwitchDemo";
 
 export const InputsPage = (props) => {
   const [firstName, setFirstName] = useState("");
@@ -101,6 +102,7 @@ export const InputsPage = (props) => {
         idToSelectedMap={checkboxIdToSelectedMap}
         onChange={(id) => handleCheckboxGroupChange(id)}
       />
+      <SwitchDemo />
     </div>
   );
 };
