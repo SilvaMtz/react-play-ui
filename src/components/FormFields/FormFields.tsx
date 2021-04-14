@@ -1,17 +1,19 @@
 import React, { FormHTMLAttributes, FunctionComponent } from "react";
+import classNames from "classnames";
+import { CommonProps } from "../types";
 import classes from "./FormFields.module.css";
 
-export interface FormFieldsProps {
-  className?: string;
-}
+export type FormFieldsProps = CommonProps & FormHTMLAttributes<HTMLFormElement>;
 
-export const FormFields: FunctionComponent<
-  FormFieldsProps & FormHTMLAttributes<HTMLFormElement>
-> = ({ className, children, ...rest }) => {
-  let classList = [classes["form"], className];
+export const FormFields: FunctionComponent<FormFieldsProps> = ({
+  className,
+  children,
+  ...rest
+}) => {
+  const classList = classNames(classes["form"], className);
 
   return (
-    <form className={classList.join(" ")} {...rest}>
+    <form className={classList} {...rest}>
       {children}
     </form>
   );

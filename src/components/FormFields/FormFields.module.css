@@ -1,11 +1,7 @@
 .form {
-  padding: 12px;
+  padding: 8px;
   box-sizing: border-box;
   width: 100%;
   display: flex;
   flex-direction: column;
-}
-
-.form > div {
-  margin-bottom: 16px;
 }
