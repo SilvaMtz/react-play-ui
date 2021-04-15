@@ -39,5 +39,6 @@ export { DisplayCard } from './DisplayCard';
 export { Toast } from './Toast';
 export { PlayPopover } from './PlayPopover';
 export { Chip, Chips } from './Chips';
-export { FormSwitch } from './FormSwitch';
+export { SwitchButton } from './SwitchButton';
+export { RadioButton } from './RadioButton';
 export * from './types';

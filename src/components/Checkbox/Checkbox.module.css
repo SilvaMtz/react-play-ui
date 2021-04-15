@@ -33,10 +33,10 @@ input[type="checkbox"].Checkbox {
   justify-content: center;
 }
 .Checkbox--display.disabled {
-  cursor: not-allowed;
+  pointer-events: none;
+  cursor: not-allowed !important;
   background-color: rgba(0,0,0,0.3);
   opacity: 0.6;
-  pointer-events: none;
 }
 
 .Checkbox--displayChecked {
@@ -49,9 +49,8 @@ input[type="checkbox"].Checkbox {
   cursor: pointer;
 }
 .Checkbox--label.disabled {
-  cursor: not-allowed;
+  cursor: not-allowed !important;
   opacity: 0.7;
-  pointer-events: none;
 }
 
 .Checkbox--tick {

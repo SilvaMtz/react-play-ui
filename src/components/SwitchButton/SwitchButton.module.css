@@ -1,4 +1,4 @@
-.FormSwitch--wrapper {
+.SwitchButton--wrapper {
   display: flex;
   width: max-content;
   flex-direction: row;
@@ -9,14 +9,14 @@
   outline: none;
 }
 
-.FormSwitch--label {
+.SwitchButton--label {
   margin-left: 6px;
   font-weight: 500;
   font-size: 0.98rem;
   cursor: pointer;
 }
 
-.FormSwitch--button {
+.SwitchButton--button {
   height: 18px;
   width: 36px;
   border-radius: 9px;
@@ -26,7 +26,7 @@
   outline: none;
 }
 
-.FormSwitch--body {
+.SwitchButton--body {
   border-radius: 9px;
   height: 100%;
   width: 100%;
@@ -39,8 +39,8 @@
   position: relative;
 }
 
-.FormSwitch--circle {
-  content: '';
+.SwitchButton--circle {
+  content: "";
   position: absolute;
   background-color: rgb(var(--palette-shade-5));
   height: 20px;
@@ -52,23 +52,28 @@
   transition: left 0.08s ease-in-out;
 }
 
-.FormSwitch--wrapper:hover .FormSwitch--circle {
+.SwitchButton--wrapper:hover .SwitchButton--circle {
   transform: scale(1.085);
   border: 1px solid rgba(var(--primary-color), 0.7);
 }
 
-.FormSwitch--button[aria-checked=false]
-.FormSwitch--body {
+.SwitchButton--button[aria-checked="false"] .SwitchButton--body {
   background-color: rgb(var(--palette-shade-3));
 }
 
-.FormSwitch--button[aria-checked=false]
-.FormSwitch--body > .FormSwitch--circle {
+.SwitchButton--button[aria-checked="false"]
+  .SwitchButton--body
+  > .SwitchButton--circle {
   left: -2px;
 }
 
-.FormSwitch--wrapper.disabled {
+.SwitchButton--wrapper.disabled {
   cursor: not-allowed;
   pointer-events: none;
   opacity: 0.45;
+}
+.SwitchButton--wrapper.disabled
+  .SwitchButton--button[aria-checked="false"]
+  .SwitchButton--body {
+  background-color: rgba(0, 0, 0, 0.7);
 }

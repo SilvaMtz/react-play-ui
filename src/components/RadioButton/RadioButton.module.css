@@ -1,0 +1,75 @@
+input.RadioButton--input[type="radio"] {
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  left: -4px;
+  top: -2px;
+  opacity: 0;
+  cursor: pointer;
+}
+input.RadioButton--input[type="radio"][disabled] {
+  cursor: not-allowed !important;
+}
+
+.RadioButton--wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: 500;
+  font-size: 0.98rem;
+  width: max-content;
+  position: relative;
+}
+
+.RadioButton--wrapper:hover .RadioButton--display:not(.disabled) {
+  transform: scale(1.085);
+  border: 1px solid rgba(var(--primary-color), 0.7);
+}
+
+.RadioButton--wrapper:active .RadioButton--display:not(.disabled) {
+  transform: scale(0.98);
+}
+
+.RadioButton--display {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid rgba(var(--text-color-shade), 0.3);
+  cursor: pointer;
+  transition: border 0.1s linear;
+  background-color: rgb(var(--palette-shade-5));
+  position: relative;
+  transition: background-color 0.1s linear;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.RadioButton--display.disabled {
+  cursor: not-allowed !important;
+  background-color: rgba(0,0,0,0.3);
+  opacity: 0.6;
+}
+
+.RadioButton--displayChecked {
+  border: 1px solid rgb(var(--primary-color));
+  background-color: rgb(var(--primary-color));
+}
+
+.RadioButton--label {
+  margin-left: 6px;
+  cursor: pointer;
+}
+
+.RadioButton--label.disabled {
+  cursor: not-allowed !important;
+  opacity: 0.7;
+}
+
+.RadioButton--check {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+}

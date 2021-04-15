@@ -5,7 +5,7 @@ import React, {
   HTMLAttributes,
   useCallback,
 } from "react";
-import classes from "./FormSwitch.module.css";
+import classes from "./SwitchButton.module.css";
 import classNames from "classnames";
 import { CommonProps } from "../types";
 
@@ -17,7 +17,7 @@ export type SwitchEvent = React.BaseSyntheticEvent<
   }
 >;
 
-export type FormSwitchProps = CommonProps &
+export type SwitchButtonProps = CommonProps &
   CommonProps &
   Omit<
     ButtonHTMLAttributes<HTMLButtonElement>,
@@ -38,7 +38,7 @@ export type FormSwitchProps = CommonProps &
     labelProps?: CommonProps & HTMLAttributes<HTMLSpanElement>;
   };
 
-export const FormSwitch: FunctionComponent<FormSwitchProps> = ({
+export const SwitchButton: FunctionComponent<SwitchButtonProps> = ({
   id,
   label,
   checked = false,
@@ -64,13 +64,13 @@ export const FormSwitch: FunctionComponent<FormSwitchProps> = ({
   );
 
   const classList = classNames(
-    classes["FormSwitch--wrapper"],
+    classes["SwitchButton--wrapper"],
     disabled ? classes["disabled"] : null,
     className
   );
 
   const labelClasses = classNames(
-    classes["FormSwitch--label"],
+    classes["SwitchButton--label"],
     labelProps?.className
   );
 
@@ -86,7 +86,7 @@ export const FormSwitch: FunctionComponent<FormSwitchProps> = ({
   );
   if (showLabel === false && typeof label !== "string") {
     console.warn(
-      "FormSwitch `label` must be a string when `showLabel` is false."
+      "SwitchButton `label` must be a string when `showLabel` is false."
     );
   }
 
@@ -95,7 +95,7 @@ export const FormSwitch: FunctionComponent<FormSwitchProps> = ({
       <button
         id={id}
         aria-checked={checked || false}
-        className={classes["FormSwitch--button"]}
+        className={classes["SwitchButton--button"]}
         role="switch"
         type={type}
         disabled={disabled}
@@ -104,8 +104,8 @@ export const FormSwitch: FunctionComponent<FormSwitchProps> = ({
         aria-labelledby={showLabel ? labelProps?.id : null}
         {...rest}
       >
-        <span className={classes["FormSwitch--body"]}>
-          <span className={classes["FormSwitch--circle"]} />
+        <span className={classes["SwitchButton--body"]}>
+          <span className={classes["SwitchButton--circle"]} />
         </span>
       </button>
       {showLabel ? labelInstance : null}
