@@ -1,3 +1,14 @@
+.FormLegend {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: rgb(var(--text-color-shade));
+  padding: 2px 12px;
+  border: 1px solid rgb(var(--text-color-shade), 0.2);
+  border-radius: 12px;
+}
+
+
+
 .FormLegend.FormLegend--hidden {
   visibility: hidden;
 }

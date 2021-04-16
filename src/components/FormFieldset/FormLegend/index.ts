@@ -1,1 +1,1 @@
-export { FormLegend } from './FormLegend';
+export { FormLegend, FormLegendProps } from './FormLegend';

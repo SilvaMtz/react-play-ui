@@ -9,7 +9,7 @@ import { CommonProps, ExclusiveUnion } from "../types";
 import classNames from "classnames";
 import classes from "./RadioButton.module.css";
 
-export interface RadioButtonProps {
+export interface RadioProps {
   checked?: boolean;
   disabled?: boolean;
   onChange?: ChangeEventHandler<HTMLInputElement>;
@@ -18,28 +18,28 @@ export interface RadioButtonProps {
   labelProps?: CommonProps & LabelHTMLAttributes<HTMLLabelElement>;
 }
 
-export interface LabelPropTypes {
-  id?: string;
-  label?: ReactNode;
+interface idWithLabel extends RadioProps{
+  label: ReactNode;
+  id: string;
 }
 
-export interface IdPropTypes {
-  id?: string;
+interface withId extends RadioProps {
+  id: string;
 }
 
-export type RadioButtonType = CommonProps &
+export type RadioButtonProps = CommonProps &
   Omit<HTMLAttributes<HTMLDivElement>, "onChange" | "id"> &
-  ExclusiveUnion<ExclusiveUnion<RadioButtonProps, LabelPropTypes>, IdPropTypes>;
+  ExclusiveUnion<ExclusiveUnion<RadioProps, idWithLabel>, withId>;
 
-export const RadioButton: FunctionComponent<RadioButtonType> = ({
-  checked = false,
-  disabled = false,
+export const RadioButton: FunctionComponent<RadioButtonProps> = ({
+  id,
+  checked,
+  disabled,
   onChange,
   value,
   name,
   labelProps,
   label,
-  id,
   className,
   ...rest
 }) => {

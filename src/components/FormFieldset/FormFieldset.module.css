@@ -1,0 +1,11 @@
+.FormFieldset {
+  border: 1px solid rgba(var(--text-color-shade), 0.2);
+  border-radius: 8px;
+  width: max-content;
+  padding: 16px;
+  padding-top: 12px;
+}
+
+.FormFieldset.stretch {
+  width: initial;
+}

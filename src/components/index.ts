@@ -40,5 +40,13 @@ export { Toast } from './Toast';
 export { PlayPopover } from './PlayPopover';
 export { Chip, Chips } from './Chips';
 export { SwitchButton } from './SwitchButton';
-export { RadioButton } from './RadioButton';
+export {
+  RadioButton,
+  RadioButtonProps,
+  RadioProps,
+  RadioGroup,
+  RadioGroupOption,
+  RadioGroupChangeCallback,
+  RadioGroupProps,
+ } from './RadioButton';
 export * from './types';
