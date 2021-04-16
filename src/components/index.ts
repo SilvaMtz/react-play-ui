@@ -44,9 +44,11 @@ export {
   RadioButton,
   RadioButtonProps,
   RadioProps,
+} from './RadioButton';
+export {
   RadioGroup,
   RadioGroupOption,
   RadioGroupChangeCallback,
   RadioGroupProps,
- } from './RadioButton';
+} from './RadioButton/RadioGroup';
 export * from './types';

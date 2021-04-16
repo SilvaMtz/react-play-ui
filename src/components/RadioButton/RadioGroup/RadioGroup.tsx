@@ -1,6 +1,6 @@
 import React, { FunctionComponent, HTMLAttributes } from 'react';
 import { FormFieldset, FormFieldsetProps, FormLegendProps } from '../../FormFieldset';
-import { RadioButton, RadioButtonProps } from '../index'
+import { RadioButton, RadioButtonProps } from '../'
 import { CommonProps, ExclusiveUnion } from '../../types';
 import classes from './RadioGroup.module.css';
 import classNames from 'classnames';
