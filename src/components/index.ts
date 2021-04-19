@@ -22,7 +22,7 @@ export { PanelCard } from './PanelCard';
 export { Toolbar } from './Toolbar';
 export { SelectField } from './SelectField';
 export { TextField } from './TextField';
-export { Sidenav } from './Sidenav';
+export { SideDrawer } from './SideDrawer';
 export { Checkbox, CheckboxGroup } from './Checkbox';
 export { FormFieldset, FormLegend } from './FormFieldset';
 export { WidgetCard } from './WidgetCard';

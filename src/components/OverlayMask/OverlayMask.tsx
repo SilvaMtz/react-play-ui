@@ -2,7 +2,7 @@ import React, { FunctionComponent, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import classes from './OverlayMask.module.css';
 
-type OverlayProps = {
+export type OverlayProps = {
   onClick: any;
   backgroundBlur?: boolean;
 }

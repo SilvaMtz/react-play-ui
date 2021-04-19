@@ -13,10 +13,10 @@ export const Toolbar: FunctionComponent<ToolbarProps> = ({
 }) => {
 
   useEffect(() => {
-    document.body.classList.add(classes['toolbar-spacing']);
+    document.body.classList.add(classes['body--hasFixedToolbar']);
 
     return () => {
-      document.body.classList.remove(classes['toolbar-spacing']);
+      document.body.classList.remove(classes['body--hasFixedToolbar']);
     }
   }, []);
 

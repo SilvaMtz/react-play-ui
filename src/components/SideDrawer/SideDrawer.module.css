@@ -1,4 +1,4 @@
-.sidenav {
+.SideDrawer {
   display: flex;
   height: 100vh;
   flex-direction: column;
@@ -8,29 +8,25 @@
   box-sizing: border-box;
   width: 256px;
   overflow: hidden;
-  background-color: transparent;
+  background-color: rgba(var(--palette-shade-2));
   border: none;
   outline: none;
   position: fixed;
   z-index: 9003;
   left: 0;
   top: 0;
-  animation: sidenavIn 0.2s ease-in-out;
+  animation: SideDrawerIn 0.2s ease-in-out;
   border-bottom-right-radius: 16px;
   border-top-right-radius: 16px;
 }
 
-.sidenav.sidenav--background {
-  background-color: rgba(var(--palette-shade-2));
-}
-
-.sidenav-position--right {
+.SideDrawer-position--right {
   left: inherit;
   right: 0;
   border-left: 1px solid rgba(var(--palette-shade-5));
   border-bottom-left-radius: 16px;
   border-top-left-radius: 16px;
-  animation: sidenavInRight 0.2s ease-in-out;
+  animation: SideDrawerInRight 0.2s ease-in-out;
   border-bottom-right-radius: 0;
   border-top-right-radius: 0;
 }
@@ -44,7 +40,7 @@
   overflow-y: scroll;
 }
 
-.sidenav-items {
+.SideDrawer-items {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -58,14 +54,21 @@
   box-sizing: border-box;
 }
 
-.sidenav-docked {
-  position: fixed;
+.body--SideDrawer-isDockedLeft {
+  z-index: 1000;
   left: 0;
   top: 0;
   padding-left: 256px;
 }
 
-@keyframes sidenavIn {
+.body--SideDrawer-isDockedRight {
+  z-index: 1000;
+  right: 0;
+  top: 0;
+  padding-right: 256px;
+}
+
+@keyframes SideDrawerIn {
   0% {
     opacity: 0;
     transform: translateX(-100%)  scale(0.975);
@@ -81,7 +84,7 @@
   }
 }
 
-@keyframes sidenavInRight {
+@keyframes SideDrawerInRight {
   0% {
     opacity: 0;
     transform: translateX(100%) scale(0.975);
@@ -98,7 +101,7 @@
   }
 }
 
-.floating-sidenav {
+.floating-SideDrawer {
   border-radius: 16px;
   height: calc(100vh - 16px);
   margin: 8px;

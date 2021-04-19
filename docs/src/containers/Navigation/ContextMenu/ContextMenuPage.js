@@ -3,7 +3,7 @@ import { ContextMenu } from 'react-play-ui';
 
 export const ContextMenuPage = (props) => {
 
-  const sidenavPanels = [
+  const panels = [
     {
       id: 0,
       items: [
@@ -141,9 +141,9 @@ export const ContextMenuPage = (props) => {
       items: [
         {
           id: 0,
-          name: "Sidenav",
-          label: "Sidenav",
-          href: "/navigation/sidenav",
+          name: "SideDrawer",
+          label: "SideDrawer",
+          href: "/navigation/sidedrawer",
         },
         {
           id: 1,
@@ -225,7 +225,7 @@ export const ContextMenuPage = (props) => {
     <div>
       <h2>Context Menu</h2>
       <ContextMenu
-        panels={sidenavPanels}
+        panels={panels}
         initialPanelId={0}
       />
     </div>

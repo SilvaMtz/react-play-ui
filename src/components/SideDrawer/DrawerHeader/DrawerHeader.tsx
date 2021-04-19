@@ -1,19 +1,19 @@
 import React, { FunctionComponent, ReactNode } from 'react';
-import classes from './SidenavHeader.module.css';
+import classes from './DrawerHeader.module.css';
 
-interface SidenavHeaderProps {
+export interface SideDrawerProps {
   children?: ReactNode;
   transparent?: boolean;
 }
 
-export const SidenavHeader: FunctionComponent<SidenavHeaderProps> = ({
+export const DrawerHeader: FunctionComponent<SideDrawerProps> = ({
   children,
   transparent = false,
   ...rest
 }) => {
 
   let classList = [
-    classes['sidenav-header'],
+    classes['SideDrawer-header'],
     transparent ? classes['header--transparent'] : null
   ]
 

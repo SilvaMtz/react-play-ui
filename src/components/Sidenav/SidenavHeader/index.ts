@@ -1,1 +1,0 @@
-export { SidenavHeader } from './SidenavHeader';

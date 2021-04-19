@@ -31,8 +31,8 @@ const App = () => {
       <Route path="/navigation/context-menu">
         <Pages.ContextMenuPage />
       </Route>
-      <Route path="/navigation/sidenav">
-        <Pages.SidenavPage />
+      <Route path="/navigation/sidedrawer">
+        <Pages.SideDrawerPage />
       </Route>
       <Route path="/navigation/tabs">
         <Pages.TabsPage />
