@@ -1,11 +1,12 @@
 import React, { FunctionComponent, ReactNode, HTMLAttributes } from "react";
 import classes from "./Callout.module.css";
 import { SvgIcon } from "../SvgIcon";
+import { IconSize } from "../SvgIcon/SvgIcon";
 
 export interface CalloutProps {
   color?: "primary" | "success" | "accent" | "warning" | "danger" | "default";
   icon?: string;
-  iconSize?: "extraSmall" | "small" | "medium" | "large";
+  iconSize?: IconSize;
   title?: string;
   iconColor?: string;
   fill?: boolean;

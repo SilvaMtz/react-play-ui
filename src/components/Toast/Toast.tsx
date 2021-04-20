@@ -2,12 +2,13 @@ import React, { FunctionComponent, HTMLAttributes } from "react";
 import { IconButton } from "../IconButton";
 import { ProgressBar } from "../ProgressBar";
 import { SvgIcon } from "../SvgIcon";
+import { IconSize } from "../SvgIcon/SvgIcon";
 import classes from "./Toast.module.css";
 
 export interface ToastProps {
   color?: "primary" | "success" | "accent" | "warning" | "danger" | "default";
   icon?: string;
-  iconSize?: "extraSmall" | "small" | "medium" | "large";
+  iconSize?: IconSize
   title?: string;
   iconColor?: string;
   className?: string;

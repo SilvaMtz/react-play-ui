@@ -1,0 +1,94 @@
+
+
+.Accordion--triggerWrapper {
+  display: flex;
+  align-items: center;
+}
+
+.Accordion--Button {
+  text-align: left;
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+
+}
+.Accordion--Button:hover,
+.Accordion--Button:focus {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.Accordion--buttonReverse {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+.Accordion-buttonReverse .Accordion--chevronIconWrapper {
+  margin-right: 12px;
+}
+
+.Accordion--chevronIconWrapper {
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.Accordion--chevronIconWrapper .Accordion--chevronIcon {
+  vertical-align: top;
+  transition: transform 0.15s linear;
+}
+
+.Accordion--chevronIconWrapper .Accordion--chevronIcon-isOpen {
+  transform: rotate(90deg);
+}
+
+.Accordion--chevronIconButton {
+  margin-right: 6px;
+}
+
+.Accordion--extraAction {
+  flex-shrink: 0;
+}
+
+.Accordion--childrenWrapper {
+  visibility: hidden;
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transform: translateZ(0);
+  transition: height 0.15s linear, opacity 0.15s linear;
+}
+
+.Accordion.Accordion--isOpen .Accordion--childrenWrapper {
+  visibility: visible;
+  opacity: 1;
+  height: auto;
+}
+
+.Accordion--padding-xs {
+  padding: 8px;
+}
+.Accordion--padding-s {
+  padding: 12px;
+}
+.Accordion--padding-m {
+  padding: 16px;
+}
+.Accordion--padding-l {
+  padding: 20px;
+}
+.Accordion--padding-xl {
+  padding: 24px;
+}
+
+.Accordion--children-isLoading {
+  line-height: 1.5rem;
+  display: flex;
+  align-items: center;
+}
+
+.Accordion--children-isLoading .Accordion--loadingSpinner {
+  margin-right: 6px;
+}

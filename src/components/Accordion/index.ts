@@ -1,1 +1,1 @@
-export { Accordion } from "./Accordion";
+export { Accordion, AccordionPaddingSize, AccordionProps } from "./Accordion";

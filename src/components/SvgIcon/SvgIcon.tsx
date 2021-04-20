@@ -2,17 +2,17 @@ import React, { FunctionComponent, SVGAttributes } from "react";
 import classes from "./SvgIcon.module.css";
 import { icons } from "../../assets/icons";
 
-const iconKeys = Object.keys(icons);
+export type Heroicons = keyof typeof icons;
 
-const tuple = <T extends string[]>(...args: T) => args;
-const iconKeysTuple = tuple(...iconKeys);
-export type iconNameType = typeof iconKeysTuple[number];
+export type IconsType = Heroicons & string
 
-interface SvgIconProps {
-  size?: "mini" | "extraSmall" | "small" | "medium" | "large";
+export type IconSize = "mini" | "extraSmall" | "small" | "medium" | "large";
+
+export interface SvgIconProps {
+  size?: IconSize;
   color?: string;
   className?: string;
-  icon: iconNameType;
+  icon: string;
 }
 
 export const SvgIcon: FunctionComponent<SVGAttributes<SVGElement> & SvgIconProps> = ({
