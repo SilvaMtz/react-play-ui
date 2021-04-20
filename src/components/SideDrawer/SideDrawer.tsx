@@ -13,10 +13,10 @@ import { ContextMenu } from "../ContextMenu";
 import { ContextMenuPanelDescriptor } from "../ContextMenu/ContextMenu";
 import { DrawerHeader } from "./DrawerHeader";
 import { CommonProps } from "../types";
-import { OverlayProps } from '../OverlayMask/OverlayMask';
-import classNames from 'classnames';
-import { htmlIdGenerator } from '../../services';
-import { throttle } from '../../services';
+import { OverlayMaskProps } from "../OverlayMask/OverlayMask";
+import classNames from "classnames";
+import { htmlIdGenerator } from "../../services";
+import { throttle } from "../../services";
 import { WindowEvent } from "../../hoc";
 
 export type SideDrawerProps = CommonProps &
@@ -25,7 +25,7 @@ export type SideDrawerProps = CommonProps &
     isDocked?: boolean;
     dockedBreakpoint?: number;
     isOpen?: boolean;
-    button?: ReactElement;
+    button?: ReactNode;
     onClose?: () => void;
     children?: ReactNode;
     showButtonIfDocked?: boolean;
@@ -34,7 +34,8 @@ export type SideDrawerProps = CommonProps &
     transparentHeader?: boolean;
     position?: "left" | "right";
     float?: boolean;
-    maskProps?: OverlayProps;
+    maskProps?: OverlayMaskProps;
+    toolbarZIndexLocation?: "above" | "below";
   };
 
 export const SideDrawer: FunctionComponent<SideDrawerProps> = ({
@@ -52,13 +53,14 @@ export const SideDrawer: FunctionComponent<SideDrawerProps> = ({
   position = "left",
   float = false,
   maskProps,
+  toolbarZIndexLocation = "below",
+  className,
   id,
   ...rest
 }) => {
-
   const [drawerId] = useState(id || htmlIdGenerator()("sideDrawer"));
   const [windowIsLargeEnoughToDock, setWindowIsLargeEnoughToDock] = useState(
-    (typeof window === 'undefined' ? Infinity : window.innerWidth) >=
+    (typeof window === "undefined" ? Infinity : window.innerWidth) >=
       dockedBreakpoint
   );
   const drawerIsDocked = isDocked && windowIsLargeEnoughToDock;
@@ -77,21 +79,25 @@ export const SideDrawer: FunctionComponent<SideDrawerProps> = ({
 
     if (drawerIsDocked) {
       if (position === "left") {
-        document.body.classList.add(classes['body--SideDrawer-isDockedLeft']);
+        document.body.classList.add(classes["body--SideDrawer-isDockedLeft"]);
       } else if (position === "right") {
-        document.body.classList.add(classes['body--SideDrawer-isDockedRight']);
+        document.body.classList.add(classes["body--SideDrawer-isDockedRight"]);
       }
     } else if (isOpen) {
-        document.body.classList.add(classes['body--SideDrawer-isOpen']);
-    };
+      document.body.classList.add(classes["body--SideDrawer-isOpen"]);
+    }
 
     return () => {
       if (position === "left") {
-        document.body.classList.remove(classes['body--SideDrawer-isDockedLeft']);
+        document.body.classList.remove(
+          classes["body--SideDrawer-isDockedLeft"]
+        );
       } else if (position === "right") {
-        document.body.classList.remove(classes['body--SideDrawer-isDockedRight']);
+        document.body.classList.remove(
+          classes["body--SideDrawer-isDockedRight"]
+        );
       }
-      document.body.classList.remove(classes['body--SideDrawer-isOpen']);
+      document.body.classList.remove(classes["body--SideDrawer-isOpen"]);
       window.removeEventListener("resize", functionToCallOnWindowResize);
     };
   }, [drawerIsDocked, isOpen, functionToCallOnWindowResize]);
@@ -113,7 +119,11 @@ export const SideDrawer: FunctionComponent<SideDrawerProps> = ({
   };
 
   let maskInstance: ReactNode = !isDocked ? (
-    <OverlayMask onClick={onClose} />
+    <OverlayMask
+      onClick={onClose}
+      {...maskProps}
+      toolbarZIndexLocation={toolbarZIndexLocation}
+    />
   ) : null;
 
   let headerInstance: ReactNode;
@@ -130,12 +140,9 @@ export const SideDrawer: FunctionComponent<SideDrawerProps> = ({
       ? undefined
       : button &&
         cloneElement(button as ReactElement, {
-          'aria-controls': drawerId,
-          'aria-expanded': isOpen,
-          'aria-pressed': isOpen,
-          className: classNames(
-            button.props.className,
-          ),
+          "aria-controls": drawerId,
+          "aria-expanded": isOpen,
+          "aria-pressed": isOpen,
         });
 
   const positionToClassMap = {
@@ -145,8 +152,15 @@ export const SideDrawer: FunctionComponent<SideDrawerProps> = ({
 
   const classList = classNames(
     classes["SideDrawer"],
-    float ? classes["floating-SideDrawer"] : null,
+    float && !isDocked ? classes["floating-SideDrawer"] : null,
     position ? classes[positionToClassMap[position]] : null,
+    toolbarZIndexLocation === "below" ? classes["belowHeader"] : null,
+    isDocked && position === "left"
+      ? classes["SideDrawer--isDockedLeft"]
+      : isDocked && position === "right"
+      ? classes["SideDrawer--isDockedRight"]
+      : null,
+    className
   );
 
   const drawerInstance = (
@@ -170,7 +184,7 @@ export const SideDrawer: FunctionComponent<SideDrawerProps> = ({
         </div>
       </div>
     </React.Fragment>
-  )
+  );
 
   return (
     <React.Fragment>

@@ -20,6 +20,17 @@
   border-top-right-radius: 16px;
 }
 
+.SideDrawer--isDockedLeft {
+  box-shadow: 0 6px 12px -1px rgb(0 0 0 / 20%), 0 4px 4px -1px rgb(0 0 0 / 20%),
+    0 2px 2px 0 rgb(0 0 0 / 20%);
+  border-radius: 0;
+}
+.SideDrawer--isDockedRight {
+  box-shadow: 0 -6px 12px -1px rgb(0 0 0 / 20%), 0 -4px 4px -1px rgb(0 0 0 / 20%),
+  0 -2px 2px 0 rgb(0 0 0 / 20%);
+  border-radius: 0;
+}
+
 .SideDrawer-position--right {
   left: inherit;
   right: 0;
@@ -59,6 +70,7 @@
   left: 0;
   top: 0;
   padding-left: 256px;
+  transition: padding-left 0.15s ease-out;
 }
 
 .body--SideDrawer-isDockedRight {
@@ -66,12 +78,13 @@
   right: 0;
   top: 0;
   padding-right: 256px;
+  transition: padding-right 0.15s ease-out;
 }
 
 @keyframes SideDrawerIn {
   0% {
     opacity: 0;
-    transform: translateX(-100%)  scale(0.975);
+    transform: translateX(-100%) scale(0.975);
   }
 
   85% {
@@ -93,7 +106,6 @@
   85% {
     opacity: 1;
     transform: translateX(-2%) scale(0.985);
-
   }
   100% {
     opacity: 1;
@@ -106,4 +118,15 @@
   height: calc(100vh - 16px);
   margin: 8px;
   border: none;
+}
+
+.SideDrawer.belowHeader {
+  height: calc(100vh - 56px);
+  top: auto;
+  bottom: 0;
+}
+.SideDrawer.floating-SideDrawer.belowHeader {
+  height: calc(100vh - 72px);
+  top: auto;
+  bottom: 0;
 }

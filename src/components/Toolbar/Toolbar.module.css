@@ -10,9 +10,12 @@
   box-sizing: border-box;
   position: fixed;
   top: 0;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2);
+  left: 0;
+  right: 0;
+  box-shadow: 0 2px 2px -1px rgb(0 0 0 / 10%), 0 1px 5px -2px rgb(0 0 0 / 10%);
   background-color: rgba(var(--palette-shade-2));
-  border-bottom: 1px solid rgba(var(--palette-shade-5));
+  border-bottom: 1px solid rgba(var(--text-color-shade), 0.23);
+  z-index: 1000;
 }
 
 .body--hasFixedToolbar {

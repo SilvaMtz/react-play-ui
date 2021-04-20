@@ -63,8 +63,9 @@ export class ContextMenuItem extends Component<Props> {
     if (hasPanel) {
       arrow = (
         <SvgIcon
-          icon="chevronRight"
-          size={size && sizeToClassMap[size] ? size : "medium"}
+          icon="chevronDoubleRight"
+          size="extraSmall"
+          color="rgba(var(--text-color-shade), 0.8)"
         />
       );
     }
