@@ -1,8 +1,15 @@
-
-
 .Accordion--triggerWrapper {
   display: flex;
   align-items: center;
+
+  background-color: transparent;
+  outline: 0;
+  box-sizing: border-box;
+  transition: background-color 0.1s linear;
+  border-radius: 8px;
+}
+.Accordion--triggerWrapper:hover {
+  background-color: rgba(var(--interactable-shade-1), 0.7);
 }
 
 .Accordion--Button {
@@ -11,14 +18,44 @@
   flex-grow: 1;
   display: flex;
   align-items: center;
-  font-size: 1.2rem;
+  background-color: transparent;
+  font-size: 0.98rem;
   font-weight: 500;
-
+  border: none;
+  height: 100%;
+  outline: 0;
+  box-sizing: border-box;
+  border-radius: 8px;
 }
+.Accordion--buttonPadding-xs {
+  padding: 4px;
+}
+.Accordion--buttonPadding-s {
+  padding: 8px;
+}
+.Accordion--buttonPadding-m {
+  padding: 12px;
+}
+.Accordion--buttonPadding-l {
+  padding: 16px;
+}
+.Accordion--buttonPadding-xl {
+  padding: 20px;
+}
+
 .Accordion--Button:hover,
 .Accordion--Button:focus {
   text-decoration: underline;
   cursor: pointer;
+}
+
+.Accordion--ButtonContent {
+  display: flex;
+  align-items: center;
+}
+
+.Accordion--optionalIcon {
+  margin-right: 6px;
 }
 
 .Accordion--buttonReverse {
@@ -50,6 +87,7 @@
 
 .Accordion--extraAction {
   flex-shrink: 0;
+  margin-right: 16px;
 }
 
 .Accordion--childrenWrapper {
@@ -59,6 +97,7 @@
   overflow: hidden;
   transform: translateZ(0);
   transition: height 0.15s linear, opacity 0.15s linear;
+  outline-color: rgba(var(--primary-color), 0.2);
 }
 
 .Accordion.Accordion--isOpen .Accordion--childrenWrapper {

@@ -1,8 +1,4 @@
-import React, {
-  Component,
-  HTMLAttributes,
-  ReactNode,
-} from "react";
+import React, { Component, HTMLAttributes, ReactNode } from "react";
 import classes from "./Accordion.module.css";
 import classNames from "classnames";
 import { CommonProps } from "../types";
@@ -20,7 +16,17 @@ const paddingSizeToClassNameMap = {
   xl: "Accordion--padding-xl",
 };
 
+const buttonPaddingSizeToClassNameMap = {
+  none: "",
+  xs: "Accordion--buttonPadding-xs",
+  s: "Accordion--buttonPadding-s",
+  m: "Accordion--buttonPadding-m",
+  l: "Accordion--buttonPadding-l",
+  xl: "Accordion--buttonPadding-xl",
+};
+
 export type AccordionPaddingSize = keyof typeof paddingSizeToClassNameMap;
+export type TriggerPaddingSize = keyof typeof buttonPaddingSizeToClassNameMap;
 
 export type AccordionProps = CommonProps &
   Omit<HTMLAttributes<HTMLDivElement>, "id"> & {
@@ -42,6 +48,10 @@ export type AccordionProps = CommonProps &
      * Props to pass down to the SvgIcon Component.
      */
     iconProps?: Omit<SvgIconProps, "size" | "icon">;
+    /**
+     * Padding Size of the Button Trigger
+     */
+    buttonPaddingSize?: TriggerPaddingSize;
     /**
      * className applied to the accordion trigger.
      */
@@ -98,6 +108,7 @@ export class Accordion extends Component<AccordionProps, { isOpen: boolean }> {
   static defaultProps = {
     initialIsOpen: false,
     paddingSize: "none",
+    buttonPaddingSize: "s",
     arrowDisplay: "left",
     isLoading: false,
     isLoadingMessage: false,
@@ -163,6 +174,7 @@ export class Accordion extends Component<AccordionProps, { isOpen: boolean }> {
       buttonContent,
       className,
       id,
+      buttonPaddingSize = "s",
       buttonClassName,
       buttonContentClassName,
       extraAction,
@@ -173,6 +185,9 @@ export class Accordion extends Component<AccordionProps, { isOpen: boolean }> {
       isLoading,
       isLoadingMessage,
       buttonProps,
+      icon,
+      iconSize,
+      iconProps,
       ...rest
     } = this.props;
 
@@ -195,7 +210,10 @@ export class Accordion extends Component<AccordionProps, { isOpen: boolean }> {
 
     const buttonClassList = classNames(
       classes["Accordion--Button"],
-      !extraAction && arrowDisplay === "right"
+      buttonPaddingSize && buttonPaddingSizeToClassNameMap[buttonPaddingSize]
+        ? classes[buttonPaddingSizeToClassNameMap[buttonPaddingSize]]
+        : null,
+      icon && !extraAction && arrowDisplay === "right"
         ? classes["Accordion--buttonReverse"]
         : null,
       buttonClassName,
@@ -214,9 +232,14 @@ export class Accordion extends Component<AccordionProps, { isOpen: boolean }> {
         : null
     );
 
-    let baseIcon: ReactNode;
+    const buttonContentClassList = classNames(
+      classes["Accordion--ButtonContent"],
+      buttonContentClassName
+    );
+
+    let chevronIcon: ReactNode;
     if (arrowDisplay !== "none") {
-      baseIcon = (
+      chevronIcon = (
         <SvgIcon
           className={chevronIconClassList}
           icon="chevronRight"
@@ -225,7 +248,7 @@ export class Accordion extends Component<AccordionProps, { isOpen: boolean }> {
       );
     }
 
-    let icon: ReactNode;
+    let chevronIconInstance: ReactNode;
     let iconButton: ReactNode;
     const buttonId = buttonProps?.id ?? htmlIdGenerator()();
     if (extraAction && arrowDisplay === "right") {
@@ -238,11 +261,25 @@ export class Accordion extends Component<AccordionProps, { isOpen: boolean }> {
           className={chevronWrapperClassList}
           onClick={this.onToggle}
         >
-          {baseIcon}
+          {chevronIcon}
         </button>
       );
     } else if (arrowDisplay !== "none") {
-      icon = <span className={chevronWrapperClassList}>{baseIcon}</span>;
+      chevronIconInstance = (
+        <span className={chevronWrapperClassList}>{chevronIcon}</span>
+      );
+    }
+
+    let optionalIcon = null;
+    if (icon) {
+      optionalIcon = (
+        <SvgIcon
+          icon={icon}
+          size={iconSize || "small"}
+          className={classes["Accordion--optionalIcon"]}
+          {...iconProps}
+        />
+      );
     }
 
     let optionalAction = null;
@@ -287,8 +324,11 @@ export class Accordion extends Component<AccordionProps, { isOpen: boolean }> {
             className={buttonClassList}
             type="button"
           >
-            {icon}
-            <span className={buttonContentClassName}>{buttonContent}</span>
+            {chevronIconInstance}
+            <span className={buttonContentClassList}>
+              {optionalIcon}
+              {buttonContent}
+            </span>
           </button>
           {optionalAction}
           {iconButton}
