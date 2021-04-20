@@ -19,7 +19,7 @@ type WithLegendProps = Omit<FormFieldsetProps, 'onChange'> & {
   /**
    * If the individual labels for each radio do not provide a sufficient description, add a legend.
    * Wraps the group in a `FormFieldset` which adds an `FormLegend` for titling the whole group.
-   * Accepts an `EuiFormLegendProps` shape.
+   * Accepts an `FormLegendProps` shape.
    */
   legend?: FormLegendProps;
 };

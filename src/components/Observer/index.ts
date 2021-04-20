@@ -1,5 +1,5 @@
 export {
-  EuiObserver,
+  PlayObserver,
   Observer
 } from './Observer';
 

@@ -8,7 +8,7 @@ export { ContextMenu } from './ContextMenu';
 export {
   Observer,
   ResizeObserver,
-  EuiObserver
+  PlayObserver
 } from './Observer';
 export { FlexItem } from './FlexItem';
 export { FlexGroup } from './FlexGroup';

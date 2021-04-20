@@ -1,5 +1,5 @@
 import { ReactNode, useCallback, useEffect, useRef, useState } from 'react';
-import { EuiObserver, Observer } from '../Observer';
+import { PlayObserver, Observer } from '../Observer';
 
 interface Props {
   /**
@@ -21,8 +21,8 @@ const mutationObserverOptions = {
   subtree: true, // Account for deep child nodes
 };
 
-export class ResizeObserver extends EuiObserver<Props> {
-  name = 'EuiResizeObserver';
+export class ResizeObserver extends PlayObserver<Props> {
+  name = 'PlayResizeObserver';
 
   state = {
     height: 0,

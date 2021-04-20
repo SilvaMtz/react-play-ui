@@ -53,7 +53,7 @@ const columnsToClassNameMap = {
 
 const directionToClassNameMap = {
   row: null,
-  column: "euiFlexGrid--directionColumn",
+  column: "FlexGrid--directionColumn",
 };
 
 export const FlexGrid: FunctionComponent<
