@@ -50,7 +50,7 @@
 
 .action-button:hover,
 .action-button:focus {
-  background-color: rgba(var(--interactable-shade-1-hover));
+  background-color: rgba(var(--interactable-shade-1-hover), 0.3);
 }
 
 .action-button.button--default.fill {

@@ -97,7 +97,7 @@
   overflow: hidden;
   transform: translateZ(0);
   transition: height 0.15s linear, opacity 0.15s linear;
-  outline-color: rgba(var(--primary-color), 0.2);
+  outline: 0;
 }
 
 .Accordion.Accordion--isOpen .Accordion--childrenWrapper {
