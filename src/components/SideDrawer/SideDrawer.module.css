@@ -18,16 +18,17 @@
   animation: SideDrawerIn 0.2s ease-in-out;
   border-bottom-right-radius: 16px;
   border-top-right-radius: 16px;
+  transition: border-radius 0.2s linear, margin 0.2s linear, top 0.2s linear;
 }
 
-.SideDrawer--isDockedLeft {
+.SideDrawer.SideDrawer--isDockedLeft {
   box-shadow: 0 6px 12px -1px rgb(0 0 0 / 20%), 0 4px 4px -1px rgb(0 0 0 / 20%),
     0 2px 2px 0 rgb(0 0 0 / 20%);
   border-radius: 0;
 }
-.SideDrawer--isDockedRight {
-  box-shadow: 0 -6px 12px -1px rgb(0 0 0 / 20%), 0 -4px 4px -1px rgb(0 0 0 / 20%),
-  0 -2px 2px 0 rgb(0 0 0 / 20%);
+.SideDrawer.SideDrawer--isDockedRight {
+  box-shadow: 0 6px 12px -1px rgb(0 0 0 / 20%), 0 4px 4px -1px rgb(0 0 0 / 20%),
+  0 2px 2px 0 rgb(0 0 0 / 20%);
   border-radius: 0;
 }
 
@@ -66,17 +67,11 @@
 }
 
 .body--SideDrawer-isDockedLeft {
-  z-index: 1000;
-  left: 0;
-  top: 0;
   padding-left: 256px;
   transition: padding-left 0.15s ease-out;
 }
 
 .body--SideDrawer-isDockedRight {
-  z-index: 1000;
-  right: 0;
-  top: 0;
   padding-right: 256px;
   transition: padding-right 0.15s ease-out;
 }
@@ -125,6 +120,19 @@
   top: auto;
   bottom: 0;
 }
+
+.SideDrawer.belowHeader__Compact {
+  height: calc(100vh - 48px);
+  top: auto;
+  bottom: 0;
+}
+
+.SideDrawer.floating-SideDrawer.belowHeader__Compact {
+  height: calc(100vh - 64px);
+  top: auto;
+  bottom: 0;
+}
+
 .SideDrawer.floating-SideDrawer.belowHeader {
   height: calc(100vh - 72px);
   top: auto;

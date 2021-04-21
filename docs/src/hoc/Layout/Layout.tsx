@@ -314,7 +314,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
 
   return (
     <React.Fragment>
-      <Toolbar sections={toolbarSections} />
+      <Toolbar compact sections={toolbarSections} />
     </React.Fragment>
   );
 };

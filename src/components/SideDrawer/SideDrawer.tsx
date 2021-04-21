@@ -84,7 +84,7 @@ export const SideDrawer: FunctionComponent<SideDrawerProps> = ({
         document.body.classList.add(classes["body--SideDrawer-isDockedRight"]);
       }
     } else if (isOpen) {
-      document.body.classList.add(classes["body--SideDrawer-isOpen"]);
+      document.body.classList.add("body--SideDrawer-isOpen");
     }
 
     return () => {
@@ -97,7 +97,7 @@ export const SideDrawer: FunctionComponent<SideDrawerProps> = ({
           classes["body--SideDrawer-isDockedRight"]
         );
       }
-      document.body.classList.remove(classes["body--SideDrawer-isOpen"]);
+      document.body.classList.remove("body--SideDrawer-isOpen");
       window.removeEventListener("resize", functionToCallOnWindowResize);
     };
   }, [drawerIsDocked, isOpen, functionToCallOnWindowResize]);
@@ -154,7 +154,12 @@ export const SideDrawer: FunctionComponent<SideDrawerProps> = ({
     classes["SideDrawer"],
     float && !isDocked ? classes["floating-SideDrawer"] : null,
     position ? classes[positionToClassMap[position]] : null,
-    toolbarZIndexLocation === "below" ? classes["belowHeader"] : null,
+    toolbarZIndexLocation === "below" &&
+      document.body.classList.contains("body--hasFixedToolbar__Compact")
+      ? classes["belowHeader__Compact"]
+      : toolbarZIndexLocation === "below"
+      ? classes["belowHeader"]
+      : null,
     isDocked && position === "left"
       ? classes["SideDrawer--isDockedLeft"]
       : isDocked && position === "right"
