@@ -1,0 +1,100 @@
+.Layout{
+  display: flex;
+  flex-direction: row;
+  width: 100%
+}
+
+.Layout--SideNav {
+  display: flex;
+  overflow-y: scroll;
+  flex-direction: column;
+  width: 350px;
+  background-color: rgba(var(--palette-shade-4));
+  padding: 12px;
+}
+
+.Layout--PageContent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  box-sizing: border-box;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.SideNav--Header {
+  display: flex;
+  background-color: rgba(var(--palette-shade-3));
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.Header--Logo {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  cursor: pointer;
+  background-color: transparent;
+  outline: 0;
+  border: none;
+  padding: 4px 12px 4px 8px;
+  margin: 0;
+  border-radius: 8px;
+  transition: background-color 0.12s linear;
+  box-sizing: border-box;
+}
+
+.Header--Logo:hover {
+  background-color: rgba(var(--interactable-shade-1), 0.4);
+}
+.Header--Logo:active {
+  transform: scale(0.98);
+}
+
+.Header--Logo h3 {
+  margin: 0;
+  font-weight: 300;
+  margin-left: 12px;
+  font-size: 1.5rem;
+  color: rgb(var(--text-color));
+}
+.Header--Logo h3 .PlayUI-Label {
+  font-weight: 600;
+}
+
+.Logo {
+  width: 32px;
+  height: 32px;
+}
+
+.Github--Version {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  cursor: pointer;
+  background-color: transparent;
+  outline: 0;
+  border: none;
+  padding: 4px 12px 4px 8px;
+  margin: 0;
+  border-radius: 8px;
+  transition: background-color 0.12s linear;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+.Github--Version:hover {
+  background-color: rgba(var(--interactable-shade-1), 0.4);
+}
+.Github--Version:active {
+  transform: scale(0.98);
+}
+
+.Github--Version .VersionChip {
+  cursor: pointer;
+  margin-right: 6px;
+}

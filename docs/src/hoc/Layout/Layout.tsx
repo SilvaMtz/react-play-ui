@@ -1,6 +1,16 @@
 import React, { FunctionComponent, useState } from "react";
-import { SideDrawer, Toolbar, IconButton, ThemeToggler } from "react-play-ui";
+import {
+  SideDrawer,
+  IconButton,
+  ThemeToggler,
+  Toolbar,
+  ToolbarSectionsPropType,
+  Chip,
+  SvgIcon,
+} from "react-play-ui";
 import { useLocation } from "react-router-dom";
+import classes from "./Layout.module.css";
+import logo from "../../assets/images/play-ui-logo.png";
 
 interface LayoutProps {
   theme: any;
@@ -10,300 +20,40 @@ interface LayoutProps {
 export const Layout: FunctionComponent<LayoutProps> = ({
   theme,
   toggleTheme,
+  children,
 }) => {
   const currentRoute = useLocation();
   const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
 
-  const SideDrawerPanels = [
+  const toolbarSections: ToolbarSectionsPropType = [
     {
       id: 0,
       items: [
         {
           id: 0,
-          name: "Home",
-          icon: "home",
-          label: "Home",
-          href: "/",
-          isActive: currentRoute.pathname === "/",
-        },
-        {
-          id: 1,
-          name: "Layout",
-          icon: "viewGrid",
-          label: "Layout",
-          isActive: currentRoute.pathname.includes("/layout"),
-          panel: 1,
-        },
-        {
-          id: 2,
-          name: "Display",
-          icon: "collection",
-          label: "Display",
-          isActive: currentRoute.pathname.includes("/display"),
-          panel: 2,
-        },
-        {
-          id: 3,
-          name: "Navigation",
-          icon: "map",
-          label: "Navigation",
-          isActive: currentRoute.pathname.includes("/navigation"),
-          panel: 3,
-        },
-        {
-          id: 4,
-          name: "Inputs",
-          icon: "chatAlt",
-          label: "Inputs",
-          href: "/inputs",
-          isActive: currentRoute.pathname === "/inputs",
-        },
-        {
-          id: 5,
-          name: "Data",
-          icon: "chartPie",
-          label: "Data",
-          isActive: currentRoute.pathname.includes("/data"),
-          panel: 5,
-        },
-      ],
-    },
-    {
-      id: 1,
-      title: "Layout",
-      items: [
-        {
-          id: 1,
-          name: "FlexGroup",
-          label: "Flex Group",
-          href: "/layout/flex-group",
-          isActive: currentRoute.pathname === "/layout/flex-group",
-        },
-        {
-          id: 2,
-          name: "FlexItem",
-          label: "Flex Item",
-          href: "/layout/flex-item",
-          isActive: currentRoute.pathname === "/layout/flex-item",
-        },
-        {
-          id: 3,
-          name: "Divider",
-          label: "Divider",
-          href: "/layout/divider",
-          isActive: currentRoute.pathname === "/layout/divider",
-        },
-      ],
-    },
-    {
-      id: 2,
-      title: "Display",
-      items: [
-        {
-          id: 0,
-          name: "PanelCard",
-          label: "Panel Card",
-          href: "/display/panel-card",
-          isActive: currentRoute.pathname === "/display/panel-card",
-        },
-        {
-          id: 1,
-          name: "Card",
-          label: "Card",
-          href: "/display/card",
-          isActive: currentRoute.pathname === "/display/card",
-        },
-        {
-          id: 2,
-          name: "Modal",
-          label: "Modal",
-          href: "/display/modal",
-          isActive: currentRoute.pathname === "/display/modal",
-        },
-        {
-          id: 3,
-          name: "Widget",
-          label: "Widget",
-          href: "/display/widget",
-          isActive: currentRoute.pathname === "/display/widget",
-        },
-        {
-          id: 4,
-          name: "Accordion",
-          label: "Accordion (WIP)",
-          href: "/display/accordion",
-          isActive: currentRoute.pathname === "/display/accordion",
-        },
-        {
-          id: 5,
-          name: "Tooltip",
-          label: "Tooltip (WIP)",
-          href: "/display/tooltip",
-          isActive: currentRoute.pathname === "/display/tooltip",
-        },
-        {
-          id: 6,
-          name: "Popover",
-          label: "Popover",
-          href: "/display/popover",
-          isActive: currentRoute.pathname === "/display/popover",
-        },
-        {
-          id: 7,
-          name: "Callout",
-          label: "Callout",
-          href: "/display/callout",
-          isActive: currentRoute.pathname === "/display/callout",
-        },
-        {
-          id: 8,
-          name: "Toast",
-          label: "Toast",
-          href: "/display/toast",
-          isActive: currentRoute.pathname === "/display/toast",
-        },
-      ],
-    },
-    {
-      id: 3,
-      title: "Navigation",
-      items: [
-        {
-          id: 0,
-          name: "SideDrawer",
-          label: "SideDrawer",
-          href: "/navigation/sidedrawer",
-          isActive: currentRoute.pathname === "/navigation/sidedrawer",
-        },
-        {
-          id: 1,
-          name: "Toolbar",
-          label: "Toolbar",
-          href: "/navigation/toolbar",
-          isActive: currentRoute.pathname === "/navigation/toolbar",
-        },
-        {
-          id: 2,
-          name: "BottomNav",
-          label: "Bottom Nav (WIP)",
-          href: "/navigation/bottom-nav",
-          isActive: currentRoute.pathname === "/navigation/bottom-nav",
-        },
-        {
-          id: 3,
-          name: "ContextMenu",
-          label: "Context Menu",
-          href: "/navigation/context-menu",
-          isActive: currentRoute.pathname === "/navigation/context-menu",
-        },
-        {
-          id: 4,
-          name: "ActionButton",
-          label: "Button",
-          href: "/navigation/button",
-          isActive: currentRoute.pathname === "/navigation/button",
-        },
-        {
-          id: 5,
-          name: "IconButton",
-          label: "Icon Button",
-          href: "/navigation/icon-button",
-          isActive: currentRoute.pathname === "/navigation/icon-button",
-        },
-        {
-          id: 6,
-          name: "Tabs",
-          label: "Tabs",
-          href: "/navigation/tabs",
-          isActive: currentRoute.pathname === "/navigation/tabs",
-        },
-      ],
-    },
-    {
-      id: 5,
-      title: "Data",
-      items: [
-        {
-          id: 0,
-          name: "ProgressLoading",
-          label: "Progress",
-          href: "/data/progress",
-          isActive: currentRoute.pathname === "/data/progress",
-        },
-        {
-          id: 1,
-          name: "Avatar",
-          label: "Avatar",
-          isActive: currentRoute.pathname === "/data/avatar",
-          href: "/data/avatar",
-        },
-        {
-          id: 2,
-          name: "NumberBadge",
-          label: "Number Badge",
-          isActive: currentRoute.pathname === "/data/number-badge",
-          href: "/data/number-badge",
-        },
-        {
-          id: 3,
-          name: "Chip",
-          label: "Chip",
-          isActive: currentRoute.pathname === "/data/chip",
-          href: "/data/chip",
-        },
-        {
-          id: 4,
-          name: "SvgIcon",
-          label: "Icons",
-          isActive: currentRoute.pathname === "/data/icons",
-          href: "/data/icons",
-        },
-      ],
-    },
-  ];
-
-  const toolbarSections = [
-    {
-      id: 1,
-      items: [
-        {
-          id: 1,
           content: (
-            <SideDrawer
-              header={
-                <h4
-                  style={{
-                    width: "100%",
-                    display: "flex",
-                    justifyContent: "center",
-                    margin: 0,
-                  }}
-                >
-                  React Play UI
-                </h4>
-              }
-              float={true}
-              isDocked={false}
-              panels={SideDrawerPanels}
-              itemsSize="small"
-              isOpen={sideDrawerOpen}
-              onClose={() => setSideDrawerOpen(false)}
-              button={
-                <IconButton
-                  icon="menu"
-                  onClick={() => {
-                    setSideDrawerOpen(true);
-                  }}
-                />
-              }
-            />
+            <button className={classes["Header--Logo"]} onClick={() => {}}>
+              <img src={logo} className={classes["Logo"]} />
+              <h3>
+                React <span className={classes["PlayUI-Label"]}>PlayUI</span>
+              </h3>
+            </button>
           ),
         },
       ],
     },
     {
-      id: 2,
+      id: 0,
       items: [
+        {
+          id: 0,
+          content: (
+            <a href="https://github.com/SilvaMtz/react-play-ui" className={classes["Github--Version"]} onClick={() => {}}>
+              <Chip href="https://github.com/SilvaMtz/react-play-ui" className={classes["VersionChip"]} label="0.0.37" color="success" />
+              <SvgIcon icon="userCircle" size="large" />
+            </a>
+          ),
+        },
         {
           id: 1,
           content: <ThemeToggler theme={theme} toggleTheme={toggleTheme} />,
@@ -314,7 +64,11 @@ export const Layout: FunctionComponent<LayoutProps> = ({
 
   return (
     <React.Fragment>
-
+      <Toolbar sections={toolbarSections} fixed compact />
+      <div className={classes["Layout"]}>
+        <div className={classes["Layout--SideNav"]}>Hello there!</div>
+        <div className={classes["Layout--PageContent"]}>{children}</div>
+      </div>
     </React.Fragment>
   );
 };

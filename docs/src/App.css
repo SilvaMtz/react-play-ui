@@ -1,5 +1,7 @@
 .App {
   overflow-x: hidden;
   overflow-y: scroll;
-  padding: 32px;
+  padding: 0 auto;
+  display: flex;
+  justify-content: center;
 }

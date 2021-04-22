@@ -4,9 +4,17 @@ import classes from "./Toolbar.module.css";
 import { ToolbarSection } from "./ToolbarSection";
 import { CommonProps } from '../types';
 import classNames from 'classnames';
+import { ToolbarSectionItemType } from "./ToolbarSection/ToolbarSection";
+
+export type ToolbarSectionType = {
+  id: string | number;
+  items: ToolbarSectionItemType[];
+}
+
+export type ToolbarSectionsPropType = ToolbarSectionType[]
 
 export type ToolbarProps = CommonProps & {
-  sections: Array<any>;
+  sections: ToolbarSectionsPropType;
   compact?: boolean;
   fixed?: boolean;
 } & HTMLAttributes<HTMLDivElement>

@@ -14,7 +14,15 @@ export { Modal } from "./Modal";
 export { ConfirmModal } from "./ConfirmModal";
 export { OverlayMask } from "./OverlayMask";
 export { PanelCard } from "./PanelCard";
-export { Toolbar } from "./Toolbar";
+export {
+  Toolbar,
+  ToolbarProps,
+  ToolbarSection,
+  ToolbarSectionType,
+  ToolbarSectionProps,
+  ToolbarSectionItemType,
+  ToolbarSectionsPropType,
+} from "./Toolbar";
 export { SelectField } from "./SelectField";
 export { TextField } from "./TextField";
 export { SideDrawer } from "./SideDrawer";

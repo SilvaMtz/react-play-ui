@@ -105,10 +105,9 @@ const App = () => {
       <ThemeProvider theme={themeMode}>
         <GlobalStyles theme={themeMode} />
         <div className="App">
-          <Layout theme={theme} toggleTheme={themeToggler} />
-          <PanelCard>
+          <Layout theme={theme} toggleTheme={themeToggler}>
             {routes}
-          </PanelCard>
+          </Layout>
         </div>
       </ThemeProvider>
     </BrowserRouter>
