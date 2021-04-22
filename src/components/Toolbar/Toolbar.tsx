@@ -8,43 +8,47 @@ import classNames from 'classnames';
 export type ToolbarProps = CommonProps & {
   sections: Array<any>;
   compact?: boolean;
-} & HTMLAttributes<HTMLElement>
+  fixed?: boolean;
+} & HTMLAttributes<HTMLDivElement>
 
 export const Toolbar: FunctionComponent<ToolbarProps> = ({
   sections,
   compact = false,
   className,
+  fixed = false,
   ...rest
 }) => {
   useEffect(() => {
-    if (compact) {
-      document.body.classList.add("body--hasFixedToolbar__Compact");
-    } else {
-      document.body.classList.add("body--hasFixedToolbar");
-    }
-
-    return () => {
+    if (fixed) {
       if (compact) {
-        document.body.classList.remove("body--hasFixedToolbar__Compact");
+        document.body.classList.add("body--hasFixedToolbar__Compact");
       } else {
-        document.body.classList.remove("body--hasFixedToolbar");
-      }
+        document.body.classList.add("body--hasFixedToolbar");
+      };
+
+      return () => {
+        if (compact) {
+          document.body.classList.remove("body--hasFixedToolbar__Compact");
+        } else {
+          document.body.classList.remove("body--hasFixedToolbar");
+        }
+      };
     };
-  }, []);
+  }, [fixed]);
 
   const classList = classNames(
     classes["Toolbar"],
     sections.length > 1 ? classes["Toolbar--spaceBetween"] : null,
     compact ? classes["Toolbar--compact"] : null,
+    fixed ? classes["Toolbar--fixed"] : null,
     className
   );
 
-  return ReactDOM.createPortal(
-    <nav className={classList} {...rest}>
+  return (
+    <div className={classList} {...rest}>
       {sections.map((section) => {
         return <ToolbarSection key={section.id} items={section.items} />;
       })}
-    </nav>,
-    document.body
+    </div>
   );
 };
