@@ -1,14 +1,15 @@
-import React, { FunctionComponent, ReactNode } from "react"
-import { useLocation } from 'react-router';
+import React, { FunctionComponent, ReactNode } from "react";
+import { useLocation } from "react-router";
 import { Chip, Divider, InputField, SvgIcon } from "react-play-ui";
 import classes from "./LayoutSidenav.module.css";
 import classNames from "classnames";
+import { useState } from "react";
 
 export type SidenavItem = {
-  id: number | string,
-  href: string,
+  id: number | string;
+  href: string;
   isActive: boolean;
-  label: ReactNode;
+  label: string;
   isNew?: boolean;
   disabled?: boolean;
 };
@@ -25,17 +26,17 @@ export type SidenavSection = {
 export type SidenavSectionCollection = SidenavSection[];
 
 export const LayoutSidenav: FunctionComponent = ({}) => {
-
   const currentRoute = useLocation();
+  const [searchValue, setSearchValue] = useState('');
 
-  let layoutItems: SidenavItemCollection = [
+  const layout: SidenavItemCollection = [
     {
       id: 0,
       href: "/accordion",
       isActive: currentRoute.pathname === "/accordion",
       label: "Accordion",
       disabled: false,
-      isNew: true
+      isNew: true,
     },
     {
       id: 1,
@@ -43,7 +44,7 @@ export const LayoutSidenav: FunctionComponent = ({}) => {
       isActive: currentRoute.pathname === "/divider",
       label: "Divider",
       disabled: false,
-      isNew: false
+      isNew: false,
     },
     {
       id: 2,
@@ -51,7 +52,7 @@ export const LayoutSidenav: FunctionComponent = ({}) => {
       isActive: currentRoute.pathname === "/flex",
       label: "Flex",
       disabled: false,
-      isNew: false
+      isNew: false,
     },
     {
       id: 3,
@@ -59,7 +60,7 @@ export const LayoutSidenav: FunctionComponent = ({}) => {
       isActive: currentRoute.pathname === "/modal",
       label: "Modal",
       disabled: false,
-      isNew: false
+      isNew: false,
     },
     {
       id: 4,
@@ -67,7 +68,7 @@ export const LayoutSidenav: FunctionComponent = ({}) => {
       isActive: currentRoute.pathname === "/panel-card",
       label: "Panel Card",
       disabled: false,
-      isNew: false
+      isNew: false,
     },
     {
       id: 5,
@@ -75,7 +76,7 @@ export const LayoutSidenav: FunctionComponent = ({}) => {
       isActive: currentRoute.pathname === "/play-popover",
       label: "Popover",
       disabled: false,
-      isNew: false
+      isNew: false,
     },
     {
       id: 6,
@@ -83,7 +84,7 @@ export const LayoutSidenav: FunctionComponent = ({}) => {
       isActive: currentRoute.pathname === "/side-drawer",
       label: "Side Drawer",
       disabled: false,
-      isNew: false
+      isNew: false,
     },
     {
       id: 7,
@@ -91,18 +92,18 @@ export const LayoutSidenav: FunctionComponent = ({}) => {
       isActive: currentRoute.pathname === "/toolbar",
       label: "Toolbar",
       disabled: false,
-      isNew: false
+      isNew: false,
     },
-  ]
+  ];
 
-  let navigationItems: SidenavItemCollection = [
+  const navigation: SidenavItemCollection = [
     {
       id: 0,
       href: "/button",
       isActive: currentRoute.pathname === "/button",
       label: "Button",
       disabled: false,
-      isNew: false
+      isNew: false,
     },
     {
       id: 1,
@@ -110,7 +111,7 @@ export const LayoutSidenav: FunctionComponent = ({}) => {
       isActive: currentRoute.pathname === "/context-menu",
       label: "Context Menu",
       disabled: false,
-      isNew: false
+      isNew: false,
     },
     {
       id: 2,
@@ -118,18 +119,18 @@ export const LayoutSidenav: FunctionComponent = ({}) => {
       isActive: currentRoute.pathname === "/tabs",
       label: "Tabs",
       disabled: false,
-      isNew: false
+      isNew: false,
     },
-  ]
+  ];
 
-  let displayItems: SidenavItemCollection = [
+  const display: SidenavItemCollection = [
     {
       id: 0,
       href: "/avatar",
       isActive: currentRoute.pathname === "/avatar",
       label: "Avatar",
       disabled: false,
-      isNew: false
+      isNew: false,
     },
     {
       id: 1,
@@ -137,7 +138,7 @@ export const LayoutSidenav: FunctionComponent = ({}) => {
       isActive: currentRoute.pathname === "/callout",
       label: "Callout",
       disabled: false,
-      isNew: false
+      isNew: false,
     },
     {
       id: 2,
@@ -145,7 +146,7 @@ export const LayoutSidenav: FunctionComponent = ({}) => {
       isActive: currentRoute.pathname === "/chips",
       label: "Chips",
       disabled: false,
-      isNew: false
+      isNew: false,
     },
     {
       id: 3,
@@ -153,7 +154,7 @@ export const LayoutSidenav: FunctionComponent = ({}) => {
       isActive: currentRoute.pathname === "/display-card",
       label: "Display Card",
       disabled: false,
-      isNew: false
+      isNew: false,
     },
     {
       id: 4,
@@ -161,7 +162,7 @@ export const LayoutSidenav: FunctionComponent = ({}) => {
       isActive: currentRoute.pathname === "/loading",
       label: "Loading",
       disabled: false,
-      isNew: false
+      isNew: false,
     },
     {
       id: 5,
@@ -169,7 +170,7 @@ export const LayoutSidenav: FunctionComponent = ({}) => {
       isActive: currentRoute.pathname === "/number-badge",
       label: "Number Badge",
       disabled: false,
-      isNew: false
+      isNew: false,
     },
     {
       id: 6,
@@ -177,7 +178,7 @@ export const LayoutSidenav: FunctionComponent = ({}) => {
       isActive: currentRoute.pathname === "/progress",
       label: "Progress",
       disabled: false,
-      isNew: false
+      isNew: false,
     },
     {
       id: 7,
@@ -185,7 +186,7 @@ export const LayoutSidenav: FunctionComponent = ({}) => {
       isActive: currentRoute.pathname === "/icons",
       label: "Icons",
       disabled: false,
-      isNew: false
+      isNew: false,
     },
     {
       id: 8,
@@ -193,7 +194,7 @@ export const LayoutSidenav: FunctionComponent = ({}) => {
       isActive: currentRoute.pathname === "/toast",
       label: "Toast",
       disabled: false,
-      isNew: false
+      isNew: false,
     },
     {
       id: 9,
@@ -201,7 +202,7 @@ export const LayoutSidenav: FunctionComponent = ({}) => {
       isActive: currentRoute.pathname === "/tooltip",
       label: "Tooltip",
       disabled: false,
-      isNew: false
+      isNew: false,
     },
     {
       id: 10,
@@ -209,18 +210,18 @@ export const LayoutSidenav: FunctionComponent = ({}) => {
       isActive: currentRoute.pathname === "/widget-card",
       label: "Widget Card",
       disabled: false,
-      isNew: false
+      isNew: false,
     },
   ];
 
-  let utilityItems: SidenavItemCollection = [
+  const utility: SidenavItemCollection = [
     {
       id: 0,
       href: "/observer",
       isActive: currentRoute.pathname === "/observer",
       label: "Observer",
       disabled: false,
-      isNew: false
+      isNew: false,
     },
     {
       id: 1,
@@ -228,7 +229,7 @@ export const LayoutSidenav: FunctionComponent = ({}) => {
       isActive: currentRoute.pathname === "/overlay-mask",
       label: "Overlay Mask",
       disabled: false,
-      isNew: false
+      isNew: false,
     },
     {
       id: 2,
@@ -236,18 +237,18 @@ export const LayoutSidenav: FunctionComponent = ({}) => {
       isActive: currentRoute.pathname === "/themes",
       label: "Themes",
       disabled: false,
-      isNew: false
+      isNew: false,
     },
-  ]
+  ];
 
-  let formItems: SidenavItemCollection = [
+  const form: SidenavItemCollection = [
     {
       id: 0,
       href: "/form-controls",
       isActive: currentRoute.pathname === "/form-controls",
       label: "Form Controls",
       disabled: false,
-      isNew: false
+      isNew: false,
     },
     {
       id: 1,
@@ -255,7 +256,7 @@ export const LayoutSidenav: FunctionComponent = ({}) => {
       isActive: currentRoute.pathname === "/form-layout",
       label: "Form Layout",
       disabled: false,
-      isNew: false
+      isNew: false,
     },
     {
       id: 2,
@@ -263,75 +264,114 @@ export const LayoutSidenav: FunctionComponent = ({}) => {
       isActive: currentRoute.pathname === "/super-select",
       label: "Super Select",
       disabled: false,
-      isNew: false
+      isNew: false,
     },
-  ]
+  ];
+
+  const [layoutItems, setLayoutItems] = useState(layout);
+  const [navigationItems, setNavigationItems] = useState(navigation);
+  const [displayItems, setDisplayItems] = useState(display);
+  const [utilityItems, setUtilityItems] = useState(utility);
+  const [formItems, setFormItems] = useState(form);
 
   const sidenavSections: SidenavSectionCollection = [
     {
       id: 0,
       title: "Layout",
       icon: "template",
-      items: layoutItems
+      items: layoutItems,
     },
     {
       id: 1,
       title: "Navigation",
       icon: "map",
-      items: navigationItems
+      items: navigationItems,
     },
     {
       id: 2,
       title: "Display",
       icon: "chartBar",
-      items: displayItems
+      items: displayItems,
     },
     {
       id: 3,
       title: "Forms",
       icon: "menuAlt1",
-      items: formItems
+      items: formItems,
     },
     {
       id: 4,
       title: "Utilities",
       icon: "adjustments",
-      items: utilityItems
+      items: utilityItems,
     },
-  ]
+  ];
+
+  const handleFilter: (
+    value: string,
+    array: SidenavItemCollection,
+  ) => SidenavItemCollection = (
+    value: string,
+    array: SidenavItemCollection,
+   ) => {
+    setSearchValue(value);
+    const options = [...array];
+    const filteredArray = options.filter(opt => opt.label.includes(value));
+    return filteredArray;
+  };
+
+  const handleSearch = (value: string) => {
+    setLayoutItems([...handleFilter(value, layout)]);
+    setNavigationItems([...handleFilter(value, navigation)]);
+    setDisplayItems([...handleFilter(value, display)]);
+    setFormItems([...handleFilter(value, form)]);
+    setUtilityItems([...handleFilter(value, utility)]);
+  };
 
   return (
     <div className={classes["SideNav"]}>
       <div className={classes["SideNav--Searchbar"]}>
-        <InputField placeholder="Search" icon="search" />
+        <InputField placeholder="Search" icon="search" value={searchValue} onChange={(e) => handleSearch(e.target.value)}/>
       </div>
       <div className={classes["SideNav--NavSections"]}>
         {sidenavSections.map((section: SidenavSection) => {
           return (
             <React.Fragment key={section.id}>
-              <span className={classes["NavSections--Title"]}>
-                <SvgIcon icon={section.icon} size="small" />
-                <h3>{section.title}</h3>
-              </span>
-              {section.items.map((item: SidenavItem) => {
-                const classList = classNames(
-                  classes["NavSection--ItemButton"],
-                  item.disabled ? classes["ItemButton__disabled"] : null,
-                  item.isNew ? classes["ItemButton__spaceBetween"] : null,
-                  item.isActive ? classes["ItemButton__isActive"] : null
-                );
-                return (
-                  <a key={item.id} className={classList} href={item.href}>
-                    {item.label}
-                    {item.isNew ? <Chip icon="sparkles" iconSide="left" label="New" color="accent" /> : null}
-                  </a>
-                )
-              })}
-              <Divider />
+              {!(section.items.length == 0) ? (
+                <React.Fragment>
+                  <span className={classes["NavSections--Title"]}>
+                    <SvgIcon icon={section.icon} size="small" />
+                    <h3>{section.title}</h3>
+                  </span>
+                  {section.items.map((item: SidenavItem) => {
+                    const classList = classNames(
+                      classes["NavSection--ItemButton"],
+                      item.disabled ? classes["ItemButton__disabled"] : null,
+                      item.isNew ? classes["ItemButton__spaceBetween"] : null,
+                      item.isActive ? classes["ItemButton__isActive"] : null
+                    );
+                    return (
+                      <a key={item.id} className={classList} href={item.href}>
+                        {item.label}
+                        {item.isNew ? (
+                          <Chip
+                            icon="sparkles"
+                            iconSide="left"
+                            label="New"
+                            color="accent"
+                          />
+                        ) : null}
+                      </a>
+                    );
+                  })}
+                <Divider />
+                </React.Fragment>
+              ) : null}
+
             </React.Fragment>
-          )
+          );
         })}
       </div>
     </div>
-  )
-}
+  );
+};
