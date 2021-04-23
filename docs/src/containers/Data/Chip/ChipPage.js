@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Chips, Chip, ActionButton } from "react-play-ui";
+import { ChipGroup, Chip, ActionButton } from "react-play-ui";
 
 export const ChipPage = (props) => {
   const chips = [
@@ -82,7 +82,7 @@ export const ChipPage = (props) => {
   return (
     <div>
       <h2>Chip</h2>
-      <Chips chips={chips} />
+      <ChipGroup chips={chips} />
       <h3>Dynamic Chip Group Example</h3>
       <ActionButton
         onClick={() => addChip()}
@@ -90,7 +90,7 @@ export const ChipPage = (props) => {
         label="Add chip"
         icon="plus"
       />
-      <Chips>
+      <ChipGroup>
         {dynamicChips.map((chip, idx) => {
           return (
             <Chip
@@ -100,7 +100,7 @@ export const ChipPage = (props) => {
             />
           )
         })}
-      </Chips>
+      </ChipGroup>
     </div>
   );
 };

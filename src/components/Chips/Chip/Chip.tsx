@@ -1,3 +1,4 @@
+import classNames from "classnames";
 import React, {
   FunctionComponent,
   HTMLAttributes,
@@ -6,10 +7,10 @@ import React, {
   ReactNode
 } from "react";
 import { SvgIcon } from "../../SvgIcon";
+import { CommonProps } from "../../types";
 import classes from "./Chip.module.css";
 
-export interface ChipProps {
-  className?: string;
+export interface ChipProps extends CommonProps {
   label?: string;
   onClick?: (() => {}) | (() => void);
   color?: "primary" | "success" | "accent" | "warning" | "danger" | "default";
@@ -51,12 +52,12 @@ export const Chip: FunctionComponent<
 
     let isClickable = href || onClick ? true : null;
 
-    let classList = [
+    const classList = classNames(
       classes["Chip"],
       isClickable || iconOnClick ? classes["Clickable"] : null,
       classes[colorToClassMap[color]],
       className,
-    ];
+    );
 
     let iconInstance = icon ? (
       <SvgIcon
@@ -99,7 +100,7 @@ export const Chip: FunctionComponent<
     let chipInstance: ReactNode =
       href && !iconOnClick ? (
         <a
-          className={classList.join(" ")}
+          className={classList}
           href={href}
           onClick={onClick && !iconOnClick ? onClick : null}
         >
@@ -108,7 +109,7 @@ export const Chip: FunctionComponent<
       ) : (
         <span
           ref={ref}
-          className={classList.join(" ")}
+          className={classList}
           onClick={onClick && !iconOnClick ? onClick : null}
           {...rest}
         >

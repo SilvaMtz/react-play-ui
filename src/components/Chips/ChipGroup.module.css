@@ -4,9 +4,9 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  width: max-content;
+  flex-flow: wrap;
 }
 
 .ChipsContainer > *{
-  margin: 0px 4px;
+  margin: 2px 4px;
 }

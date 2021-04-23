@@ -41,7 +41,7 @@ export { ProgressBar } from "./ProgressBar";
 export { DisplayCard } from "./DisplayCard";
 export { Toast } from "./Toast";
 export { PlayPopover } from "./PlayPopover";
-export { Chip, Chips } from "./Chips";
+export { Chip, ChipGroup, ChipProps, ChipGroupType } from "./Chips";
 export { SwitchButton } from "./SwitchButton";
 export { RadioButton, RadioButtonProps, RadioProps } from "./RadioButton";
 export {

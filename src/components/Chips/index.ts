@@ -1,2 +1,2 @@
-export { Chips } from './Chips';
-export { Chip } from './Chip';
+export { ChipGroup, ChipGroupType } from './ChipGroup';
+export { Chip, ChipProps } from './Chip';
