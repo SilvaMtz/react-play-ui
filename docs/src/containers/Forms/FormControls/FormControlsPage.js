@@ -3,7 +3,7 @@ import { FlexGroup, FlexItem, FormFields, InputField, TextField, Checkbox, Check
 import { SwitchDemo } from "./SwitchDemo";
 import { RadioDemo } from "./RadioDemo";
 
-export const InputsPage = (props) => {
+export const FormControlsPage = (props) => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [textMsg, setTextMsg] = useState("");

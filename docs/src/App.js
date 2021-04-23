@@ -19,80 +19,89 @@ const App = () => {
 
   const routes = (
     <Switch>
-      <Route path="/navigation/icon-button">
-        <Pages.IconButtonPage />
-      </Route>
-      <Route path="/navigation/button">
-        <Pages.ButtonPage />
-      </Route>
-      <Route path="/navigation/bottom-nav">
-        <Pages.BottomNavPage />
-      </Route>
-      <Route path="/navigation/context-menu">
-        <Pages.ContextMenuPage />
-      </Route>
-      <Route path="/navigation/sidedrawer">
-        <Pages.SideDrawerPage />
-      </Route>
-      <Route path="/navigation/tabs">
-        <Pages.TabsPage />
-      </Route>
-      <Route path="/navigation/toolbar">
-        <Pages.ToolbarPage />
-      </Route>
-      <Route path="/layout/divider">
-        <Pages.DividerPage />
-      </Route>
-      <Route path="/layout/flex-group">
-        <Pages.FlexGroupPage />
-      </Route>
-      <Route path="/layout/flex-item">
-        <Pages.FlexItemPage />
-      </Route>
-      <Route path="/display/accordion">
+      <Route path="/accordion">
         <Pages.AccordionPage />
       </Route>
-      <Route path="/display/card">
-        <Pages.CardPage />
+      <Route path="/divider">
+        <Pages.ButtonPage />
       </Route>
-      <Route path="/display/modal">
+      <Route path="/flex">
+        <Pages.FlexPage />
+      </Route>
+      <Route path="/modal">
         <Pages.ModalPage />
       </Route>
-      <Route path="/display/panel-card">
+      <Route path="/panel-card">
         <Pages.PanelCardPage />
       </Route>
-      <Route path="/display/popover">
+      <Route path="/play-popover">
         <Pages.PopoverPage />
       </Route>
-      <Route path="/display/tooltip">
-        <Pages.TooltipPage />
+      <Route path="/side-drawer">
+        <Pages.SideDrawerPage />
       </Route>
-      <Route path="/display/widget">
-        <Pages.WidgetPage />
+      <Route path="/toolbar">
+        <Pages.ToolbarPage />
       </Route>
-      <Route path="/display/callout">
-        <Pages.CalloutPage />
+      <Route path="/button">
+        <Pages.ButtonPage />
       </Route>
-      <Route path="/display/toast">
-        <Pages.ToastPage />
+      <Route path="/context-menu">
+        <Pages.ContextMenuPage />
       </Route>
-      <Route path="/inputs">
-        <Pages.InputsPage />
+      <Route path="/tabs">
+        <Pages.TabsPage />
       </Route>
-      <Route path="/data/avatar">
+      <Route path="/avatar">
         <Pages.AvatarPage />
       </Route>
-      <Route path="/data/chip">
-        <Pages.ChipPage />
+      <Route path="/callout">
+        <Pages.CalloutPage />
       </Route>
-      <Route path="/data/number-badge">
+      <Route path="/chips">
+        <Pages.PopoverPage />
+      </Route>
+      <Route path="/display-card">
+        <Pages.CardPage />
+      </Route>
+      <Route path="loading">
+        <Pages.LoadingPage />
+      </Route>
+      <Route path="/number-badge">
         <Pages.NumberBadgePage />
       </Route>
-      <Route path="/data/progress">
+      <Route path="/progress">
         <Pages.ProgressPage />
       </Route>
-      <Route path="/data/icons">
+      <Route path="/icons">
         <Pages.SvgIconPage />
+      </Route>
+      <Route path="/toast">
+        <Pages.ToastPage />
+      </Route>
+      <Route path="tooltip">
+        <Pages.TooltipPage />
+      </Route>
+      <Route path="widget-card">
+        <Pages.WidgetPage />
+      </Route>
+      <Route path="/observer">
+        <Pages.ObserverPage />
+      </Route>
+      <Route path="/overlay-mask">
+        <Pages.OverlayMaskPage />
+      </Route>
+      <Route path="/themes">
+        <Pages.ThemesPage />
+      </Route>
+      <Route path="/form-controls">
+        <Pages.FormControlsPage />
+      </Route>
+      <Route path="/form-layout">
+        <Pages.FormLayoutPage />
+      </Route>
+      <Route path="/super-select">
+        <Pages.SuperSelectPage />
       </Route>
       <Route path="/">
         <Pages.HomePage />

@@ -1,1 +1,0 @@
-export { IconButtonPage } from './IconButtonPage';

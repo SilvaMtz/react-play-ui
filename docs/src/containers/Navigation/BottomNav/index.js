@@ -1,1 +1,0 @@
-export { BottomNavPage } from './BottomNavPage';

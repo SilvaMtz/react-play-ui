@@ -8,7 +8,7 @@
   display: flex;
   overflow-y: scroll;
   flex-direction: column;
-  width: 350px;
+  width: 300px;
   background-color: rgba(var(--palette-shade-4));
   padding: 12px;
 }

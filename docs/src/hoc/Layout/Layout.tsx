@@ -11,6 +11,7 @@ import {
 import { useLocation } from "react-router-dom";
 import classes from "./Layout.module.css";
 import logo from "../../assets/images/play-ui-logo.png";
+import { LayoutSidenav } from './LayoutSidenav';
 
 interface LayoutProps {
   theme: any;
@@ -66,7 +67,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
     <React.Fragment>
       <Toolbar sections={toolbarSections} fixed compact />
       <div className={classes["Layout"]}>
-        <div className={classes["Layout--SideNav"]}>Hello there!</div>
+        <LayoutSidenav />
         <div className={classes["Layout--PageContent"]}>{children}</div>
       </div>
     </React.Fragment>
