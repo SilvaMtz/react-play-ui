@@ -1,8 +1,6 @@
 .Layout{
-  display: flex;
-  flex-direction: row;
   width: 100%;
-  padding-left: 300px;
+  display: flex;
 }
 
 .Layout--PageContent {
@@ -12,6 +10,7 @@
   padding: 24px;
   box-sizing: border-box;
   margin: 0 auto;
+  overflow-y: scroll;
 }
 
 .SideNav--Header {

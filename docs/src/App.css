@@ -1,8 +1,6 @@
 .App {
-  overflow-x: hidden;
-  overflow-y: scroll;
-  padding: 0 auto;
+  overflow: hidden;
   display: flex;
   justify-content: center;
-  min-height: calc(100vh - 48px);
+  height: calc(100vh - 48px);
 }

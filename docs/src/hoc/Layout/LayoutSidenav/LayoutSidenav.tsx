@@ -316,7 +316,11 @@ export const LayoutSidenav: FunctionComponent = ({}) => {
    ) => {
     setSearchValue(value);
     const options = [...array];
-    const filteredArray = options.filter(opt => opt.label.includes(value));
+    const filteredArray = options.filter(opt => {
+      const label = opt.label.toLowerCase();
+      const search = value.toLowerCase();
+      return label.includes(search);
+    });
     return filteredArray;
   };
 

@@ -1,15 +1,13 @@
 .SideNav {
-  position: fixed;
-  left: 0;
-  bottom: 0;
   display: flex;
   overflow-y: scroll;
   flex-direction: column;
+  max-width: 300px;
   width: 300px;
+  min-width: 300px;
   background-color: rgba(var(--palette-shade-2));
   padding: 0;
   border-right: 1px solid rgba(var(--text-color-shade), 0.23);
-  height: calc(100% - 48px);
 }
 
 .SideNav--Searchbar {
