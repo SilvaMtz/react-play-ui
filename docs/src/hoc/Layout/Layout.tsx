@@ -66,8 +66,8 @@ export const Layout: FunctionComponent<LayoutProps> = ({
   return (
     <React.Fragment>
       <Toolbar sections={toolbarSections} fixed compact />
+      <LayoutSidenav />
       <div className={classes["Layout"]}>
-        <LayoutSidenav />
         <div className={classes["Layout--PageContent"]}>{children}</div>
       </div>
     </React.Fragment>

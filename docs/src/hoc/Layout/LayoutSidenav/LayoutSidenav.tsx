@@ -1,5 +1,8 @@
-import { FunctionComponent, ReactNode } from "react"
-import { useLocation } from 'react-router'
+import React, { FunctionComponent, ReactNode } from "react"
+import { useLocation } from 'react-router';
+import { Chip, Divider, InputField, SvgIcon } from "react-play-ui";
+import classes from "./LayoutSidenav.module.css";
+import classNames from "classnames";
 
 export type SidenavItem = {
   id: number | string,
@@ -32,7 +35,7 @@ export const LayoutSidenav: FunctionComponent = ({}) => {
       isActive: currentRoute.pathname === "/accordion",
       label: "Accordion",
       disabled: false,
-      isNew: false
+      isNew: true
     },
     {
       id: 1,
@@ -268,38 +271,67 @@ export const LayoutSidenav: FunctionComponent = ({}) => {
     {
       id: 0,
       title: "Layout",
-      icon: "viewGrid",
+      icon: "template",
       items: layoutItems
     },
     {
       id: 1,
       title: "Navigation",
-      icon: "viewGrid",
+      icon: "map",
       items: navigationItems
     },
     {
       id: 2,
       title: "Display",
-      icon: "viewGrid",
+      icon: "chartBar",
       items: displayItems
     },
     {
       id: 3,
       title: "Forms",
-      icon: "viewGrid",
+      icon: "menuAlt1",
       items: formItems
     },
     {
       id: 4,
       title: "Utilities",
-      icon: "viewGrid",
+      icon: "adjustments",
       items: utilityItems
     },
   ]
 
   return (
-    <div>
-
+    <div className={classes["SideNav"]}>
+      <div className={classes["SideNav--Searchbar"]}>
+        <InputField placeholder="Search" icon="search" />
+      </div>
+      <div className={classes["SideNav--NavSections"]}>
+        {sidenavSections.map((section: SidenavSection) => {
+          return (
+            <React.Fragment key={section.id}>
+              <span className={classes["NavSections--Title"]}>
+                <SvgIcon icon={section.icon} size="small" />
+                <h3>{section.title}</h3>
+              </span>
+              {section.items.map((item: SidenavItem) => {
+                const classList = classNames(
+                  classes["NavSection--ItemButton"],
+                  item.disabled ? classes["ItemButton__disabled"] : null,
+                  item.isNew ? classes["ItemButton__spaceBetween"] : null,
+                  item.isActive ? classes["ItemButton__isActive"] : null
+                );
+                return (
+                  <a key={item.id} className={classList} href={item.href}>
+                    {item.label}
+                    {item.isNew ? <Chip icon="sparkles" iconSide="left" label="New" color="accent" /> : null}
+                  </a>
+                )
+              })}
+              <Divider />
+            </React.Fragment>
+          )
+        })}
+      </div>
     </div>
   )
 }

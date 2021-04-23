@@ -23,7 +23,7 @@ const App = () => {
         <Pages.AccordionPage />
       </Route>
       <Route path="/divider">
-        <Pages.ButtonPage />
+        <Pages.DividerPage />
       </Route>
       <Route path="/flex">
         <Pages.FlexPage />
