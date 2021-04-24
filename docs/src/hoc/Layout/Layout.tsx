@@ -7,11 +7,12 @@ import {
   ToolbarSectionsPropType,
   Chip,
   SvgIcon,
+  ActionButton,
 } from "react-play-ui";
 import { useLocation } from "react-router-dom";
 import classes from "./Layout.module.css";
 import logo from "../../assets/images/play-ui-logo.png";
-import { LayoutSidenav } from './LayoutSidenav';
+import { LayoutSidenav } from "./LayoutSidenav";
 
 interface LayoutProps {
   theme: any;
@@ -44,20 +45,34 @@ export const Layout: FunctionComponent<LayoutProps> = ({
       ],
     },
     {
-      id: 0,
+      id: 1,
       items: [
         {
           id: 0,
           content: (
-            <a href="https://github.com/SilvaMtz/react-play-ui" className={classes["Github--Version"]} onClick={() => {}}>
-              <Chip href="https://github.com/SilvaMtz/react-play-ui" className={classes["VersionChip"]} label="0.0.37" color="success" />
+            <a
+              href="https://github.com/SilvaMtz/react-play-ui"
+              className={classes["Github--Version"]}
+              onClick={() => {}}
+            >
+              <Chip
+                className={classes["VersionChip"]}
+                label="0.0.37"
+                color="success"
+              />
               <SvgIcon icon="userCircle" size="large" />
             </a>
           ),
         },
         {
           id: 1,
-          content: <ThemeToggler theme={theme} toggleTheme={toggleTheme} />,
+          content: (
+            <ThemeToggler
+              node={(
+                <ActionButton label="Toggle Dark Mode" onClick={()=>{}}/>
+              )}
+            />
+          ),
         },
       ],
     },

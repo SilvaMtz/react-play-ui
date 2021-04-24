@@ -14,8 +14,7 @@ import * as Pages from './containers';
 
 const App = () => {
 
-  const [theme, themeToggler] = useDarkMode();
-  const themeMode = theme === 'light' ? LightTheme : DarkTheme;
+  const themeMode = useDarkMode() === 'light' ? LightTheme : DarkTheme;
 
   const routes = (
     <Switch>
@@ -114,7 +113,7 @@ const App = () => {
       <ThemeProvider theme={themeMode}>
         <GlobalStyles theme={themeMode} />
         <div className="App">
-          <Layout theme={theme} toggleTheme={themeToggler}>
+          <Layout>
             {routes}
           </Layout>
         </div>

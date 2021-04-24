@@ -1,21 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { singletonHook } from 'react-singleton-hook';
 
-export const useDarkMode = () => {
-  const [theme, setTheme] = useState('light');
+const initDarkMode = "light";
+let globalSetMode = (mode: string) => { throw new Error('you must useDarkMode before setting its state'); };
 
-  const setMode = (mode:any) => {
-    localStorage.setItem('theme', mode);
-    setTheme(mode);
-  };
+export const useDarkMode = singletonHook(initDarkMode, () => {
+  const [mode, setMode] = useState(initDarkMode);
+  globalSetMode = setMode as () => never;
+  return mode;
+});
 
-  const themeToggler = () => {
-    theme === 'light' ? setMode('dark') : setMode('light');
-  };
-
-  useEffect(() => {
-    const localTheme = localStorage.getItem('theme');
-    localTheme && setTheme(localTheme);
-  }, []);
-
-  return [theme, themeToggler];
-};
+export const setDarkMode = (mode:string) => globalSetMode(mode);

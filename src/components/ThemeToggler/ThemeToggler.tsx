@@ -1,16 +1,29 @@
-import React from 'react'
-import { IconButton } from '../IconButton'
+import {
+  FunctionComponent,
+  ReactNode,
+  cloneElement,
+  ReactElement,
+} from "react";
+import { setDarkMode, useDarkMode } from "../../services/useDarkMode";
 
 export interface ThemeTogglerProps {
-  theme: any;
-  toggleTheme: any;
+  node: ReactNode;
 }
 
-export const ThemeToggler = ({
-  theme,
-  toggleTheme
-}: ThemeTogglerProps) => {
-  let svgIcon = theme === 'light' ? 'moon' : 'sun'
+export const ThemeToggler: FunctionComponent<ThemeTogglerProps> = ({ node }) => {
+  const theme = useDarkMode();
 
-  return <IconButton onClick={toggleTheme} icon={svgIcon} />
-}
+  const handleThemeChange = () => {
+    if (theme === "light") {
+      setDarkMode("dark");
+    } else {
+      setDarkMode("light");
+    }
+  };
+
+  const element = cloneElement(node as ReactElement, {
+    onClick: handleThemeChange,
+  });
+
+  return element;
+};
