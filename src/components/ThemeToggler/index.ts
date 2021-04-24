@@ -1,1 +1,1 @@
-export { ThemeToggler } from './ThemeToggler';
+export { ThemeToggler, ThemeTogglerProps } from './ThemeToggler';
