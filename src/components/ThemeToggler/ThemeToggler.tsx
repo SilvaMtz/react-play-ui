@@ -1,7 +1,7 @@
 import React from 'react'
 import { IconButton } from '../IconButton'
 
-interface ThemeTogglerProps {
+export interface ThemeTogglerProps {
   theme: any;
   toggleTheme: any;
 }
