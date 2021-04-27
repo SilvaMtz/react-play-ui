@@ -1,0 +1,84 @@
+.TableWrapper {
+  border-radius: 10px;
+  border: 1px solid rgba(var(--text-color), 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.TableTitle--Wrapper {
+  padding: 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: rgba(var(--palette-shade-2));
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.Table--Title {
+  font-weight: 400;
+  margin-top: 6px;
+  margin-bottom: 12px;
+}
+
+.Table--Caption {
+  margin-top: 0;
+  margin-bottom: 6px;
+  font-weight: 300;
+}
+
+.ApiTable {
+  width: 100%;
+  background-color: rgba(var(--palette-shade-1), 0.3);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-spacing: 0;
+}
+
+.ApiTable--Head {
+  width: 100%;
+  border-bottom: 1px solid rgba(var(--text-color), 0.2);
+}
+
+.ApiTable--Head .Head--Row {
+  width: 100%;
+  display: flex;
+}
+
+.Head--Row .HeadRow__Cell {
+  width: 100%;
+  padding: 12px;
+  text-align: left;
+  box-sizing: border-box;
+  border-top: 1px solid rgba(var(--text-color), 0.2);
+}
+
+.ApiTable--Body {
+  width: 100%;
+}
+
+.ApiTable--Body .Body--Row {
+  display: flex;
+  width: 100%;
+  border-top: 1px solid rgba(var(--text-color), 0.2);
+}
+
+.Body--Row .BodyRow__Cell {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  overflow-wrap: anywhere;
+}
+
+.PropName {
+  margin: 0;
+}
+
+.PropDescription {
+  margin: 0;
+  margin-top: 4px;
+  font-weight: 300;
+  color: rgb(var(--text-color-shade));
+  font-style: italic;
+}

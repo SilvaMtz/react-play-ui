@@ -1,14 +1,18 @@
-import React, { FunctionComponent } from 'react';
+import classNames from 'classnames';
+import React, { FunctionComponent, HTMLAttributes } from 'react';
+import { CommonProps } from '../types';
 import classes from './Divider.module.css';
 
-interface DividerProps {
-  size?: string;
-  marginSize?: string;
+interface DividerProps extends HTMLAttributes<HTMLHRElement> {
+  size?: "small" | "medium" | "large" | "full";
+  marginSize?: "none" | "small" | "medium" | "large" | "full";
 }
 
-export const Divider: FunctionComponent<DividerProps> = ({
+export const Divider: FunctionComponent<DividerProps & CommonProps> = ({
   size = "large",
-  marginSize = "large"
+  marginSize = "large",
+  className,
+  ...rest
 }) => {
 
   const dividerSizeMap = {
@@ -23,10 +27,10 @@ export const Divider: FunctionComponent<DividerProps> = ({
     small: 'margin--small',
     medium: 'margin--medium',
     large: 'margin--large',
-    full: 'margin--full',
+    extraLarge: 'margin--extraLarge',
   }
 
-  let classList = [
+  const classList = classNames(
     classes['divider'],
     size
       ? classes[dividerSizeMap[size]]
@@ -34,7 +38,8 @@ export const Divider: FunctionComponent<DividerProps> = ({
     marginSize
       ? classes[dividerMarginMap[marginSize]]
       : classes[dividerMarginMap['large']],
-  ];
+    className
+  );
 
-  return <hr className={classList.join(' ')} />;
+  return <hr className={classList} {...rest} />;
 };

@@ -7,7 +7,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 24px;
+  padding: 0px 24px 24px 24px;
   box-sizing: border-box;
   margin: 0 auto;
   overflow-y: scroll;
@@ -37,6 +37,7 @@
   border-radius: 8px;
   transition: background-color 0.12s linear;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 .Header--Logo:hover {
@@ -52,6 +53,7 @@
   margin-left: 12px;
   font-size: 1.5rem;
   color: rgb(var(--text-color));
+  text-decoration: none;
 }
 .Header--Logo h3 .PlayUI-Label {
   font-weight: 600;

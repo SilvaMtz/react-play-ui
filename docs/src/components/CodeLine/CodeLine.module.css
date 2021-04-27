@@ -1,0 +1,27 @@
+.CodeLine {
+  font-size: 0.78rem;
+  background-color: rgba(var(--interactable-shade-1), 0.3);
+  padding: 4px 6px;
+  box-sizing: border-box;
+  line-height: 23px;
+}
+
+.code--primaryColor{
+  color: rgb(var(--primary-color));
+}
+
+.code--dangerColor{
+  color: rgb(var(--danger-color));
+}
+
+.code--successColor{
+  color: rgb(var(--success-color));
+}
+
+.code--warningColor{
+  color: rgb(var(--warning-color));
+}
+
+.code--accentColor{
+  color: rgb(var(--accent-color));
+}

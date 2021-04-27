@@ -34,12 +34,12 @@ export const Layout: FunctionComponent<LayoutProps> = ({
         {
           id: 0,
           content: (
-            <button className={classes["Header--Logo"]} onClick={() => {}}>
+            <a className={classes["Header--Logo"]} href="/">
               <img src={logo} className={classes["Logo"]} />
               <h3>
                 React <span className={classes["PlayUI-Label"]}>PlayUI</span>
               </h3>
-            </button>
+            </a>
           ),
         },
       ],

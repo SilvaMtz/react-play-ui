@@ -1,0 +1,17 @@
+.TextBody {
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.15rem;
+}
+
+.TextBody strong {
+  font-weight: 600;
+}
+
+.TextBody code {
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: 3px;
+  background-color: rgb(var(--palette-shade-3));
+  padding: 1px 4px;
+}

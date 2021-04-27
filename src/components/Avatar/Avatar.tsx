@@ -67,6 +67,7 @@ export const Avatar: FunctionComponent<AvatarProps> = React.forwardRef<
       size = "medium",
       type = "user",
       onClick,
+      style,
       ...rest
     },
     ref
@@ -116,6 +117,7 @@ export const Avatar: FunctionComponent<AvatarProps> = React.forwardRef<
       backgroundImage: imageUrl ? `url(${imageUrl})` : "none",
       backgroundColor: assignedColor,
       color: textColor,
+      ...style
     };
 
     let avatarInstance = (
