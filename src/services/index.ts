@@ -1,5 +1,6 @@
 export {
-  useDarkMode
+  useDarkMode,
+  setDarkMode
 } from './useDarkMode';
 export { toInitials } from './toInitials'
 export { MAX_INITIALS } from './toInitials'
