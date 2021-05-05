@@ -11,7 +11,7 @@ import { OverlayMask } from "../OverlayMask";
 import classes from "./SideDrawer.module.css";
 import { ContextMenu } from "../ContextMenu";
 import { ContextMenuPanelDescriptor } from "../ContextMenu/ContextMenu";
-import { DrawerHeader } from "./DrawerHeader";
+import { DrawerHeader } from "./DrawerHeader/DrawerHeader";
 import { CommonProps } from "../types";
 import { OverlayMaskProps } from "../OverlayMask/OverlayMask";
 import classNames from "classnames";

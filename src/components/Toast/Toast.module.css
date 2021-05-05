@@ -7,7 +7,7 @@
   border-radius: 8px;
   box-shadow: 0px 1px 3px rgb(0 0 0 / 13%);
   box-sizing: border-box;
-  margin: 0;
+  margin: 6px 0px;
   padding: 0;
   background-color: rgb(var(--toast-background));
 }
@@ -86,4 +86,44 @@
 
 .title--withIcon {
   margin: 0;
+}
+
+:global(.twRight) .toast {
+  animation: ToastInRight 0.2s ease-in-out;
+}
+
+:global(.twLeft) .toast {
+  animation: ToastIn 0.2s ease-in-out;
+}
+
+@keyframes ToastIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%) scale(0.975);
+  }
+
+  85% {
+    opacity: 1;
+    transform: translateX(2%) scale(0.985);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%) scale(1);
+  }
+}
+
+@keyframes ToastInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100%) scale(0.975);
+  }
+
+  85% {
+    opacity: 1;
+    transform: translateX(-2%) scale(0.985);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%) scale(1);
+  }
 }

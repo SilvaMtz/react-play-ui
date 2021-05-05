@@ -1,75 +1,52 @@
-import React from 'react';
-import { FlexGrid, FlexItem, FlexGroup, Toast } from 'react-play-ui';
+import { ActionButton, useToast } from "react-play-ui";
 
 export const ToastPage = (props) => {
+
+  const addToast = useToast();
+  const handleAddToast = () => {
+    const toast = toastList[Math.floor(Math.random() * 3)];
+    addToast(toast);
+  }
+
+  const toastList = [
+    {
+      id: 0,
+      title: "Primary Toast!",
+      icon: "academicCap",
+      color: "primary",
+      iconSize: "large",
+      fill: true,
+    },
+    {
+      id: 1,
+      title: "Danger Toast!",
+      icon: "exclamation",
+      iconSize: "large",
+      color: "danger",
+      fill: true,
+    },
+    {
+      id: 2,
+      title: "Warning Toast!",
+      icon: "academicCap",
+      iconSize: "large",
+      color: "warning",
+      fill: false,
+    },
+    {
+      id: 3,
+      title: "Success Toast!",
+      icon: "checkCircle",
+      iconSize: "large",
+      color: "success",
+      fill: true,
+    }
+  ]
 
   return (
     <div>
       <h2>Toast</h2>
-      <FlexGrid columns={3}>
-        <FlexItem>
-          <FlexGroup alignItems="center" justifyContent="center">
-            <FlexItem grow={false}>
-              <Toast onClose={()=>{}} color="primary" icon="academicCap" title="Toast to this!">
-                <p style={{margin: 0, marginTop: 6}}>
-                  The quick brown fox jumped over the lazy dog.
-                  So the dog got up and chased after the fox.
-                </p>
-              </Toast>
-            </FlexItem>
-          </FlexGroup>
-        </FlexItem>
-
-        <FlexItem>
-          <FlexGroup alignItems="center" justifyContent="center">
-            <FlexItem grow={false}>
-              <Toast color="success" title="Title only!" icon="checkCircle" />
-            </FlexItem>
-          </FlexGroup>
-        </FlexItem>
-
-        <FlexItem>
-          <FlexGroup alignItems="center" justifyContent="center">
-            <FlexItem grow={false}>
-              <Toast color="accent">
-                Hi there!
-              </Toast>
-            </FlexItem>
-          </FlexGroup>
-        </FlexItem>
-
-        <FlexItem>
-          <FlexGroup alignItems="center" justifyContent="center">
-            <FlexItem grow={false}>
-              <Toast color="warning" fill onClose={()=>{}}>
-                Hi there!
-              </Toast>
-            </FlexItem>
-          </FlexGroup>
-        </FlexItem>
-
-        <FlexItem>
-          <FlexGroup alignItems="center" justifyContent="center">
-            <FlexItem grow={false}>
-              <Toast color="danger" duration={10}>
-                Hi there!
-              </Toast>
-            </FlexItem>
-          </FlexGroup>
-        </FlexItem>
-
-        <FlexItem>
-          <FlexGroup alignItems="center" justifyContent="center">
-            <FlexItem grow={false}>
-              <Toast color="default" onClose={()=>{}}>
-                Hi there!
-              </Toast>
-            </FlexItem>
-          </FlexGroup>
-        </FlexItem>
-
-      </FlexGrid>
-
+      <ActionButton label="Add!" onClick={handleAddToast} />
     </div>
   )
 }

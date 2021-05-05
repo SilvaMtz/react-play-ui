@@ -1,12 +1,24 @@
 import { transform } from "@babel/core";
 import React, { FunctionComponent, HTMLAttributes } from "react";
+import { CommonProps } from "../types";
 import classes from "./ProgressBar.module.css";
 
-export interface ProgressBarProps {
-  className?: string;
+export interface ProgressBarProps extends CommonProps {
+  /**
+   * Size of the progress bar.
+   */
   size?: "extraSmall" | "small" | "medium" | "large";
+  /**
+   * Color of the progress
+   */
   color?: "primary" | "success" | "accent" | "warning" | "danger" | "default";
+  /**
+   * Duration in miliseconds
+   */
   duration?: "indefinite" | number;
+  /**
+   * Value that acts as metadata
+   */
   value?: number;
 }
 
@@ -67,7 +79,7 @@ export const ProgressBar: FunctionComponent<
           className={loadingClassList.join(" ")}
           style={{
             width: "100%",
-            animation: `${classes['loadingLimitedProgressAnimation']} ${duration}s linear`,
+            animation: `${classes['loadingLimitedProgressAnimation']} ${duration/1000}s linear`,
           }}
         />
       </span>

@@ -3,17 +3,18 @@ import { IconButton } from "../IconButton";
 import { ProgressBar } from "../ProgressBar";
 import { SvgIcon } from "../SvgIcon";
 import { IconSize } from "../SvgIcon/SvgIcon";
+import { CommonProps } from "../types";
 import classes from "./Toast.module.css";
 
-export interface ToastProps {
+export interface ToastProps extends CommonProps {
   color?: "primary" | "success" | "accent" | "warning" | "danger" | "default";
   icon?: string;
-  iconSize?: IconSize
+  iconSize?: IconSize;
   title?: string;
   iconColor?: string;
-  className?: string;
   fill?: boolean;
   duration?: number;
+  showDuration?: boolean;
   onClose?: () => {};
 }
 
@@ -30,6 +31,7 @@ export const Toast: FunctionComponent<
   duration,
   children,
   onClose,
+  showDuration = true,
   ...rest
 }) => {
   const colorToClassMap = {
@@ -87,7 +89,7 @@ export const Toast: FunctionComponent<
     (childrenInstance && !titleInstance) || (titleInstance && !childrenInstance)
       ? classes["centeredContainer"]
       : null,
-    fill ? classes["fill"] : null
+    fill ? classes["fill"] : null,
   ];
 
   let containerInstance = (
@@ -100,16 +102,27 @@ export const Toast: FunctionComponent<
           icon="x"
           size="extraSmall"
           color={
-            color && color != "default" && colorToClassMap[color] && fill ? color : null
+            color && color != "default" && colorToClassMap[color] && fill
+              ? color
+              : null
           }
-          fill={!(color && colorToClassMap[color] && color != "default" && fill)}
+          fill={
+            !(color && colorToClassMap[color] && color != "default" && fill)
+          }
         />
       ) : null}
-      {duration ? <ProgressBar style={{position: "absolute", left: 0, bottom: 0}} duration={duration} color="success" size="extraSmall" /> : null}
+      {duration && showDuration ? (
+        <ProgressBar
+          style={{ position: "absolute", left: 0, bottom: 0 }}
+          duration={duration}
+          color="success"
+          size="extraSmall"
+        />
+      ) : null}
     </div>
   );
 
-  let toastClassList = [classes["toast"]];
+  let toastClassList = [classes["toast"], classes["toast-animation"]];
 
   return (
     <div className={toastClassList.join(" ")} {...rest}>

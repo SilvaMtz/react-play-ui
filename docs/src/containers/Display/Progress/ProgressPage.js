@@ -26,7 +26,7 @@ export const ProgressPage = (props) => {
           <FlexItem>
             <ProgressBar
               style={{ marginBottom: 6 }}
-              duration={5}
+              duration={5000}
               size="extraSmall"
             />
           </FlexItem>
