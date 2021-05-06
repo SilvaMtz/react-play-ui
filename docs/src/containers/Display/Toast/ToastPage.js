@@ -1,12 +1,6 @@
-import { ActionButton, useToast } from "react-play-ui";
+import { ActionButton } from "react-play-ui";
 
-export const ToastPage = (props) => {
-
-  const addToast = useToast();
-  const handleAddToast = () => {
-    const toast = toastList[Math.floor(Math.random() * 3)];
-    addToast(toast);
-  }
+export const ToastPage = () => {
 
   const toastList = [
     {

@@ -1,3 +1,3 @@
-export { Toast, ToastProps } from './Toast';
-export { ToastWrapper } from './ToastWrapper'
-export { ToastContext, ToastContextProvider } from './ToastContext'
+export { Toast } from './Toast'
+export { ToastContainer } from './ToastContainer/ToastContainer'
+export { ToastProgress } from './ToastProgress/ToastProgress'

@@ -5,9 +5,7 @@ import {
   GlobalStyles,
   LightTheme,
   DarkTheme,
-  useDarkMode,
-  PanelCard,
-  ToastContextProvider,
+  useDarkMode
 } from 'react-play-ui';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { Layout } from './hoc';
@@ -77,9 +75,7 @@ const App = () => {
         <Pages.SvgIconPage />
       </Route>
       <Route path="/toast">
-        <ToastContextProvider position={["bottom", "right"]} duration={6000}>
-          <Pages.ToastPage />
-        </ToastContextProvider>
+        <Pages.ToastPage />
       </Route>
       <Route path="tooltip">
         <Pages.TooltipPage />

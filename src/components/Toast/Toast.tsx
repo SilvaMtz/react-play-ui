@@ -1,132 +1,114 @@
-import React, { FunctionComponent, HTMLAttributes } from "react";
-import { IconButton } from "../IconButton";
-import { ProgressBar } from "../ProgressBar";
-import { SvgIcon } from "../SvgIcon";
-import { IconSize } from "../SvgIcon/SvgIcon";
-import { CommonProps } from "../types";
-import classes from "./Toast.module.css";
+import * as React from 'react';
+import classes from './Toast.module.css';
+import { ToastProgress } from './ToastProgress/ToastProgress';
+import { ToastProps } from '../../utils/toast/types';
+import { isFn } from '../../utils';
+import { useToast } from '../../hooks/toast';
+import classNames from 'classnames';
 
-export interface ToastProps extends CommonProps {
-  color?: "primary" | "success" | "accent" | "warning" | "danger" | "default";
-  icon?: string;
-  iconSize?: IconSize;
-  title?: string;
-  iconColor?: string;
-  fill?: boolean;
-  duration?: number;
-  showDuration?: boolean;
-  onClose?: () => {};
-}
+export const Toast: React.FC<ToastProps> = props => {
+  const {
+    isRunning,
+    preventExitTransition,
+    toastRef,
+    eventHandlers
+  } = useToast(props);
+  const {
+    closeButton,
+    children,
+    autoClose,
+    onClick,
+    type,
+    hideProgressBar,
+    closeToast,
+    transition: Transition,
+    position,
+    className,
+    style,
+    bodyClassName,
+    bodyStyle,
+    progressClassName,
+    progressStyle,
+    updateId,
+    role,
+    progress,
+    rtl,
+    toastId,
+    deleteToast,
+    isIn
+  } = props;
+  const defaultClassName = classNames(
+    classes['Toast'],
+    bodyClassName
+  );
+  const cssClasses = isFn(className)
+    ? className({
+        rtl,
+        position,
+        type,
+        defaultClassName
+      })
+    : classNames(defaultClassName, className);
+  const isProgressControlled = !!progress;
 
-export const Toast: FunctionComponent<
-  ToastProps & HTMLAttributes<HTMLDivElement>
-> = ({
-  color = "default",
-  icon,
-  iconSize,
-  title,
-  iconColor = color,
-  className,
-  fill = false,
-  duration,
-  children,
-  onClose,
-  showDuration = true,
-  ...rest
-}) => {
-  const colorToClassMap = {
-    default: "",
-    primary: "toast--primaryColor",
-    success: "toast--successColor",
-    accent: "toast--accentColor",
-    warning: "toast--warningColor",
-    danger: "toast--dangerColor",
-  };
+  function renderCloseButton(closeButton: any) {
+    if (!closeButton) return;
 
-  let iconInstance = icon ? (
-    <SvgIcon
-      icon={icon}
-      size={iconSize}
-      color={iconColor === "default" ? "rgba(var(--text-color))" : iconColor}
-      style={{ marginRight: 6 }}
-    />
-  ) : null;
+    const props = { closeToast, type };
 
-  let titleInstance;
-  if (iconInstance && title) {
-    titleInstance = (
-      <span className={classes["icon--title"]}>
-        {iconInstance}
-        <h4 className={classes["title--withIcon"]}>{title}</h4>
-      </span>
-    );
-  } else if (title) {
-    titleInstance = <h4 className={classes["title"]}>{title}</h4>;
+    if (isFn(closeButton)) return closeButton(props);
+
+    if (React.isValidElement(closeButton))
+      return React.cloneElement(closeButton, props);
   }
 
-  let childrenInstance = children ? (
-    <div className={classes["body"]}>{children}</div>
-  ) : null;
-
-  let contentInstance =
-    titleInstance && childrenInstance ? (
-      <React.Fragment>
-        {titleInstance}
-        {childrenInstance}
-      </React.Fragment>
-    ) : titleInstance && !childrenInstance ? (
-      titleInstance
-    ) : childrenInstance && !titleInstance ? (
-      childrenInstance
-    ) : null;
-
-  let containerInstanceClassList = [
-    classes["coloredContainer"],
-    color && color != "default" && colorToClassMap[color]
-      ? classes[colorToClassMap[color]]
-      : null,
-    onClose ? classes["container-hasButton"] : null,
-    (childrenInstance && !titleInstance) || (titleInstance && !childrenInstance)
-      ? classes["centeredContainer"]
-      : null,
-    fill ? classes["fill"] : null,
-  ];
-
-  let containerInstance = (
-    <div className={containerInstanceClassList.join(" ")}>
-      {contentInstance}
-      {onClose ? (
-        <IconButton
-          style={{ position: "absolute", top: 15, right: 15 }}
-          onClick={onClose}
-          icon="x"
-          size="extraSmall"
-          color={
-            color && color != "default" && colorToClassMap[color] && fill
-              ? color
-              : null
-          }
-          fill={
-            !(color && colorToClassMap[color] && color != "default" && fill)
-          }
-        />
-      ) : null}
-      {duration && showDuration ? (
-        <ProgressBar
-          style={{ position: "absolute", left: 0, bottom: 0 }}
-          duration={duration}
-          color="success"
-          size="extraSmall"
-        />
-      ) : null}
-    </div>
-  );
-
-  let toastClassList = [classes["toast"], classes["toast-animation"]];
-
   return (
-    <div className={toastClassList.join(" ")} {...rest}>
-      {containerInstance}
-    </div>
+    <Transition
+      isIn={isIn}
+      done={deleteToast}
+      position={position}
+      preventExitTransition={preventExitTransition}
+      nodeRef={toastRef}
+    >
+      <div
+        id={toastId as string}
+        onClick={onClick}
+        className={cssClasses}
+        {...eventHandlers}
+        style={style}
+        ref={toastRef}
+      >
+        <div
+          {...(isIn && { role: role })}
+          className={
+            isFn(bodyClassName)
+              ? bodyClassName({ type })
+              : classNames(classes['ToastBody'], bodyClassName)
+          }
+          style={bodyStyle}
+        >
+          {children}
+        </div>
+        {renderCloseButton(closeButton)}
+        {(autoClose || isProgressControlled) && (
+          <ToastProgress
+            {...(updateId && !isProgressControlled
+              ? { key: `pb-${updateId}` }
+              : {})}
+            rtl={rtl}
+            delay={autoClose as number}
+            isRunning={isRunning}
+            isIn={isIn}
+            closeToast={closeToast}
+            hide={hideProgressBar}
+            type={type}
+            style={progressStyle}
+            className={progressClassName}
+            controlledProgress={isProgressControlled}
+            progress={progress}
+          />
+        )}
+      </div>
+    </Transition>
   );
 };

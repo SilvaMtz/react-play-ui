@@ -41,10 +41,8 @@ export { ProgressBar } from "./ProgressBar";
 export { DisplayCard } from "./DisplayCard";
 export {
   Toast,
-  ToastContextProvider,
-  ToastContext,
-  ToastProps,
-  ToastWrapper,
+  ToastContainer,
+  ToastProgress
 } from "./Toast";
 export { PlayPopover } from "./PlayPopover";
 export { Chip, ChipGroup, ChipProps, ChipGroupType } from "./Chips";
