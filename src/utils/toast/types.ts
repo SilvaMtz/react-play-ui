@@ -241,6 +241,7 @@ export interface ToastProps extends ToastOptions {
   progressClassName?: ToastClassName;
   className?: ToastClassName;
   bodyClassName?: ToastClassName;
+  fill?: boolean;
   deleteToast?: () => void;
 }
 

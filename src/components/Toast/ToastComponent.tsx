@@ -35,12 +35,13 @@ export const ToastComponent: FunctionComponent<ToastProps> = props => {
     progress,
     rtl,
     toastId,
+    fill = false,
     deleteToast,
     isIn
   } = props;
   const defaultClassName = classNames(
     classes['Toastify__toast'],
-    classes[`Toastify__toast--${type}`],
+    classes['Toastify__toast--backdrop'],
     rtl ? classes['Toastify__toast--rtl'] : null,
     bodyClassName
   );
@@ -53,6 +54,12 @@ export const ToastComponent: FunctionComponent<ToastProps> = props => {
       })
     : classNames(defaultClassName, className);
   const isProgressControlled = !!progress;
+
+  const contentClassList = classNames(
+    classes['Toastify__toast--Content'],
+    classes[`Toastify__toast--${type}`],
+    !fill || type === 'default' ? classes['Toastify__toast--transparentBg'] : null
+  )
 
   function renderCloseButton(closeButton: any) {
     if (!closeButton) return;
@@ -81,36 +88,38 @@ export const ToastComponent: FunctionComponent<ToastProps> = props => {
         style={style}
         ref={toastRef}
       >
-        <div
-          {...(isIn && { role: role })}
-          className={
-            isFn(bodyClassName)
-              ? bodyClassName({ type })
-              : classNames(classes['Toastify__toast-body'], bodyClassName)
-          }
-          style={bodyStyle}
-        >
-          {children}
+        <div className={contentClassList}>
+          <div
+            {...(isIn && { role: role })}
+            className={
+              isFn(bodyClassName)
+                ? bodyClassName({ type })
+                : classNames(classes['Toastify__toast-body'], bodyClassName)
+            }
+            style={bodyStyle}
+          >
+            {children}
+          </div>
+          {renderCloseButton(closeButton)}
+          {(autoClose || isProgressControlled) && (
+            <ToastProgress
+              {...(updateId && !isProgressControlled
+                ? { key: `pb-${updateId}` }
+                : {})}
+              rtl={rtl}
+              delay={autoClose as number}
+              isRunning={isRunning}
+              isIn={isIn}
+              closeToast={closeToast}
+              hide={hideProgressBar}
+              type={type}
+              style={progressStyle}
+              className={progressClassName}
+              controlledProgress={isProgressControlled}
+              progress={progress}
+            />
+          )}
         </div>
-        {renderCloseButton(closeButton)}
-        {(autoClose || isProgressControlled) && (
-          <ToastProgress
-            {...(updateId && !isProgressControlled
-              ? { key: `pb-${updateId}` }
-              : {})}
-            rtl={rtl}
-            delay={autoClose as number}
-            isRunning={isRunning}
-            isIn={isIn}
-            closeToast={closeToast}
-            hide={hideProgressBar}
-            type={type}
-            style={progressStyle}
-            className={progressClassName}
-            controlledProgress={isProgressControlled}
-            progress={progress}
-          />
-        )}
       </div>
     </Transition>
   );
