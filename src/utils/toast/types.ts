@@ -27,7 +27,7 @@ export interface ToastContentProps {
 export type ToastContent =
   | React.ReactNode
   | ((props: ToastContentProps) => React.ReactNode);
-export interface Toast {
+export interface ToastInterface {
   content: ToastContent;
   props: ToastProps;
 }
@@ -232,16 +232,16 @@ export interface ToastProps extends ToastOptions {
   staleId?: Id;
   toastId: Id;
   key: Id;
-  transition: ToastTransition;
-  closeToast: () => void;
-  position: ToastPosition;
+  transition?: ToastTransition;
+  closeToast?: () => void;
+  position?: ToastPosition;
   children?: ToastContent;
-  draggablePercent: number;
+  draggablePercent?: number;
   draggableDirection?: DraggableDirection;
   progressClassName?: ToastClassName;
   className?: ToastClassName;
   bodyClassName?: ToastClassName;
-  deleteToast: () => void;
+  deleteToast?: () => void;
 }
 
 /**

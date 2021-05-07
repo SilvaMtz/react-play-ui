@@ -1,12 +1,13 @@
-import * as React from 'react';
+import React, { FunctionComponent } from 'react';
 import classes from './Toast.module.css';
 import { ToastProgress } from './ToastProgress/ToastProgress';
 import { ToastProps } from '../../utils/toast/types';
 import { isFn } from '../../utils';
 import { useToast } from '../../hooks/toast';
 import classNames from 'classnames';
+import { Bounce } from '../../utils/toast/toastTransitions'
 
-export const Toast: React.FC<ToastProps> = props => {
+export const ToastComponent: FunctionComponent<ToastProps> = props => {
   const {
     isRunning,
     preventExitTransition,
@@ -18,10 +19,10 @@ export const Toast: React.FC<ToastProps> = props => {
     children,
     autoClose,
     onClick,
-    type,
+    type = "default",
     hideProgressBar,
     closeToast,
-    transition: Transition,
+    transition: Transition = Bounce,
     position,
     className,
     style,
@@ -38,7 +39,9 @@ export const Toast: React.FC<ToastProps> = props => {
     isIn
   } = props;
   const defaultClassName = classNames(
-    classes['Toast'],
+    classes['Toastify__toast'],
+    classes[`Toastify__toast--${type}`],
+    rtl ? classes['Toastify__toast--rtl'] : null,
     bodyClassName
   );
   const cssClasses = isFn(className)
@@ -83,7 +86,7 @@ export const Toast: React.FC<ToastProps> = props => {
           className={
             isFn(bodyClassName)
               ? bodyClassName({ type })
-              : classNames(classes['ToastBody'], bodyClassName)
+              : classNames(classes['Toastify__toast-body'], bodyClassName)
           }
           style={bodyStyle}
         >

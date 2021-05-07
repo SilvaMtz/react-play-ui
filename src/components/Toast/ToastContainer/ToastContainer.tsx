@@ -1,25 +1,56 @@
-import React from 'react';
-import cx from 'clsx';
-
-import { Toast } from '../Toast';
-import { CloseButton } from '../CloseButton/CloseButton';
-import { Bounce } from '../../../utils/toast/toastTransitions';
+import React, { FunctionComponent } from 'react';
+import { ToastComponent } from '../ToastComponent';
+import classNames from 'classnames';
+import classes from './ToastContainer.module.css';
 import { parseClassName, isFn } from '../../../utils';
-import { POSITION, Direction, Default, } from '../../../utils/toast';
+import { CloseButton } from '../CloseButton/CloseButton';
 import { useToastContainer } from '../../../hooks/toast';
+import { Bounce } from '../../../utils/toast/toastTransitions';
+import { POSITION, Direction, Default, } from '../../../utils/toast';
 import { ToastContainerProps, ToastPosition } from '../../../utils/toast/types';
 
-export const ToastContainer: React.FC<ToastContainerProps> = props => {
+export const ToastContainer: FunctionComponent<ToastContainerProps> = ({
+  position = POSITION.TOP_RIGHT as ToastPosition,
+  transition = Bounce,
+  rtl = false,
+  autoClose = 5000,
+  hideProgressBar = false,
+  closeButton = CloseButton,
+  pauseOnHover = true,
+  pauseOnFocusLoss = true,
+  closeOnClick = true,
+  newestOnTop = false,
+  draggable = true,
+  draggablePercent = Default.DRAGGABLE_PERCENT as number,
+  draggableDirection = Direction.X,
+  role = 'alert',
+  className,
+  style,
+  containerId
+}) => {
   const { getToastToRender, containerRef, isToastActive } = useToastContainer(
-    props
+    {
+      position,
+      transition,
+      autoClose,
+      hideProgressBar,
+      closeButton,
+      pauseOnHover,
+      pauseOnFocusLoss,
+      closeOnClick,
+      newestOnTop,
+      draggable,
+      draggablePercent,
+      draggableDirection,
+      role
+    }
   );
-  const { className, style, rtl, containerId } = props;
 
   function getClassName(position: ToastPosition) {
-    const defaultClassName = cx(
-      `${Default.CSS_NAMESPACE}__toast-container`,
-      `${Default.CSS_NAMESPACE}__toast-container--${position}`,
-      { [`${Default.CSS_NAMESPACE}__toast-container--rtl`]: rtl }
+    const defaultClassName = classNames(
+      classes[`${Default.CSS_NAMESPACE}__toast-container`],
+      classes[`${Default.CSS_NAMESPACE}__toast-container--${position}`],
+      rtl ? classes[`${Default.CSS_NAMESPACE}__toast-container--rtl`] : null
     );
     return isFn(className)
       ? className({
@@ -27,13 +58,13 @@ export const ToastContainer: React.FC<ToastContainerProps> = props => {
           rtl,
           defaultClassName
         })
-      : cx(defaultClassName, parseClassName(className));
+      : classNames(defaultClassName, parseClassName(className));
   }
 
   return (
     <div
       ref={containerRef}
-      className={Default.CSS_NAMESPACE as string}
+      className={classes[Default.CSS_NAMESPACE as string]}
       id={containerId as string}
     >
       {getToastToRender((position, toastList) => {
@@ -50,7 +81,7 @@ export const ToastContainer: React.FC<ToastContainerProps> = props => {
           >
             {toastList.map(({ content, props: toastProps }) => {
               return (
-                <Toast
+                <ToastComponent
                   {...toastProps}
                   isIn={isToastActive(toastProps.toastId)}
                   key={`toast-${toastProps.key}`}
@@ -61,7 +92,7 @@ export const ToastContainer: React.FC<ToastContainerProps> = props => {
                   }
                 >
                   {content}
-                </Toast>
+                </ToastComponent>
               );
             })}
           </div>
@@ -69,21 +100,4 @@ export const ToastContainer: React.FC<ToastContainerProps> = props => {
       })}
     </div>
   );
-};
-
-ToastContainer.defaultProps = {
-  position: POSITION.TOP_RIGHT as ToastPosition,
-  transition: Bounce,
-  rtl: false,
-  autoClose: 5000,
-  hideProgressBar: false,
-  closeButton: CloseButton,
-  pauseOnHover: true,
-  pauseOnFocusLoss: true,
-  closeOnClick: true,
-  newestOnTop: false,
-  draggable: true,
-  draggablePercent: Default.DRAGGABLE_PERCENT as number,
-  draggableDirection: Direction.X,
-  role: 'alert'
 };

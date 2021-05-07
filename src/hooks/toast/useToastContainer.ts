@@ -26,7 +26,7 @@ import {
   ToastContainerProps,
   ToastProps,
   ToastContent,
-  Toast,
+  ToastInterface,
   ToastPosition,
   ClearWaitingQueueParams,
   NotValidatedToastProps,
@@ -35,8 +35,8 @@ import {
 import { useKeeper } from './useKeeper';
 import { ToastActionType, reducer } from './toastContainerReducer';
 
-type CollectionItem = Record<Id, Toast>;
-type ToastToRender = Partial<Record<ToastPosition, Toast[]>>;
+type CollectionItem = Record<Id, ToastInterface>;
+type ToastToRender = Partial<Record<ToastPosition, ToastInterface[]>>;
 
 interface QueuedToast {
   toastContent: ToastContent;
@@ -50,7 +50,7 @@ export interface ToastContainerInstance {
   props: ToastContainerProps;
   containerId?: Id | null;
   isToastActive: (toastId: Id) => boolean;
-  getToast: (id: Id) => Toast | null;
+  getToast: (id: Id) => ToastInterface | null;
 }
 
 export function useToastContainer(props: ToastContainerProps) {
@@ -290,7 +290,7 @@ export function useToastContainer(props: ToastContainerProps) {
   }
 
   function getToastToRender<T>(
-    cb: (position: ToastPosition, toastList: Toast[]) => T
+    cb: (position: ToastPosition, toastList: ToastInterface[]) => T
   ) {
     const toastToRender: ToastToRender = {};
     const toastList = props.newestOnTop

@@ -40,7 +40,7 @@ export { Callout } from "./Callout";
 export { ProgressBar } from "./ProgressBar";
 export { DisplayCard } from "./DisplayCard";
 export {
-  Toast,
+  ToastComponent,
   ToastContainer,
   ToastProgress
 } from "./Toast";

@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import classNames from 'classnames';
 import classes from './ToastProgress.module.css';
 import { isFn } from '../../../utils';
 import { TypeOptions, ToastClassName } from '../../../utils/toast/types';
-import { TYPE } from '../../../utils/toast';
 
 export interface ProgressBarProps {
   /**
@@ -62,19 +61,19 @@ export interface ProgressBarProps {
   isIn?: boolean;
 }
 
-export function ToastProgress({
+export const ToastProgress: FunctionComponent<ProgressBarProps> = ({
   delay,
   isRunning,
   closeToast,
-  type,
-  hide,
+  type = 'default',
+  hide = false,
   className,
   style: userStyle,
   controlledProgress,
   progress,
   rtl,
   isIn
-}: ProgressBarProps) {
+}) => {
   const style: React.CSSProperties = {
     ...userStyle,
     animationDuration: `${delay}ms`,
@@ -84,14 +83,12 @@ export function ToastProgress({
 
   if (controlledProgress) style.transform = `scaleX(${progress})`;
   const defaultClassName = classNames(
-    `ToastProgress__progress-bar`,
+    classes[`Toastify__progress-bar`],
     controlledProgress
-      ? `ToastProgress__progress-bar--controlled`
-      : `ToastProgress__progress-bar--animated`,
-    `ToastProgress__progress-bar--${type}`,
-    {
-      [`ToastProgress__progress-bar--rtl`]: rtl
-    }
+      ? classes[`Toastify__progress-bar--controlled`]
+      : classes[`Toastify__progress-bar--animated`],
+    classes[`Toastify__progress-bar--${type}`],
+    rtl ? classes[`Toastify__progress-bar--rtl`] : null
   );
   const classList = isFn(className)
     ? className({
@@ -101,7 +98,7 @@ export function ToastProgress({
       })
     : classNames(defaultClassName, className);
 
-  // 🧐 controlledProgress is derived from progress
+  // controlledProgress is derived from progress
   // so if controlledProgress is set
   // it means that this is also the case for progress
   const animationEvent = {
@@ -128,8 +125,3 @@ export function ToastProgress({
     />
   );
 }
-
-ToastProgress.defaultProps = {
-  type: TYPE.DEFAULT,
-  hide: false
-};
