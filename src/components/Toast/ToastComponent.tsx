@@ -5,7 +5,7 @@ import { ToastProps } from '../../utils/toast/types';
 import { isFn } from '../../utils';
 import { useToast } from '../../hooks/toast';
 import classNames from 'classnames';
-import { Bounce } from '../../utils/toast/toastTransitions'
+import { Bounce } from './toastTransitions';
 
 export const ToastComponent: FunctionComponent<ToastProps> = props => {
   const {

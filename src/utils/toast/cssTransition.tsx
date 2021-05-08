@@ -1,6 +1,7 @@
 import React, { useEffect, useLayoutEffect, useRef } from 'react';
 import { ToastTransitionProps } from './types';
-
+import transitionClasses from '../../components/Toast/toastTransitions.module.css';
+import toastClasses from '../../components/Toast/Toast.module.css';
 import { collapseToast } from './collapseToast';
 import { Default } from './constant';
 
@@ -69,8 +70,8 @@ export function cssTransition({
     nodeRef,
     isIn
   }: ToastTransitionProps) {
-    const enterClassName = appendPosition ? `${enter}--${position}` : enter;
-    const exitClassName = appendPosition ? `${exit}--${position}` : exit;
+    const enterClassName = appendPosition ? `${toastClasses[`${Default.CSS_NAMESPACE}--animate`]} ${transitionClasses[`${enter}--${position}`]}` : `${toastClasses[`${Default.CSS_NAMESPACE}--animate`]} ${transitionClasses[enter]}`;
+    const exitClassName = appendPosition ? `${toastClasses[`${Default.CSS_NAMESPACE}--animate`]} ${transitionClasses[`${exit}--${position}`]}` : `${toastClasses[`${Default.CSS_NAMESPACE}--animate`]} ${transitionClasses[exit]}`;
     const baseClassName = useRef<string>();
     const animationStep = useRef(AnimationStep.Enter);
 

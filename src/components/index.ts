@@ -42,7 +42,11 @@ export { DisplayCard } from "./DisplayCard";
 export {
   ToastComponent,
   ToastContainer,
-  ToastProgress
+  ToastProgress,
+  Bounce,
+  Slide,
+  Zoom,
+  Flip
 } from "./Toast";
 export { PlayPopover } from "./PlayPopover";
 export { Chip, ChipGroup, ChipProps, ChipGroupType } from "./Chips";

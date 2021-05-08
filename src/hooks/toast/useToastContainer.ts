@@ -150,6 +150,7 @@ export function useToastContainer(props: ToastContainerProps) {
       isIn: false,
       key: options.key || instance.toastKey++,
       type: options.type,
+      fill: options.fill,
       closeToast: closeToast,
       closeButton: options.closeButton,
       rtl: props.rtl,

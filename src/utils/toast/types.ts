@@ -222,6 +222,11 @@ export interface ToastOptions extends CommonOptions {
    * Add a delay in ms before the toast appear.
    */
   delay?: number;
+
+  /**
+   * Fills the entire toast in the color type
+   */
+  fill?: boolean;
 }
 
 /**
@@ -241,7 +246,6 @@ export interface ToastProps extends ToastOptions {
   progressClassName?: ToastClassName;
   className?: ToastClassName;
   bodyClassName?: ToastClassName;
-  fill?: boolean;
   deleteToast?: () => void;
 }
 

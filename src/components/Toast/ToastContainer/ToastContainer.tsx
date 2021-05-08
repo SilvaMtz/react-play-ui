@@ -5,7 +5,7 @@ import classes from './ToastContainer.module.css';
 import { parseClassName, isFn } from '../../../utils';
 import { CloseButton } from '../CloseButton/CloseButton';
 import { useToastContainer } from '../../../hooks/toast';
-import { Bounce } from '../../../utils/toast/toastTransitions';
+import { Bounce } from '../toastTransitions';
 import { POSITION, Direction, Default, } from '../../../utils/toast';
 import { ToastContainerProps, ToastPosition } from '../../../utils/toast/types';
 
