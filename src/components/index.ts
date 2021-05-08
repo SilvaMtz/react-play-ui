@@ -25,7 +25,7 @@ export {
 } from "./Toolbar";
 export { SelectField } from "./SelectField";
 export { TextField } from "./TextField";
-export { SideDrawer } from "./SideDrawer";
+export { SideDrawer, SideDrawerProps } from "./SideDrawer";
 export { Checkbox, CheckboxGroup } from "./Checkbox";
 export { FormFieldset, FormLegend } from "./FormFieldset";
 export { WidgetCard } from "./WidgetCard";

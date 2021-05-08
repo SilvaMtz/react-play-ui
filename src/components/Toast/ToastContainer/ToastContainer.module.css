@@ -9,7 +9,7 @@
   padding: 4px;
   width: 320px;
   box-sizing: border-box;
-  color: #fff;
+  color: rgb(var(--text-color));
 }
 .Toastify__toast-container--top-left {
   top: 1em;

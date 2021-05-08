@@ -87,7 +87,6 @@ export const ToastProgress: FunctionComponent<ProgressBarProps> = ({
     controlledProgress
       ? classes[`Toastify__progress-bar--controlled`]
       : classes[`Toastify__progress-bar--animated`],
-    classes[`Toastify__progress-bar--${type}`],
     rtl ? classes[`Toastify__progress-bar--rtl`] : null
   );
   const classList = isFn(className)

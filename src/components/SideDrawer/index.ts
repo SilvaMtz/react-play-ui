@@ -1,1 +1,1 @@
-export { SideDrawer } from './SideDrawer';
+export { SideDrawer, SideDrawerProps } from './SideDrawer';

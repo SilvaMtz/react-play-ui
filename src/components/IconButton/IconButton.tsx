@@ -2,12 +2,15 @@ import React, {
   AnchorHTMLAttributes,
   ButtonHTMLAttributes,
   FunctionComponent,
+  ReactNode,
 } from "react";
 import classes from "./IconButton.module.css";
 import { SvgIcon } from "../SvgIcon";
 import { NumberBadge, NumberBadgePropTypes } from "../NumberBadge";
+import { CommonProps } from "../types";
+import classNames from "classnames";
 
-interface IconButtonProps {
+interface IconButtonProps extends CommonProps {
   color?: string;
   size?: "extraSmall" | "small" | "medium" | "large";
   fill?: boolean;
@@ -36,6 +39,7 @@ export const IconButton: FunctionComponent<
       badge,
       type = "button",
       disabled,
+      className,
       ...rest
     },
     ref
@@ -57,7 +61,7 @@ export const IconButton: FunctionComponent<
       large: "button--large",
     };
 
-    let classList = [
+    const classList = classNames(
       classes["icon-button"],
       color && buttonColorMapping[color]
         ? classes[buttonColorMapping[color]]
@@ -67,9 +71,10 @@ export const IconButton: FunctionComponent<
         ? classes[buttonSizeMapping[size]]
         : classes[buttonSizeMapping["medium"]],
       disabled ? classes["icon-button--isDisabled"] : null,
-    ];
+      className
+    );
 
-    let badgeInstance;
+    let badgeInstance: ReactNode;
     if (badge) {
       badgeInstance = <NumberBadge {...badge} />;
     }
@@ -114,7 +119,7 @@ export const IconButton: FunctionComponent<
 
     let button = href ? (
       <a
-        className={classList.join(" ")}
+        className={classList}
         onClick={onClick}
         type={type}
         style={bgColorStyles}
@@ -125,7 +130,7 @@ export const IconButton: FunctionComponent<
       </a>
     ) : (
       <button
-        className={classList.join(" ")}
+        className={classList}
         onClick={onClick}
         type={type}
         ref={ref}
