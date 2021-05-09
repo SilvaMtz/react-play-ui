@@ -39,9 +39,9 @@ export const DemoBlock: FunctionComponent<DemoBlockType> = ({
         {children}
       </div>
       <div className={classes["DemoBlock--Actions"]}>
-        <Tabs activeTab={activeTab} stretch>
-          <Tab onClick={() => handleTabChange(0)} tabId={0} label="Demo" />
-          <Tab onClick={() => handleTabChange(1)} tabId={1} label="Snippet" />
+        <Tabs activeTab={activeTab} stretch={false}>
+          <Tab style={{ width: 100 }} onClick={() => handleTabChange(0)} tabId={0} label="Demo" />
+          <Tab style={{ width: 100 }} onClick={() => handleTabChange(1)} tabId={1} label="Snippet" />
         </Tabs>
         <TabPanel tabId={0} activeTab={activeTab}>
           <CodeBlock

@@ -1,4 +1,4 @@
-import React, { FunctionComponent, TextareaHTMLAttributes, useEffect } from "react";
+import React, { ChangeEventHandler, FunctionComponent, TextareaHTMLAttributes, useEffect } from "react";
 import classes from "./TextField.module.css";
 import { FlexGroup } from "../FlexGroup";
 import { FlexItem } from "../FlexItem";
@@ -13,6 +13,7 @@ export interface TextFieldProps {
   required?: boolean;
   isTouched?: boolean;
   resizable?: boolean;
+  onChange?: ChangeEventHandler<HTMLTextAreaElement>
 }
 
 export const TextField: FunctionComponent<
@@ -28,15 +29,12 @@ export const TextField: FunctionComponent<
   isTouched,
   className,
   resizable = true,
+  onChange,
   ...rest
 }) => {
-  let inputLabel = null;
+  const inputLabel = label ? <label className={classes["textarea-label"]}>{label}</label> : null;
 
-  if (label) {
-    inputLabel = <label className={classes["textarea-label"]}>{label}</label>;
-  }
-
-  let fieldIsValid;
+  let fieldIsValid: boolean;
   if (isValid) {
     fieldIsValid = isValid;
   } else {
@@ -80,28 +78,16 @@ export const TextField: FunctionComponent<
     resizable ? classes["textarea--resizable"] : null
   ];
 
-  let textareaInstance = (
-    <textarea
-      className={textareaClassList.join(' ')}
-      disabled={disabled}
-      {...rest}
-    />
-  );
-
-  useEffect(() => {
-    textareaInstance = (
-      <textarea
-        className={textareaClassList.join(' ')}
-        disabled={disabled}
-        {...rest}
-      />
-    )
-  }, [value])
-
   return (
     <div className={wrapperClassList.join(' ')}>
       {inputLabel}
-      {textareaInstance}
+      <textarea
+        className={textareaClassList.join(' ')}
+        {...rest}
+        disabled={disabled}
+        value={value}
+        onChange={onChange}
+      />
       {lengthLabel}
     </div>
   )

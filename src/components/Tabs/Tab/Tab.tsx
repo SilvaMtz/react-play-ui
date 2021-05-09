@@ -1,8 +1,8 @@
+import classNames from "classnames";
 import React, {
   ButtonHTMLAttributes,
   FunctionComponent,
-  ReactNode,
-  useState,
+  ReactNode
 } from "react";
 import { SvgIcon } from "../../SvgIcon";
 import classes from "./Tab.module.css";
@@ -33,19 +33,19 @@ export const Tab: FunctionComponent<
 }) => {
   let isActive = activeTab === tabId;
 
-  let classList = [
+  const classList = classNames(
     classes["Tab"],
     isActive ? classes["Tab--isActive"] : null,
     wrapperClassName,
-  ];
+  );
 
-  let buttonClassList = [classes["TabButton"], buttonClassName];
+  const buttonClassList = classNames(classes["TabButton"], buttonClassName);
 
-  let labelInstance: ReactNode = label ? (
+  const labelInstance: ReactNode = label ? (
     <p className={classes["tabLabel"]}>{label}</p>
   ) : null;
 
-  let iconInstance: ReactNode = icon ? (
+  const iconInstance: ReactNode = icon ? (
     <SvgIcon
       style={{marginRight: 6}}
       size="extraSmall"
@@ -54,7 +54,7 @@ export const Tab: FunctionComponent<
     />
   ) : null;
 
-  let contentInstance = (
+  const contentInstance = (
     <div className={classes['tabLabelContainer']}>
       {iconInstance}
       <span>{labelInstance}</span>
@@ -62,8 +62,8 @@ export const Tab: FunctionComponent<
   )
 
   return (
-    <div id={tabId.toString()} className={classList.join(" ")}>
-      <button onClick={onClick} className={buttonClassList.join(" ")} {...rest}>
+    <div id={tabId.toString()} className={classList}>
+      <button onClick={onClick} className={buttonClassList} {...rest}>
         {children ? children : contentInstance}
       </button>
     </div>

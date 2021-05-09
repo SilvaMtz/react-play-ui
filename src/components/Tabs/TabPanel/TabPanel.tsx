@@ -1,27 +1,31 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React, { FunctionComponent, HTMLAttributes, ReactNode } from 'react';
 import classes from './TabPanel.module.css';
+import classNames from 'classnames';
+import { CommonProps } from '../../types';
 
-interface TabPanelProps {
+interface TabPanelProps extends CommonProps {
   children?: ReactNode;
   tabId: number;
   activeTab: number;
 }
 
-export const TabPanel: FunctionComponent<TabPanelProps> = ({
+export const TabPanel: FunctionComponent<TabPanelProps & HTMLAttributes<HTMLDivElement>> = ({
   children,
   tabId,
-  activeTab
+  activeTab,
+  className
 }) => {
 
-  let isActive = tabId === activeTab;
+  const isActive = tabId === activeTab;
 
-  let classList = [
+  const classList = classNames(
     classes['TabPanel'],
-    isActive ? classes['TabPanel--isActive'] : null
-  ]
+    isActive ? classes['TabPanel--isActive'] : null,
+    className
+  )
 
   return (
-    <div className={classList.join(' ')}>
+    <div className={classList}>
       {children}
     </div>
   )
