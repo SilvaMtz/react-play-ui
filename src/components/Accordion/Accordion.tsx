@@ -34,7 +34,10 @@ export type AccordionProps = CommonProps &
      * ID to use in the root element (optional).
      */
     id?: string;
-
+    /**
+     * Children Wrapper classname
+     */
+    childrenClassName?: string;
     children?: ReactNode;
     /**
      * Icon to on the left side of the title. Must use a title to display.
@@ -171,6 +174,7 @@ export class Accordion extends Component<AccordionProps, { isOpen: boolean }> {
   render() {
     const {
       children,
+      childrenClassName,
       buttonContent,
       className,
       id,
@@ -236,6 +240,11 @@ export class Accordion extends Component<AccordionProps, { isOpen: boolean }> {
       classes["Accordion--ButtonContent"],
       buttonContentClassName
     );
+
+    const childrenWrapperClassList = classNames(
+      classes["Accordion--childrenWrapper"],
+      childrenClassName
+    )
 
     let chevronIcon: ReactNode;
     if (arrowDisplay !== "none") {
@@ -335,7 +344,7 @@ export class Accordion extends Component<AccordionProps, { isOpen: boolean }> {
         </div>
 
         <div
-          className={classes["Accordion--childrenWrapper"]}
+          className={childrenWrapperClassList}
           ref={(node) => {
             this.childWrapper = node;
           }}
