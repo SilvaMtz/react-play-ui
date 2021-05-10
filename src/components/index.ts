@@ -59,4 +59,5 @@ export {
   RadioGroupProps,
 } from "./RadioButton/RadioGroup";
 export { Accordion, AccordionProps, AccordionPaddingSize } from "./Accordion";
+export { RatingButton, RatingButtonInterface, RatingButtonWrapperType } from './RatingButton'
 export * from "./types";

@@ -29,6 +29,7 @@ export const FormControlsPage = (props) => {
     },
   ];
   const [checkboxIdToSelectedMap, setCheckboxIdToSelectedMap] = useState({
+    // eslint-disable-next-line
     ["checkboxOpt1"]: true,
   });
 

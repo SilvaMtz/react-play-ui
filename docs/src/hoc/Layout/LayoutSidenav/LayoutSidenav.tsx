@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode } from "react";
+import React, { FunctionComponent } from "react";
 import { useLocation } from "react-router";
 import { Chip, Divider, InputField, SvgIcon } from "react-play-ui";
 import classes from "./LayoutSidenav.module.css";
@@ -25,7 +25,7 @@ export type SidenavSection = {
 
 export type SidenavSectionCollection = SidenavSection[];
 
-export const LayoutSidenav: FunctionComponent = ({}) => {
+export const LayoutSidenav: FunctionComponent = () => {
   const currentRoute = useLocation();
   const [searchValue, setSearchValue] = useState('');
 
@@ -36,7 +36,7 @@ export const LayoutSidenav: FunctionComponent = ({}) => {
       isActive: currentRoute.pathname === "/accordion",
       label: "Accordion",
       disabled: false,
-      isNew: true,
+      isNew: false,
     },
     {
       id: 1,
@@ -187,6 +187,14 @@ export const LayoutSidenav: FunctionComponent = ({}) => {
       label: "Icons",
       disabled: false,
       isNew: false,
+    },
+    {
+      id: 8,
+      href: "/rating-button",
+      isActive: currentRoute.pathname === "/rating-button",
+      label: "Rating Button",
+      disabled: false,
+      isNew: true,
     },
     {
       id: 8,
@@ -341,7 +349,7 @@ export const LayoutSidenav: FunctionComponent = ({}) => {
         {sidenavSections.map((section: SidenavSection) => {
           return (
             <React.Fragment key={section.id}>
-              {!(section.items.length == 0) ? (
+              {!(section.items.length === 0) ? (
                 <React.Fragment>
                   <span className={classes["NavSections--Title"]}>
                     <SvgIcon icon={section.icon} size="small" />
@@ -371,7 +379,6 @@ export const LayoutSidenav: FunctionComponent = ({}) => {
                 <Divider />
                 </React.Fragment>
               ) : null}
-
             </React.Fragment>
           );
         })}

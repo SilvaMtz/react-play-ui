@@ -1,0 +1,284 @@
+.RatingButton {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.Label {
+  margin: 0;
+  margin-bottom: 2px;
+  font-size: 0.7rem;
+}
+
+.Skillbar--container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.Skillbar--dot {
+  content: '';
+  height: 12px;
+  border-radius: 3px;
+  width: 100%;
+  margin: 0px 3px;
+  cursor: pointer;
+  transition: background-color 0.1s ease-in-out;
+}
+
+.Skillbar--dot:last-child {
+  margin-right: 0;
+}
+.Skillbar--dot:first-child {
+  margin-left: 0;
+}
+
+.Skillbar--Icon {
+  margin: 0px;
+  cursor: pointer;
+  transition: fill 0.1s ease-in-out;
+}
+
+.Skillbar--Icon:last-child {
+  margin-right: 0;
+}
+.Skillbar--Icon:first-child {
+  margin-left: 0;
+}
+
+/* Color SCHEMES */
+/* PRIMARY */
+.Skillbar--Clickable.Dot--primaryColor:hover {
+  transform: scale(1.2);
+  background-color: rgb(var(--primary-color)) !important;
+}
+
+.Skillbar--container .Skillbar--Clickable.Dot--primaryColor {
+  background-color: rgba(var(--primary-color), 0.2);
+}
+
+.Skillbar--container:not(:hover) .Skillbar--Clickable.Dot--primaryColor.Dot--Fill {
+  background-color:rgb(var(--primary-color));
+}
+
+.Skillbar--container:hover .Skillbar--Clickable.Dot--primaryColor {
+  background-color: rgba(var(--primary-color));
+}
+.Skillbar--container .Skillbar--Clickable.Dot--primaryColor:hover,
+.Skillbar--container .Skillbar--Clickable.Dot--primaryColor:hover ~ .Skillbar--Clickable.Dot--primaryColor {
+  background-color: rgba(var(--primary-color), 0.2);
+}
+
+/* ACCENT */
+.Skillbar--Clickable.Dot--accentColor:hover {
+  transform: scale(1.2);
+  background-color: rgb(var(--accent-color)) !important;
+}
+
+.Skillbar--container .Skillbar--Clickable.Dot--accentColor {
+  background-color: rgba(var(--accent-color), 0.2);
+}
+
+.Skillbar--container:not(:hover) .Skillbar--Clickable.Dot--accentColor.Dot--Fill {
+  background-color:rgb(var(--accent-color));
+}
+
+.Skillbar--container:hover .Skillbar--Clickable.Dot--accentColor {
+  background-color: rgba(var(--accent-color));
+}
+.Skillbar--container .Skillbar--Clickable.Dot--accentColor:hover,
+.Skillbar--container .Skillbar--Clickable.Dot--accentColor:hover ~ .Skillbar--Clickable.Dot--accentColor {
+  background-color: rgba(var(--accent-color), 0.2);
+}
+
+/* SUCCESS */
+.Skillbar--Clickable.Dot--successColor:hover {
+  transform: scale(1.2);
+  background-color: rgb(var(--success-color)) !important;
+}
+
+.Skillbar--container .Skillbar--Clickable.Dot--successColor {
+  background-color: rgba(var(--success-color), 0.2);
+}
+
+.Skillbar--container:not(:hover) .Skillbar--Clickable.Dot--successColor.Dot--Fill {
+  background-color:rgb(var(--success-color));
+}
+
+.Skillbar--container:hover .Skillbar--Clickable.Dot--successColor {
+  background-color: rgba(var(--success-color));
+}
+.Skillbar--container .Skillbar--Clickable.Dot--successColor:hover,
+.Skillbar--container .Skillbar--Clickable.Dot--successColor:hover ~ .Skillbar--Clickable.Dot--successColor {
+  background-color: rgba(var(--success-color), 0.2);
+}
+
+/* WARNING */
+.Skillbar--Clickable.Dot--warningColor:hover {
+  transform: scale(1.2);
+  background-color: rgb(var(--warning-color)) !important;
+}
+
+.Skillbar--container .Skillbar--Clickable.Dot--warningColor {
+  background-color: rgba(var(--warning-color), 0.2);
+}
+
+.Skillbar--container:not(:hover) .Skillbar--Clickable.Dot--warningColor.Dot--Fill {
+  background-color:rgb(var(--warning-color));
+}
+
+.Skillbar--container:hover .Skillbar--Clickable.Dot--warningColor {
+  background-color: rgba(var(--warning-color));
+}
+.Skillbar--container .Skillbar--Clickable.Dot--warningColor:hover,
+.Skillbar--container .Skillbar--Clickable.Dot--warningColor:hover ~ .Skillbar--Clickable.Dot--warningColor {
+  background-color: rgba(var(--warning-color), 0.2);
+}
+
+/* DANGER */
+.Skillbar--Clickable.Dot--dangerColor:hover {
+  transform: scale(1.2);
+  background-color: rgb(var(--danger-color)) !important;
+}
+
+.Skillbar--container .Skillbar--Clickable.Dot--dangerColor {
+  background-color: rgba(var(--danger-color), 0.2);
+}
+
+.Skillbar--container:not(:hover) .Skillbar--Clickable.Dot--dangerColor.Dot--Fill {
+  background-color:rgb(var(--danger-color));
+}
+
+.Skillbar--container:hover .Skillbar--Clickable.Dot--dangerColor {
+  background-color: rgba(var(--danger-color));
+}
+.Skillbar--container .Skillbar--Clickable.Dot--dangerColor:hover,
+.Skillbar--container .Skillbar--Clickable.Dot--dangerColor:hover ~ .Skillbar--Clickable.Dot--dangerColor {
+  background-color: rgba(var(--danger-color), 0.2);
+}
+/* COLOR SCHEMES END */
+
+/**
+/* --------------------- ICON Color SCHEMES --------------------- */
+/**
+/* PRIMARY */
+.Skillbar--IconClickable.Dot--primaryColor:hover {
+  transform: scale(1.2);
+  fill: rgb(var(--primary-color)) !important;
+}
+
+.Skillbar--container .Skillbar--IconClickable.Dot--primaryColor {
+  fill: rgba(var(--primary-color), 0.2);
+}
+
+.Skillbar--container:not(:hover) .Skillbar--IconClickable.Dot--primaryColor.Icon--Fill {
+  fill:rgb(var(--primary-color));
+}
+
+.Skillbar--container:hover .Skillbar--IconClickable.Dot--primaryColor {
+  fill: rgba(var(--primary-color));
+}
+.Skillbar--container .Skillbar--IconClickable.Dot--primaryColor:hover,
+.Skillbar--container .Skillbar--IconClickable.Dot--primaryColor:hover ~ .Skillbar--IconClickable.Dot--primaryColor {
+  fill: rgba(var(--primary-color), 0.2);
+}
+
+/* ACCENT */
+.Skillbar--IconClickable.Dot--accentColor:hover {
+  transform: scale(1.2);
+  fill: rgb(var(--accent-color)) !important;
+}
+
+.Skillbar--container .Skillbar--IconClickable.Dot--accentColor {
+  fill: rgba(var(--accent-color), 0.2);
+}
+
+.Skillbar--container:not(:hover) .Skillbar--IconClickable.Dot--accentColor.Icon--Fill {
+  fill:rgb(var(--accent-color));
+}
+
+.Skillbar--container:hover .Skillbar--IconClickable.Dot--accentColor {
+  fill: rgba(var(--accent-color));
+}
+.Skillbar--container .Skillbar--IconClickable.Dot--accentColor:hover,
+.Skillbar--container .Skillbar--IconClickable.Dot--accentColor:hover ~ .Skillbar--IconClickable.Dot--accentColor {
+  fill: rgba(var(--accent-color), 0.2);
+}
+
+/* SUCCESS */
+.Skillbar--IconClickable.Dot--successColor:hover {
+  transform: scale(1.2);
+  fill: rgb(var(--success-color)) !important;
+}
+
+.Skillbar--container .Skillbar--IconClickable.Dot--successColor {
+  fill: rgba(var(--success-color), 0.2);
+}
+
+.Skillbar--container:not(:hover) .Skillbar--IconClickable.Dot--successColor.Icon--Fill {
+  fill:rgb(var(--success-color));
+}
+
+.Skillbar--container:hover .Skillbar--IconClickable.Dot--successColor {
+  fill: rgba(var(--success-color));
+}
+.Skillbar--container .Skillbar--IconClickable.Dot--successColor:hover,
+.Skillbar--container .Skillbar--IconClickable.Dot--successColor:hover ~ .Skillbar--IconClickable.Dot--successColor {
+  fill: rgba(var(--success-color), 0.2);
+}
+
+/* WARNING */
+.Skillbar--IconClickable.Dot--warningColor:hover {
+  transform: scale(1.2);
+  fill: rgb(var(--warning-color)) !important;
+}
+
+.Skillbar--container .Skillbar--IconClickable.Dot--warningColor {
+  fill: rgba(var(--warning-color), 0.2);
+}
+
+.Skillbar--container:not(:hover) .Skillbar--IconClickable.Dot--warningColor.Icon--Fill {
+  fill:rgb(var(--warning-color));
+}
+
+.Skillbar--container:hover .Skillbar--IconClickable.Dot--warningColor {
+  fill: rgba(var(--warning-color));
+}
+.Skillbar--container .Skillbar--IconClickable.Dot--warningColor:hover,
+.Skillbar--container .Skillbar--IconClickable.Dot--warningColor:hover ~ .Skillbar--IconClickable.Dot--warningColor {
+  fill: rgba(var(--warning-color), 0.2);
+}
+
+/* DANGER */
+.Skillbar--IconClickable.Dot--dangerColor:hover {
+  transform: scale(1.2);
+  fill: rgb(var(--danger-color)) !important;
+}
+
+.Skillbar--container .Skillbar--IconClickable.Dot--dangerColor {
+  fill: rgba(var(--danger-color), 0.2);
+}
+
+.Skillbar--container:not(:hover) .Skillbar--IconClickable.Dot--dangerColor.Icon--Fill {
+  fill:rgb(var(--danger-color));
+}
+
+.Skillbar--container:hover .Skillbar--IconClickable.Dot--dangerColor {
+  fill: rgba(var(--danger-color));
+}
+.Skillbar--container .Skillbar--IconClickable.Dot--dangerColor:hover,
+.Skillbar--container .Skillbar--IconClickable.Dot--dangerColor:hover ~ .Skillbar--IconClickable.Dot--dangerColor {
+  fill: rgba(var(--danger-color), 0.2);
+}
+
+/* COLOR SCHEMES END */
+
+
+.Skillbar--container .Skillbar--IconClickable:active,
+.Skillbar--container .Skillbar--Clickable:active {
+  transform: scale(0.98);
+}

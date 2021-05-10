@@ -1,7 +1,5 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent } from "react";
 import {
-  SideDrawer,
-  IconButton,
   ThemeToggler,
   Toolbar,
   ToolbarSectionsPropType,
@@ -9,23 +7,13 @@ import {
   SvgIcon,
   ActionButton,
 } from "react-play-ui";
-import { useLocation } from "react-router-dom";
 import classes from "./Layout.module.css";
 import logo from "../../assets/images/play-ui-logo.png";
 import { LayoutSidenav } from "./LayoutSidenav";
 
-interface LayoutProps {
-  theme: any;
-  toggleTheme: any;
-}
-
-export const Layout: FunctionComponent<LayoutProps> = ({
-  theme,
-  toggleTheme,
+export const Layout: FunctionComponent = ({
   children,
 }) => {
-  const currentRoute = useLocation();
-  const [sideDrawerOpen, setSideDrawerOpen] = useState(false);
 
   const toolbarSections: ToolbarSectionsPropType = [
     {
@@ -35,7 +23,7 @@ export const Layout: FunctionComponent<LayoutProps> = ({
           id: 0,
           content: (
             <a className={classes["Header--Logo"]} href="/">
-              <img src={logo} className={classes["Logo"]} />
+              <img src={logo} className={classes["Logo"]} alt="PlayUI" />
               <h3>
                 React <span className={classes["PlayUI-Label"]}>PlayUI</span>
               </h3>

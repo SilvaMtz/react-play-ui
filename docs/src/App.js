@@ -100,6 +100,9 @@ const App = () => {
       <Route path="/super-select">
         <Pages.SuperSelectPage />
       </Route>
+      <Route path="/rating-button">
+        <Pages.RatingButtonPage />
+      </Route>
       <Route path="/">
         <Pages.HomePage />
       </Route>

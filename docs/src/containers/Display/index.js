@@ -9,3 +9,4 @@ export { SvgIconPage } from "./SvgIcon";
 export { ToastPage } from "./Toast";
 export { TooltipPage } from "./Tooltip";
 export { WidgetPage } from "./Widget";
+export { RatingButtonPage } from "./RatingButton";
