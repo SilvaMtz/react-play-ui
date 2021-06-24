@@ -197,7 +197,7 @@ export const LayoutSidenav: FunctionComponent = () => {
       isNew: true,
     },
     {
-      id: 8,
+      id: 9,
       href: "/toast",
       isActive: currentRoute.pathname === "/toast",
       label: "Toast",
@@ -205,7 +205,7 @@ export const LayoutSidenav: FunctionComponent = () => {
       isNew: false,
     },
     {
-      id: 9,
+      id: 10,
       href: "/tooltip",
       isActive: currentRoute.pathname === "/tooltip",
       label: "Tooltip",
@@ -213,7 +213,7 @@ export const LayoutSidenav: FunctionComponent = () => {
       isNew: false,
     },
     {
-      id: 10,
+      id: 11,
       href: "/widget-card",
       isActive: currentRoute.pathname === "/widget-card",
       label: "Widget Card",

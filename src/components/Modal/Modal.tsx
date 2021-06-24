@@ -4,8 +4,9 @@ import { OverlayMask } from "../OverlayMask";
 import { PanelCard } from "../PanelCard";
 import { SvgIcon } from "../SvgIcon";
 import { IconButton } from "../IconButton";
+import { CommonProps } from "../types";
 
-interface ModalProps {
+interface ModalProps extends CommonProps {
   paddingSize?: string;
   icon?: string;
   onClose?: any;
@@ -16,6 +17,8 @@ interface ModalProps {
   centerTitle?: boolean;
   footer?: ReactNode;
   maxHeight?: number | string;
+	bodyClassName?: string;
+	headerClassName?: string;
 }
 
 export const Modal: FunctionComponent<ModalProps> = ({
@@ -29,6 +32,9 @@ export const Modal: FunctionComponent<ModalProps> = ({
   backgroundBlur = true,
   centerTitle = false,
   footer,
+	className,
+	bodyClassName,
+	headerClassName,
   ...rest
 }) => {
   const bodyPaddingSizeClassMapping = {
@@ -38,25 +44,27 @@ export const Modal: FunctionComponent<ModalProps> = ({
     large: "body--paddingLarge",
   };
 
-  let iconInstance = null;
+  let iconInstance: ReactNode = null;
   if (icon) {
     iconInstance = <SvgIcon icon={icon} />;
   }
 
-  let bodyClassList = [
+  const bodyClassList = [
     classes["modal-body"],
     classes[bodyPaddingSizeClassMapping[paddingSize]],
     maxHeight ? classes["modal-body--overflowScroll"] : null,
+		bodyClassName
   ];
 
-  let headerClassList = [
+  const headerClassList = [
     classes["modal-header"],
     centerTitle ? classes["center-header"] : null,
+		headerClassName
   ];
 
-  let modalClassList = [classes["modal-panel"], classes["modal-animation"]];
+  const modalClassList = [classes["modal-panel"], classes["modal-animation"], className];
 
-  let headerInstance;
+  let headerInstance: ReactNode;
   if (title) {
     headerInstance = (
       <div className={headerClassList.join(" ")}>

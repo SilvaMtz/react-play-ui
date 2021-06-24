@@ -35,9 +35,9 @@
 }
 
 .OverlayMask--aboveHeader {
-  z-index: 1001;
+  z-index: 9004;
 }
 
 .OverlayMask--belowHeader {
-  z-index: 999;
+  z-index: 9002;
 }

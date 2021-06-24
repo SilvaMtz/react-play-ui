@@ -45,7 +45,7 @@ export const Layout: FunctionComponent = ({
             >
               <Chip
                 className={classes["VersionChip"]}
-                label="0.0.37"
+                label="0.0.44"
                 color="success"
               />
               <SvgIcon icon="userCircle" size="large" />

@@ -1,5 +1,4 @@
 import React, { FunctionComponent, HTMLAttributes, useEffect } from "react";
-import ReactDOM from "react-dom";
 import classes from "./Toolbar.module.css";
 import { ToolbarSection } from "./ToolbarSection";
 import { CommonProps } from '../types';
@@ -42,7 +41,7 @@ export const Toolbar: FunctionComponent<ToolbarProps> = ({
         }
       };
     };
-  }, [fixed]);
+  }, [fixed, compact]);
 
   const classList = classNames(
     classes["Toolbar"],

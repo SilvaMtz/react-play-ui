@@ -83,7 +83,7 @@ export const OverlayMask: FunctionComponent<OverlayMaskProps> = ({
       backgroundBlur ? classes["backgroundBlur"] : null,
       className
     );
-  }, [className, toolbarZIndexLocation]);
+  }, [className, toolbarZIndexLocation, backgroundBlur]);
 
   useEffect(() => {
     if (!overlayMaskNode.current || !onClick) return;

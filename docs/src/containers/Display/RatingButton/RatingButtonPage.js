@@ -12,7 +12,7 @@ export const RatingButtonPage = () => {
     } else {
       setValue(val)
     }
-  }
+  };
 
   return (
     <div>
@@ -21,11 +21,11 @@ export const RatingButtonPage = () => {
       </h2>
       <RatingButton
         onClick={handleValueChange}
-        icon="academicCap"
+        icon="star"
         color="warning"
         label={`My value is ${value}`}
         value={value}
       />
     </div>
-  )
+  );
 };
